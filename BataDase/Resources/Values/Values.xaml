@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- WindowChrome.CaptionHeight -->
+    <sys:Double x:Key="Value_WindowChrome_CaptionHeight">22</sys:Double>
+
+    <!-- Navigation menu width -->
+    <sys:Double x:Key="Value_NavigationMenu_Width">150</sys:Double>
+
+    <!-- Icons -->
+    <sys:Double x:Key="Value_IconSize">10</sys:Double>
+    
+    <!-- Login Title Size -->
+    <sys:Double x:Key="Value_LoginTitleSize">28</sys:Double>
+    
+</ResourceDictionary>

@@ -54,7 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Page Include="MVVM\Views\MainV.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -62,12 +62,63 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Core\ObservableObject.cs" />
+    <Compile Include="Core\RelayCommand.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVM.cs" />
+    <Compile Include="MVVM\Views\MainV.xaml.cs">
+      <DependentUpon>MainV.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\Views\LoginV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\Views\MenuV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Icons\Icons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Palettes\DarkPalette.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Palettes\LightPalette.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\Buttons\MenuButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\Buttons\WindowTitleButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\TextBlockTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\WindowTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Values\Values.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\ViewModels\LoginVM.cs" />
+    <Compile Include="MVVM\ViewModels\MainVM.cs" />
+    <Compile Include="MVVM\Views\LoginV.xaml.cs">
+      <DependentUpon>LoginV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Views\MenuV.xaml.cs">
+      <DependentUpon>MenuV.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -92,6 +143,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MVVM\Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
