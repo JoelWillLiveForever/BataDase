@@ -32,13 +32,12 @@
                             VerticalAlignment="Center"
                             Orientation="Horizontal">
 
-                    <Viewbox Child="{StaticResource Icon_Title}"
-                             Width="{StaticResource Value_LoginTitleSize}"
-                             Height="{StaticResource Value_LoginTitleSize}"/>
+                    <Viewbox Child="{StaticResource Icon_Logo}"
+                             Height="{StaticResource Value_Logo_Login_Icon_Height}"/>
 
                     <TextBlock x:Name="TextBlock_WindowTitle"
                                Text="BATA DASE"
-                               FontSize="{StaticResource Value_LoginTitleSize}"
+                               FontSize="{StaticResource Value_Logo_Login_Text_FontSize}"
                                Style="{StaticResource Style_TextBlock_Title}"/>
                 </StackPanel>
 

@@ -7,7 +7,8 @@
         xmlns:local="clr-namespace:BataDase"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Style="{StaticResource Style_Window}">
+        Style="{StaticResource Style_Window}"
+        Title="De Train">
 
     <Window.DataContext>
         <vm:MainVM/>
@@ -75,13 +76,13 @@
                                 Orientation="Horizontal"
                                 Margin="9,0,0,0">
 
-                        <Viewbox Child="{StaticResource Icon_Title}"
-                                 Width="{StaticResource Value_IconSize}"
-                                 Height="{StaticResource Value_IconSize}"/>
+                        <Viewbox Child="{StaticResource Icon_Logo}"
+                                 Height="{StaticResource Value_Logo_Title_Icon_Height}"/>
 
                         <TextBlock x:Name="TextBlock_WindowTitle"
                                    Text="BATA DASE"
-                                   FontSize="{StaticResource Value_IconSize}"
+                                   Margin="3,0,0,0"
+                                   FontSize="{StaticResource Value_Logo_Title_Text_FontSize}"
                                    Style="{StaticResource Style_TextBlock_Title}"/>
                     </StackPanel>
                 </StackPanel>

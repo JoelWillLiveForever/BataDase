@@ -10,8 +10,11 @@
 
     <!-- Icons -->
     <sys:Double x:Key="Value_IconSize">10</sys:Double>
+    <sys:Double x:Key="Value_Logo_Title_Icon_Height">12</sys:Double>
+    <sys:Double x:Key="Value_Logo_Login_Icon_Height">30</sys:Double>
     
     <!-- Login Title Size -->
-    <sys:Double x:Key="Value_LoginTitleSize">28</sys:Double>
+    <sys:Double x:Key="Value_Logo_Title_Text_FontSize">10</sys:Double>
+    <sys:Double x:Key="Value_Logo_Login_Text_FontSize">28</sys:Double>
     
 </ResourceDictionary>
