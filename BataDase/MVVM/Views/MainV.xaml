@@ -78,12 +78,6 @@
 
                         <Viewbox Child="{StaticResource Icon_Logo}"
                                  Height="{StaticResource Value_Logo_Title_Icon_Height}"/>
-
-                        <TextBlock x:Name="TextBlock_WindowTitle"
-                                   Text="BATA DASE"
-                                   Margin="3,0,0,0"
-                                   FontSize="{StaticResource Value_Logo_Title_Text_FontSize}"
-                                   Style="{StaticResource Style_TextBlock_Title}"/>
                     </StackPanel>
                 </StackPanel>
 

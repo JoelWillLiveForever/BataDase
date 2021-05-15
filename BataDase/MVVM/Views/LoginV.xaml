@@ -34,102 +34,17 @@
 
                     <Viewbox Child="{StaticResource Icon_Logo}"
                              Height="{StaticResource Value_Logo_Login_Icon_Height}"/>
-
-                    <TextBlock x:Name="TextBlock_WindowTitle"
-                               Text="BATA DASE"
-                               FontSize="{StaticResource Value_Logo_Login_Text_FontSize}"
-                               Style="{StaticResource Style_TextBlock_Title}"/>
                 </StackPanel>
 
-                <TextBox Margin="0,9,0,0">
-                    <TextBox.Style>
-                        <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
-                            <Style.Resources>
-                                <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
-                                    <VisualBrush.Visual>
-                                        <Label Content="Логин" Foreground="LightGray" />
-                                    </VisualBrush.Visual>
-                                </VisualBrush>
-                            </Style.Resources>
-                            <Style.Setters>
-                            <Setter Property="Height" Value="28"/>
-                            <Setter Property="FontFamily" Value="Comic Sans MS"/>
-                            <Setter Property="Background">
-                                <Setter.Value>
-                                    <SolidColorBrush Color="{StaticResource Color_OnBackground_OnSurface}"/>
-                                </Setter.Value>
-                            </Setter>
-                            </Style.Setters>
-                            <Style.Triggers>
-                                <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
-                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                                </Trigger>
-                                <Trigger Property="Text" Value="{x:Null}">
-                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                                </Trigger>
-                                <Trigger Property="IsKeyboardFocused" Value="True">
-                                    <Setter Property="Background" Value="White" />
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBox.Style>
-                </TextBox>
+                <TextBox Margin="0,9,0,0"
+                         Style="{StaticResource Style_TextBox}"/>
 
-                <TextBox Margin="0,5,0,0">
-                    <TextBox.Style>
-                        <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
-                            <Style.Setters>
-                                <Setter Property="Height" Value="28"/>
-                                <Setter Property="FontFamily" Value="Comic Sans MS"/>
-                            </Style.Setters>
-                            <Style.Resources>
-                                <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
-                                    <VisualBrush.Visual>
-                                        <Label Content="Пароль" Foreground="LightGray" />
-                                    </VisualBrush.Visual>
-                                </VisualBrush>
-                            </Style.Resources>
-                            <Style.Triggers>
-                                <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
-                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                                </Trigger>
-                                <Trigger Property="Text" Value="{x:Null}">
-                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                                </Trigger>
-                                <Trigger Property="IsKeyboardFocused" Value="True">
-                                    <Setter Property="Background" Value="White" />
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBox.Style>
-                </TextBox>
+                <TextBox Margin="0,5,0,0"
+                         Style="{StaticResource Style_TextBox}"/>
 
                 <Button Margin="0,5,0,0" 
-                        Content="Авторизация">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Style.Setters>
-                                <Setter Property="Margin" Value="0"/>
-                                <Setter Property="Padding" Value="0"/>
-                                <Setter Property="BorderThickness" Value="0"/>
-                                <Setter Property="BorderBrush" Value="Transparent"/>
-                                <Setter Property="Background">
-                                    <Setter.Value>
-                                        <SolidColorBrush Color="{StaticResource Color_Primary}"/>
-                                    </Setter.Value>
-                                </Setter>
-                                <Setter Property="Foreground">
-                                    <Setter.Value>
-                                        <SolidColorBrush Color="{StaticResource Color_OnPrimary_OnError}"/>
-                                    </Setter.Value>
-                                </Setter>
-                                <Setter Property="FontFamily" Value="Comic Sans MS"/>
-                                <Setter Property="FontSize" Value="16"/>
-                                <Setter Property="Height" Value="32"/>
-                            </Style.Setters>
-                        </Style>
-                    </Button.Style>
-                </Button>
+                        Content="{DynamicResource Text_SignIn}" 
+                        Style="{StaticResource Style_Button_Primary}"/>
             </StackPanel>
         </Grid>
     </Border>

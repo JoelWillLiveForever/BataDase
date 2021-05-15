@@ -26,14 +26,150 @@
     </Canvas>
 
     <Canvas x:Key="Icon_Logo"
-            Width="16"
-            Height="19"
+            Width="8463"
+            Height="2500"
             x:Shared="False">
-        <Path Data="M 8 0 c -4 0 -8 0.5 -8 4 v 9.5 C 0 15.43 1.57 17 3.5 17 L 2 18.5 v 0.5 h 2.23 l 2 -2 H 10 l 2 2 h 2 v -0.5 L 12.5 17 c 1.93 0 3.5 -1.57 3.5 -3.5 V 4 c 0 -3.5 -3.58 -4 -8 -4 z M 3.5 15 c -0.83 0 -1.5 -0.67 -1.5 -1.5 S 2.67 12 3.5 12 s 1.5 0.67 1.5 1.5 S 4.33 15 3.5 15 z m 3.5 -7 H 2 V 4 h 5 v 4 z m 2 0 V 4 h 5 v 4 h -5 z m 3.5 7 c -0.83 0 -1.5 -0.67 -1.5 -1.5 s 0.67 -1.5 1.5 -1.5 s 1.5 0.67 1.5 1.5 s -0.67 1.5 -1.5 1.5 z"
+        <Path Data="M9730 24990 c-2669 -45 -4583 -290 -6065 -777 -907 -298 -1608 -665
+                    -2195 -1151 -144 -119 -417 -392 -535 -535 -521 -629 -810 -1349 -912 -2267
+                    -16 -145 -18 -588 -21 -6630 -3 -6597 -3 -6666 34 -6950 162 -1270 831 -2399
+                    1870 -3156 761 -554 1675 -860 2643 -887 l84 -2 -991 -985 -992 -985 0 -327 0
+                    -328 1480 0 1480 0 1323 1315 1322 1314 2499 1 2498 0 1322 -1315 1321 -1314
+                    1328 -1 1327 0 0 329 0 329 -991 984 -990 983 163 7 c676 27 1281 179 1883
+                    473 1366 667 2319 1967 2540 3465 47 315 45 16 45 6928 0 4410 -3 6540 -10
+                    6640 -131 1842 -1056 3085 -2866 3852 -1232 522 -2895 825 -5159 940 -910 46
+                    -2402 68 -3435 50z m-450 -7885 l0 -2625 -3315 0 -3315 0 0 2625 0 2625 3315
+                    0 3315 0 0 -2625z m9270 0 l0 -2625 -3310 0 -3310 0 0 2625 0 2625 3310 0
+                    3310 0 0 -2625z m-13639 -7911 c1231 -171 2000 -1397 1614 -2572 -74 -223
+                    -195 -444 -343 -625 -78 -95 -248 -258 -342 -328 -573 -428 -1337 -518 -1992
+                    -236 -439 188 -790 524 -999 953 -365 749 -212 1651 381 2244 296 297 700 502
+                    1100 559 41 6 86 13 100 15 73 10 380 5 481 -10z m12014 -13 c478 -90 893
+                    -338 1194 -712 530 -657 576 -1598 114 -2299 -502 -760 -1431 -1083 -2298
+                    -799 -808 265 -1355 1019 -1355 1869 0 668 327 1273 890 1647 259 172 516 264
+                    885 317 17 2 127 3 245 1 167 -2 240 -7 325 -24z"
               SnapsToDevicePixels="True">
             <Path.Fill>
                 <SolidColorBrush Color="#a8a4a5"/>
             </Path.Fill>
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.1" ScaleY="-0.1"/>
+                    <TranslateTransform Y="2500"/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Path Data="M25020 13536 l0 -6416 2518 0 c2393 0 2823 4 3227 30 748 49 1203
+                    149 1619 357 448 224 728 522 900 954 119 300 171 640 218 1424 16 272 23
+                    5831 8 6440 -18 738 -46 1157 -100 1475 -77 449 -280 842 -619 1193 -298 308
+                    -690 527 -1221 680 -421 122 -992 195 -1855 237 -606 29 -844 32 -2717 37
+                    l-1978 5 0 -6416z m4138 4189 c238 -30 378 -84 481 -185 123 -121 160 -234
+                    193 -580 16 -176 24 -5904 8 -6285 -22 -545 -74 -884 -158 -1039 -95 -175
+                    -325 -271 -727 -306 -66 -5 -153 -10 -192 -10 l-73 0 0 4217 0 4216 175 -7
+                    c96 -4 228 -13 293 -21z"
+              SnapsToDevicePixels="True">
+            <Path.Fill>
+                <SolidColorBrush Color="#a8a4a5"/>
+            </Path.Fill>
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.1" ScaleY="-0.1"/>
+                    <TranslateTransform Y="2500"/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Path Data="M34890 13535 l0 -6415 3185 0 3185 0 0 1285 0 1285 -1350 0 -1350 0
+                    0 1410 0 1410 1145 0 1145 0 0 1220 0 1220 -1145 0 -1145 0 0 1215 0 1215
+                    1225 0 1225 0 0 1285 0 1285 -3060 0 -3060 0 0 -6415z"
+              SnapsToDevicePixels="True">
+            <Path.Fill>
+                <SolidColorBrush Color="#a8a4a5"/>
+            </Path.Fill>
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.1" ScaleY="-0.1"/>
+                    <TranslateTransform Y="2500"/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Path Data="M44820 18665 l0 -1285 1085 0 1085 0 0 -5130 0 -5130 1835 0 1835 0
+                    0 5130 0 5130 1090 0 1090 0 0 1285 0 1285 -4010 0 -4010 0 0 -1285z"
+              SnapsToDevicePixels="True">
+            <Path.Fill>
+                <SolidColorBrush Color="#a8a4a5"/>
+            </Path.Fill>
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.1" ScaleY="-0.1"/>
+                    <TranslateTransform Y="2500"/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Path Data="M53680 13536 l0 -6416 1835 0 1835 0 0 2890 0 2890 78 0 c285 -1 598
+                    -59 731 -137 179 -105 243 -284 292 -823 8 -88 13 -817 16 -2472 l4 -2348
+                    1705 0 1704 0 0 1668 c-1 2635 -18 3295 -95 3599 -62 244 -249 544 -495 793
+                    -239 243 -652 437 -1245 585 -82 21 -154 41 -158 45 -5 4 31 10 78 14 48 4
+                    156 18 241 31 503 79 864 218 1119 432 314 263 482 773 535 1628 15 234 15
+                    825 1 1035 -47 673 -168 1187 -371 1577 -231 443 -632 824 -1103 1048 -461
+                    219 -1031 299 -2542 356 -155 6 -1145 13 -2222 16 l-1943 5 0 -6416z m3935
+                    4204 c281 -24 492 -86 609 -179 113 -91 193 -269 226 -506 17 -119 24 -941 11
+                    -1195 -21 -399 -75 -625 -180 -751 -58 -69 -216 -135 -406 -169 -117 -21 -333
+                    -40 -452 -40 l-73 0 0 1425 0 1425 73 0 c39 0 126 -5 192 -10z"
+              SnapsToDevicePixels="True">
+            <Path.Fill>
+                <SolidColorBrush Color="#a8a4a5"/>
+            </Path.Fill>
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.1" ScaleY="-0.1"/>
+                    <TranslateTransform Y="2500"/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Path Data="M64330 19939 c0 -6 -418 -2886 -930 -6399 -511 -3513 -930 -6395
+                    -930 -6404 0 -15 143 -16 1897 -14 l1898 3 107 1125 c59 619 107 1137 107
+                    1153 l1 27 654 0 653 0 6 -48 c3 -26 47 -545 98 -1154 l94 -1108 1879 0 1878
+                    0 -6 32 c-3 18 -469 2859 -1035 6313 -567 3454 -1038 6326 -1047 6383 l-17
+                    102 -2654 0 c-1941 0 -2653 -3 -2653 -11z m2850 -3325 c120 -1328 260 -2718
+                    376 -3724 47 -413 133 -1117 140 -1157 l6 -33 -631 0 -631 0 0 23 c0 34 46
+                    513 75 777 114 1055 295 2400 566 4212 29 196 54 356 56 354 1 -1 21 -205 43
+                    -452z"
+              SnapsToDevicePixels="True">
+            <Path.Fill>
+                <SolidColorBrush Color="#a8a4a5"/>
+            </Path.Fill>
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.1" ScaleY="-0.1"/>
+                    <TranslateTransform Y="2500"/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Path Data="M72370 13535 l0 -6415 1835 0 1835 0 0 6415 0 6415 -1835 0 -1835 0
+                    0 -6415z"
+              SnapsToDevicePixels="True">
+            <Path.Fill>
+                <SolidColorBrush Color="#a8a4a5"/>
+            </Path.Fill>
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.1" ScaleY="-0.1"/>
+                    <TranslateTransform Y="2500"/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Path Data="M77510 13535 l0 -6415 1535 0 1535 0 1 2908 c1 1932 4 2899 11 2882
+                    5 -14 434 -1321 952 -2905 l943 -2880 1611 -3 1612 -2 0 6415 0 6415 -1535 0
+                    -1535 0 0 -2882 c0 -1585 -3 -2879 -6 -2875 -3 3 -466 1298 -1029 2879 l-1023
+                    2873 -1536 3 -1536 2 0 -6415z"
+              SnapsToDevicePixels="True">
+            <Path.Fill>
+                <SolidColorBrush Color="#a8a4a5"/>
+            </Path.Fill>
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.1" ScaleY="-0.1"/>
+                    <TranslateTransform Y="2500"/>
+                </TransformGroup>
+            </Path.RenderTransform>
         </Path>
     </Canvas>
 

@@ -52,9 +52,13 @@
     <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject>BataDase.App</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -100,15 +104,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Palettes\DarkPalette.xaml">
+    <Page Include="Resources\Languages\Lang.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Palettes\LightPalette.xaml">
+    <Page Include="Resources\Languages\Lang.ja-JP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Languages\Lang.en-US.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Palettes\Palette.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Palettes\Palette.Light.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Themes\Buttons\MenuButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\Buttons\PrimaryButtonTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -117,6 +137,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Themes\TextBlockTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\TextBoxTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,6 +183,25 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Resources\Fonts\Sawarabi_Mincho\SawarabiMincho-Regular.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-Black.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-BlackItalic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-Bold.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-BoldItalic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-ExtraBold.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-ExtraBoldItalic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-ExtraLight.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-ExtraLightItalic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-Italic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-Light.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-LightItalic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-Medium.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-MediumItalic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-Regular.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-SemiBold.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-SemiBoldItalic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-Thin.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-ThinItalic.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -175,6 +218,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\OFL.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\Sawarabi_Mincho\OFL.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
