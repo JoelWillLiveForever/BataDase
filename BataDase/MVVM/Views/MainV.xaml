@@ -77,7 +77,7 @@
                                 Margin="9,0,0,0">
 
                         <Viewbox Child="{StaticResource Icon_Logo}"
-                                 Height="{StaticResource Value_Logo_Title_Icon_Height}"/>
+                                 Height="10"/>
                     </StackPanel>
                 </StackPanel>
 
