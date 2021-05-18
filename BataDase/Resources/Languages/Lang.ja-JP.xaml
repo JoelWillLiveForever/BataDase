@@ -8,6 +8,22 @@
     <sys:String x:Key="Text_SignIn">ありがとう</sys:String>
     <sys:String x:Key="Text_SignUp">ありがとう</sys:String>
 
+    <!-- Tables names -->
+    <sys:String x:Key="Text_Users">ありがとう</sys:String>
+    <sys:String x:Key="Text_Tickets">ありがとう</sys:String>
+    <sys:String x:Key="Text_Carriages">ありがとう</sys:String>
+    <sys:String x:Key="Text_Locomotives">ありがとう</sys:String>
+    <sys:String x:Key="Text_Trains">ありがとう</sys:String>
+    <sys:String x:Key="Text_Paths">ありがとう</sys:String>
+    <sys:String x:Key="Text_Ways">道</sys:String>
+    <sys:String x:Key="Text_Cities">ありがとう</sys:String>
+
+    <!-- Buttons -->
+    <sys:String x:Key="Text_Request">ありがとう</sys:String>
+    <sys:String x:Key="Text_Create">ありがとう</sys:String>
+    <sys:String x:Key="Text_Edit">ありがとう</sys:String>
+    <sys:String x:Key="Text_Delete">ありがとう</sys:String>
+    
     <!-- Font for this language -->
     <FontFamily x:Key="Font_MyLocalFont">pack://application:,,,/Resources/Fonts/Sawarabi_Mincho/#Sawarabi Mincho</FontFamily>
 

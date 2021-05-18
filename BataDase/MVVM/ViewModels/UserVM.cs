@@ -1,8 +1,8 @@
 ﻿namespace BataDase.MVVM.ViewModels
 {
-    public class LoginVM
+    public class UserVM
     {
-        public LoginVM()
+        public UserVM()
         {
 
         }

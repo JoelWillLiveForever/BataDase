@@ -87,16 +87,11 @@
     </Compile>
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
-    <Compile Include="MVVM\ViewModels\MenuVM.cs" />
     <Compile Include="MVVM\Views\MainV.xaml.cs">
       <DependentUpon>MainV.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MVVM\Views\LoginV.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MVVM\Views\MenuV.xaml">
+    <Page Include="MVVM\Views\UserV.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -154,13 +149,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MVVM\ViewModels\LoginVM.cs" />
+    <Compile Include="MVVM\ViewModels\UserVM.cs" />
     <Compile Include="MVVM\ViewModels\MainVM.cs" />
-    <Compile Include="MVVM\Views\LoginV.xaml.cs">
-      <DependentUpon>LoginV.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MVVM\Views\MenuV.xaml.cs">
-      <DependentUpon>MenuV.xaml</DependentUpon>
+    <Compile Include="MVVM\Views\UserV.xaml.cs">
+      <DependentUpon>UserV.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

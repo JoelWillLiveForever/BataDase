@@ -39,11 +39,8 @@
 
             </ResourceDictionary.MergedDictionaries>
 
-            <DataTemplate DataType="{x:Type vm:LoginVM}">
-                <v:LoginV/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type vm:MenuVM}">
-                <v:MenuV/>
+            <DataTemplate DataType="{x:Type vm:UserVM}">
+                <v:UserV/>
             </DataTemplate>
 
         </ResourceDictionary>

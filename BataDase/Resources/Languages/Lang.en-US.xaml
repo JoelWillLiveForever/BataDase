@@ -8,6 +8,22 @@
     <sys:String x:Key="Text_SignIn">Sign in</sys:String>
     <sys:String x:Key="Text_SignUp">Sign up</sys:String>
 
+    <!-- Tables names -->
+    <sys:String x:Key="Text_Users">Users</sys:String>
+    <sys:String x:Key="Text_Tickets">Tickets</sys:String>
+    <sys:String x:Key="Text_Carriages">Carriages</sys:String>
+    <sys:String x:Key="Text_Locomotives">Locomotives</sys:String>
+    <sys:String x:Key="Text_Trains">Trains</sys:String>
+    <sys:String x:Key="Text_Paths">Paths</sys:String>
+    <sys:String x:Key="Text_Ways">Ways</sys:String>
+    <sys:String x:Key="Text_Cities">Cities</sys:String>
+
+    <!-- Buttons -->
+    <sys:String x:Key="Text_Request">Request</sys:String>
+    <sys:String x:Key="Text_Create">Create</sys:String>
+    <sys:String x:Key="Text_Edit">Edit</sys:String>
+    <sys:String x:Key="Text_Delete">Delete</sys:String>
+
     <!-- Font for this language -->
     <FontFamily x:Key="Font_MyLocalFont">pack://application:,,,/Resources/Fonts/Montserrat_Alternates/#Montserrat Alternates</FontFamily>
 

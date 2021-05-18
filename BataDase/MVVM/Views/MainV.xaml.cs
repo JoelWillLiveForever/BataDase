@@ -20,6 +20,9 @@ namespace BataDase
             Button_Minimize.Click += (s, e) => WindowState = WindowState.Minimized;
             Button_Maximize.Click += (s, e) => WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
             Button_Close.Click += (s, e) => Application.Current.Shutdown();
+
+            MinWidth = 800;
+            MinHeight = 450;
         }
 
         // Custom WindowChrome
@@ -57,8 +60,8 @@ namespace BataDase
                 mmi.ptMaxSize.x = Math.Abs(rcWorkArea.right - rcWorkArea.left);
                 mmi.ptMaxSize.y = Math.Abs(rcWorkArea.bottom - rcWorkArea.top);
 
-                mmi.ptMinTrackSize.x = 800;
-                mmi.ptMinTrackSize.y = 600;
+                mmi.ptMinTrackSize.x = (int) System.Windows.SystemParameters.WorkArea.Width;
+                mmi.ptMinTrackSize.y = (int) System.Windows.SystemParameters.WorkArea.Height;
             }
 
             Marshal.StructureToPtr(mmi, lParam, true);

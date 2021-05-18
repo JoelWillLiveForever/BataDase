@@ -9,4 +9,7 @@
     <Color x:Key="Color_OnPrimary_OnError">#ffffff</Color>
     <Color x:Key="Color_OnBackground_OnSurface">#000000</Color>
 
+    <Color x:Key="Color_Primary_Dark">#0069c0</Color>
+    <Color x:Key="Color_Primary_Light">#6ec6ff</Color>
+    
 </ResourceDictionary>

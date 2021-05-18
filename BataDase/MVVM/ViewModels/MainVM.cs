@@ -15,30 +15,22 @@ namespace BataDase.MVVM.ViewModels
             }
         }
 
-        public RelayCommand MyLoginVMRelayCommand { get; set; }
-        public RelayCommand MyMenuVMRelayCommand { get; set; }
+        public RelayCommand MyUserVMRelayCommand { get; set; }
 
-        public LoginVM MyLoginVM { get; set; }
-        public MenuVM MyMenuVM { get; set; }
+        public UserVM MyUserVM { get; set; }
 
         public MainVM()
         {
             // Create ViewModels
-            MyLoginVM = new LoginVM();
-            MyMenuVM = new MenuVM();
+            MyUserVM = new UserVM();
 
             // Set current ViewModel
-            CurrentActionVM = MyLoginVM;
+            CurrentActionVM = MyUserVM;
 
             // Set handles
-            MyLoginVMRelayCommand = new RelayCommand(o =>
+            MyUserVMRelayCommand = new RelayCommand(o =>
             {
-                CurrentActionVM = MyLoginVM;
-            });
-
-            MyMenuVMRelayCommand = new RelayCommand(o =>
-            {
-                CurrentActionVM = MyMenuVM;
+                CurrentActionVM = MyUserVM;
             });
         }
     }
