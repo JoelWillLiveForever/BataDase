@@ -1,10 +1,11 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace BataDase.MVVM.Views
 {
     public partial class UserV : UserControl
     {
-        private bool isTrue = true;
+        private bool isTrue;
 
         public UserV()
         {
@@ -17,6 +18,7 @@ namespace BataDase.MVVM.Views
                 App.Language = App.Languages[0];
             else
                 App.Language = App.Languages[2];
+
             isTrue = !isTrue;
         }
     }

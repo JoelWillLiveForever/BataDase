@@ -75,7 +75,6 @@
                                 VerticalAlignment="Center"
                                 Orientation="Horizontal"
                                 Margin="9,0,0,0">
-
                         <Viewbox Child="{StaticResource Icon_Logo}"
                                  Height="10"/>
                     </StackPanel>

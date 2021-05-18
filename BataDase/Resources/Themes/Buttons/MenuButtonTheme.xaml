@@ -14,7 +14,7 @@
             <Setter Property="Foreground">
                 <Setter.Value>
                     <SolidColorBrush Color="{DynamicResource Color_OnBackground_OnSurface}"
-                                                     Opacity="0.87"/>
+                                     Opacity="0.87"/>
                 </Setter.Value>
             </Setter>
             <Setter Property="BorderThickness" Value="0"/>
@@ -46,7 +46,7 @@
 
                                 <Border Background="{TemplateBinding Foreground}"
                                         CornerRadius="0,4,4,0"
-                                        Margin="0"/>
+                                        Margin="0,2,0,2"/>
 
                                 <Border Background="{TemplateBinding Background}"
                                         CornerRadius="10"
@@ -61,12 +61,7 @@
                 </Setter>
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background">
-                    <Setter.Value>
-                        <SolidColorBrush Color="{DynamicResource Color_OnBackground_OnSurface}"
-                                         Opacity="0.16"/>
-                    </Setter.Value>
-                </Setter>
+                <Setter Property="Background" Value="{DynamicResource Brush_OnSurface}"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">

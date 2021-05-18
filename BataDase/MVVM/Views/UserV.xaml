@@ -58,12 +58,7 @@
                 <Style TargetType="{x:Type Border}">
                     <Style.Setters>
                         <Setter Property="CornerRadius" Value="10,0,0,0"/>
-                        <Setter Property="Background">
-                            <Setter.Value>
-                                <SolidColorBrush Color="{DynamicResource Color_OnBackground_OnSurface}"
-                                                 Opacity="0.16"/>
-                            </Setter.Value>
-                        </Setter>
+                        <Setter Property="Background" Value="{DynamicResource Brush_OnSurface}"/>
                     </Style.Setters>
                 </Style>
             </Border.Style>

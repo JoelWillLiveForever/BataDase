@@ -11,5 +11,9 @@
 
     <Color x:Key="Color_Primary_Dark">#0069c0</Color>
     <Color x:Key="Color_Primary_Light">#6ec6ff</Color>
-    
+
+    <SolidColorBrush x:Key="Brush_OnSurface" 
+                     Color="{DynamicResource Color_OnBackground_OnSurface}"
+                     Opacity="0.05"/>
+
 </ResourceDictionary>
