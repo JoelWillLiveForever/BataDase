@@ -32,6 +32,8 @@
                                     Source="Resources/Themes/TextBoxTheme.xaml"/>
                 <ResourceDictionary x:Name="PrimaryButtonTheme"
                                     Source="Resources/Themes/Buttons/PrimaryButtonTheme.xaml"/>
+                <ResourceDictionary x:Name="DataGridTheme"
+                                    Source="Resources/Themes/DataGridTheme.xaml"/>
 
                 <!-- App values -->
                 <ResourceDictionary x:Name="Values"

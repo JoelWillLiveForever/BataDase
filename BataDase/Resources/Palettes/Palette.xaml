@@ -16,4 +16,8 @@
                      Color="{DynamicResource Color_OnBackground_OnSurface}"
                      Opacity="0.16"/>
 
+    <SolidColorBrush x:Key="Brush_Background_Foreground" 
+                     Color="{DynamicResource Color_Primary}"
+                     Opacity="0.08"/>
+
 </ResourceDictionary>

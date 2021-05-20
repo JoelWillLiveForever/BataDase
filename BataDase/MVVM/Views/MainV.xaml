@@ -23,18 +23,7 @@
                       UseAeroCaptionButtons="False"/>
     </WindowChrome.WindowChrome>
 
-    <Border>
-        <Border.Resources>
-            <Style TargetType="{x:Type Border}">
-                <Setter Property="Background">
-                    <Setter.Value>
-                        <SolidColorBrush Color="{DynamicResource Color_Primary}"
-                                         Opacity="0.08"/>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-        </Border.Resources>
-
+    <Border Background="{DynamicResource Brush_Background_Foreground}">
         <DockPanel LastChildFill="True">
 
             <DockPanel DockPanel.Dock="Top"
