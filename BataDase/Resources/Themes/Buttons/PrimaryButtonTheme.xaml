@@ -44,7 +44,7 @@
                 <Setter Property="BorderBrush">
                     <Setter.Value>
                         <SolidColorBrush Color="{DynamicResource Color_OnPrimary_OnError}"
-                                                                 Opacity="0.10"/>
+                                                                 Opacity="0.04"/>
                     </Setter.Value>
                 </Setter>
             </Trigger>
