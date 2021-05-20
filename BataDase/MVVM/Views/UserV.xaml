@@ -90,9 +90,9 @@
                 </StackPanel>
                 <DataGrid x:Name="DataGrid_Tables"
                           Style="{StaticResource Style_DataGrid}">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Column1">
-                            <!--<DataGridTextColumn.HeaderStyle>
+                    <!--<DataGrid.Columns>
+                        <DataGridTextColumn Header="Column1" x:Name="Column1">
+                            --><!--<DataGridTextColumn.HeaderStyle>
                                 <Style TargetType="{x:Type DataGridColumnHeader}">
                                     <Style.Setters>
                                         <Setter Property="Background">
@@ -102,12 +102,12 @@
                                         </Setter>
                                     </Style.Setters>
                                 </Style>
-                            </DataGridTextColumn.HeaderStyle>-->
+                            </DataGridTextColumn.HeaderStyle>--><!--
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="Column2"/>
-                        <DataGridTextColumn Header="Column3"/>
-                        <DataGridTextColumn Header="Column4"/>
-                    </DataGrid.Columns>
+                        <DataGridTextColumn Header="Column2" x:Name="Column2"/>
+                        <DataGridTextColumn Header="Column3" x:Name="Column3"/>
+                        <DataGridTextColumn Header="Column4" x:Name="Column4"/>
+                    </DataGrid.Columns>-->
                 </DataGrid>
             </DockPanel>
         </Border>
