@@ -9,6 +9,7 @@ namespace BataDase.MVVM.Views
         private class Object
         {
             public int Number { get; set; }
+            public string Names { get; set; }
         }
 
         public UserV()
@@ -21,6 +22,7 @@ namespace BataDase.MVVM.Views
             {
                 Object obj = new Object();
                 obj.Number = i;
+                obj.Names = "Test";
 
                 someList.Add(obj);
             }
