@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -7,12 +8,29 @@
     <ProjectGuid>{5B296E4C-C9B9-4F5D-8FBB-378C137B5266}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>BataDase</RootNamespace>
-    <AssemblyName>BataDase</AssemblyName>
+    <AssemblyName>De Train</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,9 +51,33 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject>BataDase.App</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\lib\net45\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.113.0\lib\net45\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.113.0\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -54,7 +96,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Page Include="MVVM\Views\MainV.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -62,12 +104,103 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Core\Behaviors\DataGridBehavior.cs" />
+    <Compile Include="Core\ObservableObject.cs" />
+    <Compile Include="Core\RelayCommand.cs" />
+    <Compile Include="Core\AppDBContext.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\BodiesM.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\CarriagesM.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\CitiesM.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\HeadsM.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\LocomotivesM.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\PathsM.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\RoutesM.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\TicketsM.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\TrainsM.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\TrajectoriesM.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\UsersM.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVMS\BodiesVM.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVMS\CarriagesVM.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVMS\CitiesVM.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVMS\HeadsVM.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVMS\LocomotivesVM.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVMS\PathsVM.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVMS\RoutesVM.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVMS\TicketsVM.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVMS\TrainsVM.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVMS\TrajectoriesVM.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVMS\UsersVM.cs" />
+    <Compile Include="MVVM\Views\MainV.xaml.cs">
+      <DependentUpon>MainV.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\Views\MenuV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Icons\Icons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Languages\Lang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Languages\Lang.ja-JP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Languages\Lang.en-US.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Palettes\Palette.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Palettes\Palette.Light.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\Buttons\MenuButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\Buttons\PrimaryButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\Buttons\WindowTitleButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\DataGridTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\TextBlockTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\TextBoxTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\WindowTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Values\Values.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\ViewModels\MenuVM.cs" />
+    <Compile Include="MVVM\ViewModels\MainVM.cs" />
+    <Compile Include="MVVM\Views\MenuV.xaml.cs">
+      <DependentUpon>MenuV.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -85,13 +218,63 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Resources\Databases\Trains.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Resources\Fonts\Sawarabi_Mincho\SawarabiMincho-Regular.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-Black.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-BlackItalic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-Bold.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-BoldItalic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-ExtraBold.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-ExtraBoldItalic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-ExtraLight.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-ExtraLightItalic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-Italic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-Light.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-LightItalic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-Medium.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-MediumItalic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-Regular.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-SemiBold.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-SemiBoldItalic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-Thin.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\MontserratAlternates-ThinItalic.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\Montserrat_Alternates\OFL.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\Sawarabi_Mincho\OFL.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net45\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net45\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net45\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net45\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
 </Project>

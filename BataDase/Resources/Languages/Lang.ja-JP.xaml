@@ -1,0 +1,50 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Words and sentences -->
+    <sys:String x:Key="Text_Login">ログイン</sys:String>
+    <sys:String x:Key="Text_Password">パスワード</sys:String>
+    <sys:String x:Key="Text_SignIn">サインイン</sys:String>
+    <sys:String x:Key="Text_SignUp">サインアップ</sys:String>
+
+    <!-- Tables names -->
+    <sys:String x:Key="Text_Bodies">Тела</sys:String>
+    <sys:String x:Key="Text_Carriages">ありがとう</sys:String>
+    <sys:String x:Key="Text_Cities">都市</sys:String>
+    <sys:String x:Key="Text_Heads">Головы</sys:String>
+    <sys:String x:Key="Text_Locomotives">ロコモティブ</sys:String>
+    <sys:String x:Key="Text_Paths">道路</sys:String>
+    <sys:String x:Key="Text_Routes">道</sys:String>
+    <sys:String x:Key="Text_Tickets">チケット</sys:String>
+    <sys:String x:Key="Text_Trains">電車</sys:String>
+    <sys:String x:Key="Text_Trajectories">Траектории</sys:String>
+    <sys:String x:Key="Text_Users">ユーザ</sys:String>
+
+    <!-- Buttons -->
+    <sys:String x:Key="Text_Request">ありがとう</sys:String>
+    <sys:String x:Key="Text_Create">ありがとう</sys:String>
+    <sys:String x:Key="Text_Edit">ありがとう</sys:String>
+    <sys:String x:Key="Text_Delete">ありがとう</sys:String>
+
+    <!-- Columns headers -->
+    <sys:String x:Key="Text_RowNumber">指数</sys:String>
+    <!-- Column "Cities" -->
+    <sys:String x:Key="Text_City">都市</sys:String>
+
+    <!-- Column "Tickets" -->
+    <sys:String x:Key="Text_TicketSeries">チケットシリーズ</sys:String>
+    <sys:String x:Key="Text_TicketNumber">ありがとう</sys:String>
+
+    <!-- Column "Carriages" -->
+    <sys:String x:Key="Text_PMW">最大許容重量</sys:String>
+    <sys:String x:Key="Text_Model">モデル</sys:String>
+    <sys:String x:Key="Text_Type">タイプ</sys:String>
+    <sys:String x:Key="Text_Weight">量</sys:String>
+    <sys:String x:Key="Text_CargoWeight">荷の量</sys:String>
+    <sys:String x:Key="Text_MaxSeats">座席数</sys:String>
+
+    <!-- Font for this language -->
+    <FontFamily x:Key="Font_MyLocalFont">pack://application:,,,/Resources/Fonts/Sawarabi_Mincho/#Sawarabi Mincho</FontFamily>
+
+</ResourceDictionary>

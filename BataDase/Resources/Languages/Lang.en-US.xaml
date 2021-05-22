@@ -1,0 +1,50 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Words and sentences -->
+    <sys:String x:Key="Text_Login">Login</sys:String>
+    <sys:String x:Key="Text_Password">Password</sys:String>
+    <sys:String x:Key="Text_SignIn">Sign in</sys:String>
+    <sys:String x:Key="Text_SignUp">Sign up</sys:String>
+
+    <!-- Tables names -->
+    <sys:String x:Key="Text_Bodies">Bodies</sys:String>
+    <sys:String x:Key="Text_Carriages">Carriages</sys:String>
+    <sys:String x:Key="Text_Cities">Citites</sys:String>
+    <sys:String x:Key="Text_Heads">Heads</sys:String>
+    <sys:String x:Key="Text_Locomotives">Locomotives</sys:String>
+    <sys:String x:Key="Text_Paths">Paths</sys:String>
+    <sys:String x:Key="Text_Routes">Routes</sys:String>
+    <sys:String x:Key="Text_Tickets">Tickets</sys:String>
+    <sys:String x:Key="Text_Trains">Trains</sys:String>
+    <sys:String x:Key="Text_Trajectories">Trajectories</sys:String>
+    <sys:String x:Key="Text_Users">Users</sys:String>
+
+    <!-- Buttons -->
+    <sys:String x:Key="Text_Request">Request</sys:String>
+    <sys:String x:Key="Text_Create">Create</sys:String>
+    <sys:String x:Key="Text_Edit">Edit</sys:String>
+    <sys:String x:Key="Text_Delete">Delete</sys:String>
+
+    <!-- Columns headers -->
+    <sys:String x:Key="Text_RowNumber">Row</sys:String>
+    <!-- Column "Cities" -->
+    <sys:String x:Key="Text_City">City</sys:String>
+
+    <!-- Column "Tickets" -->
+    <sys:String x:Key="Text_TicketSeries">Series</sys:String>
+    <sys:String x:Key="Text_TicketNumber">Number</sys:String>
+
+    <!-- Column "Carriages" -->
+    <sys:String x:Key="Text_PMW">PMW</sys:String>
+    <sys:String x:Key="Text_Model">Model</sys:String>
+    <sys:String x:Key="Text_Type">Type</sys:String>
+    <sys:String x:Key="Text_Weight">Weight</sys:String>
+    <sys:String x:Key="Text_CargoWeight">Cargo weight</sys:String>
+    <sys:String x:Key="Text_MaxSeats">Max seats</sys:String>
+
+    <!-- Font for this language -->
+    <FontFamily x:Key="Font_MyLocalFont">pack://application:,,,/Resources/Fonts/Montserrat_Alternates/#Montserrat Alternates</FontFamily>
+
+</ResourceDictionary>
