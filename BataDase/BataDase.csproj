@@ -87,11 +87,21 @@
     </Compile>
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\CarriagesM.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\CitiesM.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\LocomotivesM.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\PathsM.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\RoutesM.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\TicketsM.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\TrainsM.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\UsersM.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVMS\CitiesVM.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVMS\TicketsVM.cs" />
     <Compile Include="MVVM\Views\MainV.xaml.cs">
       <DependentUpon>MainV.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MVVM\Views\UserV.xaml">
+    <Page Include="MVVM\Views\MenuV.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -153,10 +163,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MVVM\ViewModels\UserVM.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVM.cs" />
     <Compile Include="MVVM\ViewModels\MainVM.cs" />
-    <Compile Include="MVVM\Views\UserV.xaml.cs">
-      <DependentUpon>UserV.xaml</DependentUpon>
+    <Compile Include="MVVM\Views\MenuV.xaml.cs">
+      <DependentUpon>MenuV.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -202,9 +212,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MVVM\Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="favicon.ico" />
   </ItemGroup>
