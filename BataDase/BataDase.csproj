@@ -104,9 +104,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Core\Behaviors\DataGridBehavior.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
-    <Compile Include="Database\AppDBContext.cs" />
+    <Compile Include="Core\AppDBContext.cs" />
     <Compile Include="MVVM\Models\MenuVMS\CarriagesM.cs" />
     <Compile Include="MVVM\Models\MenuVMS\CitiesM.cs" />
     <Compile Include="MVVM\Models\MenuVMS\LocomotivesM.cs" />

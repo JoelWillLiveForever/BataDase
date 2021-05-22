@@ -4,9 +4,6 @@ namespace BataDase.MVVM.Models.MenuVMS
 {
     public class TicketsM
     {
-        [DisplayName("Text_RowNumber")]
-        public int RowNumber { get; set; }
-
         [DisplayName("Text_TicketSeries")]
         public string Series { get; set; }
 

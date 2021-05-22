@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:behaviors="clr-namespace:BataDase.Core.Behaviors"
              xmlns:vm="clr-namespace:BataDase.MVVM.ViewModels"
              xmlns:local="clr-namespace:BataDase.MVVM.Views"  
              Style="{StaticResource Style_UserControl}"
@@ -105,7 +106,8 @@
                 <DataGrid x:Name="DataGrid_Tables"
                           ItemsSource="{Binding CurrentModel.SourceList}"
                           AutoGeneratingColumn="OnAutoGeneratingColumn"
-                          Style="{StaticResource Style_DataGrid}"/>
+                          Style="{StaticResource Style_DataGrid}"
+                          behaviors:DataGridBehavior.DisplayRowNumber="True"/>
             </DockPanel>
         </Border>
     </DockPanel>

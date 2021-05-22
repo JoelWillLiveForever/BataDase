@@ -14,7 +14,6 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             for (int i = 0; i < 100; i ++)
             {
                 CitiesM temp = new CitiesM();
-                temp.RowNumber = i + 1;
                 temp.City = "Moscow";
                 SourceList.Add(temp);
             }

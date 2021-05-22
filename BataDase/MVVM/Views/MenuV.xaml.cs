@@ -18,10 +18,15 @@ namespace BataDase.MVVM.Views
 
             if (!string.IsNullOrEmpty(displayName))
             {
-                string name = (string) App.Current.TryFindResource(displayName);
-                
-                if (name != null)
-                    e.Column.Header = App.Current.FindResource(displayName);
+                if (displayName == "Hidden")
+                    e.Cancel = true;
+                else
+                {
+                    string name = (string)App.Current.TryFindResource(displayName);
+
+                    if (name != null)
+                        e.Column.Header = App.Current.FindResource(displayName);
+                }
             }
         }
 
