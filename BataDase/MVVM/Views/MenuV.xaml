@@ -43,7 +43,9 @@
                          Style="{StaticResource Style_Button_Menu}"/>
             <RadioButton x:Name="Button_Paths" 
                          Content="{DynamicResource Text_Paths}"
-                         Style="{StaticResource Style_Button_Menu}"/>
+                         Style="{StaticResource Style_Button_Menu}"
+                         Command="{Binding MenuButtonClick}"
+                         CommandParameter="Paths"/>
             <RadioButton x:Name="Button_Trains" 
                          Content="{DynamicResource Text_Trains}"
                          Style="{StaticResource Style_Button_Menu}"/>
@@ -52,7 +54,9 @@
                          Style="{StaticResource Style_Button_Menu}"/>
             <RadioButton x:Name="Button_Carriages" 
                          Content="{DynamicResource Text_Carriages}"
-                         Style="{StaticResource Style_Button_Menu}"/>
+                         Style="{StaticResource Style_Button_Menu}"
+                         Command="{Binding MenuButtonClick}"
+                         CommandParameter="Carriages"/>
             <RadioButton x:Name="Button_Tickets" 
                          Content="{DynamicResource Text_Tickets}"
                          Style="{StaticResource Style_Button_Menu}"

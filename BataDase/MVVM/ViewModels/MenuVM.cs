@@ -22,11 +22,15 @@ namespace BataDase.MVVM.ViewModels
 
         private CitiesVM citiesVM;
         private TicketsVM ticketsVM;
+        private CarriagesVM carriagesVM;
+        private PathsVM pathsVM;
 
         public MenuVM()
         {
             citiesVM = new CitiesVM();
             ticketsVM = new TicketsVM();
+            carriagesVM = new CarriagesVM();
+            pathsVM = new PathsVM();
 
             CurrentModel = citiesVM;
 
@@ -45,6 +49,14 @@ namespace BataDase.MVVM.ViewModels
             } else if (name == "Tickets")
             {
                 CurrentModel = ticketsVM;
+            }
+            else if (name == "Carriages")
+            {
+                CurrentModel = carriagesVM;
+			}
+            else if (name == "Paths")
+            {
+                CurrentModel = pathsVM;
             }
         }
     }
