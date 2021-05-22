@@ -71,9 +71,18 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
-                                <Border Background="{TemplateBinding Foreground}"
-                                        CornerRadius="0,4,4,0"
-                                        Margin="0,4,0,4"/>
+                                <Border CornerRadius="0,4,4,0"
+                                        Margin="0,4,0,4">
+                                    <Border.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="Background">
+                                                <Setter.Value>
+                                                    <SolidColorBrush Color="{DynamicResource Color_Primary}"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Border.Resources>
+                                </Border>
 
                                 <Border Background="{TemplateBinding Background}"
                                         CornerRadius="10"
