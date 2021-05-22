@@ -9,15 +9,18 @@
     <sys:String x:Key="Text_SignUp">Зарегистрироваться</sys:String>
     
     <!-- Tables names -->
-    <sys:String x:Key="Text_Users">Пользователи</sys:String>
-    <sys:String x:Key="Text_Tickets">Билеты</sys:String>
+    <sys:String x:Key="Text_Bodies">Тела</sys:String>
     <sys:String x:Key="Text_Carriages">Вагоны</sys:String>
-    <sys:String x:Key="Text_Locomotives">Локомотивы</sys:String>
-    <sys:String x:Key="Text_Trains">Поезда</sys:String>
-    <sys:String x:Key="Text_Paths">Маршруты</sys:String>
-    <sys:String x:Key="Text_Ways">Пути</sys:String>
     <sys:String x:Key="Text_Cities">Города</sys:String>
-    
+    <sys:String x:Key="Text_Heads">Головы</sys:String>
+    <sys:String x:Key="Text_Locomotives">Локомотивы</sys:String>
+    <sys:String x:Key="Text_Paths">Пути</sys:String>
+    <sys:String x:Key="Text_Routes">Маршруты</sys:String>
+    <sys:String x:Key="Text_Tickets">Билеты</sys:String>
+    <sys:String x:Key="Text_Trains">Поезда</sys:String>
+    <sys:String x:Key="Text_Trajectories">Траектории</sys:String>
+    <sys:String x:Key="Text_Users">Пользователи</sys:String>
+
     <!-- Buttons -->
     <sys:String x:Key="Text_Request">Запрос</sys:String>
     <sys:String x:Key="Text_Create">Добавить</sys:String>
@@ -25,13 +28,27 @@
     <sys:String x:Key="Text_Delete">Удалить</sys:String>
 
     <!-- Columns headers -->
-    <!-- Column "Cities" -->
     <sys:String x:Key="Text_RowNumber">Номер п/п</sys:String>
+    <!-- Column "Cities" -->
     <sys:String x:Key="Text_City">Город</sys:String>
-    
+
+    <!-- Column "Users" -->
+    <sys:String x:Key="Text_Surname">Фамилия</sys:String>
+
     <!-- Column "Tickets" -->
     <sys:String x:Key="Text_TicketSeries">Серия</sys:String>
     <sys:String x:Key="Text_TicketNumber">Номер</sys:String>
+
+    <!-- Column "Carriages" -->
+    <sys:String x:Key="Text_PMW">Разрешённая ММ</sys:String>
+    <sys:String x:Key="Text_Model">Модель</sys:String>
+    <sys:String x:Key="Text_Type">Тип</sys:String>
+    <sys:String x:Key="Text_Weight">Масса</sys:String>
+    <sys:String x:Key="Text_CargoWeight">Масса груза</sys:String>
+    <sys:String x:Key="Text_MaxSeats">Кол-во мест</sys:String>
+
+    <!-- Column "Paths" -->
+    <sys:String x:Key="Text_IsPaths">Наличие пути</sys:String>
 
     <!-- Font for this language -->
     <FontFamily x:Key="Font_MyLocalFont">pack://application:,,,/Resources/Fonts/Montserrat_Alternates/#Montserrat Alternates</FontFamily>
