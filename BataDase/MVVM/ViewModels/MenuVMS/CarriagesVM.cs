@@ -13,8 +13,9 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
         public CarriagesVM()
         {
 			SourceList = new List<CarriagesM>();
-			dbContext = new AppDBContext();
+			dbContext = AppDBContext.GetInstance();
 			dbContext.Carriages.Load();
+
 			var temp = dbContext.Carriages.Local.ToBindingList();
 
 			for (int i = 0; i < temp.Count; i++)
