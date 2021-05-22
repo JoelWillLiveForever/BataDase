@@ -210,7 +210,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Resources\Databases\Trains.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

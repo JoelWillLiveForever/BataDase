@@ -1,5 +1,7 @@
-﻿using BataDase.MVVM.Models.MenuVMS;
+﻿using BataDase.Core;
+using BataDase.MVVM.Models.MenuVMS;
 using System.Collections.Generic;
+using System.Data.Entity;
 
 namespace BataDase.MVVM.ViewModels.MenuVMS
 {
@@ -7,16 +9,23 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
     {
         public List<CitiesM> SourceList { get; set; }
 
-        public CitiesVM()
-        {
-            SourceList = new List<CitiesM>();
+		private AppDBContext dbContext;
 
-            for (int i = 0; i < 100; i ++)
-            {
-                CitiesM temp = new CitiesM();
-                temp.City = "Moscow";
-                SourceList.Add(temp);
-            }
-        }
+		public CitiesVM()
+        {
+			SourceList = new List<CitiesM>();
+			dbContext = new AppDBContext();
+			dbContext.Cities.Load();
+			var temp = dbContext.Cities.Local.ToBindingList();
+
+			for (int i = 0; i < temp.Count; i++)
+			{
+				CitiesM tempObj = new CitiesM();
+				tempObj._city_name = temp[i]._city_name;
+				tempObj._latitude = temp[i]._latitude ;
+				tempObj._longitude = temp[i]._longitude;
+				SourceList.Add(tempObj);
+			}
+		}
     }
 }

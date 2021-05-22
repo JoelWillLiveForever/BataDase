@@ -8,5 +8,6 @@ namespace BataDase.Core
 		public AppDBContext() : base("DefaultConnection") { }
 		public DbSet<CarriagesM> Carriages { get; set; }
 		public DbSet<PathsM> Paths { get; set; }
+		public DbSet<CitiesM> Cities { get; set; }
 	}
 }

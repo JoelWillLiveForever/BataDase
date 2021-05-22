@@ -5,25 +5,24 @@ using System.Data.Entity;
 
 namespace BataDase.MVVM.ViewModels.MenuVMS
 {
-	class PathsVM
+	public class PathsVM
 	{
         public List<PathsM> SourceList { get; set; }
         private AppDBContext dbContext;
 
         public PathsVM()
         {
-            SourceList = new List<PathsM>();
-            dbContext = new AppDBContext();
-            dbContext.Paths.Load();
+			SourceList = new List<PathsM>();
+			dbContext = new AppDBContext();
+			dbContext.Paths.Load();
+			var temp = dbContext.Paths.Local.ToBindingList();
 
-            var temp = dbContext.Paths.Local.ToBindingList();
-
-            for (int i = 0; i < temp.Count; i++)
-            {
-                PathsM tempObj = new PathsM();
-                tempObj._is_path = temp[i]._is_path;
-                SourceList.Add(tempObj);
-            }
-        }
+			for (int i = 0; i < temp.Count; i++)
+			{
+				PathsM tempObj = new PathsM();
+				tempObj._is_path = temp[i]._is_path;
+				SourceList.Add(tempObj);
+			}
+		}
     }
 }

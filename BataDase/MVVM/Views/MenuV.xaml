@@ -41,7 +41,9 @@
                          IsChecked="True"/>
             <RadioButton x:Name="Button_Ways" 
                          Content="{DynamicResource Text_Ways}"
-                         Style="{StaticResource Style_Button_Menu}"/>
+                         Style="{StaticResource Style_Button_Menu}"
+                         Command="{Binding MenuButtonClick}"
+                         CommandParameter="Routes"/>
             <RadioButton x:Name="Button_Paths" 
                          Content="{DynamicResource Text_Paths}"
                          Style="{StaticResource Style_Button_Menu}"
@@ -49,10 +51,14 @@
                          CommandParameter="Paths"/>
             <RadioButton x:Name="Button_Trains" 
                          Content="{DynamicResource Text_Trains}"
-                         Style="{StaticResource Style_Button_Menu}"/>
+                         Style="{StaticResource Style_Button_Menu}"
+                         Command="{Binding MenuButtonClick}"
+                         CommandParameter="Trains"/>
             <RadioButton x:Name="Button_Locomotives" 
                          Content="{DynamicResource Text_Locomotives}"
-                         Style="{StaticResource Style_Button_Menu}"/>
+                         Style="{StaticResource Style_Button_Menu}"
+                         Command="{Binding MenuButtonClick}"
+                         CommandParameter="Locomotives"/>
             <RadioButton x:Name="Button_Carriages" 
                          Content="{DynamicResource Text_Carriages}"
                          Style="{StaticResource Style_Button_Menu}"
@@ -65,7 +71,9 @@
                          CommandParameter="Tickets"/>
             <RadioButton x:Name="Button_Users" 
                          Content="{DynamicResource Text_Users}"
-                         Style="{StaticResource Style_Button_Menu}"/>
+                         Style="{StaticResource Style_Button_Menu}"
+                         Command="{Binding MenuButtonClick}"
+                         CommandParameter="Users"/>
 
         </StackPanel>
         <Border Padding="9">
