@@ -49,12 +49,10 @@ namespace BataDase.MVVM.ViewModels
             } else if (name == "Tickets")
             {
                 CurrentModel = ticketsVM;
-            }
-            else if (name == "Carriages")
+            } else if (name == "Carriages")
             {
                 CurrentModel = carriagesVM;
-			}
-            else if (name == "Paths")
+			} else if (name == "Paths")
             {
                 CurrentModel = pathsVM;
             }

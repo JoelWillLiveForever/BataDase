@@ -12,17 +12,18 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
         public PathsVM()
         {
-			SourceList = new List<PathsM>();
-			dbContext = new AppDBContext();
-			dbContext.Paths.Load();
-			var temp = dbContext.Paths.Local.ToBindingList();
+			//SourceList = new List<PathsM>();
+			//dbContext = AppDBContext.GetInstance();
+			//dbContext.Paths.Load();
 
-			for (int i = 0; i < temp.Count; i++)
-			{
-				PathsM tempObj = new PathsM();
-				tempObj._is_path = temp[i]._is_path;
-				SourceList.Add(tempObj);
-			}
+			//var temp = dbContext.Paths.Local.ToBindingList();
+
+			//for (int i = 0; i < temp.Count; i++)
+			//{
+			//	PathsM tempObj = new PathsM();
+			//	tempObj._is_path = temp[i]._is_path;
+			//	SourceList.Add(tempObj);
+			//}
 		}
     }
 }
