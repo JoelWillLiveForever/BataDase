@@ -108,18 +108,28 @@
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="Core\AppDBContext.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\BodiesM.cs" />
     <Compile Include="MVVM\Models\MenuVMS\CarriagesM.cs" />
     <Compile Include="MVVM\Models\MenuVMS\CitiesM.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\HeadsM.cs" />
     <Compile Include="MVVM\Models\MenuVMS\LocomotivesM.cs" />
     <Compile Include="MVVM\Models\MenuVMS\PathsM.cs" />
     <Compile Include="MVVM\Models\MenuVMS\RoutesM.cs" />
     <Compile Include="MVVM\Models\MenuVMS\TicketsM.cs" />
     <Compile Include="MVVM\Models\MenuVMS\TrainsM.cs" />
+    <Compile Include="MVVM\Models\MenuVMS\TrajectoriesM.cs" />
     <Compile Include="MVVM\Models\MenuVMS\UsersM.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVMS\BodiesVM.cs" />
     <Compile Include="MVVM\ViewModels\MenuVMS\CarriagesVM.cs" />
     <Compile Include="MVVM\ViewModels\MenuVMS\CitiesVM.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVMS\HeadsVM.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVMS\LocomotivesVM.cs" />
     <Compile Include="MVVM\ViewModels\MenuVMS\PathsVM.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVMS\RoutesVM.cs" />
     <Compile Include="MVVM\ViewModels\MenuVMS\TicketsVM.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVMS\TrainsVM.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVMS\TrajectoriesVM.cs" />
+    <Compile Include="MVVM\ViewModels\MenuVMS\UsersVM.cs" />
     <Compile Include="MVVM\Views\MainV.xaml.cs">
       <DependentUpon>MainV.xaml</DependentUpon>
       <SubType>Code</SubType>

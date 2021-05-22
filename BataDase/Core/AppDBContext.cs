@@ -19,8 +19,16 @@ namespace BataDase.Core
 		private AppDBContext() : base("DefaultConnection") { }
 
 		// Entities
-		public DbSet<CarriagesM> Carriages { get; set; }
-		public DbSet<PathsM> Paths { get; set; }
-		public DbSet<CitiesM> Cities { get; set; }
+		public DbSet<BodiesM> BodiesMs { get; set; }
+		public DbSet<CarriagesM> CarriagesMs { get; set; }
+		public DbSet<CitiesM> CitiesMs { get; set; }
+		public DbSet<HeadsM> HeadsMs { get; set; }
+		public DbSet<LocomotivesM> LocomotivesMs { get; set; }
+		public DbSet<PathsM> PathsMs { get; set; }
+		public DbSet<RoutesM> RoutesMs { get; set; }
+		public DbSet<TicketsM> TicketsMs { get; set; }
+		public DbSet<TrainsM> TrainsMs { get; set; }
+		public DbSet<TrajectoriesM> TrajectoriesMs { get; set; }
+		public DbSet<UsersM> UsersMs { get; set; }
 	}
 }

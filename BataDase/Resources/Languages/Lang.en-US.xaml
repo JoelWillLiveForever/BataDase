@@ -9,14 +9,17 @@
     <sys:String x:Key="Text_SignUp">Sign up</sys:String>
 
     <!-- Tables names -->
-    <sys:String x:Key="Text_Users">Users</sys:String>
-    <sys:String x:Key="Text_Tickets">Tickets</sys:String>
+    <sys:String x:Key="Text_Bodies">Bodies</sys:String>
     <sys:String x:Key="Text_Carriages">Carriages</sys:String>
+    <sys:String x:Key="Text_Cities">Citites</sys:String>
+    <sys:String x:Key="Text_Heads">Heads</sys:String>
     <sys:String x:Key="Text_Locomotives">Locomotives</sys:String>
-    <sys:String x:Key="Text_Trains">Trains</sys:String>
     <sys:String x:Key="Text_Paths">Paths</sys:String>
-    <sys:String x:Key="Text_Ways">Ways</sys:String>
-    <sys:String x:Key="Text_Cities">Cities</sys:String>
+    <sys:String x:Key="Text_Routes">Routes</sys:String>
+    <sys:String x:Key="Text_Tickets">Tickets</sys:String>
+    <sys:String x:Key="Text_Trains">Trains</sys:String>
+    <sys:String x:Key="Text_Trajectories">Trajectories</sys:String>
+    <sys:String x:Key="Text_Users">Users</sys:String>
 
     <!-- Buttons -->
     <sys:String x:Key="Text_Request">Request</sys:String>

@@ -9,15 +9,18 @@
     <sys:String x:Key="Text_SignUp">Зарегистрироваться</sys:String>
     
     <!-- Tables names -->
-    <sys:String x:Key="Text_Users">Пользователи</sys:String>
-    <sys:String x:Key="Text_Tickets">Билеты</sys:String>
+    <sys:String x:Key="Text_Bodies">Тела</sys:String>
     <sys:String x:Key="Text_Carriages">Вагоны</sys:String>
-    <sys:String x:Key="Text_Locomotives">Локомотивы</sys:String>
-    <sys:String x:Key="Text_Trains">Поезда</sys:String>
-    <sys:String x:Key="Text_Paths">Маршруты</sys:String>
-    <sys:String x:Key="Text_Ways">Пути</sys:String>
     <sys:String x:Key="Text_Cities">Города</sys:String>
-    
+    <sys:String x:Key="Text_Heads">Головы</sys:String>
+    <sys:String x:Key="Text_Locomotives">Локомотивы</sys:String>
+    <sys:String x:Key="Text_Paths">Пути</sys:String>
+    <sys:String x:Key="Text_Routes">Маршруты</sys:String>
+    <sys:String x:Key="Text_Tickets">Билеты</sys:String>
+    <sys:String x:Key="Text_Trains">Поезда</sys:String>
+    <sys:String x:Key="Text_Trajectories">Траектории</sys:String>
+    <sys:String x:Key="Text_Users">Пользователи</sys:String>
+
     <!-- Buttons -->
     <sys:String x:Key="Text_Request">Запрос</sys:String>
     <sys:String x:Key="Text_Create">Добавить</sys:String>

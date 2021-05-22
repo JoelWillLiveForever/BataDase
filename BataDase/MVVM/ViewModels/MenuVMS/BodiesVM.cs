@@ -5,17 +5,17 @@ using System.Data.Entity;
 
 namespace BataDase.MVVM.ViewModels.MenuVMS
 {
-    public class TicketsVM
+    public class BodiesVM
     {
-        public BindingList<TicketsM> SourceList { get; set; }
+        public BindingList<BodiesM> SourceList { get; set; }
         private AppDBContext dbContext;
 
-        public TicketsVM()
+        public BodiesVM()
         {
             dbContext = AppDBContext.GetInstance();
-            dbContext.TicketsMs.Load();
+            dbContext.BodiesMs.Load();
 
-            SourceList = dbContext.TicketsMs.Local.ToBindingList();
+            SourceList = dbContext.BodiesMs.Local.ToBindingList();
         }
     }
 }
