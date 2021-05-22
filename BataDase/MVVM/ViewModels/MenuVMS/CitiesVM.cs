@@ -13,21 +13,21 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
 		public CitiesVM()
         {
-			//SourceList = new List<CitiesM>();
+			SourceList = new List<CitiesM>();
 
-			//dbContext = AppDBContext.GetInstance();
-			//dbContext.Cities.Load();
+			dbContext = AppDBContext.GetInstance();
+			dbContext.Cities.Load();
 
-			//var temp = dbContext.Cities.Local.ToBindingList();
+			var temp = dbContext.Cities.Local.ToBindingList();
 
-			//for (int i = 0; i < temp.Count; i++)
-			//{
-			//	CitiesM tempObj = new CitiesM();
-			//	tempObj._city_name = temp[i]._city_name;
-			//	tempObj._latitude = temp[i]._latitude ;
-			//	tempObj._longitude = temp[i]._longitude;
-			//	SourceList.Add(tempObj);
-			//}
+			for (int i = 0; i < temp.Count; i++)
+			{
+				CitiesM tempObj = new CitiesM();
+				tempObj._city_name = temp[i]._city_name;
+				tempObj._latitude = temp[i]._latitude;
+				tempObj._longitude = temp[i]._longitude;
+				SourceList.Add(tempObj);
+			}
 		}
-    }
+	}
 }
