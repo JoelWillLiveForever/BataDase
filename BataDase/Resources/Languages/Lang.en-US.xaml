@@ -31,6 +31,8 @@
     <sys:String x:Key="Text_RowNumber">Row</sys:String>
     <!-- Column "Cities" -->
     <sys:String x:Key="Text_City">City</sys:String>
+    <sys:String x:Key="Text_Longitude">Longitude</sys:String>
+    <sys:String x:Key="Text_Latitude">Latitude</sys:String>
 
     <!-- Column "Tickets" -->
     <sys:String x:Key="Text_TicketSeries">Series</sys:String>

@@ -9,32 +9,34 @@
     <sys:String x:Key="Text_SignUp">サインアップ</sys:String>
 
     <!-- Tables names -->
-    <sys:String x:Key="Text_Bodies">Тела</sys:String>
+    <sys:String x:Key="Text_Bodies">ボディ</sys:String>
     <sys:String x:Key="Text_Carriages">ありがとう</sys:String>
     <sys:String x:Key="Text_Cities">都市</sys:String>
-    <sys:String x:Key="Text_Heads">Головы</sys:String>
+    <sys:String x:Key="Text_Heads">頭</sys:String>
     <sys:String x:Key="Text_Locomotives">ロコモティブ</sys:String>
     <sys:String x:Key="Text_Paths">道路</sys:String>
     <sys:String x:Key="Text_Routes">道</sys:String>
     <sys:String x:Key="Text_Tickets">チケット</sys:String>
     <sys:String x:Key="Text_Trains">電車</sys:String>
-    <sys:String x:Key="Text_Trajectories">Траектории</sys:String>
+    <sys:String x:Key="Text_Trajectories">軌跡</sys:String>
     <sys:String x:Key="Text_Users">ユーザ</sys:String>
 
     <!-- Buttons -->
-    <sys:String x:Key="Text_Request">ありがとう</sys:String>
-    <sys:String x:Key="Text_Create">ありがとう</sys:String>
-    <sys:String x:Key="Text_Edit">ありがとう</sys:String>
-    <sys:String x:Key="Text_Delete">ありがとう</sys:String>
+    <sys:String x:Key="Text_Request">リクエスト</sys:String>
+    <sys:String x:Key="Text_Create">作成</sys:String>
+    <sys:String x:Key="Text_Edit">編集</sys:String>
+    <sys:String x:Key="Text_Delete">削除</sys:String>
 
     <!-- Columns headers -->
     <sys:String x:Key="Text_RowNumber">指数</sys:String>
     <!-- Column "Cities" -->
     <sys:String x:Key="Text_City">都市</sys:String>
+    <sys:String x:Key="Text_Longitude">経度</sys:String>
+    <sys:String x:Key="Text_Latitude">緯度</sys:String>
 
     <!-- Column "Tickets" -->
     <sys:String x:Key="Text_TicketSeries">チケットシリーズ</sys:String>
-    <sys:String x:Key="Text_TicketNumber">ありがとう</sys:String>
+    <sys:String x:Key="Text_TicketNumber">チケット数</sys:String>
 
     <!-- Column "Carriages" -->
     <sys:String x:Key="Text_PMW">最大許容重量</sys:String>

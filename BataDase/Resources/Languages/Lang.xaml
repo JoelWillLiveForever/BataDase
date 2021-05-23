@@ -31,6 +31,8 @@
     <sys:String x:Key="Text_RowNumber">Номер п/п</sys:String>
     <!-- Column "Cities" -->
     <sys:String x:Key="Text_City">Город</sys:String>
+    <sys:String x:Key="Text_Longitude">Долгота</sys:String>
+    <sys:String x:Key="Text_Latitude">Широта</sys:String>
 
     <!-- Column "Users" -->
     <sys:String x:Key="Text_Surname">Фамилия</sys:String>
