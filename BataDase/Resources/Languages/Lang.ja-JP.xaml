@@ -27,6 +27,9 @@
     <sys:String x:Key="Text_Edit">編集</sys:String>
     <sys:String x:Key="Text_Delete">削除</sys:String>
 
+    <!-- Labels -->
+    <sys:String x:Key="Text_Language">言語</sys:String>
+
     <!-- Columns headers -->
     <sys:String x:Key="Text_RowNumber">指数</sys:String>
     <!-- Column "Cities" -->

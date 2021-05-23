@@ -142,6 +142,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVVM\Views\SettingsV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Icons\Icons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -204,6 +208,9 @@
     <Compile Include="MVVM\ViewModels\MainVM.cs" />
     <Compile Include="MVVM\Views\MenuV.xaml.cs">
       <DependentUpon>MenuV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Views\SettingsV.xaml.cs">
+      <DependentUpon>SettingsV.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -279,6 +286,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Fonts\Sawarabi_Mincho\OFL.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\backArrow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

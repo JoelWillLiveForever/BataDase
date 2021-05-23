@@ -74,12 +74,12 @@ namespace BataDase.MVVM.Views
 
 		private void Button_Account_Click(object sender, System.Windows.RoutedEventArgs e)
 		{
-
+            
 		}
 
 		private void Button_FAQ_Click(object sender, System.Windows.RoutedEventArgs e)
 		{
-
+            
 		}
 	}
 }

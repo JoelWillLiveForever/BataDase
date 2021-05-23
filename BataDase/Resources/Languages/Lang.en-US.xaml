@@ -27,6 +27,9 @@
     <sys:String x:Key="Text_Edit">Edit</sys:String>
     <sys:String x:Key="Text_Delete">Delete</sys:String>
 
+    <!-- Labels -->
+    <sys:String x:Key="Text_Language">Language</sys:String>
+
     <!-- Columns headers -->
     <sys:String x:Key="Text_RowNumber">Row</sys:String>
     <!-- Column "Cities" -->
