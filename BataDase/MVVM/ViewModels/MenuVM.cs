@@ -3,10 +3,17 @@ using BataDase.MVVM.ViewModels.MenuVMS;
 
 namespace BataDase.MVVM.ViewModels
 {
+    public interface ObjectModel
+    {
+        void Save();
+        void Close();
+        void Connect();
+    }
+
     public class MenuVM : ObservableObject
     {
-        private object _currentModel;
-        public object CurrentModel
+        private ObjectModel _currentModel;
+        public ObjectModel CurrentModel
         {
             get { return _currentModel; }
             set
@@ -54,8 +61,11 @@ namespace BataDase.MVVM.ViewModels
         public void ClickExecute(object param)
         {
             System.Diagnostics.Debug.WriteLine($"Clicked: {param as string}");
-
             string name = param as string;
+
+            CurrentModel.Save();
+            CurrentModel.Close();
+
             if (name == "Bodies")
             {
                 CurrentModel = bodiesVM;
@@ -90,6 +100,8 @@ namespace BataDase.MVVM.ViewModels
             {
                 CurrentModel = usersVM;
             }
+
+            CurrentModel.Connect();
         }
     }
 }
