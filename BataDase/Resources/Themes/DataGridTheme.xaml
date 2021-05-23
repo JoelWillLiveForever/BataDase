@@ -230,9 +230,9 @@
         <Setter Property="ColumnWidth"
                 Value="*"/>
         <Setter Property="CanUserAddRows"
-                Value="True"/>
+                Value="False"/>
         <Setter Property="CanUserDeleteRows"
-                Value="True"/>
+                Value="False"/>
         <Setter Property="CanUserReorderColumns"
                 Value="True"/>
         <Setter Property="CanUserResizeColumns"

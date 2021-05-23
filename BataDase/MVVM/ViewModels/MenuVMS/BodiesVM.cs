@@ -12,7 +12,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
         public BodiesVM()
         {
-            dbContext = new AppDBContext();
+            dbContext = AppDBContext.GetInstance();
             dbContext.BodiesMs.Load();
 
             SourceList = dbContext.BodiesMs.Local.ToBindingList();
@@ -32,8 +32,28 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
         public void Connect()
         {
             if (dbContext != null) return;
-            dbContext = new AppDBContext();
+            dbContext = AppDBContext.GetInstance();
             dbContext.BodiesMs.Load();
+        }
+
+        public void Request()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Add()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Edit()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Delete()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

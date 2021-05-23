@@ -23,7 +23,7 @@
 
     <!-- Buttons -->
     <sys:String x:Key="Text_Request">Request</sys:String>
-    <sys:String x:Key="Text_Create">Create</sys:String>
+    <sys:String x:Key="Text_Add">Add</sys:String>
     <sys:String x:Key="Text_Edit">Edit</sys:String>
     <sys:String x:Key="Text_Delete">Delete</sys:String>
 
@@ -45,6 +45,21 @@
     <sys:String x:Key="Text_Weight">Weight</sys:String>
     <sys:String x:Key="Text_CargoWeight">Cargo weight</sys:String>
     <sys:String x:Key="Text_MaxSeats">Max seats</sys:String>
+    
+    <!-- Column Users -->
+    <sys:String x:Key="Text_Surname">Surname</sys:String>
+    <sys:String x:Key="Text_Name">Name</sys:String>
+    <sys:String x:Key="Text_Lastname">Lastname</sys:String>
+    <sys:String x:Key="Text_Sex">Sex</sys:String>
+    <sys:String x:Key="Text_Birthday">Date of birth</sys:String>
+    <sys:String x:Key="Text_Bill">Bill</sys:String>
+    <sys:String x:Key="Text_Access">Access level</sys:String>
+
+    <sys:String x:Key="Text_Male">Male</sys:String>
+    <sys:String x:Key="Text_Female">Female</sys:String>
+
+    <sys:String x:Key="Text_Admin">Administrator</sys:String>
+    <sys:String x:Key="Text_User">User</sys:String>
 
     <!-- Font for this language -->
     <FontFamily x:Key="Font_MyLocalFont">pack://application:,,,/Resources/Fonts/Montserrat_Alternates/#Montserrat Alternates</FontFamily>

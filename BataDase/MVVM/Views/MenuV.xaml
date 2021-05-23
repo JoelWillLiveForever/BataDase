@@ -111,18 +111,22 @@
                     <Button x:Name="Button_Request"
                             Margin="0,0,9,0"
                             Content="{DynamicResource Text_Request}"
-                            Style="{StaticResource Style_Button_Primary}"/>
-                    <Button x:Name="Button_Create"
+                            Style="{StaticResource Style_Button_Primary}"
+                            Command="{Binding RequestCommand}"/>
+                    <Button x:Name="Button_Add"
                             Margin="0,0,9,0"
-                            Content="{DynamicResource Text_Create}"
-                            Style="{StaticResource Style_Button_Primary}"/>
+                            Content="{DynamicResource Text_Add}"
+                            Style="{StaticResource Style_Button_Primary}"
+                            Command="{Binding AddCommand}"/>
                     <Button x:Name="Button_Edit"
                             Margin="0,0,9,0"
                             Content="{DynamicResource Text_Edit}"
-                            Style="{StaticResource Style_Button_Primary}"/>
+                            Style="{StaticResource Style_Button_Primary}"
+                            Command="{Binding EditCommand}"/>
                     <Button x:Name="Button_Delete"
                             Content="{DynamicResource Text_Delete}"
-                            Style="{StaticResource Style_Button_Primary}"/>
+                            Style="{StaticResource Style_Button_Primary}"
+                            Command="{Binding DeleteCommand}"/>
 
                 </StackPanel>
 

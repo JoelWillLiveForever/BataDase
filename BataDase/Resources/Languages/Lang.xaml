@@ -23,7 +23,7 @@
 
     <!-- Buttons -->
     <sys:String x:Key="Text_Request">Запрос</sys:String>
-    <sys:String x:Key="Text_Create">Добавить</sys:String>
+    <sys:String x:Key="Text_Add">Добавить</sys:String>
     <sys:String x:Key="Text_Edit">Изменить</sys:String>
     <sys:String x:Key="Text_Delete">Удалить</sys:String>
 
@@ -36,6 +36,12 @@
 
     <!-- Column "Users" -->
     <sys:String x:Key="Text_Surname">Фамилия</sys:String>
+    <sys:String x:Key="Text_Name">Имя</sys:String>
+    <sys:String x:Key="Text_Lastname">Отчество</sys:String>
+    <sys:String x:Key="Text_Sex">Пол</sys:String>
+    <sys:String x:Key="Text_Birthday">Дата рождения</sys:String>
+    <sys:String x:Key="Text_Bill">Денежный счёт</sys:String>
+    <sys:String x:Key="Text_Access">Уровень доступа</sys:String>
 
     <!-- Column "Tickets" -->
     <sys:String x:Key="Text_TicketSeries">Серия</sys:String>
@@ -52,6 +58,12 @@
     <!-- Column "Paths" -->
     <sys:String x:Key="Text_IsPaths">Наличие пути</sys:String>
 
+    <sys:String x:Key="Text_Male">Мужской</sys:String>
+    <sys:String x:Key="Text_Female">Женский</sys:String>
+
+    <sys:String x:Key="Text_Admin">Администратор</sys:String>
+    <sys:String x:Key="Text_User">Пользователь</sys:String>
+    
     <!-- Font for this language -->
     <FontFamily x:Key="Font_MyLocalFont">pack://application:,,,/Resources/Fonts/Montserrat_Alternates/#Montserrat Alternates</FontFamily>
 </ResourceDictionary>
