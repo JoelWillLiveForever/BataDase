@@ -55,6 +55,12 @@
     <sys:String x:Key="Text_CargoWeight">Масса груза</sys:String>
     <sys:String x:Key="Text_MaxSeats">Кол-во мест</sys:String>
 
+    <!-- Column "Locomotives" -->
+    <sys:String x:Key="Text_AvgSpeed0">Скорость при 0 массе</sys:String>
+    <sys:String x:Key="Text_AvgSpeed100">Скорость при максимальной массе</sys:String>
+    <sys:String x:Key="Text_CargoCarriage">Грузовой</sys:String>
+    <sys:String x:Key="Text_PassengerCarriage">Пассажирский</sys:String>
+
     <!-- Column "Paths" -->
     <sys:String x:Key="Text_IsPaths">Наличие пути</sys:String>
 

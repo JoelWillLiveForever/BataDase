@@ -46,6 +46,12 @@
     <sys:String x:Key="Text_CargoWeight">荷の量</sys:String>
     <sys:String x:Key="Text_MaxSeats">座席数</sys:String>
 
+    <!-- Column "Locomotives" -->
+    <sys:String x:Key="Text_AvgSpeed0">質量0での速度</sys:String>
+    <sys:String x:Key="Text_AvgSpeed100">質量マクシでの速度</sys:String>
+    <sys:String x:Key="Text_CargoCarriage">Грузовой</sys:String>
+    <sys:String x:Key="Text_PassengerCarriage">Пассажирский</sys:String>
+
     <!-- Column Users -->
     <sys:String x:Key="Text_Surname">Фамилия</sys:String>
     <sys:String x:Key="Text_Name">Имя</sys:String>

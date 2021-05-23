@@ -45,7 +45,13 @@
     <sys:String x:Key="Text_Weight">Weight</sys:String>
     <sys:String x:Key="Text_CargoWeight">Cargo weight</sys:String>
     <sys:String x:Key="Text_MaxSeats">Max seats</sys:String>
-    
+
+    <!-- Column "Locomotives" -->
+    <sys:String x:Key="Text_AvgSpeed0">Speed with 0 weight</sys:String>
+    <sys:String x:Key="Text_AvgSpeed100">Speed with max weight</sys:String>
+    <sys:String x:Key="Text_CargoCarriage">Грузовой</sys:String>
+    <sys:String x:Key="Text_PassengerCarriage">Пассажирский</sys:String>
+
     <!-- Column Users -->
     <sys:String x:Key="Text_Surname">Surname</sys:String>
     <sys:String x:Key="Text_Name">Name</sys:String>
