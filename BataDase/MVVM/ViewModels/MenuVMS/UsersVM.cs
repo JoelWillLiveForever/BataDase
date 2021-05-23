@@ -163,11 +163,11 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             SourceList = dbContext.UsersMs.Local.ToBindingList();
         }
 
-        // Метод, закрывающий подключение в БД, когда данная таблица не видна пользователю
+        // Deprecated
         public void Close()
         {
             // Обнуление контекста БД и списка элементов
-            if (dbContext != null) dbContext = null;
+            //if (dbContext != null) dbContext = null;
         }
 
         // Метод, открывающий подключение в БД, когда данная таблица видна пользователю
@@ -177,8 +177,8 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             dbContext = AppDBContext.GetInstance();
             dbContext.UsersMs.Load();
 
-            //// Инициализация списка элементов
-            //SourceList = dbContext.UsersMs.Local.ToBindingList();
+            // Инициализация списка элементов
+            SourceList = dbContext.UsersMs.Local.ToBindingList();
         }
 
         // Метод, срабатывающий при нажатии на кнопку "Запрос"
