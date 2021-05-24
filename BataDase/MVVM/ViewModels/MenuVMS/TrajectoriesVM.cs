@@ -12,7 +12,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
         public TrajectoriesVM()
         {
-            dbContext = AppDBContext.GetInstance();
+            dbContext = new AppDBContext();
             dbContext.TrajectoriesMs.Load();
 
             SourceList = dbContext.TrajectoriesMs.Local.ToBindingList();
@@ -32,23 +32,8 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
         public void Connect()
         {
             if (dbContext != null) return;
-            dbContext = AppDBContext.GetInstance();
+            dbContext = new AppDBContext();
             dbContext.TrajectoriesMs.Load();
-        }
-
-        public void Request()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void AddEdit(bool isAdd)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Delete()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

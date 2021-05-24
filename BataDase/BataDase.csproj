@@ -100,10 +100,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MVVM\Views\DialogV.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MVVM\Views\MainV.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -127,7 +123,6 @@
     <Compile Include="MVVM\Models\MenuVMS\TrainsM.cs" />
     <Compile Include="MVVM\Models\MenuVMS\TrajectoriesM.cs" />
     <Compile Include="MVVM\Models\MenuVMS\UsersM.cs" />
-    <Compile Include="MVVM\ViewModels\DialogVM.cs" />
     <Compile Include="MVVM\ViewModels\MenuVMS\BodiesVM.cs" />
     <Compile Include="MVVM\ViewModels\MenuVMS\CarriagesVM.cs" />
     <Compile Include="MVVM\ViewModels\MenuVMS\CitiesVM.cs" />
@@ -139,9 +134,6 @@
     <Compile Include="MVVM\ViewModels\MenuVMS\TrainsVM.cs" />
     <Compile Include="MVVM\ViewModels\MenuVMS\TrajectoriesVM.cs" />
     <Compile Include="MVVM\ViewModels\MenuVMS\UsersVM.cs" />
-    <Compile Include="MVVM\Views\DialogV.xaml.cs">
-      <DependentUpon>DialogV.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MVVM\Views\MainV.xaml.cs">
       <DependentUpon>MainV.xaml</DependentUpon>
       <SubType>Code</SubType>
