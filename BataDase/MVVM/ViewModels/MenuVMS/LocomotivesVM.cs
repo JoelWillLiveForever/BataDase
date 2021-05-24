@@ -140,7 +140,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             throw new System.NotImplementedException();
         }
 
-        public void Add()
+        public void AddEdit(bool isAdd)
         {
             // Показываем диалоговое окно
             DialogV dialogV = new DialogV();
@@ -262,11 +262,6 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             SourceList = dbContext.LocomotivesMs.Local.ToBindingList();
 
             //MenuV.MenuV_DataGrid.Items.Refresh();
-        }
-
-        public void Edit()
-        {
-            throw new System.NotImplementedException();
         }
 
         public void Delete()

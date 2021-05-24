@@ -41,12 +41,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             throw new System.NotImplementedException();
         }
 
-        public void Add()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Edit()
+        public void AddEdit(bool isAdd)
         {
             throw new System.NotImplementedException();
         }

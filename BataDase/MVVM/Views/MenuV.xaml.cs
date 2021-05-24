@@ -7,9 +7,13 @@ namespace BataDase.MVVM.Views
 {
     public partial class MenuV : UserControl
     {
+        // Кастыль, но что поделать?
+        public static DataGrid Current_DataGrid;
+
         public MenuV()
         {
             InitializeComponent();
+            Current_DataGrid = DataGrid_Tables;
         }
 
         private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)

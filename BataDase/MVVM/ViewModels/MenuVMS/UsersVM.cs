@@ -4,6 +4,7 @@ using BataDase.MVVM.Views;
 using System;
 using System.ComponentModel;
 using System.Data.Entity;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -11,6 +12,9 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 {
     public class UsersVM : ObjectModel
     {
+        private bool isAdd;
+        private int index;
+
         // Контекст и список с данными
         public BindingList<UsersM> SourceList { get; set; }
         private AppDBContext dbContext;
@@ -187,12 +191,67 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             throw new System.NotImplementedException();
         }
 
-        // Метод, срабатывающий при нажатии на кнопку "Добавить"
-        public void Add()
+        // Метод, срабатывающий при нажатии на кнопку "Добавить" и "Изменить"
+        public void AddEdit(bool isAdd)
         {
-            // Показываем диалоговое окно
+            // Сохранить состояние, добавление это или изменение
+            this.isAdd = isAdd;
+
+            // Создаём диалоговое окно
             DialogV dialogV = new DialogV();
             Grid dialogGrid = dialogV.Dialog_Grid;
+
+            // Заполняем нижний Button текстом и вешаем локальный обработчик события нажатия
+            Button button = dialogV.Button_Execute;
+
+            // Если это добавление
+            if (isAdd)
+            {
+                button.Content = App.Current.Resources["Text_Add"];
+                index = -1;
+            }
+            // Если это изменение
+            else
+            {
+                // если ничего не выбрано в датагриде то ошибка
+                // если выбрано больше 1 элемента то тоже ошибка
+                if (MenuV.Current_DataGrid.SelectedItems.Count < 1)
+                {
+                    MessageBox.Show("Выберите элемент для изменения!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                else if (MenuV.Current_DataGrid.SelectedItems.Count > 1)
+                {
+                    MessageBox.Show("Можно выбрать для изменения не более ОДНОГО элемента за раз!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                // индекс текущей выбранной строки в DataGrid
+                // кастыль, но куда без кастылей?
+                index = MenuV.Current_DataGrid.SelectedIndex;
+
+                // Если всё ок, вставляем данные для данного юзера в форму, который затем будем менять
+                UsersM temp = SourceList[index];
+
+                surname.Text = temp._surname;
+                name.Text = temp._name;
+                lastname.Text = temp._lastname;
+                sex.SelectedIndex = temp._sex;
+
+                DateTime startdate = DateTime.MinValue.AddMilliseconds(temp._birthday);
+                birthday.Text = startdate.ToString("dd.MM.yyyy");
+
+                login.Text = temp._login;
+                password.Text = temp._pass;
+                access.SelectedIndex = temp._access;
+                bill.Text = temp._bill.ToString();
+
+                button.Content = App.Current.Resources["Text_Edit"];
+            }
+
+            // назначаем метод для события кнопки
+            // метод сразу обрабатывает и добавление и изменение, типа оптимизация
+            button.Click += new RoutedEventHandler(ExecuteAddEdit);
 
             // Вешаем элементы в Grid
             dialogGrid.Children.Add(Surname);
@@ -215,11 +274,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             dialogGrid.Children.Add(access);
             dialogGrid.Children.Add(bill);
 
-            // Заполняем нижний Button текстом и вешаем локальный обработчик события нажатия
-            Button button = dialogV.Button_Execute;
-            button.Content = App.Current.Resources["Text_Add"];
-            button.Click += new RoutedEventHandler(ExecuteAdd);
-
+            // Показываем диалоговое окно
             dialogV.ShowDialog();
 
             // Очищаем Grid
@@ -242,10 +297,21 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             dialogGrid.Children.Remove(Password);
             dialogGrid.Children.Remove(Access);
             dialogGrid.Children.Remove(Bill);
+
+            // Очищаем поля
+            surname.Text = null;
+            name.Text = null;
+            lastname.Text = null;
+            sex.SelectedIndex = 0;
+            birthday.Text = null;
+            login.Text = null;
+            password.Text = null;
+            access.SelectedIndex = 0;
+            bill.Text = null;
         }
 
-        // Метод, срабатывающий при нажатии на кнопку в окне добавления юзера
-        public void ExecuteAdd(object sender, RoutedEventArgs e)
+        // Метод, срабатывающий при нажатии на кнопку в окне добавления или изменения юзера
+        public void ExecuteAddEdit(object sender, RoutedEventArgs e)
         {
             // Проверки TextBox на null и пустую строку
             if (surname.Text == null || surname.Text == "")
@@ -263,7 +329,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             DateTime dateTime;
             if (!DateTime.TryParseExact(birthday.Text, "dd.MM.yyyy", App.Language, System.Globalization.DateTimeStyles.None, out dateTime))
             {
-                MessageBox.Show("Некорректная дата рождения!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Дата указана некорректно!\nУкажите дату в виде: \"dd.MM.yyyy\"", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -272,7 +338,32 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             {
                 MessageBox.Show("Укажите логин!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
+            } else
+            {
+                // Если юзер с данным логином уже есть в таблице, то вывести ошибку
+                foreach (var item in SourceList)
+                    if (item._login == login.Text)
+                    {
+                        // Если сейчас добавление, то просто вывести ошибку
+                        if (isAdd)
+                        {
+                            MessageBox.Show("Пользователь с данным логином уже существует!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        } 
+                        // Если сейчас изменение, то в случае совпадения индексов ошибку не выводить
+                        else
+                        {
+                            // Вывести ошибку, если элементы таблицы имеют разные индексы,
+                            // т.е. такой логин уже есть у кого то другого в таблице
+                            if (item._user_id != SourceList[index]._user_id)
+                            {
+                                MessageBox.Show("Пользователь с данным логином уже существует!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                                return;
+                            }
+                        }
+                    }
             }
+
             if (password.Text == null || password.Text == "")
             {
                 MessageBox.Show("Укажите пароль!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -299,41 +390,110 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             temp._sex = sex.SelectedIndex;
 
             dateTime = DateTime.ParseExact(birthday.Text, "dd.MM.yyyy", null);
-            temp._birthday = dateTime.ToUniversalTime()
-                .Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc))
-                .TotalMilliseconds;
+            temp._birthday = dateTime.Subtract(DateTime.MinValue).TotalMilliseconds;
 
             temp._login = login.Text;
             temp._pass = password.Text;
+            temp._access = access.SelectedIndex;
             temp._bill = float.Parse(bill.Text);
 
             // Сохранение нового юзера в БД
-            dbContext.UsersMs.Add(temp);
+            if (isAdd)
+            {
+                // Добавляем объект в БД
+                dbContext.UsersMs.Local.Add(temp);
+
+                // Очищаем поля
+                surname.Text = null;
+                name.Text = null;
+                lastname.Text = null;
+                sex.SelectedIndex = 0;
+                birthday.Text = null;
+                login.Text = null;
+                password.Text = null;
+                access.SelectedIndex = 0;
+                bill.Text = null;
+            }
+            else
+            {
+                // Получаем объект из БД по айди, который будем изменять
+                int id = SourceList[index]._user_id;
+                var user = dbContext.UsersMs.Local
+                    .Single(o => o._user_id == id);
+
+                // Изменяем, просто изменяя поля на поля объекта temp
+                user._surname = temp._surname;
+                user._name = temp._name;
+                user._lastname = temp._lastname;
+                user._sex = temp._sex;
+                temp._birthday = temp._birthday;
+                user._login = temp._login;
+                user._pass = temp._pass;
+                user._access = temp._access;
+                user._bill = temp._bill;
+
+                // Говорим контексту БД, что данный объект был изменен
+                dbContext.Entry(user).State = EntityState.Modified;
+            }
+
+            // Сохранение контекста БД
             dbContext.SaveChanges();
 
             // Обновление списка
-            //dbContext.UsersMs.Load();
             SourceList = dbContext.UsersMs.Local.ToBindingList();
 
-            // В конце нужно насильно пнуть ебанный датагрид
-            // Он рили уже заебал как и ваш шарп в целом
-            // Ты ебать обновляешь ему ItemsSource
-            // А он как долбоеб такой смотрит на тя, ваще ПОХУЙ...
-            // Настолько похуй, что даже господь со всей своей силой
-            // не смог бы поднять этот ебанный член похуиста датагрида :/
-            //MenuV.MenuV_DataGrid.Items.Refresh();
-        }
-
-        // Метод, срабатывающий при нажатии на кнопку "Изменить"
-        public void Edit()
-        {
-            throw new System.NotImplementedException();
+            // Пинаем DataGrid, ибо он тупой и по другому не понимает
+            MenuV.Current_DataGrid.Items.Refresh();
         }
 
         // Метод, срабатывающий при нажатии на кнопку "Удалить"
         public void Delete()
         {
-            throw new System.NotImplementedException();
+            // если ничего не выбрано в датагриде то ошибка
+            if (MenuV.Current_DataGrid.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("Выберите элементы для удаления!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            // Пока есть элементы, которые нужно удалить, то крутится цикл
+            while (MenuV.Current_DataGrid.SelectedItems.Count > 0)
+            {
+                // индекс текущей выбранной строки в DataGrid
+                // кастыль, но куда без кастылей?
+                index = MenuV.Current_DataGrid.SelectedIndex;
+
+                // Прежде чем удалить элемент из данной таблицы,
+                // нужно удалить его из зависимых таблиц (см. Физическую модель)
+                // иначе будет ошибка и приложение крашнится
+
+                // Получение элемента, который будем удалять
+                UsersM deleteEntity = SourceList[index];
+                
+                // Получение всех записей из зависимой таблицы с билетами,
+                // которые содержат нашего юзера
+                var tickets = dbContext.TicketsMs
+                    .Where(o => o._user_id == deleteEntity._user_id);
+
+                // Если в зависимых таблицах есть записи с нашим юзером,
+                // то произвести чистим зависимую таблицу
+                if (tickets != null)
+                    dbContext.TicketsMs.RemoveRange(tickets);
+
+                // После того, как подчистили зависимые таблицы,
+                // выбираем сам объект для удаления из КОНТЕКСТА БД
+                var contextDeleteEntity = dbContext.UsersMs.Local
+                    .Single(o => o._user_id == deleteEntity._user_id);
+
+                // Удаляем контекстного юзера из контекста
+                dbContext.UsersMs.Local.Remove(contextDeleteEntity);
+
+                // Удаляем НЕконтекстного юзера из SourceList
+                SourceList.Remove(deleteEntity);
+            }
+
+            // Сохраняем контекст БД
+            dbContext.SaveChanges();
         }
     }
 }

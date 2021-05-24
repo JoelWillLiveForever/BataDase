@@ -6,8 +6,7 @@ namespace BataDase.MVVM.ViewModels
     public interface ObjectModel
     {
         void Request();
-        void Add();
-        void Edit();
+        void AddEdit(bool isAdd);
         void Delete();
 
         void Close();
@@ -73,12 +72,12 @@ namespace BataDase.MVVM.ViewModels
 
             AddCommand = new RelayCommand(o =>
             {
-                CurrentModel.Add();
+                CurrentModel.AddEdit(true);
             });
 
             EditCommand = new RelayCommand(o =>
             {
-                CurrentModel.Edit();
+                CurrentModel.AddEdit(false);
             });
 
             DeleteCommand = new RelayCommand(o =>
