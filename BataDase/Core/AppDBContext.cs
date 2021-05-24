@@ -5,17 +5,8 @@ namespace BataDase.Core
 {
 	public class AppDBContext : DbContext
 	{
-		private static AppDBContext instance = null;
-
 		// dbContext
-		private AppDBContext() : base("DefaultConnection") { }
-
-		public static AppDBContext GetInstance()
-        {
-			if (instance == null)
-				instance = new AppDBContext();
-			return instance;
-        }
+		public AppDBContext() : base("DefaultConnection") { }
 
 		// Entities
 		public DbSet<BodiesM> BodiesMs { get; set; }

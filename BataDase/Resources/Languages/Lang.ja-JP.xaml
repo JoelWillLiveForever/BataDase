@@ -23,7 +23,7 @@
 
     <!-- Buttons -->
     <sys:String x:Key="Text_Request">リクエスト</sys:String>
-    <sys:String x:Key="Text_Add">作成</sys:String>
+    <sys:String x:Key="Text_Create">作成</sys:String>
     <sys:String x:Key="Text_Edit">編集</sys:String>
     <sys:String x:Key="Text_Delete">削除</sys:String>
 
@@ -48,31 +48,6 @@
     <sys:String x:Key="Text_Weight">量</sys:String>
     <sys:String x:Key="Text_CargoWeight">荷の量</sys:String>
     <sys:String x:Key="Text_MaxSeats">座席数</sys:String>
-    <sys:String x:Key="Text_CargoCarriage">貨電車</sys:String>
-    <sys:String x:Key="Text_PassengerCarriage">パッセージャ</sys:String>
-    <sys:String x:Key="Text_RestauranCarriage">レストラン</sys:String>
-
-    <!-- Column "Locomotives" -->
-    <sys:String x:Key="Text_AvgSpeed0">質量0での速度</sys:String>
-    <sys:String x:Key="Text_AvgSpeed100">質量マクシでの速度</sys:String>
-    <sys:String x:Key="Text_SteamLoco">蒸気</sys:String>
-    <sys:String x:Key="Text_HeatLoco">熱</sys:String>
-    <sys:String x:Key="Text_ElectroLoco">電車</sys:String>
-
-    <!-- Column Users -->
-    <sys:String x:Key="Text_Surname">姓前</sys:String>
-    <sys:String x:Key="Text_Name">名前</sys:String>
-    <sys:String x:Key="Text_Lastname">父称</sys:String>
-    <sys:String x:Key="Text_Sex">性</sys:String>
-    <sys:String x:Key="Text_Birthday">生年月日</sys:String>
-    <sys:String x:Key="Text_Bill">現金口座</sys:String>
-    <sys:String x:Key="Text_Access">アクセスレベル</sys:String>
-
-    <sys:String x:Key="Text_Male">男</sys:String>
-    <sys:String x:Key="Text_Female">女</sys:String>
-
-    <sys:String x:Key="Text_Admin">管理者</sys:String>
-    <sys:String x:Key="Text_User">ユーザ</sys:String>
 
     <!-- Font for this language -->
     <FontFamily x:Key="Font_MyLocalFont">pack://application:,,,/Resources/Fonts/Sawarabi_Mincho/#Sawarabi Mincho</FontFamily>
