@@ -20,8 +20,8 @@ namespace BataDase.MVVM.Views
             Button_Minimize.Click += (s, e) => WindowState = WindowState.Minimized;
             Button_Close.Click += (s, e) => Close();
 
-            MaxWidth = 400;
-            MaxHeight = 500;
+            MaxWidth = 500;
+            MaxHeight = 600;
         }
 
         // Custom WindowChrome

@@ -25,7 +25,7 @@
                             Value="10"/>
                 </Style.Setters>
             </Style>
-            <Style TargetType="{x:Type Label}">
+            <Style TargetType="{x:Type TextBlock}">
                 <Style.Setters>
                     <Setter Property="Background" 
                             Value="Transparent"/>
