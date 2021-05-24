@@ -214,8 +214,9 @@
                                  Opacity="0.87"/>
             </Setter.Value>
         </Setter>
-        <Setter Property="RowBackground" Value="Transparent"/>
-        <Setter Property="AlternatingRowBackground">
+        <Setter Property="AlternatingRowBackground" 
+                Value="Transparent"/>
+        <Setter Property="RowBackground">
             <Setter.Value>
                 <SolidColorBrush Color="{DynamicResource Color_OnBackground_OnSurface}"
                                  Opacity="0.12"/>
@@ -230,9 +231,9 @@
         <Setter Property="ColumnWidth"
                 Value="*"/>
         <Setter Property="CanUserAddRows"
-                Value="True"/>
+                Value="False"/>
         <Setter Property="CanUserDeleteRows"
-                Value="True"/>
+                Value="False"/>
         <Setter Property="CanUserReorderColumns"
                 Value="True"/>
         <Setter Property="CanUserResizeColumns"

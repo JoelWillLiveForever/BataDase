@@ -12,7 +12,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
         public TrainsVM()
         {
-            dbContext = new AppDBContext();
+            dbContext = AppDBContext.GetInstance();
             dbContext.TrainsMs.Load();
 
             SourceList = dbContext.TrainsMs.Local.ToBindingList();
@@ -32,8 +32,23 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
         public void Connect()
         {
             if (dbContext != null) return;
-            dbContext = new AppDBContext();
+            dbContext = AppDBContext.GetInstance();
             dbContext.TrainsMs.Load();
+        }
+
+        public void Request()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void AddEdit(bool isAdd)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Delete()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
