@@ -5,10 +5,7 @@ namespace BataDase.MVVM.ViewModels
 {
     public interface ObjectModel
     {
-        void Request();
-        void AddEdit(bool isAdd);
-        void Delete();
-
+        void Save();
         void Close();
         void Connect();
     }
@@ -28,11 +25,6 @@ namespace BataDase.MVVM.ViewModels
 
         // Команда, реагирующая на нажатие кнопки из меню
         public RelayCommand MenuButtonClick { get; set; }
-
-        public RelayCommand RequestCommand { get; set; }
-        public RelayCommand AddCommand { get; set; }
-        public RelayCommand EditCommand { get; set; }
-        public RelayCommand DeleteCommand { get; set; }
 
         private BodiesVM bodiesVM;
         private CarriagesVM carriagesVM;
@@ -64,26 +56,6 @@ namespace BataDase.MVVM.ViewModels
 
             // Повесить команды на MenuButtonClick
             MenuButtonClick = new RelayCommand(ClickExecute);
-
-            RequestCommand = new RelayCommand(o =>
-            {
-                CurrentModel.Request();
-            });
-
-            AddCommand = new RelayCommand(o =>
-            {
-                CurrentModel.AddEdit(true);
-            });
-
-            EditCommand = new RelayCommand(o =>
-            {
-                CurrentModel.AddEdit(false);
-            });
-
-            DeleteCommand = new RelayCommand(o =>
-            {
-                CurrentModel.Delete();
-            });
         }
 
         public void ClickExecute(object param)
@@ -91,6 +63,7 @@ namespace BataDase.MVVM.ViewModels
             System.Diagnostics.Debug.WriteLine($"Clicked: {param as string}");
             string name = param as string;
 
+            CurrentModel.Save();
             CurrentModel.Close();
 
             if (name == "Bodies")
