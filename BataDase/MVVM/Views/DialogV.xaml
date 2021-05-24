@@ -1,0 +1,99 @@
+﻿<Window x:Class="BataDase.MVVM.Views.DialogV"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:vm="clr-namespace:BataDase.MVVM.ViewModels"
+        xmlns:local="clr-namespace:BataDase"
+        mc:Ignorable="d"
+        Style="{StaticResource Style_Window}"
+        Title="Dialog" WindowStartupLocation="CenterScreen" 
+        ResizeMode="CanMinimize" 
+        d:DesignWidth="500" 
+        d:DesignHeight="600">
+
+    <Window.DataContext>
+        <vm:DialogVM/>
+    </Window.DataContext>
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="{StaticResource Value_WindowChrome_CaptionHeight}"
+                      CornerRadius="0"
+                      GlassFrameThickness="0"
+                      NonClientFrameEdges="None"
+                      ResizeBorderThickness="5"
+                      UseAeroCaptionButtons="False"/>
+    </WindowChrome.WindowChrome>
+
+    <Border Background="{DynamicResource Brush_Background_Foreground}">
+        <DockPanel LastChildFill="True">
+
+            <DockPanel DockPanel.Dock="Top"
+                       LastChildFill="False"
+                       Height="{StaticResource Value_WindowChrome_CaptionHeight}">
+
+                <Button DockPanel.Dock="Right" 
+                        x:Name="Button_Close"
+                        WindowChrome.IsHitTestVisibleInChrome="True"
+                        Style="{StaticResource Style_Button_WindowClose}">
+                    <Viewbox Child="{StaticResource Icon_Close}"
+                             Width="{StaticResource Value_IconSize}"
+                             Height="{StaticResource Value_IconSize}"/>
+                </Button>
+
+                <Button DockPanel.Dock="Right"
+                        x:Name="Button_Minimize"
+                        WindowChrome.IsHitTestVisibleInChrome="True"
+                        Style="{StaticResource Style_Button_WindowTitle}">
+                    <Viewbox Child="{StaticResource Icon_Minimize}"
+                             Width="{StaticResource Value_IconSize}"
+                             Height="{StaticResource Value_IconSize}"/>
+                </Button>
+
+                <StackPanel DockPanel.Dock="Left"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+                    <StackPanel HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal"
+                                Margin="9,0,0,0">
+                        <Viewbox Child="{StaticResource Icon_Logo}"
+                                 Height="10"/>
+                    </StackPanel>
+                </StackPanel>
+
+            </DockPanel>
+
+            <!-- Window Content -->
+            <DockPanel x:Name="Dialog_DockPanel"
+                       LastChildFill="True">
+                <Button x:Name="Button_Execute"
+                        DockPanel.Dock="Bottom"
+                        Width="Auto"
+                        Height="35"
+                        Margin="10"
+                        Style="{StaticResource Style_Button_Primary}"/>
+                <Grid x:Name="Dialog_Grid"
+                      Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="215"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </DockPanel>
+        </DockPanel>
+    </Border>
+</Window>
