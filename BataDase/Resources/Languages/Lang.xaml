@@ -27,6 +27,9 @@
     <sys:String x:Key="Text_Edit">Изменить</sys:String>
     <sys:String x:Key="Text_Delete">Удалить</sys:String>
 
+    <!-- Labels -->
+    <sys:String x:Key="Text_Language">Язык</sys:String>
+    
     <!-- Columns headers -->
     <sys:String x:Key="Text_RowNumber">Номер п/п</sys:String>
     <!-- Column "Cities" -->

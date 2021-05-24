@@ -72,5 +72,20 @@ namespace BataDase.MVVM.Views
 
             return null;
         }
-    }
+
+		private void Button_Settings_Click(object sender, System.Windows.RoutedEventArgs e)
+		{
+            
+		}
+
+		private void Button_Account_Click(object sender, System.Windows.RoutedEventArgs e)
+		{
+            
+		}
+
+		private void Button_FAQ_Click(object sender, System.Windows.RoutedEventArgs e)
+		{
+            
+		}
+	}
 }

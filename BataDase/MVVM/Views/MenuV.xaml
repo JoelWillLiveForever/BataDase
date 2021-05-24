@@ -27,7 +27,7 @@
                 </Setter>
             </Style>
         </DockPanel.Resources>
-        
+
         <StackPanel DockPanel.Dock="Left"
                     Orientation="Vertical"
                     MinWidth="50"
@@ -89,6 +89,53 @@
                          Style="{StaticResource Style_Button_Menu}"
                          Command="{Binding MenuButtonClick}"
                          CommandParameter="Users"/>
+            <Grid Height="62" Width="132">
+                <Button 
+                x:Name="Button_Settings"
+                HorizontalAlignment="Left" 
+                Margin="10,17,0,0" 
+                VerticalAlignment="Top" 
+                Width="34" Height="30"
+                Click="Button_Settings_Click"
+                Style="{StaticResource Style_Button_Primary}" >
+                    <Button.Background>
+                        <SolidColorBrush Color="White" Opacity="0.12"/>
+                    </Button.Background>
+                    <Button.BorderBrush>
+                        <ImageBrush ImageSource="/De Train;component/Resources/Icons/settings.png"/>
+                    </Button.BorderBrush>
+                </Button>
+                <Button 
+                    x:Name="Button_Account"
+                    HorizontalAlignment="Left" 
+                    Margin="49,17,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="34" Height="30"
+                    Click="Button_Account_Click"
+                    Style="{StaticResource Style_Button_Primary}" >
+                    <Button.Background>
+                        <SolidColorBrush Color="White" Opacity="0.12"/>
+                    </Button.Background>
+                    <Button.BorderBrush>
+                        <ImageBrush ImageSource="/De Train;component/Resources/Icons/account.png"/>
+                    </Button.BorderBrush>
+                </Button>
+                <Button 
+                    x:Name="Button_FAQ"
+                    HorizontalAlignment="Left" 
+                    Margin="88,17,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="34" Height="30"
+                    Click="Button_FAQ_Click"
+                    Style="{StaticResource Style_Button_Primary}" >
+                    <Button.Background>
+                        <SolidColorBrush Color="White" Opacity="0.12"/>
+                    </Button.Background>
+                    <Button.BorderBrush>
+                        <ImageBrush ImageSource="/De Train;component/Resources/Icons/questionMark.png"/>
+                    </Button.BorderBrush>
+                </Button>
+            </Grid>
 
         </StackPanel>
         <Border Padding="9">
