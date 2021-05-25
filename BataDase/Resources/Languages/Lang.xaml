@@ -9,16 +9,13 @@
     <sys:String x:Key="Text_SignUp">Зарегистрироваться</sys:String>
     
     <!-- Tables names -->
-    <sys:String x:Key="Text_Bodies">Тела</sys:String>
     <sys:String x:Key="Text_Carriages">Вагоны</sys:String>
     <sys:String x:Key="Text_Cities">Города</sys:String>
-    <sys:String x:Key="Text_Heads">Головы</sys:String>
     <sys:String x:Key="Text_Locomotives">Локомотивы</sys:String>
-    <sys:String x:Key="Text_Paths">Пути</sys:String>
     <sys:String x:Key="Text_Routes">Маршруты</sys:String>
     <sys:String x:Key="Text_Tickets">Билеты</sys:String>
     <sys:String x:Key="Text_Trains">Поезда</sys:String>
-    <sys:String x:Key="Text_Trajectories">Траектории</sys:String>
+    <sys:String x:Key="Text_Schedules">Расписание</sys:String>
     <sys:String x:Key="Text_Users">Пользователи</sys:String>
 
     <!-- Buttons -->
@@ -51,22 +48,26 @@
     <sys:String x:Key="Text_TicketNumber">Номер</sys:String>
 
     <!-- Column "Carriages" -->
-    <sys:String x:Key="Text_PMW">Разрешённая ММ</sys:String>
     <sys:String x:Key="Text_Model">Модель</sys:String>
     <sys:String x:Key="Text_Type">Тип</sys:String>
     <sys:String x:Key="Text_Weight">Масса</sys:String>
-    <sys:String x:Key="Text_CargoWeight">Масса груза</sys:String>
+    <sys:String x:Key="Text_MaxLoadWeight">МДМ груза</sys:String>
     <sys:String x:Key="Text_MaxSeats">Кол-во мест</sys:String>
+    <sys:String x:Key="Text_Class">Класс</sys:String>
     <sys:String x:Key="Text_CargoCarriage">Грузовой</sys:String>
     <sys:String x:Key="Text_PassengerCarriage">Пассажирский</sys:String>
-    <sys:String x:Key="Text_RestauranCarriage">Ресторанный</sys:String>
+    <sys:String x:Key="Text_RestauranCarriage">Ресторан</sys:String>
+    <sys:String x:Key="Text_ClassCompartment">Купейный</sys:String>
+    <sys:String x:Key="Text_ClassEconom">Плацкартный</sys:String>
+    <sys:String x:Key="Text_ClassSeated">Сидячий</sys:String>
 
     <!-- Column "Locomotives" -->
-    <sys:String x:Key="Text_AvgSpeed0">Скорость при 0 массе</sys:String>
-    <sys:String x:Key="Text_AvgSpeed100">Скорость при максимальной массе</sys:String>
-    <sys:String x:Key="Text_SteamLoco">Паровой</sys:String>
-    <sys:String x:Key="Text_HeatLoco">Тепловой</sys:String>
-    <sys:String x:Key="Text_ElectroLoco">Электрический</sys:String>
+    <sys:String x:Key="Text_MaxTrailerWeight">МДМ прицепа</sys:String>
+    <sys:String x:Key="Text_AvgSpeed0">Скорость без груза</sys:String>
+    <sys:String x:Key="Text_AvgSpeed100">Скорость при МДМ прицепа</sys:String>
+    <sys:String x:Key="Text_SteamLoco">Паровоз</sys:String>
+    <sys:String x:Key="Text_HeatLoco">Тепловоз</sys:String>
+    <sys:String x:Key="Text_ElectroLoco">Электровоз</sys:String>
 
     <!-- Column "Paths" -->
     <sys:String x:Key="Text_IsPaths">Наличие пути</sys:String>

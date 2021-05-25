@@ -34,33 +34,27 @@ namespace BataDase.MVVM.ViewModels
         public RelayCommand EditCommand { get; set; }
         public RelayCommand DeleteCommand { get; set; }
 
-        private BodiesVM bodiesVM;
         private CarriagesVM carriagesVM;
         private CitiesVM citiesVM;
-        private HeadsVM headsVM;
         private LocomotivesVM locomotivesVM;
-        private PathsVM pathsVM;
         private RoutesVM routesVM;
+        private SchedulesVM schedulesVM;
         private TicketsVM ticketsVM;
         private TrainsVM trainsVM;
-        private TrajectoriesVM trajectoriesVM;
         private UsersVM usersVM;
 
         public MenuVM()
         {
-            bodiesVM = new BodiesVM();
             carriagesVM = new CarriagesVM();
             citiesVM = new CitiesVM();
-            headsVM = new HeadsVM();
             locomotivesVM = new LocomotivesVM();
-            pathsVM = new PathsVM();
             routesVM = new RoutesVM();
+            schedulesVM = new SchedulesVM();
             ticketsVM = new TicketsVM();
             trainsVM = new TrainsVM();
-            trajectoriesVM = new TrajectoriesVM();
             usersVM = new UsersVM();
 
-            CurrentModel = bodiesVM;
+            CurrentModel = locomotivesVM;
 
             // Повесить команды на MenuButtonClick
             MenuButtonClick = new RelayCommand(ClickExecute);
@@ -93,37 +87,35 @@ namespace BataDase.MVVM.ViewModels
 
             CurrentModel.Close();
 
-            if (name == "Bodies")
-            {
-                CurrentModel = bodiesVM;
-            } else if (name == "Carriages")
+            if (name == "Carriages")
             {
                 CurrentModel = carriagesVM;
-            } else if (name == "Cities")
+            }
+            else if (name == "Cities")
             {
                 CurrentModel = citiesVM;
-			} else if (name == "Heads")
-            {
-                CurrentModel = headsVM;
-            } else if (name == "Locomotives")
+            }
+            else if (name == "Locomotives")
             {
                 CurrentModel = locomotivesVM;
-            } else if (name == "Paths")
+            }
+            else if (name == "Schedules")
             {
-                CurrentModel = pathsVM;
-            } else if (name == "Routes")
+                CurrentModel = schedulesVM;
+            }
+            else if (name == "Routes")
             {
                 CurrentModel = routesVM;
-            } else if (name == "Tickets")
+            } 
+            else if (name == "Tickets")
             {
                 CurrentModel = ticketsVM;
-            } else if (name == "Trains")
+            }
+            else if (name == "Trains")
             {
                 CurrentModel = trainsVM;
-            } else if (name == "Trajectories")
-            {
-                CurrentModel = trajectoriesVM;
-            } else if (name == "Users")
+            }
+            else if (name == "Users")
             {
                 CurrentModel = usersVM;
             }

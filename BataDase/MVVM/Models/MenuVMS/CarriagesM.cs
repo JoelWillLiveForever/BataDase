@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace BataDase.MVVM.Models.MenuVMS
 {
@@ -12,18 +13,33 @@ namespace BataDase.MVVM.Models.MenuVMS
         public string _model { get; set; }
 
         //[DisplayName("Text_Type")]
-        public string _type { get; set; }
+        public int _type { get; set; }
 
         //[DisplayName("Text_Weight")]
-        public float _weight { get; set; }
+        public double _weight { get; set; }
 
         //[DisplayName("Text_CargoWeight")]
-        public float _cargo_weight { get; set; }
+        public double _max_load_weight { get; set; }
 
         //[DisplayName("Text_PMW")]
-        public float _pmw { get; set; }
+        public int _max_seats { get; set; }
 
         //[DisplayName("Text_MaxSeats")]
-        public int _max_seats { get; set; }
+        public int _class { get; set; }
+
+        public virtual ICollection<TrainsM> TrainsMs_First { get; set; }
+        public virtual ICollection<TrainsM> TrainsMs_Second { get; set; }
+        public virtual ICollection<TrainsM> TrainsMs_Third { get; set; }
+        public virtual ICollection<TrainsM> TrainsMs_Fourth { get; set; }
+        public virtual ICollection<TrainsM> TrainsMs_Fifth { get; set; }
+
+        public CarriagesM()
+        {
+            TrainsMs_First = new HashSet<TrainsM>();
+            TrainsMs_Second = new HashSet<TrainsM>();
+            TrainsMs_Third = new HashSet<TrainsM>();
+            TrainsMs_Fourth = new HashSet<TrainsM>();
+            TrainsMs_Fifth = new HashSet<TrainsM>();
+        }
     }
 }

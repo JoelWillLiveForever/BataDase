@@ -17,9 +17,9 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 		public BindingList<CarriagesM> SourceList { get; set; }
 		private AppDBContext dbContext;
 
-		private TextBlock Model, Type, Weight, PMW, CargoWeight, MaxSeats;
-		private TextBox model, weight, pmw, cargoWeight, maxSeats;
-		private ComboBox type;
+		private TextBlock Model, Type, Weight, MaxLoadWeight, MaxSeats, CarriageClass;
+		private TextBox model, weight, maxLoadWeight, maxSeats;
+		private ComboBox type, carriageClass;
 
 		public CarriagesVM()
         {
@@ -50,23 +50,23 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 			Grid.SetColumn(Weight, 0);
 
 			// Лэйбл "Разрешённая ММ", назначение текста, строки и колонки в Grid
-			PMW = new TextBlock();
-			PMW.Text = App.Current.Resources["Text_PMW"] + ":";
-			Grid.SetRow(PMW, 3);
-			Grid.SetColumn(PMW, 0);
-
-			// Лэйбл "Средняя скорость 0", назначение текста, строки и колонки в Grid
-			CargoWeight = new TextBlock();
-			CargoWeight.Text = App.Current.Resources["Text_AvgSpeed0"] + ":";
-			Grid.SetRow(CargoWeight, 4);
-			Grid.SetColumn(CargoWeight, 0);
+			MaxLoadWeight = new TextBlock();
+			MaxLoadWeight.Text = App.Current.Resources["Text_MaxLoadWeight"] + ":";
+			Grid.SetRow(MaxLoadWeight, 3);
+			Grid.SetColumn(MaxLoadWeight, 0);
 
 			// Лэйбл "Средняя скорость 100", назначение текста, строки и колонки в Grid
 			MaxSeats = new TextBlock();
-			MaxSeats.Text = App.Current.Resources["Text_AvgSpeed100"] + ":";
+			MaxSeats.Text = App.Current.Resources["Text_MaxSeats"] + ":";
 			MaxSeats.TextWrapping = 0;
-			Grid.SetRow(MaxSeats, 5);
+			Grid.SetRow(MaxSeats, 4);
 			Grid.SetColumn(MaxSeats, 0);
+
+			// Лэйбл "Средняя скорость 0", назначение текста, строки и колонки в Grid
+			CarriageClass = new TextBlock();
+			CarriageClass.Text = App.Current.Resources["Text_Class"] + ":";
+			Grid.SetRow(CarriageClass, 5);
+			Grid.SetColumn(CarriageClass, 0);
 
 			// Текстбокс "Модель", назначение отсутпа (Margin), строки и колонки в Grid
 			model = new TextBox();
@@ -74,67 +74,96 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 			Grid.SetRow(model, 0);
 			Grid.SetColumn(model, 1);
 
-			// Текстбокс "Вес", назначение отсутпа (Margin), строки и колонки в Grid
-			weight = new TextBox();
-			weight.Margin = temp;
-			Grid.SetRow(weight, 2);
-			Grid.SetColumn(weight, 1);
-
-			// Текстбокс "Разрешённая ММ", назначение отсутпа (Margin), строки и колонки в Grid
-			pmw = new TextBox();
-			pmw.Margin = temp;
-			Grid.SetRow(pmw, 3);
-			Grid.SetColumn(pmw, 1);
-
-			// Текстбокс "Разрешённая ММ", назначение отсутпа (Margin), строки и колонки в Grid
-			cargoWeight = new TextBox();
-			cargoWeight.Margin = temp;
-			Grid.SetRow(cargoWeight, 4);
-			Grid.SetColumn(cargoWeight, 1);
-
-			// Текстбокс "Разрешённая ММ", назначение отсутпа (Margin), строки и колонки в Grid
-			maxSeats = new TextBox();
-			maxSeats.Margin = temp;
-			Grid.SetRow(maxSeats, 5);
-			Grid.SetColumn(maxSeats, 1);
-
 			// Комбобокс "Тип", назначение отсутпа (Margin), строки и колонки в Grid
 			type = new ComboBox();
 			type.Margin = temp;
 			Grid.SetRow(type, 1);
 			Grid.SetColumn(type, 1);
 
-			// Вытягивание полов из ресурсов
-			string cargoCarriage = (string)App.Current.Resources["Text_CargoCarriage"];
-			string passCarriage = (string)App.Current.Resources["Text_PassengerCarriage"];
-			string restCarriage = (string)App.Current.Resources["Text_RestauranCarriage"];
+			int lastSelectedIndex = -1;
+			type.SelectionChanged += new SelectionChangedEventHandler((sender, e) =>
+			{
+				if (type.SelectedIndex == 0)
+				{
+					carriageClass.IsEnabled = true;
+					maxSeats.IsEnabled = true;
+					carriageClass.SelectedIndex = lastSelectedIndex;
+					return;
+				}
+				// Сохранение выбранного состояния
+				lastSelectedIndex = carriageClass.SelectedIndex;
+				carriageClass.SelectedIndex = -1;
 
-			// Назначение элементов комбобокс
-			type.Items.Insert(0, passCarriage);
-			type.Items.Insert(1, cargoCarriage);
-			type.Items.Insert(2, restCarriage);
-			type.SelectedIndex = 0;
+				carriageClass.IsEnabled = false;
+				maxSeats.IsEnabled = false;
+			});
 
-			// Инициализация списка элементов БД
-			SourceList = dbContext.CarriagesMs.Local.ToBindingList();
+            // Текстбокс "Вес", назначение отсутпа (Margin), строки и колонки в Grid
+            weight = new TextBox();
+            weight.Margin = temp;
+            Grid.SetRow(weight, 2);
+            Grid.SetColumn(weight, 1);
+
+            // Текстбокс "Разрешённая ММ", назначение отсутпа (Margin), строки и колонки в Grid
+            maxLoadWeight = new TextBox();
+            maxLoadWeight.Margin = temp;
+            Grid.SetRow(maxLoadWeight, 3);
+            Grid.SetColumn(maxLoadWeight, 1);
+
+            // Текстбокс "Разрешённая ММ", назначение отсутпа (Margin), строки и колонки в Grid
+            maxSeats = new TextBox();
+            maxSeats.Margin = temp;
+            Grid.SetRow(maxSeats, 4);
+            Grid.SetColumn(maxSeats, 1);
+
+            // Комбобокс "Тип", назначение отсутпа (Margin), строки и колонки в Grid
+            carriageClass = new ComboBox();
+            carriageClass.Margin = temp;
+            Grid.SetRow(carriageClass, 5);
+            Grid.SetColumn(carriageClass, 1);
+
+            // Вытягивание полов из ресурсов
+            string cargoCarriage = (string)App.Current.Resources["Text_CargoCarriage"];
+            string passCarriage = (string)App.Current.Resources["Text_PassengerCarriage"];
+            string restCarriage = (string)App.Current.Resources["Text_RestauranCarriage"];
+
+            // Назначение элементов комбобокс
+            type.Items.Insert(0, passCarriage);
+            type.Items.Insert(1, restCarriage);
+            type.Items.Insert(2, cargoCarriage);
+            type.SelectedIndex = 0;
+
+            // Вытягивание полов из ресурсов
+            string classCompartment = (string)App.Current.Resources["Text_ClassCompartment"];
+            string classEconom = (string)App.Current.Resources["Text_ClassEconom"];
+            string classSeated = (string)App.Current.Resources["Text_ClassSeated"];
+
+            // Назначение элементов комбобокс
+            carriageClass.Items.Insert(0, classCompartment);
+            carriageClass.Items.Insert(1, classEconom);
+            carriageClass.Items.Insert(2, classSeated);
+            carriageClass.SelectedIndex = 0;
+
+            // Инициализация списка элементов БД
+            SourceList = dbContext.CarriagesMs.Local.ToBindingList();
 		}
 
 		public void Save()
 		{
-			if (dbContext != null)
-				dbContext.SaveChanges();
+
 		}
 
 		public void Close()
 		{
-			if (dbContext != null) dbContext = null;
+
 		}
 
 		public void Connect()
 		{
-			if (dbContext != null) return;
 			dbContext = AppDBContext.GetInstance();
 			dbContext.CarriagesMs.Load();
+
+			SourceList = dbContext.CarriagesMs.Local.ToBindingList();
 		}
 
         public void Request()
@@ -181,11 +210,14 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 				CarriagesM temp = SourceList[index];
 
 				model.Text = temp._model;
-				type.SelectedItem = temp._type;
+				type.SelectedIndex = temp._type;
 				weight.Text = temp._weight.ToString();
-				pmw.Text = temp._pmw.ToString();
-				cargoWeight.Text = temp._cargo_weight.ToString();
-				maxSeats.Text = temp._max_seats.ToString();
+				maxLoadWeight.Text = temp._max_load_weight.ToString();
+
+				if (temp._max_seats != -1)
+					maxSeats.Text = temp._max_seats.ToString();
+				if (temp._class != -1)
+					carriageClass.SelectedIndex = temp._class;
 
 				button.Content = App.Current.Resources["Text_Edit"];
 			}
@@ -196,42 +228,45 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 			dialogGrid.Children.Add(Model);
 			dialogGrid.Children.Add(Type);
 			dialogGrid.Children.Add(Weight);
-			dialogGrid.Children.Add(PMW);
-			dialogGrid.Children.Add(CargoWeight);
+			dialogGrid.Children.Add(MaxLoadWeight);
 			dialogGrid.Children.Add(MaxSeats);
+            dialogGrid.Children.Add(CarriageClass);
 
-			dialogGrid.Children.Add(model);
+            dialogGrid.Children.Add(model);
 			dialogGrid.Children.Add(type);
-			dialogGrid.Children.Add(weight);
-			dialogGrid.Children.Add(pmw);
-			dialogGrid.Children.Add(cargoWeight);
-			dialogGrid.Children.Add(maxSeats);
+            dialogGrid.Children.Add(weight);
+            dialogGrid.Children.Add(maxLoadWeight);
+            dialogGrid.Children.Add(maxSeats);
+            dialogGrid.Children.Add(carriageClass);
 
-			// Заполняем нижний Button текстом и вешаем локальный обработчик события нажатия
+            // Заполняем нижний Button текстом и вешаем локальный обработчик события нажатия
 
-			dialogV.ShowDialog();
+            dialogV.ShowDialog();
 
 			// Очищаем Grid
 			dialogGrid.Children.Remove(model);
 			dialogGrid.Children.Remove(type);
 			dialogGrid.Children.Remove(weight);
-			dialogGrid.Children.Remove(pmw);
-			dialogGrid.Children.Remove(cargoWeight);
+			dialogGrid.Children.Remove(maxLoadWeight);
 			dialogGrid.Children.Remove(maxSeats);
+			dialogGrid.Children.Remove(carriageClass);
 
 			dialogGrid.Children.Remove(Model);
 			dialogGrid.Children.Remove(Type);
 			dialogGrid.Children.Remove(Weight);
-			dialogGrid.Children.Remove(PMW);
-			dialogGrid.Children.Remove(CargoWeight);
+			dialogGrid.Children.Remove(MaxLoadWeight);
+			dialogGrid.Children.Remove(CarriageClass);
 			dialogGrid.Children.Remove(MaxSeats);
 
 			model.Text = null;
 			type.SelectedIndex = 0;
 			weight.Text = null;
-			pmw.Text = null;
-			cargoWeight.Text = null;
+			maxLoadWeight.Text = null;
 			maxSeats.Text = null;
+			carriageClass.SelectedIndex = 0;
+
+			maxSeats.IsEnabled = true;
+			carriageClass.IsEnabled = true;
 		}
 
 		public void ExecuteAddEdit(object sender, RoutedEventArgs e)
@@ -241,7 +276,33 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 			{
 				MessageBox.Show("Укажите модель!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
 				return;
-			}
+			} else
+            {
+				foreach (var item in SourceList)
+                {
+					if (item._model == model.Text)
+                    {
+						// Если сейчас добавление, то просто вывести ошибку
+						if (isAdd)
+						{
+							MessageBox.Show("Указанная модель уже существует!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+							return;
+						}
+						// Если сейчас изменение, то в случае совпадения индексов ошибку не выводить
+						else
+						{
+							// Вывести ошибку, если элементы таблицы имеют разные индексы,
+							// т.е. такой логин уже есть у кого то другого в таблице
+							if (item._carriage_id != SourceList[index]._carriage_id)
+							{
+								MessageBox.Show("Указанная модель уже существует!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+								return;
+							}
+						}
+					}
+                }
+            }
+
 			if (type.Text == null || type.Text == "")
 			{
 				MessageBox.Show("Укажите тип!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -262,7 +323,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 				return;
 			}
 
-			if (pmw.Text == null || pmw.Text == "")
+			if (maxLoadWeight.Text == null || maxLoadWeight.Text == "")
 			{
 				MessageBox.Show("Укажите максимально разрешённую массу!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
 				return;
@@ -273,35 +334,35 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 				return;
 			}
 
-			if (cargoWeight.Text == null || cargoWeight.Text == "")
+			if (type.SelectedIndex == 0)
 			{
-				MessageBox.Show("Укажите массу груза!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
-				return;
-			}
-			else if (!float.TryParse(cargoWeight.Text, out resultFloat))
-			{
-				MessageBox.Show("Некорректная масса груза!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
-				return;
-			}
-
-			if (maxSeats.Text == null || maxSeats.Text == "")
-			{
-				MessageBox.Show("Укажите количество мест!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
-				return;
-			}
-			else if (!int.TryParse(maxSeats.Text, out resultInt))
-			{
-				MessageBox.Show("Некорректное количество мест!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
-				return;
+				if (maxSeats.Text == null || maxSeats.Text == "")
+				{
+					MessageBox.Show("Укажите количество мест!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+					return;
+				}
+				else if (!int.TryParse(maxSeats.Text, out resultInt))
+				{
+					MessageBox.Show("Некорректное количество мест!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+					return;
+				}
 			}
 
 			CarriagesM temp = new CarriagesM();
 			temp._model = model.Text;
-			temp._type = type.SelectedItem.ToString();
+			temp._type = type.SelectedIndex;
 			temp._weight = float.Parse(weight.Text);
-			temp._pmw = float.Parse(pmw.Text);
-			temp._cargo_weight = float.Parse(cargoWeight.Text);
-			temp._max_seats = int.Parse(maxSeats.Text);
+			temp._max_load_weight = float.Parse(maxLoadWeight.Text);
+
+			if (type.SelectedIndex == 0)
+			{
+				temp._max_seats = int.Parse(maxSeats.Text);
+				temp._class = carriageClass.SelectedIndex;
+			} else
+            {
+				temp._max_seats = -1;
+				temp._class = -1;
+			}
 
 			// Сохранение нового юзера в БД
 			if (isAdd)
@@ -313,9 +374,9 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 				model.Text = null;
 				type.SelectedIndex = 0;
 				weight.Text = null;
-				pmw.Text = null;
-				cargoWeight.Text = null;
+				maxLoadWeight.Text = null;
 				maxSeats.Text = null;
+				carriageClass.SelectedIndex = 0;
 			}
 			else
 			{
@@ -328,9 +389,9 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 				loco._model = temp._model;
 				loco._type = temp._type;
 				loco._weight = temp._weight;
-				loco._pmw = temp._pmw;
-				loco._cargo_weight = temp._cargo_weight;
+				loco._max_load_weight = temp._max_load_weight;
 				loco._max_seats = temp._max_seats;
+				loco._class = temp._class;
 
 				// Говорим контексту БД, что данный объект был изменен
 				dbContext.Entry(loco).State = EntityState.Modified;
@@ -340,7 +401,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 			// Обновление списка
 			SourceList = dbContext.CarriagesMs.Local.ToBindingList();
 
-			//MenuV.MenuV_DataGrid.Items.Refresh();
+			MenuV.Current_DataGrid.Items.Refresh();
 		}
 
 		public void Delete()

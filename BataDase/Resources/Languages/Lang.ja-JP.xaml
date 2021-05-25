@@ -9,16 +9,13 @@
     <sys:String x:Key="Text_SignUp">サインアップ</sys:String>
 
     <!-- Tables names -->
-    <sys:String x:Key="Text_Bodies">ボディ</sys:String>
     <sys:String x:Key="Text_Carriages">ありがとう</sys:String>
     <sys:String x:Key="Text_Cities">都市</sys:String>
-    <sys:String x:Key="Text_Heads">頭</sys:String>
     <sys:String x:Key="Text_Locomotives">ロコモティブ</sys:String>
-    <sys:String x:Key="Text_Paths">道路</sys:String>
     <sys:String x:Key="Text_Routes">道</sys:String>
     <sys:String x:Key="Text_Tickets">チケット</sys:String>
     <sys:String x:Key="Text_Trains">電車</sys:String>
-    <sys:String x:Key="Text_Trajectories">軌跡</sys:String>
+    <sys:String x:Key="Text_Schedules">Schedule</sys:String>
     <sys:String x:Key="Text_Users">ユーザ</sys:String>
 
     <!-- Buttons -->

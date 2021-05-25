@@ -19,8 +19,8 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
         public BindingList<LocomotivesM> SourceList { get; set; }
         private AppDBContext dbContext;
 
-        private TextBlock Model, Type, Weight, PMW, AvgSpeed0, AvgSpeed100;
-        private TextBox model, weight, pmw, avgspeed0, avgspeed100;
+        private TextBlock Model, Type, Weight, MaxTrailerWeight, AvgSpeed0, AvgSpeed100;
+        private TextBox model, weight, maxTrailerWeight, avgspeed0, avgspeed100;
         private ComboBox type;
 
         public LocomotivesVM()
@@ -52,10 +52,10 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 			Grid.SetColumn(Weight, 0);
 
 			// Лэйбл "Разрешённая ММ", назначение текста, строки и колонки в Grid
-			PMW = new TextBlock();
-			PMW.Text = App.Current.Resources["Text_PMW"] + ":";
-			Grid.SetRow(PMW, 3);
-			Grid.SetColumn(PMW, 0);
+			MaxTrailerWeight = new TextBlock();
+			MaxTrailerWeight.Text = App.Current.Resources["Text_MaxTrailerWeight"] + ":";
+			Grid.SetRow(MaxTrailerWeight, 3);
+			Grid.SetColumn(MaxTrailerWeight, 0);
 
 			// Лэйбл "Средняя скорость 0", назначение текста, строки и колонки в Grid
 			AvgSpeed0 = new TextBlock();
@@ -83,10 +83,10 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 			Grid.SetColumn(weight, 1);
 
 			// Текстбокс "Разрешённая ММ", назначение отсутпа (Margin), строки и колонки в Grid
-			pmw = new TextBox();
-			pmw.Margin = temp;
-			Grid.SetRow(pmw, 3);
-			Grid.SetColumn(pmw, 1);
+			maxTrailerWeight = new TextBox();
+			maxTrailerWeight.Margin = temp;
+			Grid.SetRow(maxTrailerWeight, 3);
+			Grid.SetColumn(maxTrailerWeight, 1);
 
 			// Текстбокс "Разрешённая ММ", назначение отсутпа (Margin), строки и колонки в Grid
 			avgspeed0 = new TextBox();
@@ -112,9 +112,9 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             string heatLoco = (string)App.Current.Resources["Text_HeatLoco"];
 
             // Назначение элементов комбобокс
-            type.Items.Insert(0, electroLoco);
-			type.Items.Insert(1, steamLoco);
-            type.Items.Insert(2, heatLoco);
+            type.Items.Insert(0, heatLoco);
+			type.Items.Insert(1, electroLoco);
+            type.Items.Insert(2, steamLoco);
             type.SelectedIndex = 0;
 
 			// Инициализация списка элементов БД
@@ -134,9 +134,10 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
         public void Connect()
         {
-            if (dbContext != null) return;
             dbContext = AppDBContext.GetInstance();
             dbContext.LocomotivesMs.Load();
+
+            SourceList = dbContext.LocomotivesMs.Local.ToBindingList();
         }
 
         public void Request()
@@ -185,7 +186,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 model.Text = temp._model;
                 type.SelectedItem = temp._type;
                 weight.Text = temp._weight.ToString();
-                pmw.Text = temp._pmw.ToString();
+                maxTrailerWeight.Text = temp._max_trailer_weight.ToString();
                 avgspeed0.Text = temp._avgspeed0.ToString();
                 avgspeed100.Text = temp._avgspeed100.ToString();
 
@@ -198,14 +199,14 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             dialogGrid.Children.Add(Model);
             dialogGrid.Children.Add(Type);
             dialogGrid.Children.Add(Weight);
-            dialogGrid.Children.Add(PMW);
+            dialogGrid.Children.Add(MaxTrailerWeight);
             dialogGrid.Children.Add(AvgSpeed0);
             dialogGrid.Children.Add(AvgSpeed100);
 
             dialogGrid.Children.Add(model);
             dialogGrid.Children.Add(type);
             dialogGrid.Children.Add(weight);
-            dialogGrid.Children.Add(pmw);
+            dialogGrid.Children.Add(maxTrailerWeight);
             dialogGrid.Children.Add(avgspeed0);
             dialogGrid.Children.Add(avgspeed100);
 
@@ -217,21 +218,21 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             dialogGrid.Children.Remove(model);
             dialogGrid.Children.Remove(type);
             dialogGrid.Children.Remove(weight);
-            dialogGrid.Children.Remove(pmw);
+            dialogGrid.Children.Remove(maxTrailerWeight);
             dialogGrid.Children.Remove(avgspeed0);
             dialogGrid.Children.Remove(avgspeed100);
 
             dialogGrid.Children.Remove(Model);
             dialogGrid.Children.Remove(Type);
             dialogGrid.Children.Remove(Weight);
-            dialogGrid.Children.Remove(PMW);
+            dialogGrid.Children.Remove(MaxTrailerWeight);
             dialogGrid.Children.Remove(AvgSpeed0);
             dialogGrid.Children.Remove(AvgSpeed100);
 
             model.Text = null;
             type.SelectedIndex = 0;
             weight.Text = null;
-            pmw.Text = null;
+            maxTrailerWeight.Text = null;
             avgspeed0.Text = null;
             avgspeed100.Text = null;
         }
@@ -264,14 +265,14 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 return;
             }
 
-            if (pmw.Text == null || pmw.Text == "")
+            if (maxTrailerWeight.Text == null || maxTrailerWeight.Text == "")
             {
-                MessageBox.Show("Укажите максимально разрешённую массу!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Укажите максимально допустимую массу прицепа!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             else if (!float.TryParse(weight.Text, out result))
             {
-                MessageBox.Show("Некорректная максимально разрешённая масса!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Некорректная максимально допустимая масса прицепа!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -299,9 +300,9 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
             LocomotivesM temp = new LocomotivesM();
             temp._model = model.Text;
-            temp._type = type.SelectedItem.ToString();
+            temp._type = type.SelectedIndex;
             temp._weight = float.Parse(weight.Text);
-            temp._pmw = float.Parse(pmw.Text);
+            temp._max_trailer_weight = float.Parse(maxTrailerWeight.Text);
             temp._avgspeed0 = float.Parse(avgspeed0.Text);
             temp._avgspeed100 = float.Parse(avgspeed100.Text);
 
@@ -315,7 +316,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 model.Text = null;
                 type.SelectedIndex = 0;
                 weight.Text = null;
-                pmw.Text = null;
+                maxTrailerWeight.Text = null;
                 avgspeed0.Text = null;
                 avgspeed100.Text = null;
             }
@@ -330,7 +331,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 loco._model = temp._model;
                 loco._type = temp._type;
                 loco._weight = temp._weight;
-                loco._pmw = temp._pmw;
+                loco._max_trailer_weight = temp._max_trailer_weight;
                 loco._avgspeed0 = temp._avgspeed0;
                 loco._avgspeed100 = temp._avgspeed100;
 
