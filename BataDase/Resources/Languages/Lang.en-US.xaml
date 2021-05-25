@@ -48,6 +48,7 @@
     <sys:String x:Key="Text_CargoCarriage">Cargo</sys:String>
     <sys:String x:Key="Text_PassengerCarriage">Passenger</sys:String>
     <sys:String x:Key="Text_RestauranCarriage">Restaurant</sys:String>
+    <sys:String x:Key="Text_CarriageModel">Carriage model</sys:String>
 
     <!-- Column "Locomotives" -->
     <sys:String x:Key="Text_AvgSpeed0">Speed with 0 weight</sys:String>
@@ -55,6 +56,7 @@
     <sys:String x:Key="Text_SteamLoco">Steam</sys:String>
     <sys:String x:Key="Text_HeatLoco">Heat</sys:String>
     <sys:String x:Key="Text_ElectroLoco">Electric</sys:String>
+    <sys:String x:Key="Text_LocoModel">Locomotive model</sys:String>
 
     <!-- Column Users -->
     <sys:String x:Key="Text_Surname">Surname</sys:String>

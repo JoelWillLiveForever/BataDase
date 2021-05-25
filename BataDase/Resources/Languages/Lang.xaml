@@ -60,6 +60,7 @@
     <sys:String x:Key="Text_ClassCompartment">Купейный</sys:String>
     <sys:String x:Key="Text_ClassEconom">Плацкартный</sys:String>
     <sys:String x:Key="Text_ClassSeated">Сидячий</sys:String>
+    <sys:String x:Key="Text_CarriageModel">Модель вагона</sys:String>
 
     <!-- Column "Locomotives" -->
     <sys:String x:Key="Text_MaxTrailerWeight">МДМ прицепа</sys:String>
@@ -68,6 +69,7 @@
     <sys:String x:Key="Text_SteamLoco">Паровоз</sys:String>
     <sys:String x:Key="Text_HeatLoco">Тепловоз</sys:String>
     <sys:String x:Key="Text_ElectroLoco">Электровоз</sys:String>
+    <sys:String x:Key="Text_LocoModel">Модель локомотива</sys:String>
 
     <!-- Column "Paths" -->
     <sys:String x:Key="Text_IsPaths">Наличие пути</sys:String>

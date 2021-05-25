@@ -48,6 +48,7 @@
     <sys:String x:Key="Text_CargoCarriage">貨電車</sys:String>
     <sys:String x:Key="Text_PassengerCarriage">パッセージャ</sys:String>
     <sys:String x:Key="Text_RestauranCarriage">レストラン</sys:String>
+    <sys:String x:Key="Text_CarriageModel">車両モデル</sys:String>
 
     <!-- Column "Locomotives" -->
     <sys:String x:Key="Text_AvgSpeed0">質量0での速度</sys:String>
@@ -55,6 +56,7 @@
     <sys:String x:Key="Text_SteamLoco">蒸気</sys:String>
     <sys:String x:Key="Text_HeatLoco">熱</sys:String>
     <sys:String x:Key="Text_ElectroLoco">電車</sys:String>
+    <sys:String x:Key="Text_LocoModel">機関車モデル</sys:String>
 
     <!-- Column Users -->
     <sys:String x:Key="Text_Surname">姓前</sys:String>
