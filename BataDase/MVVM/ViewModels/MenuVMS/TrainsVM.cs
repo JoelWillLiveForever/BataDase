@@ -24,11 +24,11 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
         {
             // Инициализация контекста БД
             dbContext = AppDBContext.GetInstance();
-            dbContext.TrainsMs.Load();
             dbContext.LocomotivesMs.Load();
             locos = dbContext.LocomotivesMs.Local.ToBindingList();
             dbContext.CarriagesMs.Load();
             carriages = dbContext.CarriagesMs.Local.ToBindingList();
+            dbContext.TrainsMs.Load();
 
             // Margin
             Thickness temp = new Thickness(5);
@@ -145,9 +145,56 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
         public void Connect()
         {
-            if (dbContext != null) return;
             dbContext = AppDBContext.GetInstance();
+            dbContext.LocomotivesMs.Load();
+            locos = dbContext.LocomotivesMs.Local.ToBindingList();
+            dbContext.CarriagesMs.Load();
+            carriages = dbContext.CarriagesMs.Local.ToBindingList();
             dbContext.TrainsMs.Load();
+
+            SourceList = dbContext.TrainsMs.Local.ToBindingList();
+
+            locoModel.Items.Clear();
+
+            for (int i = 0; i < locos.Count; i++)
+            {
+                locoModel.Items.Insert(i, locos[i]._model);
+            }
+
+            carrModel0.Items.Clear();
+
+            for (int i = 0; i < carriages.Count; i++)
+            {
+                carrModel0.Items.Insert(i, carriages[i]._model);
+            }
+
+            carrModel1.Items.Clear();
+
+            for (int i = 0; i < carriages.Count; i++)
+            {
+                carrModel1.Items.Insert(i, carriages[i]._model);
+            }
+
+            carrModel2.Items.Clear();
+
+            for (int i = 0; i < carriages.Count; i++)
+            {
+                carrModel2.Items.Insert(i, carriages[i]._model);
+            }
+
+            carrModel3.Items.Clear();
+
+            for (int i = 0; i < carriages.Count; i++)
+            {
+                carrModel3.Items.Insert(i, carriages[i]._model);
+            }
+
+            carrModel4.Items.Clear();
+
+            for (int i = 0; i < carriages.Count; i++)
+            {
+                carrModel4.Items.Insert(i, carriages[i]._model);
+            }
         }
 
         public void Request()
@@ -179,7 +226,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 */
 
 
-				/*// если ничего не выбрано в датагриде то ошибка
+                // если ничего не выбрано в датагриде то ошибка
 				// если выбрано больше 1 элемента то тоже ошибка
 				if (MenuV.Current_DataGrid.SelectedItems.Count < 1)
 				{
@@ -192,22 +239,22 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 					return;
 				}
 
-				// индекс текущей выбранной строки в DataGrid
-				// кастыль, но куда без кастылей?
+				//индекс текущей выбранной строки в DataGrid
+				//кастыль, но куда без кастылей?
 				index = MenuV.Current_DataGrid.SelectedIndex;
 
-				// Если всё ок, вставляем данные для данного юзера в форму, который затем будем менять
+				//Если всё ок, вставляем данные для данного юзера в форму, который затем будем менять
 				TrainsM temp = SourceList[index];
 
-				locoModel.Text = temp._model;
-				type.SelectedItem = temp._type;
-				weight.Text = temp._weight.ToString();
-				maxTrailerWeight.Text = temp._max_trailer_weight.ToString();
-				avgspeed0.Text = temp._avgspeed0.ToString();
-				avgspeed100.Text = temp._avgspeed100.ToString();
+				locoModel.SelectedItem = temp.LocomotivesM._model;
+				carrModel0.SelectedItem = temp.CarriagesM_First._model;
+                carrModel1.SelectedItem = temp.CarriagesM_Second._model;
+				carrModel2.SelectedItem = temp.CarriagesM_Third._model;
+                carrModel3.SelectedItem = temp.CarriagesM_Fourth._model;
+                carrModel4.SelectedItem = temp.CarriagesM_Fifth._model;
 
-				button.Content = App.Current.Resources["Text_Edit"];*/
-			}
+				button.Content = App.Current.Resources["Text_Edit"];
+            }
 
             button.Click += new RoutedEventHandler(ExecuteAddEdit);
 
