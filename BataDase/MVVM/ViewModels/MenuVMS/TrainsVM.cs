@@ -3,6 +3,7 @@ using BataDase.MVVM.Models.MenuVMS;
 using BataDase.MVVM.Views;
 using System.ComponentModel;
 using System.Data.Entity;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -220,12 +221,6 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             // Если это изменение
             else
             {
-                /*
-                 * НЕ УСПЕЛ СДЕЛАТЬ ЭДИТ, ПЛЮС КО ВСЕМУ НАДО ПОФИКСИТЬ ЗАПОЛНЕНИЕ КОМБОБОКСОВ
-                 * наверное через linq запросы, хз :^)
-                */
-
-
                 // если ничего не выбрано в датагриде то ошибка
 				// если выбрано больше 1 элемента то тоже ошибка
 				if (MenuV.Current_DataGrid.SelectedItems.Count < 1)
@@ -302,12 +297,114 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
         public void ExecuteAddEdit(object sender, RoutedEventArgs e)
         {
-            
-		}
+            if (locoModel.Text == null)
+            {
+                MessageBox.Show("Укажите модель локомотива!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (carrModel0.Text == null)
+            {
+                MessageBox.Show("Укажите модель вагона №1!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (carrModel1.Text == null)
+            {
+                MessageBox.Show("Укажите модель вагона №2!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (carrModel2.Text == null)
+            {
+                MessageBox.Show("Укажите модель вагона №3!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (carrModel3.Text == null)
+            {
+                MessageBox.Show("Укажите модель вагона №4!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (carrModel4.Text == null)
+            {
+                MessageBox.Show("Укажите модель вагона №5!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            TrainsM temp = new TrainsM();
+            temp.LocomotivesM._model = locoModel.Text;
+            temp.CarriagesM_First._model = carrModel0.Text;
+            temp.CarriagesM_Second._model = carrModel1.Text;
+            temp.CarriagesM_Third._model = carrModel2.Text;
+            temp.CarriagesM_Fourth._model = carrModel3.Text;
+            temp.CarriagesM_Fifth._model = carrModel4.Text;
+
+            // Сохранение нового юзера в БД
+            if (isAdd)
+            {
+                // Добавляем объект в БД
+                dbContext.TrainsMs.Local.Add(temp);
+
+                // Очищаем поля
+                locoModel.SelectedIndex = 0;
+                carrModel0.SelectedIndex = 0;
+                carrModel1.SelectedIndex = 0;
+                carrModel2.SelectedIndex = 0;
+                carrModel3.SelectedIndex = 0;
+                carrModel4.SelectedIndex = 0;
+            }
+            else
+            {
+                // Получаем объект из БД по айди, который будем изменять
+                int id = SourceList[index]._train_id;
+                var train = dbContext.TrainsMs.Local
+                    .Single(o => o._train_id == id);
+
+                // Изменяем, просто изменяя поля на поля объекта temp
+                train.LocomotivesM._model = locoModel.Text;
+                train.CarriagesM_First._model = carrModel0.Text;
+                train.CarriagesM_Second._model = carrModel1.Text;
+                train.CarriagesM_Third._model = carrModel2.Text;
+                train.CarriagesM_Fourth._model = carrModel3.Text;
+                train.CarriagesM_Fifth._model = carrModel4.Text;
+
+                // Говорим контексту БД, что данный объект был изменен
+                dbContext.Entry(train).State = EntityState.Modified;
+            }
+            dbContext.SaveChanges();
+
+            // Обновление списка
+            SourceList = dbContext.TrainsMs.Local.ToBindingList();
+        }
 
         public void Delete()
         {
-            throw new System.NotImplementedException();
+            if (MenuV.Current_DataGrid.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("Выберите элементы для удаления!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            while (MenuV.Current_DataGrid.SelectedItems.Count > 0)
+            {
+                index = MenuV.Current_DataGrid.SelectedIndex;
+
+                TrainsM deleteEntity = SourceList[index];
+
+                // Удаляем поезд из расписания
+                var schedules = dbContext.SchedulesMs
+                    .Where(o => o._train_id == deleteEntity._train_id);
+
+                if (schedules != null)
+                    dbContext.SchedulesMs.RemoveRange(schedules);
+
+                var contextDeleteEntity = dbContext.SchedulesMs.Local
+                    .Single(o => o._train_id == deleteEntity._train_id);
+
+                dbContext.SchedulesMs.Local.Remove(contextDeleteEntity);
+
+                SourceList.Remove(deleteEntity);
+            }
+
+            // Сохраняем контекст БД
+            dbContext.SaveChanges();
         }
     }
 }
