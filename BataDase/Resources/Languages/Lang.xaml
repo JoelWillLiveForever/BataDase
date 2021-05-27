@@ -34,6 +34,11 @@
     <sys:String x:Key="Text_Longitude">Долгота</sys:String>
     <sys:String x:Key="Text_Latitude">Широта</sys:String>
 
+    <!-- Column "Routes" -->
+    <sys:String x:Key="Text_RouteName">Название маршрута</sys:String>
+    <sys:String x:Key="Text_Start">Начальный пункт</sys:String>
+    <sys:String x:Key="Text_Finish">Конечный пункт</sys:String>
+
     <!-- Column "Users" -->
     <sys:String x:Key="Text_Surname">Фамилия</sys:String>
     <sys:String x:Key="Text_Name">Имя</sys:String>
