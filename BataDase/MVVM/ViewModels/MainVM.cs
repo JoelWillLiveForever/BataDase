@@ -1,4 +1,5 @@
 ﻿using BataDase.Core;
+using BataDase.MVVM.Views;
 
 namespace BataDase.MVVM.ViewModels
 {
@@ -15,22 +16,43 @@ namespace BataDase.MVVM.ViewModels
             }
         }
 
-        public RelayCommand MyMenuVM_RelayCommand { get; set; }
+        public static RelayCommand MenuVM_RelayCommand { get; set; }
+        public static RelayCommand LoginVM_RelayCommand { get; set; }
+        public static RelayCommand RegistrationVM_RelayCommand { get; set; }
 
-        public MenuVM MyMenuVM { get; set; }
+        public static MenuVM menuVM { get; set; }
+        public static LoginVM loginVM { get; set; }
+        public static RegistrationVM registrationVM { get; set; }
 
         public MainVM()
         {
             // Create ViewModels
-            MyMenuVM = new MenuVM();
+            menuVM = new MenuVM();
+            loginVM = new LoginVM();
+            registrationVM = new RegistrationVM();
 
             // Set current ViewModel
-            CurrentActionVM = MyMenuVM;
+            CurrentActionVM = loginVM;
 
             // Set handles
-            MyMenuVM_RelayCommand = new RelayCommand(o =>
+            MenuVM_RelayCommand = new RelayCommand(o =>
             {
-                CurrentActionVM = MyMenuVM;
+                if (Properties.Settings.Default.IsAdmin)
+                    Properties.Settings.Default.Visibility = "Visible";
+                else
+                    Properties.Settings.Default.Visibility = "Collapsed";
+
+                CurrentActionVM = menuVM;
+            });
+
+            LoginVM_RelayCommand = new RelayCommand(o =>
+            {
+                CurrentActionVM = loginVM;
+            });
+
+            RegistrationVM_RelayCommand = new RelayCommand(o =>
+            {
+                CurrentActionVM = registrationVM;
             });
         }
     }

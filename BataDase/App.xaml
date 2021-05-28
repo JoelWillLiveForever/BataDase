@@ -53,6 +53,14 @@
                 <v:TableV/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type vm:LoginVM}">
+                <v:LoginV/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:RegistrationVM}">
+                <v:RegistrationV/>
+            </DataTemplate>
+
             <DataTemplate DataType="{x:Type vm:DialogVM}">
                 <v:DialogV/>
             </DataTemplate>

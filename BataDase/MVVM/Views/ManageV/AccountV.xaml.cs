@@ -1,28 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BataDase.MVVM.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BataDase.MVVM.Views.ManageV
 {
-    /// <summary>
-    /// Interaction logic for AccountV.xaml
-    /// </summary>
     public partial class AccountV : UserControl
     {
         public AccountV()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.CurrentUserId = -1;
+            Properties.Settings.Default.IsAdmin = true;
+            Properties.Settings.Default.Visibility = "Visible";
+
+            MainVM.LoginVM_RelayCommand.Execute(null);
         }
     }
 }

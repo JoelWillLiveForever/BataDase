@@ -5,6 +5,17 @@ namespace BataDase.MVVM.ViewModels
 {
     public class MenuVM : ObservableObject
     {
+        private string _buttonUpdateVisibility;
+        public string ButtonUpdateVisibility
+        {
+            get { return _buttonUpdateVisibility; }
+            set
+            {
+                _buttonUpdateVisibility = value;
+                OnPropertyChanged(nameof(ButtonUpdateVisibility));
+            }
+        }
+
         private object _currentActionVM;
         public object CurrentActionVM
         {

@@ -86,6 +86,13 @@
     <sys:String x:Key="Text_English">English</sys:String>
     <sys:String x:Key="Text_Japanese">Japanese</sys:String>
 
+    <sys:String x:Key="Text_Reg">Registration</sys:String>
+    <sys:String x:Key="Text_Back">Back</sys:String>
+
+    <sys:String x:Key="Text_RepeatPass">Repeat password</sys:String>
+
+    <sys:String x:Key="Text_Logout">Logout</sys:String>
+
     <!-- Font for this language -->
     <FontFamily x:Key="Font_MyLocalFont">pack://application:,,,/Resources/Fonts/Montserrat_Alternates/#Montserrat Alternates</FontFamily>
 

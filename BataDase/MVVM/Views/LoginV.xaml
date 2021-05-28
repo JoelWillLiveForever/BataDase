@@ -1,0 +1,114 @@
+﻿<UserControl x:Class="BataDase.MVVM.Views.LoginV"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:BataDase.MVVM.ViewModels"
+             xmlns:local="clr-namespace:BataDase.MVVM.Views"
+             Style="{StaticResource Style_UserControl}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" 
+             d:DesignWidth="800">
+
+    <Border>
+        <Border.Resources>
+            <Style TargetType="{x:Type Border}">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <SolidColorBrush Color="{DynamicResource Color_OnBackground_OnSurface}"
+                                                     Opacity="0.12"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Border.Resources>
+
+        <!-- Content here -->
+        <Grid>
+            <StackPanel Width="375"
+                        Height="Auto"
+                        Orientation="Vertical"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <StackPanel HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+
+                    <Viewbox Child="{StaticResource Icon_Logo}"
+                             Height="{StaticResource Value_Logo_Login_Icon_Height}"/>
+                </StackPanel>
+
+                <TextBox Margin="0,9,0,0"
+                         Name="TextBox_Login">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox" 
+                               xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                               BasedOn="{StaticResource Style_Dialog_TextBox}">
+                            <Style.Resources>
+                                <VisualBrush x:Key="CueBannerBrush" 
+                                             AlignmentX="Left" 
+                                             AlignmentY="Center"
+                                             Stretch="None">
+                                    <VisualBrush.Visual>
+                                        <Label Content="{DynamicResource Text_Login}"
+                                               FontFamily="{DynamicResource Font_MyLocalFont}"
+                                               FontSize="16">
+                                            <Label.Style>
+                                                <Style TargetType="{x:Type Label}">
+                                                    <Setter Property="Foreground">
+                                                        <Setter.Value>
+                                                            <SolidColorBrush Color="{DynamicResource Color_OnBackground_OnSurface}"
+                                                                             Opacity="0.60"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </Label.Style>
+                                        </Label>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Style.Resources>
+                            <Style.Triggers>
+                                <Trigger Property="Text"
+                                         Value="{x:Static sys:String.Empty}">
+                                    <Setter Property="Background" 
+                                            Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="Text"
+                                         Value="{x:Null}">
+                                    <Setter Property="Background" 
+                                            Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="IsKeyboardFocused" Value="True">
+                                    <Setter Property="Background" 
+                                            Value="Transparent" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+
+                <PasswordBox Margin="0,5,0,0"
+                             Name="TextBox_Pass"
+                             VerticalAlignment="Center" 
+                             Style="{StaticResource Style_PasswordBox}"/>
+
+                <StackPanel Height="30"
+                            Margin="0,9,0,0"
+                            Orientation="Horizontal">
+                    <Button Grid.Column="0"
+                            Width="185"
+                            Name="Button_SignUp"
+                            Style="{StaticResource Style_Button_Primary}"
+                            Content="{StaticResource Text_SignUp}"
+                            Click="Button_Click"/>
+                    <Button Grid.Column="1"
+                            Margin="5,0,0,0"
+                            Width="185"
+                            Name="Button_SignIn"
+                            Style="{StaticResource Style_Button_Primary}"
+                            Content="{StaticResource Text_SignIn}"
+                            Click="Button_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

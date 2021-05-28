@@ -1,5 +1,4 @@
-﻿using BataDase.MVVM.ViewModels;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Reflection;
 using System.Windows.Controls;
