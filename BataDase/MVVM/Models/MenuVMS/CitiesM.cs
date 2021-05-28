@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace BataDase.MVVM.Models.MenuVMS
 {
-    public class CitiesM
+    public partial class CitiesM
     {
         [Key]
         //[DisplayName("Hidden")]
@@ -11,8 +12,18 @@ namespace BataDase.MVVM.Models.MenuVMS
         //[DisplayName("Text_City")]
         public string _city_name { get; set; }
 
-        public float _latitude { get; set; }
+        public double _latitude { get; set; }
 
-        public float _longitude { get; set; }
+        public double _longitude { get; set; }
+
+        // Аварийная связь
+        public virtual ICollection<RoutesM> RoutesMs_Start { get; set; }
+        public virtual ICollection<RoutesM> RoutesMs_Finish { get; set; }
+
+        public CitiesM()
+        {
+            RoutesMs_Start = new HashSet<RoutesM>();
+            RoutesMs_Finish = new HashSet<RoutesM>();
+        }
     }
 }

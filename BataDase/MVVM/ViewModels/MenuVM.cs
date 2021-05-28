@@ -1,58 +1,48 @@
 ﻿using BataDase.Core;
-using BataDase.MVVM.ViewModels.MenuVMS;
+using BataDase.MVVM.ViewModels.ManageVMS;
 
 namespace BataDase.MVVM.ViewModels
 {
-    public interface ObjectModel
-    {
-        void Save();
-        void Close();
-        void Connect();
-    }
-
     public class MenuVM : ObservableObject
     {
-        private ObjectModel _currentModel;
-        public ObjectModel CurrentModel
+        private string _buttonUpdateVisibility;
+        public string ButtonUpdateVisibility
         {
-            get { return _currentModel; }
+            get { return _buttonUpdateVisibility; }
             set
             {
-                _currentModel = value;
-                OnPropertyChanged("CurrentModel");
+                _buttonUpdateVisibility = value;
+                OnPropertyChanged(nameof(ButtonUpdateVisibility));
+            }
+        }
+
+        private object _currentActionVM;
+        public object CurrentActionVM
+        {
+            get { return _currentActionVM; }
+            set
+            {
+                _currentActionVM = value;
+                OnPropertyChanged("CurrentActionVM");
             }
         }
 
         // Команда, реагирующая на нажатие кнопки из меню
         public RelayCommand MenuButtonClick { get; set; }
-
-        private BodiesVM bodiesVM;
-        private CarriagesVM carriagesVM;
-        private CitiesVM citiesVM;
-        private HeadsVM headsVM;
-        private LocomotivesVM locomotivesVM;
-        private PathsVM pathsVM;
-        private RoutesVM routesVM;
-        private TicketsVM ticketsVM;
-        private TrainsVM trainsVM;
-        private TrajectoriesVM trajectoriesVM;
-        private UsersVM usersVM;
+        
+        private TableVM tableVM;
+        private AccountVM accountVM;
+        private SettingsVM settingsVM;
+        private InfoVM infoVM;
 
         public MenuVM()
         {
-            bodiesVM = new BodiesVM();
-            carriagesVM = new CarriagesVM();
-            citiesVM = new CitiesVM();
-            headsVM = new HeadsVM();
-            locomotivesVM = new LocomotivesVM();
-            pathsVM = new PathsVM();
-            routesVM = new RoutesVM();
-            ticketsVM = new TicketsVM();
-            trainsVM = new TrainsVM();
-            trajectoriesVM = new TrajectoriesVM();
-            usersVM = new UsersVM();
+            tableVM = new TableVM();
+            accountVM = new AccountVM();
+            settingsVM = new SettingsVM();
+            infoVM = new InfoVM();
 
-            CurrentModel = bodiesVM;
+            CurrentActionVM = tableVM;
 
             // Повесить команды на MenuButtonClick
             MenuButtonClick = new RelayCommand(ClickExecute);
@@ -63,45 +53,22 @@ namespace BataDase.MVVM.ViewModels
             System.Diagnostics.Debug.WriteLine($"Clicked: {param as string}");
             string name = param as string;
 
-            CurrentModel.Save();
-            CurrentModel.Close();
-
-            if (name == "Bodies")
+            if (name == "Account")
             {
-                CurrentModel = bodiesVM;
-            } else if (name == "Carriages")
-            {
-                CurrentModel = carriagesVM;
-            } else if (name == "Cities")
-            {
-                CurrentModel = citiesVM;
-			} else if (name == "Heads")
-            {
-                CurrentModel = headsVM;
-            } else if (name == "Locomotives")
-            {
-                CurrentModel = locomotivesVM;
-            } else if (name == "Paths")
-            {
-                CurrentModel = pathsVM;
-            } else if (name == "Routes")
-            {
-                CurrentModel = routesVM;
-            } else if (name == "Tickets")
-            {
-                CurrentModel = ticketsVM;
-            } else if (name == "Trains")
-            {
-                CurrentModel = trainsVM;
-            } else if (name == "Trajectories")
-            {
-                CurrentModel = trajectoriesVM;
-            } else if (name == "Users")
-            {
-                CurrentModel = usersVM;
+                CurrentActionVM = accountVM;
             }
-
-            CurrentModel.Connect();
+            else if (name == "Settings")
+            {
+                CurrentActionVM = settingsVM;
+            }
+            else if (name == "Info")
+            {
+                CurrentActionVM = infoVM;
+            } else
+            {
+                tableVM.ChangeModel(name);
+                if (CurrentActionVM != tableVM) CurrentActionVM = tableVM;
+            }
         }
     }
 }

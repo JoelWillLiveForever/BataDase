@@ -58,4 +58,61 @@
         </Style.Triggers>
     </Style>
 
+    <Style TargetType="{x:Type Button}"
+           x:Key="Style_Button_Primary_Logout">
+        <Style.Setters>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="Auto"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush Color="{DynamicResource Color_Error}"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <SolidColorBrush Color="{DynamicResource Color_OnPrimary_OnError}"
+                                     Opacity="0.87"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="{DynamicResource Font_MyLocalFont}"/>
+            <Setter Property="FontWeight" Value="Regular"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}"
+                                    CornerRadius="10"
+                                    Panel.ZIndex="0">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"/>
+                            </Border>
+                            <Border Background="{TemplateBinding BorderBrush}"
+                                    CornerRadius="10"
+                                    Panel.ZIndex="1"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+        </Style.Setters>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush">
+                    <Setter.Value>
+                        <SolidColorBrush Color="{DynamicResource Color_OnPrimary_OnError}"
+                                         Opacity="0.04"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <TranslateTransform Y="1" />
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
 </ResourceDictionary>

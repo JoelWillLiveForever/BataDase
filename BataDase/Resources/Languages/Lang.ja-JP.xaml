@@ -9,32 +9,44 @@
     <sys:String x:Key="Text_SignUp">サインアップ</sys:String>
 
     <!-- Tables names -->
-    <sys:String x:Key="Text_Bodies">Тела</sys:String>
-    <sys:String x:Key="Text_Carriages">ありがとう</sys:String>
+    <sys:String x:Key="Text_Carriages">馬車</sys:String>
     <sys:String x:Key="Text_Cities">都市</sys:String>
-    <sys:String x:Key="Text_Heads">Головы</sys:String>
     <sys:String x:Key="Text_Locomotives">ロコモティブ</sys:String>
-    <sys:String x:Key="Text_Paths">道路</sys:String>
     <sys:String x:Key="Text_Routes">道</sys:String>
     <sys:String x:Key="Text_Tickets">チケット</sys:String>
     <sys:String x:Key="Text_Trains">電車</sys:String>
-    <sys:String x:Key="Text_Trajectories">Траектории</sys:String>
+    <sys:String x:Key="Text_Schedules">スケジュール</sys:String>
     <sys:String x:Key="Text_Users">ユーザ</sys:String>
 
     <!-- Buttons -->
-    <sys:String x:Key="Text_Request">ありがとう</sys:String>
-    <sys:String x:Key="Text_Create">ありがとう</sys:String>
-    <sys:String x:Key="Text_Edit">ありがとう</sys:String>
-    <sys:String x:Key="Text_Delete">ありがとう</sys:String>
+    <sys:String x:Key="Text_Request">リクエスト</sys:String>
+    <sys:String x:Key="Text_Add">作成</sys:String>
+    <sys:String x:Key="Text_Edit">編集</sys:String>
+    <sys:String x:Key="Text_Delete">削除</sys:String>
+
+    <!-- Labels -->
+    <sys:String x:Key="Text_Language">言語</sys:String>
 
     <!-- Columns headers -->
     <sys:String x:Key="Text_RowNumber">指数</sys:String>
     <!-- Column "Cities" -->
     <sys:String x:Key="Text_City">都市</sys:String>
+    <sys:String x:Key="Text_Longitude">経度</sys:String>
+    <sys:String x:Key="Text_Latitude">緯度</sys:String>
+
+    <!-- Column "Schedules" -->
+    <sys:String x:Key="Text_TrainID">電車のID</sys:String>
+    <sys:String x:Key="Text_DepartureDate">出発日</sys:String>
+    <sys:String x:Key="Text_ArrivalDate">到着日</sys:String>
+
+    <!-- Column "Routes" -->
+    <sys:String x:Key="Text_RouteName">ルート名</sys:String>
+    <sys:String x:Key="Text_Start">開始都市</sys:String>
+    <sys:String x:Key="Text_Finish">有限都市</sys:String>
 
     <!-- Column "Tickets" -->
     <sys:String x:Key="Text_TicketSeries">チケットシリーズ</sys:String>
-    <sys:String x:Key="Text_TicketNumber">ありがとう</sys:String>
+    <sys:String x:Key="Text_TicketNumber">チケット数</sys:String>
 
     <!-- Column "Carriages" -->
     <sys:String x:Key="Text_PMW">最大許容重量</sys:String>
@@ -43,6 +55,51 @@
     <sys:String x:Key="Text_Weight">量</sys:String>
     <sys:String x:Key="Text_CargoWeight">荷の量</sys:String>
     <sys:String x:Key="Text_MaxSeats">座席数</sys:String>
+    <sys:String x:Key="Text_CargoCarriage">貨電車</sys:String>
+    <sys:String x:Key="Text_PassengerCarriage">パッセージャ</sys:String>
+    <sys:String x:Key="Text_RestauranCarriage">レストラン</sys:String>
+    <sys:String x:Key="Text_CarriageModel">車両モデル</sys:String>
+    <sys:String x:Key="Text_CarriageNum">車両数</sys:String>
+
+    <!-- Column "Locomotives" -->
+    <sys:String x:Key="Text_AvgSpeed0">質量0での速度</sys:String>
+    <sys:String x:Key="Text_AvgSpeed100">質量マクシでの速度</sys:String>
+    <sys:String x:Key="Text_SteamLoco">蒸気</sys:String>
+    <sys:String x:Key="Text_HeatLoco">熱</sys:String>
+    <sys:String x:Key="Text_ElectroLoco">電車</sys:String>
+    <sys:String x:Key="Text_LocoModel">機関車モデル</sys:String>
+
+    <!-- Column "Tickets" -->
+    <sys:String x:Key="Text_SeatNum">シート</sys:String>
+
+    <!-- Column Users -->
+    <sys:String x:Key="Text_Surname">姓前</sys:String>
+    <sys:String x:Key="Text_Name">名前</sys:String>
+    <sys:String x:Key="Text_Lastname">父称</sys:String>
+    <sys:String x:Key="Text_Sex">性</sys:String>
+    <sys:String x:Key="Text_Birthday">生年月日</sys:String>
+    <sys:String x:Key="Text_Bill">現金口座</sys:String>
+    <sys:String x:Key="Text_Access">アクセスレベル</sys:String>
+
+    <sys:String x:Key="Text_Male">男</sys:String>
+    <sys:String x:Key="Text_Female">女</sys:String>
+
+    <sys:String x:Key="Text_Admin">管理者</sys:String>
+    <sys:String x:Key="Text_User">ユーザ</sys:String>
+
+    <sys:String x:Key="Text_Theme">テーマ</sys:String>
+    <sys:String x:Key="Text_Light">ライト</sys:String>
+    <sys:String x:Key="Text_Dark">ダーク</sys:String>
+
+    <sys:String x:Key="Text_Russian">ロシア語</sys:String>
+    <sys:String x:Key="Text_English">英語</sys:String>
+    <sys:String x:Key="Text_Japanese">日本語</sys:String>
+
+    <sys:String x:Key="Text_Back">Назад</sys:String>
+
+    <sys:String x:Key="Text_RepeatPass">Повторите пароль</sys:String>
+
+    <sys:String x:Key="Text_Logout">Выйти</sys:String>
 
     <!-- Font for this language -->
     <FontFamily x:Key="Font_MyLocalFont">pack://application:,,,/Resources/Fonts/Sawarabi_Mincho/#Sawarabi Mincho</FontFamily>

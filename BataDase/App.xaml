@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:vm="clr-namespace:BataDase.MVVM.ViewModels"
              xmlns:v="clr-namespace:BataDase.MVVM.Views"
+             xmlns:mvm="clr-namespace:BataDase.MVVM.ViewModels.ManageVMS"
+             xmlns:mv="clr-namespace:BataDase.MVVM.Views.ManageV"
              xmlns:local="clr-namespace:BataDase"
              LoadCompleted="Application_LoadCompleted"
              Startup="Application_Startup">
@@ -34,6 +36,8 @@
                                     Source="Resources/Themes/Buttons/PrimaryButtonTheme.xaml"/>
                 <ResourceDictionary x:Name="DataGridTheme"
                                     Source="Resources/Themes/DataGridTheme.xaml"/>
+                <ResourceDictionary x:Name="RadioButtonTheme"
+                                    Source="Resources/Themes/Buttons/RadioButtonTheme.xaml"/>
 
                 <!-- App values -->
                 <ResourceDictionary x:Name="Values"
@@ -43,6 +47,34 @@
 
             <DataTemplate DataType="{x:Type vm:MenuVM}">
                 <v:MenuV/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:TableVM}">
+                <v:TableV/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:LoginVM}">
+                <v:LoginV/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:RegistrationVM}">
+                <v:RegistrationV/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:DialogVM}">
+                <v:DialogV/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type mvm:AccountVM}">
+                <mv:AccountV/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type mvm:SettingsVM}">
+                <mv:SettingsV/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type mvm:InfoVM}">
+                <mv:InfoV/>
             </DataTemplate>
 
         </ResourceDictionary>

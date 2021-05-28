@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:behaviors="clr-namespace:BataDase.Core.Behaviors"
              xmlns:vm="clr-namespace:BataDase.MVVM.ViewModels"
              xmlns:local="clr-namespace:BataDase.MVVM.Views"  
+             xmlns:prop="clr-namespace:BataDase.Properties"
              Style="{StaticResource Style_UserControl}"
              mc:Ignorable="d" 
              d:DesignHeight="450" 
@@ -16,81 +16,109 @@
     </UserControl.DataContext>
 
     <!-- Content here -->
-    <DockPanel LastChildFill="True">
-        <DockPanel.Resources>
-            <Style TargetType="{x:Type DockPanel}">
-                <Setter Property="Background">
-                    <Setter.Value>
-                        <SolidColorBrush Color="{DynamicResource Color_Primary}"
-                                         Opacity="0.08"/>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-        </DockPanel.Resources>
-        
-        <StackPanel DockPanel.Dock="Left"
-                    Orientation="Vertical"
-                    MinWidth="50"
-                    MaxWidth="200">
+    <DockPanel LastChildFill="True"
+               Background="{DynamicResource Brush_Background_Foreground}">
 
-            <RadioButton x:Name="Button_Bodies" 
-                         Content="{DynamicResource Text_Bodies}"
-                         Style="{StaticResource Style_Button_Menu}"
-                         Command="{Binding MenuButtonClick}"
-                         CommandParameter="Bodies"
-                         IsChecked="True"/>
-            <RadioButton x:Name="Button_Carriages" 
-                         Content="{DynamicResource Text_Carriages}"
-                         Style="{StaticResource Style_Button_Menu}"
-                         Command="{Binding MenuButtonClick}"
-                         CommandParameter="Carriages"/>
-            <RadioButton x:Name="Button_Cities" 
-                         Content="{DynamicResource Text_Cities}"
-                         Style="{StaticResource Style_Button_Menu}"
-                         Command="{Binding MenuButtonClick}"
-                         CommandParameter="Cities"/>
-            <RadioButton x:Name="Button_Heads" 
-                         Content="{DynamicResource Text_Heads}"
-                         Style="{StaticResource Style_Button_Menu}"
-                         Command="{Binding MenuButtonClick}"
-                         CommandParameter="Heads"/>
-            <RadioButton x:Name="Button_Locomotives" 
-                         Content="{DynamicResource Text_Locomotives}"
-                         Style="{StaticResource Style_Button_Menu}"
-                         Command="{Binding MenuButtonClick}"
-                         CommandParameter="Locomotives"/>
-            <RadioButton x:Name="Button_Paths" 
-                         Content="{DynamicResource Text_Paths}"
-                         Style="{StaticResource Style_Button_Menu}"
-                         Command="{Binding MenuButtonClick}"
-                         CommandParameter="Paths"/>
-            <RadioButton x:Name="Button_Routes" 
-                         Content="{DynamicResource Text_Routes}"
-                         Style="{StaticResource Style_Button_Menu}"
-                         Command="{Binding MenuButtonClick}"
-                         CommandParameter="Routes"/>
-            <RadioButton x:Name="Button_Tickets" 
-                         Content="{DynamicResource Text_Tickets}"
-                         Style="{StaticResource Style_Button_Menu}"
-                         Command="{Binding MenuButtonClick}"
-                         CommandParameter="Tickets"/>
-            <RadioButton x:Name="Button_Trains" 
-                         Content="{DynamicResource Text_Trains}"
-                         Style="{StaticResource Style_Button_Menu}"
-                         Command="{Binding MenuButtonClick}"
-                         CommandParameter="Trains"/>
-            <RadioButton x:Name="Button_Trajectories" 
-                         Content="{DynamicResource Text_Trajectories}"
-                         Style="{StaticResource Style_Button_Menu}"
-                         Command="{Binding MenuButtonClick}"
-                         CommandParameter="Trajectories"/>
-            <RadioButton x:Name="Button_Users" 
-                         Content="{DynamicResource Text_Users}"
-                         Style="{StaticResource Style_Button_Menu}"
-                         Command="{Binding MenuButtonClick}"
-                         CommandParameter="Users"/>
+        <DockPanel DockPanel.Dock="Left"
+                   LastChildFill="True"
+                   Background="Transparent">
 
-        </StackPanel>
+            <Grid DockPanel.Dock="Bottom"
+                  Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <RadioButton Grid.Column="0"
+                             x:Name="Button_Account"
+                             Style="{StaticResource Style_RadioButton_ManageMenu}"
+                             Command="{Binding MenuButtonClick}"
+                             CommandParameter="Account"
+                             Click="Button_Click">
+                    <Viewbox Child="{StaticResource Icon_Account}"/>
+                </RadioButton>
+                <RadioButton Grid.Column="1"
+                             Name="Button_Settings"
+                             Style="{StaticResource Style_RadioButton_ManageMenu}"
+                             Command="{Binding MenuButtonClick}"
+                             CommandParameter="Settings"
+                             Click="Button_Click">
+                    <Viewbox Child="{StaticResource Icon_Settings}"/>
+                </RadioButton>
+                <RadioButton Grid.Column="2"
+                             Name="Button_Info"
+                             Style="{StaticResource Style_RadioButton_ManageMenu}"
+                             Command="{Binding MenuButtonClick}"
+                             CommandParameter="Info"
+                             Click="Button_Click">
+                    <Viewbox Child="{StaticResource Icon_Info}"/>
+                </RadioButton>
+
+            </Grid>
+
+            <StackPanel Orientation="Vertical"
+                        MinWidth="50"
+                        MaxWidth="200">
+
+                <RadioButton x:Name="Button_Locomotives" 
+                             IsChecked="True"
+                             Content="{DynamicResource Text_Locomotives}"
+                             Style="{StaticResource Style_Button_Menu}"
+                             Visibility="{Binding Source={x:Static prop:Settings.Default}, Path=Visibility}"
+                             Command="{Binding MenuButtonClick}"
+                             CommandParameter="Locomotives"
+                             Click="Button_Click"/>
+                <RadioButton x:Name="Button_Carriages" 
+                             Content="{DynamicResource Text_Carriages}"
+                             Style="{StaticResource Style_Button_Menu}"
+                             Visibility="{Binding Source={x:Static prop:Settings.Default}, Path=Visibility}"
+                             Command="{Binding MenuButtonClick}"
+                             CommandParameter="Carriages"
+                             Click="Button_Click"/>
+                <RadioButton x:Name="Button_Trains" 
+                             Content="{DynamicResource Text_Trains}"
+                             Style="{StaticResource Style_Button_Menu}"
+                             Visibility="{Binding Source={x:Static prop:Settings.Default}, Path=Visibility}"
+                             Command="{Binding MenuButtonClick}"
+                             CommandParameter="Trains"
+                             Click="Button_Click"/>
+                <RadioButton x:Name="Button_Cities" 
+                             Content="{DynamicResource Text_Cities}"
+                             Style="{StaticResource Style_Button_Menu}"
+                             Visibility="{Binding Source={x:Static prop:Settings.Default}, Path=Visibility}"
+                             Command="{Binding MenuButtonClick}"
+                             CommandParameter="Cities"
+                             Click="Button_Click"/>
+                <RadioButton x:Name="Button_Routes" 
+                             Content="{DynamicResource Text_Routes}"
+                             Style="{StaticResource Style_Button_Menu}"
+                             Visibility="{Binding Source={x:Static prop:Settings.Default}, Path=Visibility}"
+                             Command="{Binding MenuButtonClick}"
+                             CommandParameter="Routes"
+                             Click="Button_Click"/>
+                <RadioButton x:Name="Button_Schedules" 
+                             Content="{DynamicResource Text_Schedules}"
+                             Style="{StaticResource Style_Button_Menu}"
+                             Command="{Binding MenuButtonClick}"
+                             CommandParameter="Schedules"
+                             Click="Button_Click"/>
+                <RadioButton x:Name="Button_Tickets" 
+                             Content="{DynamicResource Text_Tickets}"
+                             Style="{StaticResource Style_Button_Menu}"
+                             Command="{Binding MenuButtonClick}"
+                             CommandParameter="Tickets"
+                             Click="Button_Click"/>
+                <RadioButton x:Name="Button_Users" 
+                             Content="{DynamicResource Text_Users}"
+                             Style="{StaticResource Style_Button_Menu}"
+                             Visibility="{Binding Source={x:Static prop:Settings.Default}, Path=Visibility}"
+                             Command="{Binding MenuButtonClick}"
+                             CommandParameter="Users"
+                             Click="Button_Click"/>
+            </StackPanel>
+        </DockPanel>
         <Border Padding="9">
             <Border.Style>
                 <Style TargetType="{x:Type Border}">
@@ -100,38 +128,9 @@
                     </Style.Setters>
                 </Style>
             </Border.Style>
-            <DockPanel LastChildFill="True"
-                       Background="Transparent">
-                <StackPanel DockPanel.Dock="Bottom" 
-                            Orientation="Horizontal"
-                            Height="35"
-                            Margin="0,10,0,0"
-                            HorizontalAlignment="Right">
 
-                    <Button x:Name="Button_Request"
-                            Margin="0,0,9,0"
-                            Content="{DynamicResource Text_Request}"
-                            Style="{StaticResource Style_Button_Primary}"/>
-                    <Button x:Name="Button_Create"
-                            Margin="0,0,9,0"
-                            Content="{DynamicResource Text_Create}"
-                            Style="{StaticResource Style_Button_Primary}"/>
-                    <Button x:Name="Button_Edit"
-                            Margin="0,0,9,0"
-                            Content="{DynamicResource Text_Edit}"
-                            Style="{StaticResource Style_Button_Primary}"/>
-                    <Button x:Name="Button_Delete"
-                            Content="{DynamicResource Text_Delete}"
-                            Style="{StaticResource Style_Button_Primary}"/>
-
-                </StackPanel>
-
-                <DataGrid x:Name="DataGrid_Tables"
-                          ItemsSource="{Binding CurrentModel.SourceList}"
-                          AutoGeneratingColumn="OnAutoGeneratingColumn"
-                          Style="{StaticResource Style_DataGrid}"
-                          behaviors:DataGridBehavior.DisplayRowNumber="True"/>
-            </DockPanel>
+            <!-- Window Content -->
+            <ContentPresenter Content="{Binding CurrentActionVM}"/>
         </Border>
     </DockPanel>
 </UserControl>

@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Reflection;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace BataDase.MVVM.Views
 {
@@ -12,59 +9,21 @@ namespace BataDase.MVVM.Views
             InitializeComponent();
         }
 
-        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            var displayName = GetPropertyDisplayName(e.PropertyDescriptor);
+            Button_Account.IsChecked = false;
+            Button_Carriages.IsChecked = false;
+            Button_Cities.IsChecked = false;
+            Button_Info.IsChecked = false;
+            Button_Locomotives.IsChecked = false;
+            Button_Routes.IsChecked = false;
+            Button_Schedules.IsChecked = false;
+            Button_Settings.IsChecked = false;
+            Button_Tickets.IsChecked = false;
+            Button_Trains.IsChecked = false;
+            Button_Users.IsChecked = false;
 
-            if (!string.IsNullOrEmpty(displayName))
-            {
-                if (displayName == "Hidden")
-                    e.Cancel = true;
-                else
-                {
-                    string name = (string)App.Current.TryFindResource(displayName);
-
-                    if (name != null)
-                        e.Column.Header = App.Current.FindResource(displayName);
-                }
-            }
-        }
-
-        public static string GetPropertyDisplayName(object descriptor)
-        {
-            var pd = descriptor as PropertyDescriptor;
-
-            if (pd != null)
-            {
-                // Check for DisplayName attribute and set the column header accordingly
-                var displayName = pd.Attributes[typeof(DisplayNameAttribute)] as DisplayNameAttribute;
-
-                if (displayName != null && displayName != DisplayNameAttribute.Default)
-                {
-                    return displayName.DisplayName;
-                }
-
-            }
-            else
-            {
-                var pi = descriptor as PropertyInfo;
-
-                if (pi != null)
-                {
-                    // Check for DisplayName attribute and set the column header accordingly
-                    Object[] attributes = pi.GetCustomAttributes(typeof(DisplayNameAttribute), true);
-                    for (int i = 0; i < attributes.Length; ++i)
-                    {
-                        var displayName = attributes[i] as DisplayNameAttribute;
-                        if (displayName != null && displayName != DisplayNameAttribute.Default)
-                        {
-                            return displayName.DisplayName;
-                        }
-                    }
-                }
-            }
-
-            return null;
+            (sender as RadioButton).IsChecked = true;
         }
     }
 }

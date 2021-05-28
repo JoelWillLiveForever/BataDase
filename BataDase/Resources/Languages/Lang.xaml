@@ -9,47 +9,106 @@
     <sys:String x:Key="Text_SignUp">Зарегистрироваться</sys:String>
     
     <!-- Tables names -->
-    <sys:String x:Key="Text_Bodies">Тела</sys:String>
     <sys:String x:Key="Text_Carriages">Вагоны</sys:String>
     <sys:String x:Key="Text_Cities">Города</sys:String>
-    <sys:String x:Key="Text_Heads">Головы</sys:String>
     <sys:String x:Key="Text_Locomotives">Локомотивы</sys:String>
-    <sys:String x:Key="Text_Paths">Пути</sys:String>
     <sys:String x:Key="Text_Routes">Маршруты</sys:String>
     <sys:String x:Key="Text_Tickets">Билеты</sys:String>
     <sys:String x:Key="Text_Trains">Поезда</sys:String>
-    <sys:String x:Key="Text_Trajectories">Траектории</sys:String>
+    <sys:String x:Key="Text_Schedules">Расписание</sys:String>
     <sys:String x:Key="Text_Users">Пользователи</sys:String>
 
     <!-- Buttons -->
     <sys:String x:Key="Text_Request">Запрос</sys:String>
-    <sys:String x:Key="Text_Create">Добавить</sys:String>
+    <sys:String x:Key="Text_Add">Добавить</sys:String>
     <sys:String x:Key="Text_Edit">Изменить</sys:String>
     <sys:String x:Key="Text_Delete">Удалить</sys:String>
 
+    <!-- Labels -->
+    <sys:String x:Key="Text_Language">Язык</sys:String>
+    
     <!-- Columns headers -->
     <sys:String x:Key="Text_RowNumber">Номер п/п</sys:String>
     <!-- Column "Cities" -->
     <sys:String x:Key="Text_City">Город</sys:String>
+    <sys:String x:Key="Text_Longitude">Долгота</sys:String>
+    <sys:String x:Key="Text_Latitude">Широта</sys:String>
+
+    <!-- Column "Schedules" -->
+    <sys:String x:Key="Text_TrainID">ID поезда</sys:String>
+    <sys:String x:Key="Text_DepartureDate">Время отправления</sys:String>
+    <sys:String x:Key="Text_ArrivalDate">Время прибытия</sys:String>
+
+    <!-- Column "Routes" -->
+    <sys:String x:Key="Text_RouteName">Название маршрута</sys:String>
+    <sys:String x:Key="Text_Start">Начальный пункт</sys:String>
+    <sys:String x:Key="Text_Finish">Конечный пункт</sys:String>
+
+    <!-- Column "Tickets" -->
+    <sys:String x:Key="Text_SeatNum">Место</sys:String>
 
     <!-- Column "Users" -->
     <sys:String x:Key="Text_Surname">Фамилия</sys:String>
+    <sys:String x:Key="Text_Name">Имя</sys:String>
+    <sys:String x:Key="Text_Lastname">Отчество</sys:String>
+    <sys:String x:Key="Text_Sex">Пол</sys:String>
+    <sys:String x:Key="Text_Birthday">Дата рождения</sys:String>
+    <sys:String x:Key="Text_Bill">Денежный счёт</sys:String>
+    <sys:String x:Key="Text_Access">Уровень доступа</sys:String>
 
     <!-- Column "Tickets" -->
     <sys:String x:Key="Text_TicketSeries">Серия</sys:String>
     <sys:String x:Key="Text_TicketNumber">Номер</sys:String>
 
     <!-- Column "Carriages" -->
-    <sys:String x:Key="Text_PMW">Разрешённая ММ</sys:String>
     <sys:String x:Key="Text_Model">Модель</sys:String>
     <sys:String x:Key="Text_Type">Тип</sys:String>
     <sys:String x:Key="Text_Weight">Масса</sys:String>
-    <sys:String x:Key="Text_CargoWeight">Масса груза</sys:String>
+    <sys:String x:Key="Text_MaxLoadWeight">МДМ груза</sys:String>
     <sys:String x:Key="Text_MaxSeats">Кол-во мест</sys:String>
+    <sys:String x:Key="Text_Class">Класс</sys:String>
+    <sys:String x:Key="Text_CargoCarriage">Грузовой</sys:String>
+    <sys:String x:Key="Text_PassengerCarriage">Пассажирский</sys:String>
+    <sys:String x:Key="Text_RestauranCarriage">Ресторан</sys:String>
+    <sys:String x:Key="Text_ClassCompartment">Купейный</sys:String>
+    <sys:String x:Key="Text_ClassEconom">Плацкартный</sys:String>
+    <sys:String x:Key="Text_ClassSeated">Сидячий</sys:String>
+    <sys:String x:Key="Text_CarriageModel">Модель вагона</sys:String>
+    <sys:String x:Key="Text_CarriageNum">Номер вагона</sys:String>
+
+    <!-- Column "Locomotives" -->
+    <sys:String x:Key="Text_MaxTrailerWeight">МДМ прицепа</sys:String>
+    <sys:String x:Key="Text_AvgSpeed0">Скорость без груза</sys:String>
+    <sys:String x:Key="Text_AvgSpeed100">Скорость при МДМ прицепа</sys:String>
+    <sys:String x:Key="Text_SteamLoco">Паровоз</sys:String>
+    <sys:String x:Key="Text_HeatLoco">Тепловоз</sys:String>
+    <sys:String x:Key="Text_ElectroLoco">Электровоз</sys:String>
+    <sys:String x:Key="Text_LocoModel">Модель локомотива</sys:String>
 
     <!-- Column "Paths" -->
     <sys:String x:Key="Text_IsPaths">Наличие пути</sys:String>
 
+    <sys:String x:Key="Text_Male">Мужской</sys:String>
+    <sys:String x:Key="Text_Female">Женский</sys:String>
+
+    <sys:String x:Key="Text_Admin">Администратор</sys:String>
+    <sys:String x:Key="Text_User">Пользователь</sys:String>
+
+    <sys:String x:Key="Text_Theme">Тема</sys:String>
+    <sys:String x:Key="Text_Light">Светлая</sys:String>
+    <sys:String x:Key="Text_Dark">Тёмная</sys:String>
+
+    <sys:String x:Key="Text_Russian">Русский</sys:String>
+    <sys:String x:Key="Text_English">Английский</sys:String>
+    <sys:String x:Key="Text_Japanese">Японский</sys:String>
+
+    <sys:String x:Key="Text_Reg">Регистрация</sys:String>
+    <sys:String x:Key="Text_Back">Назад</sys:String>
+    
+    <sys:String x:Key="Text_RepeatPass">Повторите пароль</sys:String>
+
+    <sys:String x:Key="Text_Logout">Выйти</sys:String>
+    
     <!-- Font for this language -->
     <FontFamily x:Key="Font_MyLocalFont">pack://application:,,,/Resources/Fonts/Montserrat_Alternates/#Montserrat Alternates</FontFamily>
 </ResourceDictionary>
