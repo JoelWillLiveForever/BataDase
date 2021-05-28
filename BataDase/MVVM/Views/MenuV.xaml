@@ -43,21 +43,24 @@
                              x:Name="Button_Account"
                              Style="{StaticResource Style_RadioButton_ManageMenu}"
                              Command="{Binding MenuButtonClick}"
-                             CommandParameter="Account">
+                             CommandParameter="Account"
+                             Click="Button_Click">
                     <Viewbox Child="{StaticResource Icon_Account}"/>
                 </RadioButton>
                 <RadioButton Grid.Column="1"
                              Name="Button_Settings"
                              Style="{StaticResource Style_RadioButton_ManageMenu}"
                              Command="{Binding MenuButtonClick}"
-                             CommandParameter="Settings">
+                             CommandParameter="Settings"
+                             Click="Button_Click">
                     <Viewbox Child="{StaticResource Icon_Settings}"/>
                 </RadioButton>
                 <RadioButton Grid.Column="2"
                              Name="Button_Info"
                              Style="{StaticResource Style_RadioButton_ManageMenu}"
                              Command="{Binding MenuButtonClick}"
-                             CommandParameter="Info">
+                             CommandParameter="Info"
+                             Click="Button_Click">
                     <Viewbox Child="{StaticResource Icon_Info}"/>
                 </RadioButton>
 
@@ -72,42 +75,50 @@
                              Content="{DynamicResource Text_Locomotives}"
                              Style="{StaticResource Style_Button_Menu}"
                              Command="{Binding MenuButtonClick}"
-                             CommandParameter="Locomotives"/>
+                             CommandParameter="Locomotives"
+                             Click="Button_Click"/>
                 <RadioButton x:Name="Button_Carriages" 
                              Content="{DynamicResource Text_Carriages}"
                              Style="{StaticResource Style_Button_Menu}"
                              Command="{Binding MenuButtonClick}"
-                             CommandParameter="Carriages"/>
+                             CommandParameter="Carriages"
+                             Click="Button_Click"/>
                 <RadioButton x:Name="Button_Trains" 
                              Content="{DynamicResource Text_Trains}"
                              Style="{StaticResource Style_Button_Menu}"
                              Command="{Binding MenuButtonClick}"
-                             CommandParameter="Trains"/>
+                             CommandParameter="Trains"
+                             Click="Button_Click"/>
                 <RadioButton x:Name="Button_Cities" 
                              Content="{DynamicResource Text_Cities}"
                              Style="{StaticResource Style_Button_Menu}"
                              Command="{Binding MenuButtonClick}"
-                             CommandParameter="Cities"/>
+                             CommandParameter="Cities"
+                             Click="Button_Click"/>
                 <RadioButton x:Name="Button_Routes" 
                              Content="{DynamicResource Text_Routes}"
                              Style="{StaticResource Style_Button_Menu}"
                              Command="{Binding MenuButtonClick}"
-                             CommandParameter="Routes"/>
+                             CommandParameter="Routes"
+                             Click="Button_Click"/>
                 <RadioButton x:Name="Button_Schedules" 
                              Content="{DynamicResource Text_Schedules}"
                              Style="{StaticResource Style_Button_Menu}"
                              Command="{Binding MenuButtonClick}"
-                             CommandParameter="Schedules"/>
+                             CommandParameter="Schedules"
+                             Click="Button_Click"/>
                 <RadioButton x:Name="Button_Tickets" 
                              Content="{DynamicResource Text_Tickets}"
                              Style="{StaticResource Style_Button_Menu}"
                              Command="{Binding MenuButtonClick}"
-                             CommandParameter="Tickets"/>
+                             CommandParameter="Tickets"
+                             Click="Button_Click"/>
                 <RadioButton x:Name="Button_Users" 
                              Content="{DynamicResource Text_Users}"
                              Style="{StaticResource Style_Button_Menu}"
                              Command="{Binding MenuButtonClick}"
-                             CommandParameter="Users"/>
+                             CommandParameter="Users"
+                             Click="Button_Click"/>
             </StackPanel>
         </DockPanel>
         <Border Padding="9">
