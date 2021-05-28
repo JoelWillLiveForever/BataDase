@@ -35,6 +35,9 @@ namespace BataDase.MVVM.Views
                 // Универсальный логин и пароль админа
                 if (TextBox_Login.Text == "admin" && TextBox_Pass.Password == "admin")
                 {
+                    Properties.Settings.Default.IsAdmin = true;
+                    Properties.Settings.Default.Visibility = "Visible";
+
                     MainVM.MenuVM_RelayCommand.Execute(null);
                 } else
                 {
