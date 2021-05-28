@@ -25,7 +25,9 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
         {
             // Инициализация контекста БД
             dbContext = AppDBContext.GetInstance();
-            dbContext.LocomotivesMs.Load();
+            dbContext.CitiesMs.Load();
+
+            cities = dbContext.CitiesMs.Local.ToBindingList();
 
             // Margin
             Thickness temp = new Thickness(5);

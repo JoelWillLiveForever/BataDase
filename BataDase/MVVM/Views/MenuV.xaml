@@ -28,100 +28,82 @@
             </Style>
         </DockPanel.Resources>
 
-        <StackPanel DockPanel.Dock="Left"
-                    Orientation="Vertical"
-                    MinWidth="50"
-                    MaxWidth="200">
+        <DockPanel DockPanel.Dock="Left"
+                   LastChildFill="True"
+                   Background="Transparent">
 
-            <RadioButton x:Name="Button_Locomotives" 
-                         Content="{DynamicResource Text_Locomotives}"
-                         Style="{StaticResource Style_Button_Menu}"
-                         Command="{Binding MenuButtonClick}"
-                         CommandParameter="Locomotives"/>
-            <RadioButton x:Name="Button_Carriages" 
-                         Content="{DynamicResource Text_Carriages}"
-                         Style="{StaticResource Style_Button_Menu}"
-                         Command="{Binding MenuButtonClick}"
-                         CommandParameter="Carriages"/>
-            <RadioButton x:Name="Button_Trains" 
-                         Content="{DynamicResource Text_Trains}"
-                         Style="{StaticResource Style_Button_Menu}"
-                         Command="{Binding MenuButtonClick}"
-                         CommandParameter="Trains"/>
-            <RadioButton x:Name="Button_Cities" 
-                         Content="{DynamicResource Text_Cities}"
-                         Style="{StaticResource Style_Button_Menu}"
-                         Command="{Binding MenuButtonClick}"
-                         CommandParameter="Cities"/>
-            <RadioButton x:Name="Button_Routes" 
-                         Content="{DynamicResource Text_Routes}"
-                         Style="{StaticResource Style_Button_Menu}"
-                         Command="{Binding MenuButtonClick}"
-                         CommandParameter="Routes"/>
-            <RadioButton x:Name="Button_Schedules" 
-                         Content="{DynamicResource Text_Schedules}"
-                         Style="{StaticResource Style_Button_Menu}"
-                         Command="{Binding MenuButtonClick}"
-                         CommandParameter="Schedules"/>
-            <RadioButton x:Name="Button_Tickets" 
-                         Content="{DynamicResource Text_Tickets}"
-                         Style="{StaticResource Style_Button_Menu}"
-                         Command="{Binding MenuButtonClick}"
-                         CommandParameter="Tickets"/>
-            <RadioButton x:Name="Button_Users" 
-                         Content="{DynamicResource Text_Users}"
-                         Style="{StaticResource Style_Button_Menu}"
-                         Command="{Binding MenuButtonClick}"
-                         CommandParameter="Users"/>
-            <Grid Height="62" Width="132">
-                <Button 
-                x:Name="Button_Settings"
-                HorizontalAlignment="Left" 
-                Margin="10,17,0,0" 
-                VerticalAlignment="Top" 
-                Width="34" Height="30"
-                Click="Button_Settings_Click"
-                Style="{StaticResource Style_Button_Primary}" >
-                    <Button.Background>
-                        <SolidColorBrush Color="White" Opacity="0.12"/>
-                    </Button.Background>
-                    <Button.BorderBrush>
-                        <ImageBrush ImageSource="/De Train;component/Resources/Icons/settings.png"/>
-                    </Button.BorderBrush>
-                </Button>
-                <Button 
-                    x:Name="Button_Account"
-                    HorizontalAlignment="Left" 
-                    Margin="49,17,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="34" Height="30"
-                    Click="Button_Account_Click"
-                    Style="{StaticResource Style_Button_Primary}" >
-                    <Button.Background>
-                        <SolidColorBrush Color="White" Opacity="0.12"/>
-                    </Button.Background>
-                    <Button.BorderBrush>
-                        <ImageBrush ImageSource="/De Train;component/Resources/Icons/account.png"/>
-                    </Button.BorderBrush>
-                </Button>
-                <Button 
-                    x:Name="Button_FAQ"
-                    HorizontalAlignment="Left" 
-                    Margin="88,17,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="34" Height="30"
-                    Click="Button_FAQ_Click"
-                    Style="{StaticResource Style_Button_Primary}" >
-                    <Button.Background>
-                        <SolidColorBrush Color="White" Opacity="0.12"/>
-                    </Button.Background>
-                    <Button.BorderBrush>
-                        <ImageBrush ImageSource="/De Train;component/Resources/Icons/questionMark.png"/>
-                    </Button.BorderBrush>
-                </Button>
+            <Grid DockPanel.Dock="Bottom"
+                  Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <RadioButton Grid.Column="0"
+                             x:Name="Button_Account"
+                             Style="{StaticResource Style_RadioButton_ManageMenu}">
+                    <Viewbox Child="{StaticResource Icon_Account}"/>
+                </RadioButton>
+                <RadioButton Grid.Column="1"
+                             Name="Button_Settings"
+                             Style="{StaticResource Style_RadioButton_ManageMenu}">
+                    <Viewbox Child="{StaticResource Icon_Settings}"/>
+                </RadioButton>
+                <RadioButton Grid.Column="2"
+                             Name="Button_Info"
+                             Style="{StaticResource Style_RadioButton_ManageMenu}">
+                    <Viewbox Child="{StaticResource Icon_Info}"/>
+                </RadioButton>
+
             </Grid>
+            
+            <StackPanel Orientation="Vertical"
+                        MinWidth="50"
+                        MaxWidth="200">
 
-        </StackPanel>
+                <RadioButton x:Name="Button_Locomotives" 
+                             Content="{DynamicResource Text_Locomotives}"
+                             Style="{StaticResource Style_Button_Menu}"
+                             Command="{Binding MenuButtonClick}"
+                             CommandParameter="Locomotives"/>
+                <RadioButton x:Name="Button_Carriages" 
+                             Content="{DynamicResource Text_Carriages}"
+                             Style="{StaticResource Style_Button_Menu}"
+                             Command="{Binding MenuButtonClick}"
+                             CommandParameter="Carriages"/>
+                <RadioButton x:Name="Button_Trains" 
+                             Content="{DynamicResource Text_Trains}"
+                             Style="{StaticResource Style_Button_Menu}"
+                             Command="{Binding MenuButtonClick}"
+                             CommandParameter="Trains"/>
+                <RadioButton x:Name="Button_Cities" 
+                             Content="{DynamicResource Text_Cities}"
+                             Style="{StaticResource Style_Button_Menu}"
+                             Command="{Binding MenuButtonClick}"
+                             CommandParameter="Cities"/>
+                <RadioButton x:Name="Button_Routes" 
+                             Content="{DynamicResource Text_Routes}"
+                             Style="{StaticResource Style_Button_Menu}"
+                             Command="{Binding MenuButtonClick}"
+                             CommandParameter="Routes"/>
+                <RadioButton x:Name="Button_Schedules" 
+                             Content="{DynamicResource Text_Schedules}"
+                             Style="{StaticResource Style_Button_Menu}"
+                             Command="{Binding MenuButtonClick}"
+                             CommandParameter="Schedules"/>
+                <RadioButton x:Name="Button_Tickets" 
+                             Content="{DynamicResource Text_Tickets}"
+                             Style="{StaticResource Style_Button_Menu}"
+                             Command="{Binding MenuButtonClick}"
+                             CommandParameter="Tickets"/>
+                <RadioButton x:Name="Button_Users" 
+                             Content="{DynamicResource Text_Users}"
+                             Style="{StaticResource Style_Button_Menu}"
+                             Command="{Binding MenuButtonClick}"
+                             CommandParameter="Users"/>
+            </StackPanel>
+        </DockPanel>
         <Border Padding="9">
             <Border.Style>
                 <Style TargetType="{x:Type Border}">
