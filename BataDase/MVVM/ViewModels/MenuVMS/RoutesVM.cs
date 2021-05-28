@@ -234,9 +234,9 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                     .Single(o => o._route_id == id);
 
                 // Изменяем, просто изменяя поля на поля объекта temp
-                route._route_name = routeName.Text;
-                route.CitiesM_Start._city_name = startCity.Text;
-                route.CitiesM_Finish._city_name = finishCity.Text;
+                route._route_name = temp._route_name;
+                route.CitiesM_Start._city_name = temp.CitiesM_Start._city_name;
+                route.CitiesM_Finish._city_name = temp.CitiesM_Finish._city_name;
 
                 // Говорим контексту БД, что данный объект был изменен
                 dbContext.Entry(route).State = EntityState.Modified;

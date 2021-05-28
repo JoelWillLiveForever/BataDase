@@ -9,13 +9,13 @@
     <sys:String x:Key="Text_SignUp">サインアップ</sys:String>
 
     <!-- Tables names -->
-    <sys:String x:Key="Text_Carriages">ありがとう</sys:String>
+    <sys:String x:Key="Text_Carriages">馬車</sys:String>
     <sys:String x:Key="Text_Cities">都市</sys:String>
     <sys:String x:Key="Text_Locomotives">ロコモティブ</sys:String>
     <sys:String x:Key="Text_Routes">道</sys:String>
     <sys:String x:Key="Text_Tickets">チケット</sys:String>
     <sys:String x:Key="Text_Trains">電車</sys:String>
-    <sys:String x:Key="Text_Schedules">Schedule</sys:String>
+    <sys:String x:Key="Text_Schedules">スケジュール</sys:String>
     <sys:String x:Key="Text_Users">ユーザ</sys:String>
 
     <!-- Buttons -->
@@ -33,6 +33,11 @@
     <sys:String x:Key="Text_City">都市</sys:String>
     <sys:String x:Key="Text_Longitude">経度</sys:String>
     <sys:String x:Key="Text_Latitude">緯度</sys:String>
+
+    <!-- Column "Schedules" -->
+    <sys:String x:Key="Text_TrainID">電車のID</sys:String>
+    <sys:String x:Key="Text_DepartureDate">出発日</sys:String>
+    <sys:String x:Key="Text_ArrivalDate">到着日</sys:String>
 
     <!-- Column "Routes" -->
     <sys:String x:Key="Text_RouteName">ルート名</sys:String>
@@ -54,6 +59,7 @@
     <sys:String x:Key="Text_PassengerCarriage">パッセージャ</sys:String>
     <sys:String x:Key="Text_RestauranCarriage">レストラン</sys:String>
     <sys:String x:Key="Text_CarriageModel">車両モデル</sys:String>
+    <sys:String x:Key="Text_CarriageNum">車両数</sys:String>
 
     <!-- Column "Locomotives" -->
     <sys:String x:Key="Text_AvgSpeed0">質量0での速度</sys:String>
@@ -62,6 +68,9 @@
     <sys:String x:Key="Text_HeatLoco">熱</sys:String>
     <sys:String x:Key="Text_ElectroLoco">電車</sys:String>
     <sys:String x:Key="Text_LocoModel">機関車モデル</sys:String>
+
+    <!-- Column "Tickets" -->
+    <sys:String x:Key="Text_SeatNum">シート</sys:String>
 
     <!-- Column Users -->
     <sys:String x:Key="Text_Surname">姓前</sys:String>
@@ -78,13 +87,13 @@
     <sys:String x:Key="Text_Admin">管理者</sys:String>
     <sys:String x:Key="Text_User">ユーザ</sys:String>
 
-    <sys:String x:Key="Text_Theme">Theme</sys:String>
-    <sys:String x:Key="Text_Light">Light</sys:String>
-    <sys:String x:Key="Text_Dark">Dark</sys:String>
+    <sys:String x:Key="Text_Theme">テーマ</sys:String>
+    <sys:String x:Key="Text_Light">ライト</sys:String>
+    <sys:String x:Key="Text_Dark">ダーク</sys:String>
 
-    <sys:String x:Key="Text_Russian">Русский</sys:String>
-    <sys:String x:Key="Text_English">Английский</sys:String>
-    <sys:String x:Key="Text_Japanese">Японский</sys:String>
+    <sys:String x:Key="Text_Russian">ロシア語</sys:String>
+    <sys:String x:Key="Text_English">英語</sys:String>
+    <sys:String x:Key="Text_Japanese">日本語</sys:String>
 
     <!-- Font for this language -->
     <FontFamily x:Key="Font_MyLocalFont">pack://application:,,,/Resources/Fonts/Sawarabi_Mincho/#Sawarabi Mincho</FontFamily>

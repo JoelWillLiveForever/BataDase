@@ -361,11 +361,11 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
                 LocomotivesM deleteEntity = SourceList[index];
 
-                var tickets = dbContext.TicketsMs
-                    .Where(o => o._user_id == deleteEntity._locomotive_id);
+                var trains = dbContext.TrainsMs
+                    .Where(o => o._locomotive_id == deleteEntity._locomotive_id);
 
-                if (tickets != null)
-                    dbContext.TicketsMs.RemoveRange(tickets);
+                if (trains != null)
+                    dbContext.TrainsMs.RemoveRange(trains);
 
                 var contextDeleteEntity = dbContext.LocomotivesMs.Local
                     .Single(o => o._locomotive_id == deleteEntity._locomotive_id);

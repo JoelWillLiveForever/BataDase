@@ -34,10 +34,18 @@
     <sys:String x:Key="Text_Longitude">Долгота</sys:String>
     <sys:String x:Key="Text_Latitude">Широта</sys:String>
 
+    <!-- Column "Schedules" -->
+    <sys:String x:Key="Text_TrainID">ID поезда</sys:String>
+    <sys:String x:Key="Text_DepartureDate">Время отправления</sys:String>
+    <sys:String x:Key="Text_ArrivalDate">Время прибытия</sys:String>
+
     <!-- Column "Routes" -->
     <sys:String x:Key="Text_RouteName">Название маршрута</sys:String>
     <sys:String x:Key="Text_Start">Начальный пункт</sys:String>
     <sys:String x:Key="Text_Finish">Конечный пункт</sys:String>
+
+    <!-- Column "Tickets" -->
+    <sys:String x:Key="Text_SeatNum">Место</sys:String>
 
     <!-- Column "Users" -->
     <sys:String x:Key="Text_Surname">Фамилия</sys:String>
@@ -66,6 +74,7 @@
     <sys:String x:Key="Text_ClassEconom">Плацкартный</sys:String>
     <sys:String x:Key="Text_ClassSeated">Сидячий</sys:String>
     <sys:String x:Key="Text_CarriageModel">Модель вагона</sys:String>
+    <sys:String x:Key="Text_CarriageNum">Номер вагона</sys:String>
 
     <!-- Column "Locomotives" -->
     <sys:String x:Key="Text_MaxTrailerWeight">МДМ прицепа</sys:String>

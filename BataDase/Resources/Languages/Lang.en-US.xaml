@@ -34,6 +34,11 @@
     <sys:String x:Key="Text_Longitude">Longitude</sys:String>
     <sys:String x:Key="Text_Latitude">Latitude</sys:String>
 
+    <!-- Column "Schedules" -->
+    <sys:String x:Key="Text_TrainID">Train ID</sys:String>
+    <sys:String x:Key="Text_DepartureDate">Date of departure</sys:String>
+    <sys:String x:Key="Text_ArrivalDate">Date of arrival</sys:String>
+
     <!-- Column "Routes" -->
     <sys:String x:Key="Text_RouteName">Route name</sys:String>
     <sys:String x:Key="Text_Start">Starting city</sys:String>
@@ -54,6 +59,7 @@
     <sys:String x:Key="Text_PassengerCarriage">Passenger</sys:String>
     <sys:String x:Key="Text_RestauranCarriage">Restaurant</sys:String>
     <sys:String x:Key="Text_CarriageModel">Carriage model</sys:String>
+    <sys:String x:Key="Text_CarriageNum">Carriage number</sys:String>
 
     <!-- Column "Locomotives" -->
     <sys:String x:Key="Text_AvgSpeed0">Speed with 0 weight</sys:String>
@@ -62,6 +68,9 @@
     <sys:String x:Key="Text_HeatLoco">Heat</sys:String>
     <sys:String x:Key="Text_ElectroLoco">Electric</sys:String>
     <sys:String x:Key="Text_LocoModel">Locomotive model</sys:String>
+
+    <!-- Column "Tickets" -->
+    <sys:String x:Key="Text_SeatNum">Number of seat</sys:String>
 
     <!-- Column Users -->
     <sys:String x:Key="Text_Surname">Surname</sys:String>

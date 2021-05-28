@@ -246,17 +246,17 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
                 CitiesM deleteEntity = SourceList[index];
 
-                var tickets = dbContext.TicketsMs
-                    .Where(o => o._user_id == deleteEntity._city_id);
+                var routes = dbContext.RoutesMs
+                    .Where(o => o._start_city_id == deleteEntity._city_id);
 
-                if (tickets != null)
-                    dbContext.TicketsMs.RemoveRange(tickets);
+                if (routes != null)
+                    dbContext.RoutesMs.RemoveRange(routes);
 
-                var contextDeleteEntity = dbContext.CitiesMs.Local
-                    .Single(o => o._city_id == deleteEntity._city_id);
+                var contextDeleteEntity = dbContext.RoutesMs.Local
+                    .Single(o => o._start_city_id == deleteEntity._city_id);
 
                 // Удаляем контекстного юзера из контекста
-                dbContext.CitiesMs.Local.Remove(contextDeleteEntity);
+                dbContext.RoutesMs.Local.Remove(contextDeleteEntity);
 
                 // Удаляем НЕконтекстного юзера из SourceList
                 SourceList.Remove(deleteEntity);

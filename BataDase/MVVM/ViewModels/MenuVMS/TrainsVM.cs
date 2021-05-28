@@ -359,12 +359,12 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                     .Single(o => o._train_id == id);
 
                 // Изменяем, просто изменяя поля на поля объекта temp
-                train.LocomotivesM._model = locoModel.Text;
-                train.CarriagesM_First._model = carrModel0.Text;
-                train.CarriagesM_Second._model = carrModel1.Text;
-                train.CarriagesM_Third._model = carrModel2.Text;
-                train.CarriagesM_Fourth._model = carrModel3.Text;
-                train.CarriagesM_Fifth._model = carrModel4.Text;
+                train.LocomotivesM._model = temp.LocomotivesM._model;
+                train.CarriagesM_First._model = temp.CarriagesM_First._model;
+                train.CarriagesM_Second._model = temp.CarriagesM_Second._model;
+                train.CarriagesM_Third._model = temp.CarriagesM_Third._model;
+                train.CarriagesM_Fourth._model = temp.CarriagesM_Fourth._model;
+                train.CarriagesM_Fifth._model = temp.CarriagesM_Fifth._model;
 
                 // Говорим контексту БД, что данный объект был изменен
                 dbContext.Entry(train).State = EntityState.Modified;
