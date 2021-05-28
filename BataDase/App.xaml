@@ -36,6 +36,8 @@
                                     Source="Resources/Themes/Buttons/PrimaryButtonTheme.xaml"/>
                 <ResourceDictionary x:Name="DataGridTheme"
                                     Source="Resources/Themes/DataGridTheme.xaml"/>
+                <ResourceDictionary x:Name="RadioButtonTheme"
+                                    Source="Resources/Themes/Buttons/RadioButtonTheme.xaml"/>
 
                 <!-- App values -->
                 <ResourceDictionary x:Name="Values"

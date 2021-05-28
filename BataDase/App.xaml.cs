@@ -7,11 +7,10 @@ using System.Data;
 
 namespace BataDase
 {
-
     public partial class App : Application
     {
-        private const string URI_THEME_LIGHT = "/Resources/Palettes/Palette.Light.xaml";
-        private const string URI_THEME_DARK = "/Resources/Palettes/Palette.xaml";
+        private const string URI_THEME_LIGHT = "Resources/Palettes/Palette.Light.xaml";
+        private const string URI_THEME_DARK = "Resources/Palettes/Palette.xaml";
 
         private static List<CultureInfo> m_Languages = new List<CultureInfo>();
 
@@ -22,18 +21,6 @@ namespace BataDase
                 return m_Languages;
             }
         }
-
-        private ResourceDictionary PaletteDictionary
-        {
-            get 
-            {
-                return (from d in Application.Current.Resources.MergedDictionaries
-                        where d.Source != null && d.Source.OriginalString.StartsWith("Resources/Palettes/Palette.")
-                        select d).First();
-            }
-        }
-
-        private bool IsDarkPalette = true;
 
         public App()
         {
@@ -110,11 +97,21 @@ namespace BataDase
             BataDase.Properties.Settings.Default.Save();
         }
 
-        public void ChangePalette()
+        private static ResourceDictionary PaletteDictionary
+        {
+            get
+            {
+                return (from d in Current.Resources.MergedDictionaries
+                        where d.Source != null && d.Source.OriginalString.StartsWith("Resources/Palettes/Palette.")
+                        select d).First();
+            }
+        }
+
+        public static void ChangePalette()
         {
             Uri NewUri;
 
-            if (IsDarkPalette)
+            if (BataDase.Properties.Settings.Default.IsDarkTheme)
             {
                 NewUri = new Uri(URI_THEME_LIGHT, UriKind.RelativeOrAbsolute);
             }
@@ -123,14 +120,44 @@ namespace BataDase
                 NewUri = new Uri(URI_THEME_DARK, UriKind.RelativeOrAbsolute);
             }
 
-            PaletteDictionary.MergedDictionaries.Clear();
-            PaletteDictionary.MergedDictionaries.Add(new ResourceDictionary() { Source = NewUri });
+            if (PaletteDictionary != null)
+            {
+                ResourceDictionary oldDict = PaletteDictionary;
 
-            IsDarkPalette = !IsDarkPalette;
+                int ind = Application.Current.Resources.MergedDictionaries.IndexOf(oldDict);
+
+                Application.Current.Resources.MergedDictionaries.Remove(oldDict);
+                Application.Current.Resources.MergedDictionaries.Insert(ind, new ResourceDictionary() { Source = NewUri });
+
+                BataDase.Properties.Settings.Default.IsDarkTheme = !BataDase.Properties.Settings.Default.IsDarkTheme;
+                BataDase.Properties.Settings.Default.Save();
+            }
         }
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
+            // set saved theme
+            if (!BataDase.Properties.Settings.Default.IsDarkTheme)
+            {
+                Uri NewUri = new Uri(URI_THEME_LIGHT, UriKind.RelativeOrAbsolute);
+
+                if (PaletteDictionary != null)
+                {
+                    ResourceDictionary oldDict = PaletteDictionary;
+
+                    int ind = Application.Current.Resources.MergedDictionaries.IndexOf(oldDict);
+
+                    Application.Current.Resources.MergedDictionaries.Remove(oldDict);
+                    Application.Current.Resources.MergedDictionaries.Insert(ind, new ResourceDictionary() { Source = NewUri });
+                }
+            }
+
+            //// set saved language
+            //if (BataDase.Properties.Settings.Default.DefaultLanguage == "ru-RU")
+            //{
+
+            //}
+
             MainV mainV = new MainV();
             mainV.Show();
         }

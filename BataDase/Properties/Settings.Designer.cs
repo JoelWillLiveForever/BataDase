@@ -34,5 +34,17 @@ namespace BataDase.Properties {
                 this["DefaultLanguage"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsDarkTheme {
+            get {
+                return ((bool)(this["IsDarkTheme"]));
+            }
+            set {
+                this["IsDarkTheme"] = value;
+            }
+        }
     }
 }

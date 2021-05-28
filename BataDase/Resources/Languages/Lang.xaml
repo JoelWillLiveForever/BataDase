@@ -84,6 +84,14 @@
 
     <sys:String x:Key="Text_Admin">Администратор</sys:String>
     <sys:String x:Key="Text_User">Пользователь</sys:String>
+
+    <sys:String x:Key="Text_Theme">Тема</sys:String>
+    <sys:String x:Key="Text_Light">Светлая</sys:String>
+    <sys:String x:Key="Text_Dark">Тёмная</sys:String>
+
+    <sys:String x:Key="Text_Russian">Русский</sys:String>
+    <sys:String x:Key="Text_English">Английский</sys:String>
+    <sys:String x:Key="Text_Japanese">Японский</sys:String>
     
     <!-- Font for this language -->
     <FontFamily x:Key="Font_MyLocalFont">pack://application:,,,/Resources/Fonts/Montserrat_Alternates/#Montserrat Alternates</FontFamily>

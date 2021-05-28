@@ -11,8 +11,70 @@
     <UserControl.DataContext>
         <vm:SettingsVM/>
     </UserControl.DataContext>
-    
+
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="0">
+            <TextBlock Style="{StaticResource Style_TextBlock_Primary}"
+                       Text="{DynamicResource Text_Language}"
+                       Margin="0,0,0,10"/>
+            <RadioButton Content="{DynamicResource Text_English}"
+                         Height="35"
+                         Margin="0,0,0,5"
+                         Name="Button_English"
+                         Click="Button_Language_Click"
+                         Style="{StaticResource Style_RadioButton_Language}"/>
+            <RadioButton Content="{DynamicResource Text_Russian}"
+                         Height="35"
+                         Margin="0,0,0,5"
+                         Name="Button_Russian"
+                         Click="Button_Language_Click"
+                         Style="{StaticResource Style_RadioButton_Language}"/>
+            <RadioButton Content="{DynamicResource Text_Japanese}"
+                         Height="35"
+                         Name="Button_Japanese"
+                         Click="Button_Language_Click"
+                         Style="{StaticResource Style_RadioButton_Language}"
+                         Margin="0,0,0,5"/>
+        </StackPanel>
+        
+        <Separator Grid.Row="1"
+                   Height="1">
+            <Separator.Style>
+                <Style TargetType="{x:Type Separator}">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <SolidColorBrush Color="{DynamicResource Color_OnBackground_OnSurface}"
+                                             Opacity="0.24"/>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Separator.Style>
+        </Separator>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="2">
+            <TextBlock Style="{StaticResource Style_TextBlock_Primary}"
+                       Text="{DynamicResource Text_Theme}"
+                       Margin="0,0,0,10"/>
+            <RadioButton Content="{DynamicResource Text_Light}"
+                         Style="{StaticResource Style_RadioButton}"
+                         Height="35"
+                         Margin="0,0,0,5"
+                         Name="Button_Light"
+                         Click="RadioButton_Theme_Click"/>
+            <RadioButton Content="{DynamicResource Text_Dark}"
+                         Style="{StaticResource Style_RadioButton}"
+                         Height="35"
+                         Name="Button_Dark"
+                         Click="RadioButton_Theme_Click"/>
+        </StackPanel>
+
     </Grid>
 </UserControl>

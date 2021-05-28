@@ -15,17 +15,8 @@
     </UserControl.DataContext>
 
     <!-- Content here -->
-    <DockPanel LastChildFill="True">
-        <DockPanel.Resources>
-            <Style TargetType="{x:Type DockPanel}">
-                <Setter Property="Background">
-                    <Setter.Value>
-                        <SolidColorBrush Color="{DynamicResource Color_Primary}"
-                                         Opacity="0.08"/>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-        </DockPanel.Resources>
+    <DockPanel LastChildFill="True"
+               Background="{DynamicResource Brush_Background_Foreground}">
 
         <DockPanel DockPanel.Dock="Left"
                    LastChildFill="True"
