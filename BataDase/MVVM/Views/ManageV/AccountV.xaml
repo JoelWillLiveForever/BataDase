@@ -12,7 +12,17 @@
         <vm:AccountVM/>
     </UserControl.DataContext>
 
-    <Grid>
-            
-    </Grid>
+    <DockPanel LastChildFill="True">
+        <StackPanel Orientation="Horizontal"
+                    DockPanel.Dock="Bottom"
+                    HorizontalAlignment="Right">
+            <Button Content="{DynamicResource Text_Logout}"
+                    Style="{StaticResource Style_Button_Primary_Logout}"
+                    Height="35"
+                    Click="Button_Click"/>
+        </StackPanel>
+        <Grid>
+            <!-- Content here -->
+        </Grid>
+    </DockPanel>
 </UserControl>

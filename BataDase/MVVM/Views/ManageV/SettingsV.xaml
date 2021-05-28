@@ -40,12 +40,12 @@
                          Height="35"
                          Name="Button_Japanese"
                          Click="Button_Language_Click"
-                         Style="{StaticResource Style_RadioButton_Language}"
-                         Margin="0,0,0,5"/>
+                         Style="{StaticResource Style_RadioButton_Language}"/>
         </StackPanel>
         
         <Separator Grid.Row="1"
-                   Height="1">
+                   Height="1"
+                   Margin="0,10,0,10">
             <Separator.Style>
                 <Style TargetType="{x:Type Separator}">
                     <Setter Property="Background">

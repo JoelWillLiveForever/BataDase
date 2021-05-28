@@ -152,12 +152,6 @@ namespace BataDase
                 }
             }
 
-            //// set saved language
-            //if (BataDase.Properties.Settings.Default.DefaultLanguage == "ru-RU")
-            //{
-
-            //}
-
             MainV mainV = new MainV();
             mainV.Show();
         }

@@ -46,5 +46,41 @@ namespace BataDase.Properties {
                 this["IsDarkTheme"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsAdmin {
+            get {
+                return ((bool)(this["IsAdmin"]));
+            }
+            set {
+                this["IsAdmin"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        public int CurrentUserId {
+            get {
+                return ((int)(this["CurrentUserId"]));
+            }
+            set {
+                this["CurrentUserId"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Visible")]
+        public string Visibility {
+            get {
+                return ((string)(this["Visibility"]));
+            }
+            set {
+                this["Visibility"] = value;
+            }
+        }
     }
 }

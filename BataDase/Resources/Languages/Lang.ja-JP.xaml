@@ -95,6 +95,12 @@
     <sys:String x:Key="Text_English">英語</sys:String>
     <sys:String x:Key="Text_Japanese">日本語</sys:String>
 
+    <sys:String x:Key="Text_Back">Назад</sys:String>
+
+    <sys:String x:Key="Text_RepeatPass">Повторите пароль</sys:String>
+
+    <sys:String x:Key="Text_Logout">Выйти</sys:String>
+
     <!-- Font for this language -->
     <FontFamily x:Key="Font_MyLocalFont">pack://application:,,,/Resources/Fonts/Sawarabi_Mincho/#Sawarabi Mincho</FontFamily>
 

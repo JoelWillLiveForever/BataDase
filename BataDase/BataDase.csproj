@@ -104,6 +104,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVVM\Views\LoginV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\Views\MainV.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -116,6 +120,7 @@
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="Core\AppDBContext.cs" />
+    <Compile Include="Core\WaterMarkTextHelper.cs" />
     <Compile Include="MVVM\Models\MenuVMS\CarriagesM.cs" />
     <Compile Include="MVVM\Models\MenuVMS\CitiesM.cs" />
     <Compile Include="MVVM\Models\MenuVMS\LocomotivesM.cs" />
@@ -124,6 +129,7 @@
     <Compile Include="MVVM\Models\MenuVMS\TicketsM.cs" />
     <Compile Include="MVVM\Models\MenuVMS\TrainsM.cs" />
     <Compile Include="MVVM\Models\MenuVMS\UsersM.cs" />
+    <Compile Include="MVVM\ViewModels\LoginVM.cs" />
     <Compile Include="MVVM\ViewModels\ManageVMS\AccountVM.cs" />
     <Compile Include="MVVM\ViewModels\DialogVM.cs" />
     <Compile Include="MVVM\ViewModels\ManageVMS\InfoVM.cs" />
@@ -136,9 +142,13 @@
     <Compile Include="MVVM\ViewModels\MenuVMS\TrainsVM.cs" />
     <Compile Include="MVVM\ViewModels\MenuVMS\UsersVM.cs" />
     <Compile Include="MVVM\ViewModels\ManageVMS\SettingsVM.cs" />
+    <Compile Include="MVVM\ViewModels\RegistrationVM.cs" />
     <Compile Include="MVVM\ViewModels\TableVM.cs" />
     <Compile Include="MVVM\Views\DialogV.xaml.cs">
       <DependentUpon>DialogV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Views\LoginV.xaml.cs">
+      <DependentUpon>LoginV.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\Views\MainV.xaml.cs">
       <DependentUpon>MainV.xaml</DependentUpon>
@@ -157,6 +167,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\Views\MenuV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\Views\RegistrationV.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -239,6 +253,9 @@
     </Compile>
     <Compile Include="MVVM\Views\MenuV.xaml.cs">
       <DependentUpon>MenuV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Views\RegistrationV.xaml.cs">
+      <DependentUpon>RegistrationV.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\Views\TableV.xaml.cs">
       <DependentUpon>TableV.xaml</DependentUpon>
