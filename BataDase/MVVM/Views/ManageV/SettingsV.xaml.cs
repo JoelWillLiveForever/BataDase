@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BataDase.MVVM.Views
+namespace BataDase.MVVM.Views.ManageV
 {
     /// <summary>
     /// Interaction logic for SettingsV.xaml
@@ -24,10 +24,5 @@ namespace BataDase.MVVM.Views
         {
             InitializeComponent();
         }
-
-		private void Back_Click(object sender, RoutedEventArgs e)
-		{
-            
-		}
-	}
+    }
 }

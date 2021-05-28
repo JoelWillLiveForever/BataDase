@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BataDase.MVVM.Views;
+using System;
 
 namespace BataDase.MVVM.ViewModels.MenuVMS
 {
@@ -16,7 +17,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
         public void Connect()
         {
-
+            TableV.Current_DataGrid.ItemsSource = null;
         }
 
         public void Delete()

@@ -183,6 +183,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
             // Инициализация списка элементов
             SourceList = dbContext.UsersMs.Local.ToBindingList();
+            TableV.Current_DataGrid.ItemsSource = SourceList;
         }
 
         // Метод, срабатывающий при нажатии на кнопку "Запрос"
@@ -215,12 +216,12 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             {
                 // если ничего не выбрано в датагриде то ошибка
                 // если выбрано больше 1 элемента то тоже ошибка
-                if (MenuV.Current_DataGrid.SelectedItems.Count < 1)
+                if (TableV.Current_DataGrid.SelectedItems.Count < 1)
                 {
                     MessageBox.Show("Выберите элемент для изменения!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                else if (MenuV.Current_DataGrid.SelectedItems.Count > 1)
+                else if (TableV.Current_DataGrid.SelectedItems.Count > 1)
                 {
                     MessageBox.Show("Можно выбрать для изменения не более ОДНОГО элемента за раз!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
@@ -228,7 +229,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
                 // индекс текущей выбранной строки в DataGrid
                 // кастыль, но куда без кастылей?
-                index = MenuV.Current_DataGrid.SelectedIndex;
+                index = TableV.Current_DataGrid.SelectedIndex;
 
                 // Если всё ок, вставляем данные для данного юзера в форму, который затем будем менять
                 UsersM temp = SourceList[index];
@@ -443,25 +444,25 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             SourceList = dbContext.UsersMs.Local.ToBindingList();
 
             // Пинаем DataGrid, ибо он тупой и по другому не понимает
-            MenuV.Current_DataGrid.Items.Refresh();
+            TableV.Current_DataGrid.Items.Refresh();
         }
 
         // Метод, срабатывающий при нажатии на кнопку "Удалить"
         public void Delete()
         {
             // если ничего не выбрано в датагриде то ошибка
-            if (MenuV.Current_DataGrid.SelectedItems.Count < 1)
+            if (TableV.Current_DataGrid.SelectedItems.Count < 1)
             {
                 MessageBox.Show("Выберите элементы для удаления!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
             // Пока есть элементы, которые нужно удалить, то крутится цикл
-            while (MenuV.Current_DataGrid.SelectedItems.Count > 0)
+            while (TableV.Current_DataGrid.SelectedItems.Count > 0)
             {
                 // индекс текущей выбранной строки в DataGrid
                 // кастыль, но куда без кастылей?
-                index = MenuV.Current_DataGrid.SelectedIndex;
+                index = TableV.Current_DataGrid.SelectedIndex;
 
                 // Прежде чем удалить элемент из данной таблицы,
                 // нужно удалить его из зависимых таблиц (см. Физическую модель)

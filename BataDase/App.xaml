@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:vm="clr-namespace:BataDase.MVVM.ViewModels"
              xmlns:v="clr-namespace:BataDase.MVVM.Views"
+             xmlns:mvm="clr-namespace:BataDase.MVVM.ViewModels.ManageVMS"
+             xmlns:mv="clr-namespace:BataDase.MVVM.Views.ManageV"
              xmlns:local="clr-namespace:BataDase"
              LoadCompleted="Application_LoadCompleted"
              Startup="Application_Startup">
@@ -45,8 +47,24 @@
                 <v:MenuV/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type vm:TableVM}">
+                <v:TableV/>
+            </DataTemplate>
+
             <DataTemplate DataType="{x:Type vm:DialogVM}">
                 <v:DialogV/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type mvm:AccountVM}">
+                <mv:AccountV/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type mvm:SettingsVM}">
+                <mv:SettingsV/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type mvm:InfoVM}">
+                <mv:InfoV/>
             </DataTemplate>
 
         </ResourceDictionary>

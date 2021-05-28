@@ -138,6 +138,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             dbContext.LocomotivesMs.Load();
 
             SourceList = dbContext.LocomotivesMs.Local.ToBindingList();
+            TableV.Current_DataGrid.ItemsSource = SourceList;
         }
 
         public void Request()
@@ -165,12 +166,12 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             {
                 // если ничего не выбрано в датагриде то ошибка
                 // если выбрано больше 1 элемента то тоже ошибка
-                if (MenuV.Current_DataGrid.SelectedItems.Count < 1)
+                if (TableV.Current_DataGrid.SelectedItems.Count < 1)
                 {
                     MessageBox.Show("Выберите элемент для изменения!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                else if (MenuV.Current_DataGrid.SelectedItems.Count > 1)
+                else if (TableV.Current_DataGrid.SelectedItems.Count > 1)
                 {
                     MessageBox.Show("Можно выбрать для изменения не более ОДНОГО элемента за раз!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
@@ -178,7 +179,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
                 // индекс текущей выбранной строки в DataGrid
                 // кастыль, но куда без кастылей?
-                index = MenuV.Current_DataGrid.SelectedIndex;
+                index = TableV.Current_DataGrid.SelectedIndex;
 
                 // Если всё ок, вставляем данные для данного юзера в форму, который затем будем менять
                 LocomotivesM temp = SourceList[index];
@@ -343,20 +344,20 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             // Обновление списка
             SourceList = dbContext.LocomotivesMs.Local.ToBindingList();
 
-            //MenuV.MenuV_DataGrid.Items.Refresh();
+            //TableV.MenuV_DataGrid.Items.Refresh();
         }
 
         public void Delete()
         {
-            if (MenuV.Current_DataGrid.SelectedItems.Count < 1)
+            if (TableV.Current_DataGrid.SelectedItems.Count < 1)
             {
                 MessageBox.Show("Выберите элементы для удаления!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            while (MenuV.Current_DataGrid.SelectedItems.Count > 0)
+            while (TableV.Current_DataGrid.SelectedItems.Count > 0)
             {
-                index = MenuV.Current_DataGrid.SelectedIndex;
+                index = TableV.Current_DataGrid.SelectedIndex;
 
                 LocomotivesM deleteEntity = SourceList[index];
 

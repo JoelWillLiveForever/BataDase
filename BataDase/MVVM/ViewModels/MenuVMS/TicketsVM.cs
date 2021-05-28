@@ -1,5 +1,6 @@
 ﻿using BataDase.Core;
 using BataDase.MVVM.Models.MenuVMS;
+using BataDase.MVVM.Views;
 using System.ComponentModel;
 using System.Data.Entity;
 
@@ -31,9 +32,11 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
         public void Connect()
         {
-            if (dbContext != null) return;
             dbContext = AppDBContext.GetInstance();
             dbContext.TicketsMs.Load();
+
+            SourceList = dbContext.TicketsMs.Local.ToBindingList();
+            TableV.Current_DataGrid.ItemsSource = SourceList;
         }
 
         public void Request()

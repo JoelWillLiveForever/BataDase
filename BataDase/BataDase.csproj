@@ -124,7 +124,9 @@
     <Compile Include="MVVM\Models\MenuVMS\TicketsM.cs" />
     <Compile Include="MVVM\Models\MenuVMS\TrainsM.cs" />
     <Compile Include="MVVM\Models\MenuVMS\UsersM.cs" />
+    <Compile Include="MVVM\ViewModels\ManageVMS\AccountVM.cs" />
     <Compile Include="MVVM\ViewModels\DialogVM.cs" />
+    <Compile Include="MVVM\ViewModels\ManageVMS\InfoVM.cs" />
     <Compile Include="MVVM\ViewModels\MenuVMS\CarriagesVM.cs" />
     <Compile Include="MVVM\ViewModels\MenuVMS\CitiesVM.cs" />
     <Compile Include="MVVM\ViewModels\MenuVMS\LocomotivesVM.cs" />
@@ -133,6 +135,8 @@
     <Compile Include="MVVM\ViewModels\MenuVMS\TicketsVM.cs" />
     <Compile Include="MVVM\ViewModels\MenuVMS\TrainsVM.cs" />
     <Compile Include="MVVM\ViewModels\MenuVMS\UsersVM.cs" />
+    <Compile Include="MVVM\ViewModels\ManageVMS\SettingsVM.cs" />
+    <Compile Include="MVVM\ViewModels\TableVM.cs" />
     <Compile Include="MVVM\Views\DialogV.xaml.cs">
       <DependentUpon>DialogV.xaml</DependentUpon>
     </Compile>
@@ -140,11 +144,23 @@
       <DependentUpon>MainV.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\Views\ManageV\AccountV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\Views\ManageV\InfoV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\Views\ManageV\SettingsV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\Views\MenuV.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MVVM\Views\SettingsV.xaml">
+    <Page Include="MVVM\Views\TableV.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -208,11 +224,20 @@
   <ItemGroup>
     <Compile Include="MVVM\ViewModels\MenuVM.cs" />
     <Compile Include="MVVM\ViewModels\MainVM.cs" />
+    <Compile Include="MVVM\Views\ManageV\AccountV.xaml.cs">
+      <DependentUpon>AccountV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Views\ManageV\InfoV.xaml.cs">
+      <DependentUpon>InfoV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Views\ManageV\SettingsV.xaml.cs">
+      <DependentUpon>SettingsV.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\Views\MenuV.xaml.cs">
       <DependentUpon>MenuV.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MVVM\Views\SettingsV.xaml.cs">
-      <DependentUpon>SettingsV.xaml</DependentUpon>
+    <Compile Include="MVVM\Views\TableV.xaml.cs">
+      <DependentUpon>TableV.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
