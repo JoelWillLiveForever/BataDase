@@ -2,6 +2,7 @@
 using BataDase.MVVM.Models.MenuVMS;
 using BataDase.MVVM.Views;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.Entity;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
         private int index;
 
         // Контекст и список с данными
+        //public List<UserModel> SourceList { get; set; }
         public BindingList<UsersM> SourceList { get; set; }
         private AppDBContext dbContext;
 
@@ -27,7 +29,6 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
         // Конструктор
         public UsersVM()
         {
-            // Инициализация контекста БД
             dbContext = AppDBContext.GetInstance();
             dbContext.UsersMs.Load();
 
@@ -152,9 +153,6 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             Grid.SetColumn(access, 1);
 
             // Вытягивание access'ов из ресурсов
-            //string admin = (string)App.Current.Resources["Text_Admin"];
-            //string user = (string)App.Current.Resources["Text_User"];
-
             ComboBoxItem admin = new ComboBoxItem();
             admin.SetResourceReference(ComboBoxItem.ContentProperty, "Text_Admin");
 
@@ -172,7 +170,6 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             Grid.SetRow(bill, 8);
             Grid.SetColumn(bill, 1);
 
-            // Инициализация списка элементов БД
             SourceList = dbContext.UsersMs.Local.ToBindingList();
         }
 
@@ -185,13 +182,15 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
             // Инициализация списка элементов
             SourceList = dbContext.UsersMs.Local.ToBindingList();
+
             TableV.Current_DataGrid.ItemsSource = SourceList;
         }
 
         // Метод, срабатывающий при нажатии на кнопку "Запрос"
         public void Request()
         {
-            throw new System.NotImplementedException();
+            MessageBox.Show("Запрос не реализован!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+            return;
         }
 
         // Метод, срабатывающий при нажатии на кнопку "Добавить" и "Изменить"
@@ -441,11 +440,10 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
             // Сохранение контекста БД
             dbContext.SaveChanges();
+            dbContext.UsersMs.Load();
 
-            // Обновление списка
             SourceList = dbContext.UsersMs.Local.ToBindingList();
-
-            // Пинаем DataGrid, ибо он тупой и по другому не понимает
+            TableV.Current_DataGrid.ItemsSource = SourceList;
             TableV.Current_DataGrid.Items.Refresh();
         }
 
@@ -494,9 +492,6 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 // Удаляем НЕконтекстного юзера из SourceList
                 SourceList.Remove(deleteEntity);
             }
-
-            // Сохраняем контекст БД
-            dbContext.SaveChanges();
         }
     }
 }

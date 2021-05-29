@@ -132,7 +132,8 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
         public void Request()
         {
-            throw new System.NotImplementedException();
+            MessageBox.Show("Запрос не реализован!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+            return;
         }
 
         public void AddEdit(bool isAdd)
