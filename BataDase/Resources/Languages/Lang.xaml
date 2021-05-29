@@ -23,10 +23,17 @@
     <sys:String x:Key="Text_Add">Добавить</sys:String>
     <sys:String x:Key="Text_Edit">Изменить</sys:String>
     <sys:String x:Key="Text_Delete">Удалить</sys:String>
+    <sys:String x:Key="Text_AddMoney">Пополнить счёт</sys:String>
 
     <!-- Labels -->
     <sys:String x:Key="Text_Language">Язык</sys:String>
-    
+    <sys:String x:Key="Text_PersonalCab">Личный кабинет</sys:String>
+    <sys:String x:Key="Text_Rubles">рублей</sys:String>
+    <sys:String x:Key="Text_Summ">Сумма</sys:String>
+
+    <!-- Messages -->
+    <sys:String x:Key="Text_AddMoneyMessage">Деньги были успешно добавлены! На вашем счету:</sys:String>
+
     <!-- Columns headers -->
     <sys:String x:Key="Text_RowNumber">Номер п/п</sys:String>
     <!-- Column "Cities" -->

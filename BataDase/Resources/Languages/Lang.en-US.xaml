@@ -23,9 +23,16 @@
     <sys:String x:Key="Text_Add">Add</sys:String>
     <sys:String x:Key="Text_Edit">Edit</sys:String>
     <sys:String x:Key="Text_Delete">Delete</sys:String>
+    <sys:String x:Key="Text_AddMoney">Add money</sys:String>
 
     <!-- Labels -->
     <sys:String x:Key="Text_Language">Language</sys:String>
+    <sys:String x:Key="Text_PersonalCab">Profile</sys:String>
+    <sys:String x:Key="Text_Rubles">RUB</sys:String>
+    <sys:String x:Key="Text_Summ">Amount</sys:String>
+
+    <!-- Messages -->
+    <sys:String x:Key="Text_AddMoneyMessage">Money has been successfully added! Your money:</sys:String>
 
     <!-- Columns headers -->
     <sys:String x:Key="Text_RowNumber">Row</sys:String>
@@ -78,7 +85,7 @@
     <sys:String x:Key="Text_Lastname">Lastname</sys:String>
     <sys:String x:Key="Text_Sex">Sex</sys:String>
     <sys:String x:Key="Text_Birthday">Date of birth</sys:String>
-    <sys:String x:Key="Text_Bill">Bill</sys:String>
+    <sys:String x:Key="Text_Bill">Money bill</sys:String>
     <sys:String x:Key="Text_Access">Access level</sys:String>
 
     <sys:String x:Key="Text_Male">Male</sys:String>

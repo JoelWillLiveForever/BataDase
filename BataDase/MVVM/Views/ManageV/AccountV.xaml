@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:BataDase.MVVM.Views.ManageV"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    
+
     <UserControl.DataContext>
         <vm:AccountVM/>
     </UserControl.DataContext>
@@ -22,6 +22,126 @@
                     Click="Button_Click"/>
         </StackPanel>
         <Grid>
+            <TextBlock HorizontalAlignment="Left" 
+                       x:Name="logintb"
+                       Margin="100,144,0,0" 
+                       TextWrapping="Wrap" 
+                       Text="{DynamicResource Text_Login}"
+                       Style="{StaticResource Style_TextBlock_Primary}"
+                       VerticalAlignment="Top" 
+                       Height="26" 
+                       Width="106"
+                       />
+            <TextBlock HorizontalAlignment="Left" 
+                x:Name="surnametb"
+                Margin="100,180,0,0" 
+                TextWrapping="Wrap" 
+                Text="{DynamicResource ResourceKey=Text_Surname}"
+                Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"
+                VerticalAlignment="Top" 
+                Height="26" 
+                Width="106" RenderTransformOrigin="0.491,0.277"
+                       />
+            <TextBlock HorizontalAlignment="Left" 
+                x:Name="nametb"
+                Margin="100,215,0,0" 
+                TextWrapping="Wrap" 
+                Text="{DynamicResource ResourceKey=Text_Name}"
+                Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"
+                VerticalAlignment="Top" 
+                Height="26" 
+                Width="78"
+                       />
+            <TextBlock HorizontalAlignment="Left" 
+                x:Name="lastnametb"
+                Margin="100,250,0,0" 
+                TextWrapping="Wrap" 
+                Text="{DynamicResource ResourceKey=Text_Lastname}"
+                Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"
+                VerticalAlignment="Top" 
+                Height="26" 
+                Width="123"
+                       />
+            <TextBlock HorizontalAlignment="Left" 
+                x:Name="userTitle"
+                Margin="298,96,0,0" 
+                TextWrapping="Wrap" 
+                Text="{DynamicResource ResourceKey=Text_PersonalCab}"
+                TextAlignment="Center"
+                Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"
+                VerticalAlignment="Top" 
+                Height="26" 
+                Width="231"
+                       />
+            <TextBlock HorizontalAlignment="Left" 
+                x:Name="balancetb"
+                Margin="434,140,0,0" 
+                TextWrapping="Wrap" 
+                Text="{DynamicResource ResourceKey=Text_Bill}"
+                Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"
+                VerticalAlignment="Top" 
+                Height="26" 
+                Width="175"
+                       />
+            <TextBox 
+            x:Name="loginShow"
+            IsReadOnly="True"
+            HorizontalAlignment="Left" 
+            Height="26" 
+            Margin="237,140,0,0" 
+            TextWrapping="Wrap"
+            Style="{StaticResource Style_Dialog_TextBox}"
+            VerticalAlignment="Top" 
+            Width="183"/>
+            <TextBox 
+                x:Name="surnameShow"
+                IsReadOnly="True"
+                HorizontalAlignment="Left" 
+                Height="26" 
+                Margin="237,176,0,0" 
+                TextWrapping="Wrap"
+                Style="{StaticResource ResourceKey=Style_Dialog_TextBox}"
+                VerticalAlignment="Top" 
+                Width="183"/>
+            <TextBox 
+                x:Name="nameShow"
+                IsReadOnly="True"
+                HorizontalAlignment="Left" 
+                Height="26" 
+                Margin="237,211,0,0" 
+                TextWrapping="Wrap"
+                Style="{StaticResource ResourceKey=Style_Dialog_TextBox}"
+                VerticalAlignment="Top" 
+                Width="183"/>
+            <TextBox 
+                x:Name="lastnameShow"
+                IsReadOnly="True"
+                HorizontalAlignment="Left" 
+                Height="26" 
+                Margin="237,246,0,0" 
+                TextWrapping="Wrap"
+                Style="{StaticResource ResourceKey=Style_Dialog_TextBox}"
+                VerticalAlignment="Top" 
+                Width="183"/>
+            <TextBox 
+                x:Name="billShow"
+                IsReadOnly="True"
+                HorizontalAlignment="Left" 
+                Height="26" 
+                Margin="623,136,0,0" 
+                TextWrapping="Wrap"
+                MinWidth="80"
+                VerticalAlignment="Top"
+                Style="{StaticResource Style_Dialog_TextBox}" Width="105"
+                />
+            <Button Content="{DynamicResource Text_AddMoney}"
+                Click="AddMoney_Click" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top"
+                Margin="489,183,131,196.4" 
+                Width="180" Height="35"
+                Style="{StaticResource Style_Button_Primary}"
+                />
             <!-- Content here -->
         </Grid>
     </DockPanel>
