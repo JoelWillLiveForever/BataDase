@@ -29,9 +29,7 @@ namespace BataDase.MVVM.Views
                 else
                 {
                     string name = (string)App.Current.TryFindResource(displayName);
-
-                    if (name != null)
-                        e.Column.Header = App.Current.FindResource(displayName);
+                    e.Column.Header = name == null ? displayName : System.Windows.Application.Current.FindResource(displayName);
                 }
             }
 

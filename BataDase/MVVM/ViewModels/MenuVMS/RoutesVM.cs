@@ -200,10 +200,26 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 return;
             }
 
+            string sc = startCity.Text;
+            var startCity_Id = (from d in dbContext.CitiesMs
+                                where d._city_name == sc
+                                select d._city_id).FirstOrDefault();
+
+            string fc = finishCity.Text;
+            var finishCity_Id = (from d in dbContext.CitiesMs
+                                where d._city_name == fc
+                                select d._city_id).FirstOrDefault();
+
+            if (sc == null || fc == null)
+            {
+                MessageBox.Show("Выбранные города отсутствуют в базе данных!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             RoutesM temp = new RoutesM();
             temp._route_name = routeName.Text;
-            temp.CitiesM_Start._city_name = startCity.Text;
-            temp.CitiesM_Finish._city_name = finishCity.Text;
+            temp._start_city_id = startCity_Id;
+            temp._finish_city_id = finishCity_Id;
 
             // Сохранение нового юзера в БД
             if (isAdd)
