@@ -12,137 +12,111 @@
         <vm:AccountVM/>
     </UserControl.DataContext>
 
-    <DockPanel LastChildFill="True">
+    <DockPanel LastChildFill="True"
+               Margin="0">
         <StackPanel Orientation="Horizontal"
                     DockPanel.Dock="Bottom"
                     HorizontalAlignment="Right">
+            <Button Content="{DynamicResource Text_AddMoney}"
+                    Click="AddMoney_Click" 
+                    Height="35"
+                    Margin="0,0,5,0"
+                    Style="{StaticResource Style_Button_Primary}"/>
             <Button Content="{DynamicResource Text_Logout}"
                     Style="{StaticResource Style_Button_Primary_Logout}"
                     Height="35"
                     Click="Button_Click"/>
         </StackPanel>
-        <Grid>
-            <TextBlock HorizontalAlignment="Left" 
-                       x:Name="logintb"
-                       Margin="100,144,0,0" 
-                       TextWrapping="Wrap" 
-                       Text="{DynamicResource Text_Login}"
-                       Style="{StaticResource Style_TextBlock_Primary}"
-                       VerticalAlignment="Top" 
-                       Height="26" 
-                       Width="106"
-                       />
-            <TextBlock HorizontalAlignment="Left" 
-                x:Name="surnametb"
-                Margin="100,180,0,0" 
-                TextWrapping="Wrap" 
-                Text="{DynamicResource ResourceKey=Text_Surname}"
-                Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"
-                VerticalAlignment="Top" 
-                Height="26" 
-                Width="106" RenderTransformOrigin="0.491,0.277"
-                       />
-            <TextBlock HorizontalAlignment="Left" 
-                x:Name="nametb"
-                Margin="100,215,0,0" 
-                TextWrapping="Wrap" 
-                Text="{DynamicResource ResourceKey=Text_Name}"
-                Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"
-                VerticalAlignment="Top" 
-                Height="26" 
-                Width="78"
-                       />
-            <TextBlock HorizontalAlignment="Left" 
-                x:Name="lastnametb"
-                Margin="100,250,0,0" 
-                TextWrapping="Wrap" 
-                Text="{DynamicResource ResourceKey=Text_Lastname}"
-                Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"
-                VerticalAlignment="Top" 
-                Height="26" 
-                Width="123"
-                       />
-            <TextBlock HorizontalAlignment="Left" 
-                x:Name="userTitle"
-                Margin="298,96,0,0" 
-                TextWrapping="Wrap" 
-                Text="{DynamicResource ResourceKey=Text_PersonalCab}"
-                TextAlignment="Center"
-                Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"
-                VerticalAlignment="Top" 
-                Height="26" 
-                Width="231"
-                       />
-            <TextBlock HorizontalAlignment="Left" 
-                x:Name="balancetb"
-                Margin="434,140,0,0" 
-                TextWrapping="Wrap" 
-                Text="{DynamicResource ResourceKey=Text_Bill}"
-                Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"
-                VerticalAlignment="Top" 
-                Height="26" 
-                Width="175"
-                       />
-            <TextBox 
-            x:Name="loginShow"
-            IsReadOnly="True"
-            HorizontalAlignment="Left" 
-            Height="26" 
-            Margin="237,140,0,0" 
-            TextWrapping="Wrap"
-            Style="{StaticResource Style_Dialog_TextBox}"
-            VerticalAlignment="Top" 
-            Width="183"/>
-            <TextBox 
-                x:Name="surnameShow"
-                IsReadOnly="True"
-                HorizontalAlignment="Left" 
-                Height="26" 
-                Margin="237,176,0,0" 
-                TextWrapping="Wrap"
-                Style="{StaticResource ResourceKey=Style_Dialog_TextBox}"
-                VerticalAlignment="Top" 
-                Width="183"/>
-            <TextBox 
-                x:Name="nameShow"
-                IsReadOnly="True"
-                HorizontalAlignment="Left" 
-                Height="26" 
-                Margin="237,211,0,0" 
-                TextWrapping="Wrap"
-                Style="{StaticResource ResourceKey=Style_Dialog_TextBox}"
-                VerticalAlignment="Top" 
-                Width="183"/>
-            <TextBox 
-                x:Name="lastnameShow"
-                IsReadOnly="True"
-                HorizontalAlignment="Left" 
-                Height="26" 
-                Margin="237,246,0,0" 
-                TextWrapping="Wrap"
-                Style="{StaticResource ResourceKey=Style_Dialog_TextBox}"
-                VerticalAlignment="Top" 
-                Width="183"/>
-            <TextBox 
-                x:Name="billShow"
-                IsReadOnly="True"
-                HorizontalAlignment="Left" 
-                Height="26" 
-                Margin="623,136,0,0" 
-                TextWrapping="Wrap"
-                MinWidth="80"
-                VerticalAlignment="Top"
-                Style="{StaticResource Style_Dialog_TextBox}" Width="105"
-                />
-            <Button Content="{DynamicResource Text_AddMoney}"
-                Click="AddMoney_Click" 
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Top"
-                Margin="489,183,131,196.4" 
-                Width="180" Height="35"
-                Style="{StaticResource Style_Button_Primary}"
-                />
+        <StackPanel Orientation="Vertical">
+            <TextBlock x:Name="userTitle"
+                       Margin="0,0,0,10"
+                       Text="{DynamicResource ResourceKey=Text_PersonalCab}"
+                       Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"/>
+            <DockPanel LastChildFill="True"
+                       Height="175">
+                <Viewbox Child="{StaticResource Icon_Person}"
+                         Width="Auto"
+                         Height="Auto"
+                         DockPanel.Dock="Left"/>
+                <Grid Margin="10,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Name="surnametb"
+                               Grid.Column="0"
+                               Grid.Row="0"
+                               Text="{DynamicResource ResourceKey=Text_Surname}"
+                               Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"/>
+                    <TextBox x:Name="surnameShow"
+                             Grid.Column="1"
+                             Grid.Row="0"
+                             IsReadOnly="True"
+                             Margin="10,0,0,0"
+                             Width="Auto"
+                             Style="{StaticResource ResourceKey=Style_Dialog_TextBox}"/>
+
+                    <TextBlock x:Name="nametb"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               Text="{DynamicResource ResourceKey=Text_Name}"
+                               Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"/>
+                    <TextBox x:Name="nameShow"
+                             IsReadOnly="True"
+                             Grid.Row="1"
+                             Grid.Column="1"
+                             Margin="10,0,0,0"
+                             Style="{StaticResource ResourceKey=Style_Dialog_TextBox}"/>
+
+                    <TextBlock x:Name="lastnametb"
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               Text="{DynamicResource ResourceKey=Text_Lastname}"
+                               Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"/>
+
+                    <TextBox x:Name="lastnameShow"
+                             IsReadOnly="True"
+                             Grid.Row="2"
+                             Grid.Column="1"
+                             Margin="10,0,0,0"
+                             Style="{StaticResource ResourceKey=Style_Dialog_TextBox}"/>
+
+                    <TextBlock x:Name="logintb"
+                               Grid.Row="3"
+                               Grid.Column="0"
+                               Text="{DynamicResource Text_Login}"
+                               Style="{StaticResource Style_TextBlock_Primary}"/>
+
+                    <TextBox x:Name="loginShow"
+                             Grid.Row="3"
+                             Grid.Column="1"
+                             IsReadOnly="True"
+                             Margin="10,0,0,0"
+                             Style="{StaticResource Style_Dialog_TextBox}"/>
+
+                    <TextBlock x:Name="balancetb"
+                               Grid.Row="4"
+                               Grid.Column="0"
+                               Text="{DynamicResource ResourceKey=Text_Bill}"
+                               Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"/>
+                    <TextBox x:Name="billShow"
+                             IsReadOnly="True"
+                             Grid.Row="4"
+                             Grid.Column="1"
+                             Margin="10,0,0,0"
+                             Style="{StaticResource Style_Dialog_TextBox}"/>
+                </Grid>
+            </DockPanel>
             <!-- Content here -->
-        </Grid>
+        </StackPanel>
     </DockPanel>
 </UserControl>

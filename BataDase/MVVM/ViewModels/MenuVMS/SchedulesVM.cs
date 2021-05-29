@@ -92,6 +92,39 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             SourceList = dbContext.SchedulesMs.Local.ToBindingList();
         }
 
+        public void ConnectAndUpdate()
+        {
+            dbContext = AppDBContext.GetInstance();
+            dbContext.RoutesMs.Load();
+            routes = dbContext.RoutesMs.Local.ToBindingList();
+
+            dbContext.TrainsMs.Load();
+            trains = dbContext.TrainsMs.Local.ToBindingList();
+
+            dbContext.SchedulesMs.Load();
+            SourceList = dbContext.SchedulesMs.Local.ToBindingList();
+            TableV.Current_DataGrid.ItemsSource = SourceList;
+
+            routeName.Items.Clear();
+
+            for (int i = 0; i < routes.Count; i++)
+            {
+                routeName.Items.Insert(i, routes[i]._route_name);
+            }
+
+            trainID.Items.Clear();
+
+            for (int i = 0; i < trains.Count; i++)
+            {
+                trainID.Items.Insert(i, trains[i]._train_id);
+            }
+        }
+
+        public void Request()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public void AddEdit(bool isAdd)
         {
             this.isAdd = isAdd;
@@ -249,45 +282,6 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             SourceList = dbContext.SchedulesMs.Local.ToBindingList();
         }
 
-        public void Save()
-        {
-            if (dbContext != null)
-                dbContext.SaveChanges();
-        }
-
-        public void Close()
-        {
-            if (dbContext != null) dbContext = null;
-        }
-
-        public void Connect()
-        {
-            dbContext = AppDBContext.GetInstance();
-            dbContext.RoutesMs.Load();
-            routes = dbContext.RoutesMs.Local.ToBindingList();
-
-            dbContext.TrainsMs.Load();
-            trains = dbContext.TrainsMs.Local.ToBindingList();
-
-            dbContext.SchedulesMs.Load();
-            SourceList = dbContext.SchedulesMs.Local.ToBindingList();
-            TableV.Current_DataGrid.ItemsSource = SourceList;
-
-            routeName.Items.Clear();
-
-            for (int i = 0; i < routes.Count; i++)
-            {
-                routeName.Items.Insert(i, routes[i]._route_name);
-            }
-
-            trainID.Items.Clear();
-
-            for (int i = 0; i < trains.Count; i++)
-            {
-                trainID.Items.Insert(i, trains[i]._train_id);
-            }
-        }
-
         public void Delete()
         {
             if (TableV.Current_DataGrid.SelectedItems.Count < 1)
@@ -321,11 +315,6 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
             // Сохраняем контекст БД
             dbContext.SaveChanges();
-        }
-
-        public void Request()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

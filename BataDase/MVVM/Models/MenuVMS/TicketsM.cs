@@ -9,7 +9,6 @@ namespace BataDase.MVVM.Models.MenuVMS
         public int _schedule_id { get; set; }
         public int _carriage_number { get; set; }
         public int _seatnum { get; set; }
-        public double _price { get; set; }
         public int _user_id { get; set; }
 
         public virtual SchedulesM SchedulesM { get; set; }

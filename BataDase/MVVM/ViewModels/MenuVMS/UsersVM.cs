@@ -37,55 +37,55 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             // Назначение свойств пачке контролов
             // Лэйбл "Фамилия", назначение текста, строки и колонки в Grid
             Surname = new TextBlock();
-            Surname.Text = App.Current.Resources["Text_Surname"] + ":";
+            Surname.SetResourceReference(TextBlock.TextProperty, "Text_Surname");
             Grid.SetRow(Surname, 0);
             Grid.SetColumn(Surname, 0);
 
             // Лэйбл "Имя", назначение текста, строки и колонки в Grid
             Name = new TextBlock();
-			Name.Text = App.Current.Resources["Text_Name"] + ":";
+            Name.SetResourceReference(TextBlock.TextProperty, "Text_Name");
 			Grid.SetRow(Name, 1);
             Grid.SetColumn(Name, 0);
 
             // Лэйбл "Отчество", назначение текста, строки и колонки в Grid
             Lastname = new TextBlock();
-            Lastname.Text = App.Current.Resources["Text_Lastname"] + ":";
+            Lastname.SetResourceReference(TextBlock.TextProperty, "Text_Lastname");
             Grid.SetRow(Lastname, 2);
             Grid.SetColumn(Lastname, 0);
 
             // Лэйбл "Пол", назначение текста, строки и колонки в Grid
             Sex = new TextBlock();
-            Sex.Text = App.Current.Resources["Text_Sex"] + ":";
+            Sex.SetResourceReference(TextBlock.TextProperty, "Text_Sex");
             Grid.SetRow(Sex, 3);
             Grid.SetColumn(Sex, 0);
 
             // Лэйбл "Дата рождения", назначение текста, строки и колонки в Grid
             Birthday = new TextBlock();
-            Birthday.Text = App.Current.Resources["Text_Birthday"] + ":";
+            Birthday.SetResourceReference(TextBlock.TextProperty, "Text_Birthday");
             Grid.SetRow(Birthday, 4);
             Grid.SetColumn(Birthday, 0);
 
             // Лэйбл "Логин", назначение текста, строки и колонки в Grid
             Login = new TextBlock();
-            Login.Text = App.Current.Resources["Text_Login"] + ":";
+            Login.SetResourceReference(TextBlock.TextProperty, "Text_Login");
             Grid.SetRow(Login, 5);
             Grid.SetColumn(Login, 0);
 
             // Лэйбл "Пароль", назначение текста, строки и колонки в Grid
             Password = new TextBlock();
-            Password.Text = App.Current.Resources["Text_Password"] + ":";
+            Password.SetResourceReference(TextBlock.TextProperty, "Text_Password");
             Grid.SetRow(Password, 6);
             Grid.SetColumn(Password, 0);
 
             // Лэйбл "Уровень доступа", назначение текста, строки и колонки в Grid
             Access = new TextBlock();
-            Access.Text = App.Current.Resources["Text_Access"] + ":";
+            Access.SetResourceReference(TextBlock.TextProperty, "Text_Access");
             Grid.SetRow(Access, 7);
             Grid.SetColumn(Access, 0);
 
             // Лэйбл "Денежный счёт", назначение текста, строки и колонки в Grid
             Bill = new TextBlock();
-            Bill.Text = App.Current.Resources["Text_Bill"] + ":";
+            Bill.SetResourceReference(TextBlock.TextProperty, "Text_Bill");
             Grid.SetRow(Bill, 8);
             Grid.SetColumn(Bill, 0);
 
@@ -115,8 +115,11 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             Grid.SetColumn(sex, 1);
 
             // Вытягивание полов из ресурсов
-            string male = (string)App.Current.Resources["Text_Male"];
-            string female = (string)App.Current.Resources["Text_Female"];
+            ComboBoxItem male = new ComboBoxItem();
+            male.SetResourceReference(ComboBoxItem.ContentProperty, "Text_Male");
+
+            ComboBoxItem female = new ComboBoxItem();
+            female.SetResourceReference(ComboBoxItem.ContentProperty, "Text_Female");
 
             // Назначение элементов комбобокс
             sex.Items.Insert(0, male);
@@ -149,8 +152,14 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             Grid.SetColumn(access, 1);
 
             // Вытягивание access'ов из ресурсов
-            string admin = (string)App.Current.Resources["Text_Admin"];
-            string user = (string)App.Current.Resources["Text_User"];
+            //string admin = (string)App.Current.Resources["Text_Admin"];
+            //string user = (string)App.Current.Resources["Text_User"];
+
+            ComboBoxItem admin = new ComboBoxItem();
+            admin.SetResourceReference(ComboBoxItem.ContentProperty, "Text_Admin");
+
+            ComboBoxItem user = new ComboBoxItem();
+            user.SetResourceReference(ComboBoxItem.ContentProperty, "Text_User");
 
             // Назначение элементов комбобокс
             access.Items.Insert(0, admin);
@@ -167,15 +176,8 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             SourceList = dbContext.UsersMs.Local.ToBindingList();
         }
 
-        // Deprecated
-        public void Close()
-        {
-            // Обнуление контекста БД и списка элементов
-            //if (dbContext != null) dbContext = null;
-        }
-
         // Метод, открывающий подключение в БД, когда данная таблица видна пользователю
-        public void Connect()
+        public void ConnectAndUpdate()
         {
             // Инициализация контекста БД
             dbContext = AppDBContext.GetInstance();

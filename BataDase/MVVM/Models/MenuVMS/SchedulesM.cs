@@ -12,6 +12,7 @@ namespace BataDase.MVVM.Models.MenuVMS
         public double _departure_datetime { get; set; }
         public double _arrival_datetime { get; set; }
         public int _status { get; set; }
+        public double _price { get; set; }
 
         public virtual TrainsM TrainsM { get; set; }
         public virtual RoutesM RoutesM { get; set; }

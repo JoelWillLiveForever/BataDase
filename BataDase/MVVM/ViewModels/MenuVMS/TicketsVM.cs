@@ -87,18 +87,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             SourceList = dbContext.TicketsMs.Local.ToBindingList();
         }
 
-        public void Save()
-        {
-            if (dbContext != null)
-                dbContext.SaveChanges();
-        }
-
-        public void Close()
-        {
-            if (dbContext != null) dbContext = null;
-        }
-
-        public void Connect()
+        public void ConnectAndUpdate()
         {
             // Инициализация контекста БД
             dbContext = AppDBContext.GetInstance();

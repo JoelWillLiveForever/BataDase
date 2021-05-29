@@ -62,18 +62,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             SourceList = dbContext.CitiesMs.Local.ToBindingList();
         }
 
-        public void Save()
-        {
-            if (dbContext != null)
-                dbContext.SaveChanges();
-        }
-
-        public void Close()
-        {
-            if (dbContext != null) dbContext = null;
-        }
-
-        public void Connect()
+        public void ConnectAndUpdate()
         {
             dbContext = AppDBContext.GetInstance();
             dbContext.CitiesMs.Load();

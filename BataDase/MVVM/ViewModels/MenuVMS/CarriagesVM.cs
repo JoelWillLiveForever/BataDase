@@ -148,17 +148,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             SourceList = dbContext.CarriagesMs.Local.ToBindingList();
 		}
 
-		public void Save()
-		{
-
-		}
-
-		public void Close()
-		{
-
-		}
-
-		public void Connect()
+		public void ConnectAndUpdate()
 		{
 			dbContext = AppDBContext.GetInstance();
 			dbContext.CarriagesMs.Load();
