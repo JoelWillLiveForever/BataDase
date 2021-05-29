@@ -13,6 +13,37 @@
     </UserControl.DataContext>
 
     <Grid>
-            
+        <TextBlock x:Name="aboutLb"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               Text="{DynamicResource Text_AboutLabel}"
+                               Style="{StaticResource ResourceKey=Style_TextBlock_Primary}" Margin="31,20,0,404.6"/>
+        <TextBlock x:Name="versionLb"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               Text="{DynamicResource Text_VersionLabel}"
+                               Style="{StaticResource ResourceKey=Style_TextBlock_Primary}" Margin="31,299,0,126.6"/>
+        <TextBlock x:Name="about"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            TextWrapping="WrapWithOverflow"
+            Text="{DynamicResource ResourceKey=Text_About}"
+            Style="{StaticResource ResourceKey=Style_TextBlock_Primary}" Margin="31,56,0,0" Height="125" Width="653"/>
+        <TextBlock x:Name="versionLb_Copy"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"                   
+            Text="v0.0.3 beta"
+            Style="{StaticResource ResourceKey=Style_TextBlock_Primary}" Margin="31,327,0,89.6" Height="33" Width="128"/>
+        <TextBlock x:Name="creatorsLb"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Text="{DynamicResource ResourceKey=Text_CreatorsLabel}"
+            Style="{StaticResource ResourceKey=Style_TextBlock_Primary}" Margin="31,186,0,0"/>
+        <TextBlock x:Name="creators"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            TextWrapping="WrapWithOverflow"                      
+            Text="{DynamicResource ResourceKey=Text_Creators}"
+            Style="{StaticResource ResourceKey=Style_TextBlock_Primary}" Margin="31,216,0,0" Height="62" Width="223"/>
     </Grid>
 </UserControl>

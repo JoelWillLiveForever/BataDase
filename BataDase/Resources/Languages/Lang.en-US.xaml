@@ -30,6 +30,13 @@
     <sys:String x:Key="Text_PersonalCab">Profile</sys:String>
     <sys:String x:Key="Text_Rubles">RUB</sys:String>
     <sys:String x:Key="Text_Summ">Amount</sys:String>
+    <sys:String x:Key="Text_AboutLabel">About the application:</sys:String>
+    <sys:String x:Key="Text_CreatorsLabel">Creators:</sys:String>
+    <sys:String x:Key="Text_VersionLabel">Version:</sys:String>
+    <sys:String x:Key="Text_About">
+        Railway information and reference system. The application implements the creation and viewing of the schedule of routes of the railway system, as well as the sale and subsequent purchase of tickets for voyages.
+    </sys:String>
+    <sys:String x:Key="Text_Creators">Nikulin Vladimir Taldykin Igor</sys:String>
 
     <!-- Messages -->
     <sys:String x:Key="Text_AddMoneyMessage">Money has been successfully added! Your money:</sys:String>

@@ -30,6 +30,13 @@
     <sys:String x:Key="Text_PersonalCab">パーソナルエリア</sys:String>
     <sys:String x:Key="Text_Rubles">ルーブル</sys:String>
     <sys:String x:Key="Text_Summ">金額</sys:String>
+    <sys:String x:Key="Text_AboutLabel">アプリケーションについて：</sys:String>
+    <sys:String x:Key="Text_CreatorsLabel">クリエイター：</sys:String>
+    <sys:String x:Key="Text_VersionLabel">バージョン：</sys:String>
+    <sys:String x:Key="Text_About">
+        鉄道情報と参照システム。このアプリケーションは、鉄道システムのルートのスケジュールの作成と表示、および航海のチケットの販売とその後の購入を実装します。
+    </sys:String>
+    <sys:String x:Key="Text_Creators">ニクリン ヴラディミル タルディキン イーゴリ</sys:String>
 
     <!-- Messages -->
     <sys:String x:Key="Text_AddMoneyMessage">お金が正常に追加されました！あなたのお金：</sys:String>
