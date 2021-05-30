@@ -24,6 +24,7 @@
     <sys:String x:Key="Text_Edit">編集</sys:String>
     <sys:String x:Key="Text_Delete">削除</sys:String>
     <sys:String x:Key="Text_AddMoney">アカウントを補充する</sys:String>
+    <sys:String x:Key="Text_Buy">購入</sys:String>
 
     <!-- Labels -->
     <sys:String x:Key="Text_Language">言語</sys:String>
@@ -42,6 +43,8 @@
 
     <!-- Messages -->
     <sys:String x:Key="Text_AddMoneyMessage">お金が正常に追加されました！あなたのお金：</sys:String>
+    <sys:String x:Key="Text_NotEnoughMoney">購入するのに十分なお金がありません！</sys:String>
+    <sys:String x:Key="Text_SuccessBuy">チケットの購入に成功しました。 チケットは「チケット」タブで見ることができます。</sys:String>
 
     <!-- Columns headers -->
     <sys:String x:Key="Text_RowNumber">指数</sys:String>
@@ -88,7 +91,7 @@
     <sys:String x:Key="Text_Model">モデル</sys:String>
     <sys:String x:Key="Text_Type">タイプ</sys:String>
     <sys:String x:Key="Text_Weight">量</sys:String>
-    <sys:String x:Key="Text_MaxLoadWeight">Cargo PMW</sys:String>
+    <sys:String x:Key="Text_MaxLoadWeight">貨物のPMW</sys:String>
     <sys:String x:Key="Text_MaxSeats">座席数</sys:String>
     <sys:String x:Key="Text_Class">級</sys:String>
     <sys:String x:Key="Text_CargoCarriage">貨電車</sys:String>
