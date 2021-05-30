@@ -24,6 +24,15 @@ namespace BataDase.MVVM.Views
             Current_Button_Delete = Button_Delete;
             Current_Button_Request = Button_Request;
 
+            if (Properties.Settings.Default.IsAdmin)
+            {
+                Button_Delete.Content = (string)App.Current.Resources["Text_Delete"];
+            }
+            else
+            {
+                Button_Delete.Content = (string)App.Current.Resources["Text_Buy"];
+            }
+
             Current_DataGrid = DataGrid_Tables;
 
             DataGrid_Tables.MinColumnWidth = 175;

@@ -102,6 +102,15 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
         // Verified
         public void ConnectAndUpdate()
         {
+            if (Properties.Settings.Default.IsAdmin)
+            {
+                TableV.Current_Button_Delete.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                TableV.Current_Button_Delete.Visibility = Visibility.Collapsed;
+            }
+
             // Инициализация контекста БД
             dbContext = AppDBContext.GetInstance();
 

@@ -52,7 +52,7 @@ namespace BataDase.MVVM.ViewModels
             trainsVM = new TrainsVM();
             usersVM = new UsersVM();
 
-            CurrentModel = locomotivesVM;
+            CurrentModel = schedulesVM;
 
             RequestCommand = new RelayCommand(o =>
             {

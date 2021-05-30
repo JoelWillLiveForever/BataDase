@@ -62,8 +62,20 @@
                         MinWidth="50"
                         MaxWidth="200">
 
-                <RadioButton x:Name="Button_Locomotives" 
+                <RadioButton x:Name="Button_Schedules" 
+                             Content="{DynamicResource Text_Schedules}"
+                             Style="{StaticResource Style_Button_Menu}"
+                             Command="{Binding MenuButtonClick}"
+                             CommandParameter="Schedules"
                              IsChecked="True"
+                             Click="Button_Click"/>
+                <RadioButton x:Name="Button_Tickets" 
+                             Content="{DynamicResource Text_Tickets}"
+                             Style="{StaticResource Style_Button_Menu}"
+                             Command="{Binding MenuButtonClick}"
+                             CommandParameter="Tickets"
+                             Click="Button_Click"/>
+                <RadioButton x:Name="Button_Locomotives"
                              Content="{DynamicResource Text_Locomotives}"
                              Style="{StaticResource Style_Button_Menu}"
                              Visibility="{Binding Source={x:Static prop:Settings.Default}, Path=Visibility}"
@@ -97,18 +109,6 @@
                              Visibility="{Binding Source={x:Static prop:Settings.Default}, Path=Visibility}"
                              Command="{Binding MenuButtonClick}"
                              CommandParameter="Routes"
-                             Click="Button_Click"/>
-                <RadioButton x:Name="Button_Schedules" 
-                             Content="{DynamicResource Text_Schedules}"
-                             Style="{StaticResource Style_Button_Menu}"
-                             Command="{Binding MenuButtonClick}"
-                             CommandParameter="Schedules"
-                             Click="Button_Click"/>
-                <RadioButton x:Name="Button_Tickets" 
-                             Content="{DynamicResource Text_Tickets}"
-                             Style="{StaticResource Style_Button_Menu}"
-                             Command="{Binding MenuButtonClick}"
-                             CommandParameter="Tickets"
                              Click="Button_Click"/>
                 <RadioButton x:Name="Button_Users" 
                              Content="{DynamicResource Text_Users}"

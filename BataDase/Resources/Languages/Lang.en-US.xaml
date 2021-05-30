@@ -2,6 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
+    <sys:String x:Key="Text_Reset">Reset</sys:String>
+    
     <!-- Words and sentences -->
     <sys:String x:Key="Text_Login">Login</sys:String>
     <sys:String x:Key="Text_Password">Password</sys:String>
@@ -17,6 +19,7 @@
     <sys:String x:Key="Text_Trains">Trains</sys:String>
     <sys:String x:Key="Text_Schedules">Schedule</sys:String>
     <sys:String x:Key="Text_Users">Users</sys:String>
+    <sys:String x:Key="Text_Buy">Buy</sys:String>
 
     <!-- Buttons -->
     <sys:String x:Key="Text_Request">Request</sys:String>
@@ -66,6 +69,8 @@
     <sys:String x:Key="Text_Start_Id">Id start city</sys:String>
     <sys:String x:Key="Text_Finish_Id">Id end city</sys:String>
     <sys:String x:Key="Text_Distance">Distance</sys:String>
+    <sys:String x:Key="Text_Start">Start city</sys:String>
+    <sys:String x:Key="Text_Finish">End city</sys:String>
 
     <!-- Column "Tickets" -->
     <sys:String x:Key="Text_SeatNum">Number of seat</sys:String>

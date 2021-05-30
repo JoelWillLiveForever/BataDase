@@ -41,7 +41,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             Thickness temp = new Thickness(5);
 
             TrainID = new TextBlock();
-            TrainID.SetResourceReference(TextBlock.TextProperty, "Text_TrainID");
+            TrainID.SetResourceReference(TextBlock.TextProperty, "Text_TrainId");
             Grid.SetRow(TrainID, 0);
             Grid.SetColumn(TrainID, 0);
 
@@ -128,6 +128,16 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
         // Verified
         public void ConnectAndUpdate()
         {
+            TableV.Current_Button_Delete.Visibility = Visibility.Visible;
+
+            if (Properties.Settings.Default.IsAdmin)
+            {
+                TableV.Current_Button_Delete.Content = (string)App.Current.Resources["Text_Delete"];
+            } else
+            {
+                TableV.Current_Button_Delete.Content = (string)App.Current.Resources["Text_Buy"];
+            }
+
             dbContext = AppDBContext.GetInstance();
             dbContext.RoutesMs.Load();
             routes = dbContext.RoutesMs.Local.ToBindingList();
@@ -443,6 +453,9 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                     MessageBox.Show("Можно купить не более ОДНОГО билета за раз!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
+
+                // Покупка билетов тут
+                AddEdit(false);
             }
         }
     }

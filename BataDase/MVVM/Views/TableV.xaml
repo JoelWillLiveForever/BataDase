@@ -15,12 +15,13 @@
         
         <StackPanel DockPanel.Dock="Bottom" 
                     Orientation="Horizontal"
-                    Height="35"
+                    Height="Auto"
                     Margin="0,10,0,0"
                     HorizontalAlignment="Right">
 
             <Button x:Name="Button_Request"
                     Margin="0,0,9,0"
+                    Height="35"
                     Visibility="{Binding Source={x:Static prop:Settings.Default}, Path=Visibility}"
                     Content="{DynamicResource Text_Request}"
                     Style="{StaticResource Style_Button_Primary}"
@@ -29,6 +30,7 @@
             
             <Button x:Name="Button_Add"
                     Margin="0,0,9,0"
+                    Height="35"
                     Visibility="{Binding Source={x:Static prop:Settings.Default}, Path=Visibility}"
                     Content="{DynamicResource Text_Add}"
                     Style="{StaticResource Style_Button_Primary}"
@@ -36,12 +38,14 @@
             
             <Button x:Name="Button_Edit"
                     Margin="0,0,9,0"
+                    Height="35"
                     Visibility="{Binding Source={x:Static prop:Settings.Default}, Path=Visibility}"
                     Content="{DynamicResource Text_Edit}"
                     Style="{StaticResource Style_Button_Primary}"
                     Command="{Binding EditCommand}"/>
 
             <Button x:Name="Button_Delete"
+                    Height="35"
                     Content="{DynamicResource Text_Delete}"
                     Style="{StaticResource Style_Button_Primary}"
                     Command="{Binding DeleteCommand}"/>

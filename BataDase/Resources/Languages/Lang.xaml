@@ -2,6 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
+    <sys:String x:Key="Text_Reset">Сброс</sys:String>
+    
     <!-- Words and sentences -->
     <sys:String x:Key="Text_Login">Логин</sys:String>
     <sys:String x:Key="Text_Password">Пароль</sys:String>
@@ -34,6 +36,7 @@
     <sys:String x:Key="Text_CreatorsLabel">Создатели:</sys:String>
     <sys:String x:Key="Text_VersionLabel">Версия: v0.0.3-beta</sys:String>
     <sys:String x:Key="Text_BuildLabel">Билд: 30052101</sys:String>
+    <sys:String x:Key="Text_Buy">Купить</sys:String>
     <sys:String x:Key="Text_About">
         Железнодорожная информационно-справочная система. Приложение реализует создавание и просмотр расписания маршрутов железнодорожной системы, а так же продажу и последующую покупку билетов на рейсы.
     </sys:String>
@@ -65,6 +68,8 @@
     <sys:String x:Key="Text_RouteName">Название маршрута</sys:String>
     <sys:String x:Key="Text_Start_Id">Id начального пункта</sys:String>
     <sys:String x:Key="Text_Finish_Id">Id конечного пункта</sys:String>
+    <sys:String x:Key="Text_Start">Начальный пункт</sys:String>
+    <sys:String x:Key="Text_Finish">Конечный пункт</sys:String>
     <sys:String x:Key="Text_Distance">Дистанция</sys:String>
 
     <!-- Column "Tickets" -->

@@ -2,6 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
+    <sys:String x:Key="Text_Reset">Сброс</sys:String>
+    
     <!-- Words and sentences -->
     <sys:String x:Key="Text_Login">ログイン</sys:String>
     <sys:String x:Key="Text_Password">パスワード</sys:String>
@@ -17,6 +19,7 @@
     <sys:String x:Key="Text_Trains">電車</sys:String>
     <sys:String x:Key="Text_Schedules">スケジュール</sys:String>
     <sys:String x:Key="Text_Users">ユーザ</sys:String>
+    <sys:String x:Key="Text_Buy">Купить</sys:String>
 
     <!-- Buttons -->
     <sys:String x:Key="Text_Request">リクエスト</sys:String>
@@ -66,6 +69,8 @@
     <sys:String x:Key="Text_Start_Id">Id начального пункта</sys:String>
     <sys:String x:Key="Text_Finish_Id">Id конечного пункта</sys:String>
     <sys:String x:Key="Text_Distance">距離</sys:String>
+    <sys:String x:Key="Text_Start">Начальный пункт</sys:String>
+    <sys:String x:Key="Text_Finish">Конечный пункт</sys:String>
 
     <!-- Column "Tickets" -->
     <sys:String x:Key="Text_SeatNum">シート</sys:String>

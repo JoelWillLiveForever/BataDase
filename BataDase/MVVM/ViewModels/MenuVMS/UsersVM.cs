@@ -185,10 +185,81 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             TableV.Current_DataGrid.Items.Refresh();
         }
 
+        bool isReset = false;
         public void Request()
         {
-            MessageBox.Show("Для данной таблицы нет запроса!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
-            return;
+            if (!isReset)
+            {
+                // Создаём диалоговое окно
+                DialogV dialogV = new DialogV();
+                Grid dialogGrid = dialogV.Dialog_Grid;
+
+                // Заполняем нижний Button текстом и вешаем локальный обработчик события нажатия
+                Button button = dialogV.Button_Execute;
+                button.SetResourceReference(Button.ContentProperty, "Text_Request");
+                button.Click += new RoutedEventHandler(ExecuteRequest);
+
+                // Вешаем элементы в Grid
+                Grid.SetRow(Login, 0);
+                Grid.SetColumn(Login, 0);
+                dialogGrid.Children.Add(Login);
+
+                Grid.SetRow(login, 0);
+                Grid.SetColumn(login, 1);
+                dialogGrid.Children.Add(login);
+
+                // Показываем диалоговое окно
+                dialogV.ShowDialog();
+
+                // Очищаем Grid
+                dialogGrid.Children.Remove(login);
+                dialogGrid.Children.Remove(Login);
+
+                Grid.SetRow(login, 5);
+                Grid.SetColumn(login, 1);
+                Grid.SetRow(Login, 0);
+                Grid.SetColumn(Login, 0);
+
+                // Очищаем поля
+                login.Text = null;
+            } else
+            {
+                TableV.Current_Button_Request.SetResourceReference(Button.ContentProperty, "Text_Request");
+
+                TableV.Current_DataGrid.ItemsSource = SourceList;
+                TableV.Current_DataGrid.Items.Refresh();
+
+                isReset = false;
+            }
+        }
+
+        public void ExecuteRequest(object sender, RoutedEventArgs e)
+        {
+            if (login.Text == null || login.Text == "")
+            {
+                MessageBox.Show("Укажите логин!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            var user = (from o in dbContext.UsersMs
+                        where o._login == login.Text
+                        select o).FirstOrDefault();
+
+            if (user == null)
+            {
+                MessageBox.Show("Пользователь с указанным логином не найден!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            BindingList<UsersM> temp = new BindingList<UsersM>();
+            temp.Add(user);
+
+            TableV.Current_Button_Request.SetResourceReference(Button.ContentProperty, "Text_Reset");
+
+            TableV.Current_DataGrid.ItemsSource = temp;
+            TableV.Current_DataGrid.Items.Refresh();
+
+            isReset = true;
         }
 
         // Verified
