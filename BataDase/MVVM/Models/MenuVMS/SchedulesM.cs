@@ -7,11 +7,11 @@ namespace BataDase.MVVM.Models.MenuVMS
     public class SchedulesM
     {
         [Key]
-        [DisplayName("Hidden")]
+        [DisplayName("Id")]
         public int _schedule_id { get; set; }
-        [DisplayName("Text_TrainID")]
+        [DisplayName("Text_TrainId")]
         public int _train_id { get; set; }
-        [DisplayName("Hidden")]
+        [DisplayName("Text_RouteId")]
         public int _route_id { get; set; }
         [DisplayName("Text_DepartureDate")]
         public double _departure_datetime { get; set; }

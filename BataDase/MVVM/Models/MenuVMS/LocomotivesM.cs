@@ -7,7 +7,7 @@ namespace BataDase.MVVM.Models.MenuVMS
     public class LocomotivesM
     {
         [Key]
-        [DisplayName("Text_LocoID")]
+        [DisplayName("Id")]
         public int _locomotive_id { get; set; }
         [DisplayName("Text_Model")]
         public string _model { get; set; }

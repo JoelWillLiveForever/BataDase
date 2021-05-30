@@ -7,7 +7,7 @@
     <sys:String x:Key="Text_Password">Пароль</sys:String>
     <sys:String x:Key="Text_SignIn">Войти</sys:String>
     <sys:String x:Key="Text_SignUp">Зарегистрироваться</sys:String>
-    
+
     <!-- Tables names -->
     <sys:String x:Key="Text_Carriages">Вагоны</sys:String>
     <sys:String x:Key="Text_Cities">Города</sys:String>
@@ -33,11 +33,13 @@
     <sys:String x:Key="Text_Summ">Сумма</sys:String>
     <sys:String x:Key="Text_AboutLabel">О программе:</sys:String>
     <sys:String x:Key="Text_CreatorsLabel">Создатели:</sys:String>
-    <sys:String x:Key="Text_VersionLabel">Версия:</sys:String>
+    <sys:String x:Key="Text_VersionLabel">Версия: v0.0.3-beta</sys:String>
+    <sys:String x:Key="Text_BuildLabel">Билд: 30052101</sys:String>
     <sys:String x:Key="Text_About">
         Железнодорожная информационно-справочная система. Приложение реализует создавание и просмотр расписания маршрутов железнодорожной системы, а так же продажу и последующую покупку билетов на рейсы.
     </sys:String>
-    <sys:String x:Key="Text_Creators">Никулин Владимир Талдыкин Игорь</sys:String>
+    <sys:String x:Key="Text_Creators_Nikulin">Никулин Владимир Сергеевич (Joel)</sys:String>
+    <sys:String x:Key="Text_Creators_Taldykin">Талдыкин Игорь Сергеевич (f55火花)</sys:String>
 
     <!-- Messages -->
     <sys:String x:Key="Text_AddMoneyMessage">Деньги были успешно добавлены! На вашем счету:</sys:String>
@@ -52,22 +54,28 @@
     <sys:String x:Key="Text_Latitude">Широта</sys:String>
 
     <!-- Column "Schedules" -->
-    <sys:String x:Key="Text_TrainID">ID поезда</sys:String>
-    <sys:String x:Key="Text_DepartureDate">Время отправления</sys:String>
-    <sys:String x:Key="Text_ArrivalDate">Время прибытия</sys:String>
+    <sys:String x:Key="Text_TrainId">Номер поезда</sys:String>
+    <sys:String x:Key="Text_RouteId">Номер маршрута</sys:String>
+    <sys:String x:Key="Text_DepartureDate">Дата и время отправ.</sys:String>
+    <sys:String x:Key="Text_ArrivalDate">Дата и время приб.</sys:String>
     <sys:String x:Key="Text_Status">Статус</sys:String>
-    <sys:String x:Key="Text_Price">Цена</sys:String>
+    <sys:String x:Key="Text_Price">Цена билета</sys:String>
+    <sys:String x:Key="Text_Active">Активный</sys:String>
+    <sys:String x:Key="Text_OnTheWay">В пути</sys:String>
+    <sys:String x:Key="Text_Closed">Завершённый</sys:String>
 
     <!-- Column "Routes" -->
     <sys:String x:Key="Text_RouteName">Название маршрута</sys:String>
-    <sys:String x:Key="Text_Start">Начальный пункт</sys:String>
-    <sys:String x:Key="Text_Finish">Конечный пункт</sys:String>
+    <sys:String x:Key="Text_Start_Id">Id начального пункта</sys:String>
+    <sys:String x:Key="Text_Finish_Id">Id конечного пункта</sys:String>
     <sys:String x:Key="Text_Distance">Дистанция</sys:String>
 
     <!-- Column "Tickets" -->
     <sys:String x:Key="Text_SeatNum">Место</sys:String>
     <sys:String x:Key="Text_TicketSeries">Серия</sys:String>
     <sys:String x:Key="Text_TicketNumber">Номер</sys:String>
+    <sys:String x:Key="Text_ScheduleNum">Номер рейса</sys:String>
+    <sys:String x:Key="Text_UserId">Id пользователя</sys:String>
 
     <!-- Column "Users" -->
     <sys:String x:Key="Text_Surname">Фамилия</sys:String>
@@ -80,12 +88,13 @@
 
     <!-- Column "Trains" -->
     <sys:String x:Key="Text_AvgSpeed">Скорость</sys:String>
-    <sys:String x:Key="Text_LocoID">ID локомотива</sys:String>
-    <sys:String x:Key="Text_CarriageID1">ID вагона №1</sys:String>
-    <sys:String x:Key="Text_CarriageID2">ID вагона №2</sys:String>
-    <sys:String x:Key="Text_CarriageID3">ID вагона №3</sys:String>
-    <sys:String x:Key="Text_CarriageID4">ID вагона №4</sys:String>
-    <sys:String x:Key="Text_CarriageID5">ID вагона №5</sys:String>
+    <sys:String x:Key="Text_Locomotive_Id">Id локомотива</sys:String>
+
+    <sys:String x:Key="Text_Carriage_Id_1">Id вагона #1</sys:String>
+    <sys:String x:Key="Text_Carriage_Id_2">Id вагона #2</sys:String>
+    <sys:String x:Key="Text_Carriage_Id_3">Id вагона #3</sys:String>
+    <sys:String x:Key="Text_Carriage_Id_4">Id вагона #4</sys:String>
+    <sys:String x:Key="Text_Carriage_Id_5">Id вагона #5</sys:String>
 
     <!-- Column "Carriages" -->
     <sys:String x:Key="Text_Model">Модель</sys:String>
@@ -135,7 +144,7 @@
     <sys:String x:Key="Text_RepeatPass">Повторите пароль</sys:String>
 
     <sys:String x:Key="Text_Logout">Выйти</sys:String>
-    
+
     <!-- Font for this language -->
     <FontFamily x:Key="Font_MyLocalFont">pack://application:,,,/Resources/Fonts/Montserrat_Alternates/#Montserrat Alternates</FontFamily>
 </ResourceDictionary>

@@ -7,7 +7,7 @@ namespace BataDase.MVVM.Models.MenuVMS
     public partial class CitiesM
     {
         [Key]
-        [DisplayName("Hidden")]
+        [DisplayName("Id")]
         public int _city_id { get; set; }
         [DisplayName("Text_City")]
         public string _city_name { get; set; }
@@ -16,7 +16,6 @@ namespace BataDase.MVVM.Models.MenuVMS
         [DisplayName("Text_Longitude")]
         public double _longitude { get; set; }
 
-        // Аварийная связь
         [DisplayName("Hidden")]
         public virtual ICollection<RoutesM> RoutesMs_Start { get; set; }
         [DisplayName("Hidden")]

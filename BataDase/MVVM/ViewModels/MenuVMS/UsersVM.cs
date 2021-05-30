@@ -16,17 +16,15 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
         private bool isAdd;
         private int index;
 
-        // Контекст и список с данными
         //public List<UserModel> SourceList { get; set; }
         public BindingList<UsersM> SourceList { get; set; }
         private AppDBContext dbContext;
 
-        // Пачка контролов, характерных для данной таблицы
         private TextBlock Surname, Name, Lastname, Sex, Birthday, Login, Password, Access, Bill;
         private TextBox surname, name, lastname, birthday, login, password, bill;
         private ComboBox sex, access;
 
-        // Конструктор
+        // Verified
         public UsersVM()
         {
             dbContext = AppDBContext.GetInstance();
@@ -173,7 +171,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             SourceList = dbContext.UsersMs.Local.ToBindingList();
         }
 
-        // Метод, открывающий подключение в БД, когда данная таблица видна пользователю
+        // Verified
         public void ConnectAndUpdate()
         {
             // Инициализация контекста БД
@@ -184,16 +182,16 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             SourceList = dbContext.UsersMs.Local.ToBindingList();
 
             TableV.Current_DataGrid.ItemsSource = SourceList;
+            TableV.Current_DataGrid.Items.Refresh();
         }
 
-        // Метод, срабатывающий при нажатии на кнопку "Запрос"
         public void Request()
         {
-            MessageBox.Show("Запрос не реализован!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show("Для данной таблицы нет запроса!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
-        // Метод, срабатывающий при нажатии на кнопку "Добавить" и "Изменить"
+        // Verified
         public void AddEdit(bool isAdd)
         {
             // Сохранить состояние, добавление это или изменение
@@ -312,7 +310,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             bill.Text = null;
         }
 
-        // Метод, срабатывающий при нажатии на кнопку в окне добавления или изменения юзера
+        // Verified
         public void ExecuteAddEdit(object sender, RoutedEventArgs e)
         {
             // Проверки TextBox на null и пустую строку
@@ -374,11 +372,11 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
             // Проверки TextBox для денег на null и пустую строку
             // Если строка пустая, то вставляется "0"
-            float result;
+            double result;
             if (bill.Text == null || bill.Text == "")
             {
                 bill.Text = "0";
-            } else if (!float.TryParse(bill.Text, out result))
+            } else if (!double.TryParse(bill.Text, out result))
             {
                 MessageBox.Show("Некорректная сумма!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -397,7 +395,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             temp._login = login.Text;
             temp._pass = password.Text;
             temp._access = access.SelectedIndex;
-            temp._bill = float.Parse(bill.Text);
+            temp._bill = double.Parse(bill.Text);
 
             // Сохранение нового юзера в БД
             if (isAdd)
@@ -443,11 +441,12 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             dbContext.UsersMs.Load();
 
             SourceList = dbContext.UsersMs.Local.ToBindingList();
+
             TableV.Current_DataGrid.ItemsSource = SourceList;
             TableV.Current_DataGrid.Items.Refresh();
         }
 
-        // Метод, срабатывающий при нажатии на кнопку "Удалить"
+        // Verified
         public void Delete()
         {
             // если ничего не выбрано в датагриде то ошибка
@@ -470,6 +469,12 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
                 // Получение элемента, который будем удалять
                 UsersM deleteEntity = SourceList[index];
+                if (BataDase.Properties.Settings.Default.CurrentUserId == deleteEntity._user_id)
+                {
+                    MessageBox.Show("Нельзя удалить аккаунт, который в данный момент авторизован в приложении!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    TableV.Current_DataGrid.SelectedItems.RemoveAt(index);
+                    continue;
+                }
                 
                 // Получение всех записей из зависимой таблицы с билетами,
                 // которые содержат нашего юзера
@@ -492,6 +497,11 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 // Удаляем НЕконтекстного юзера из SourceList
                 SourceList.Remove(deleteEntity);
             }
+
+            dbContext.SaveChanges();
+
+            TableV.Current_DataGrid.ItemsSource = SourceList;
+            TableV.Current_DataGrid.Items.Refresh();
         }
     }
 }

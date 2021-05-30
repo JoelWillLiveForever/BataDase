@@ -33,11 +33,13 @@
     <sys:String x:Key="Text_Summ">Amount</sys:String>
     <sys:String x:Key="Text_AboutLabel">About the application:</sys:String>
     <sys:String x:Key="Text_CreatorsLabel">Creators:</sys:String>
-    <sys:String x:Key="Text_VersionLabel">Version:</sys:String>
+    <sys:String x:Key="Text_VersionLabel">Version: v0.0.3-beta</sys:String>
+    <sys:String x:Key="Text_BuildLabel">Build: 30052101</sys:String>
     <sys:String x:Key="Text_About">
         Railway information and reference system. The application implements the creation and viewing of the schedule of routes of the railway system, as well as the sale and subsequent purchase of tickets for voyages.
     </sys:String>
-    <sys:String x:Key="Text_Creators">Nikulin Vladimir Taldykin Igor</sys:String>
+    <sys:String x:Key="Text_Creators_Nikulin">Nikulin Vladimir Sergeevich (Joel)</sys:String>
+    <sys:String x:Key="Text_Creators_Taldykin">Taldykin Igor Sergeevich (f55火花)</sys:String>
 
     <!-- Messages -->
     <sys:String x:Key="Text_AddMoneyMessage">Money has been successfully added! Your money:</sys:String>
@@ -52,30 +54,38 @@
     <sys:String x:Key="Text_Latitude">Latitude</sys:String>
 
     <!-- Column "Schedules" -->
-    <sys:String x:Key="Text_TrainID">Train ID</sys:String>
-    <sys:String x:Key="Text_DepartureDate">Date of departure</sys:String>
-    <sys:String x:Key="Text_ArrivalDate">Date of arrival</sys:String>
+    <sys:String x:Key="Text_TrainId">Train number</sys:String>
+    <sys:String x:Key="Text_RouteId">Route number</sys:String>
+    <sys:String x:Key="Text_DepartureDate">Date and time of departure</sys:String>
+    <sys:String x:Key="Text_ArrivalDate">Date and time of arrival</sys:String>
     <sys:String x:Key="Text_Status">Status</sys:String>
-    <sys:String x:Key="Text_Price">Price</sys:String>
+    <sys:String x:Key="Text_Price">Ticket price</sys:String>
+    <sys:String x:Key="Text_Active">Active</sys:String>
+    <sys:String x:Key="Text_OnTheWay">On the way</sys:String>
+    <sys:String x:Key="Text_Closed">Closed</sys:String>
 
     <!-- Column "Routes" -->
     <sys:String x:Key="Text_RouteName">Route name</sys:String>
-    <sys:String x:Key="Text_Start">Starting city</sys:String>
-    <sys:String x:Key="Text_Finish">End city</sys:String>
+    <sys:String x:Key="Text_Start_Id">Id start city</sys:String>
+    <sys:String x:Key="Text_Finish_Id">Id end city</sys:String>
     <sys:String x:Key="Text_Distance">Distance</sys:String>
 
     <!-- Column "Tickets" -->
+    <sys:String x:Key="Text_SeatNum">Number of seat</sys:String>
     <sys:String x:Key="Text_TicketSeries">Series</sys:String>
     <sys:String x:Key="Text_TicketNumber">Number</sys:String>
+    <sys:String x:Key="Text_ScheduleNum">Flight number</sys:String>
+    <sys:String x:Key="Text_UserId">Id user</sys:String>
 
     <!-- Column "Trains" -->
     <sys:String x:Key="Text_AvgSpeed">Speed</sys:String>
-    <sys:String x:Key="Text_LocoID">Locomotive ID</sys:String>
-    <sys:String x:Key="Text_CarriageID1">ID carriage №1</sys:String>
-    <sys:String x:Key="Text_CarriageID2">ID carriage №2</sys:String>
-    <sys:String x:Key="Text_CarriageID3">ID carriage №3</sys:String>
-    <sys:String x:Key="Text_CarriageID4">ID carriage №4</sys:String>
-    <sys:String x:Key="Text_CarriageID5">ID carriage №5</sys:String>
+    <sys:String x:Key="Text_Locomotive_Id">Id locomotive</sys:String>
+
+    <sys:String x:Key="Text_Carriage_Id_1">Id carriage #1</sys:String>
+    <sys:String x:Key="Text_Carriage_Id_2">Id carriage #2</sys:String>
+    <sys:String x:Key="Text_Carriage_Id_3">Id carriage #3</sys:String>
+    <sys:String x:Key="Text_Carriage_Id_4">Id carriage #4</sys:String>
+    <sys:String x:Key="Text_Carriage_Id_5">Id carriage #5</sys:String>
 
     <!-- Column "Carriages" -->
     <sys:String x:Key="Text_Model">Model</sys:String>
@@ -94,15 +104,13 @@
     <sys:String x:Key="Text_CarriageNum">Carriage number</sys:String>
 
     <!-- Column "Locomotives" -->
+    <sys:String x:Key="Text_MaxTrailerWeight">MT weight</sys:String>
     <sys:String x:Key="Text_AvgSpeed0">Speed with 0 weight</sys:String>
     <sys:String x:Key="Text_AvgSpeed100">Speed with max weight</sys:String>
     <sys:String x:Key="Text_SteamLoco">Steam</sys:String>
     <sys:String x:Key="Text_HeatLoco">Heat</sys:String>
     <sys:String x:Key="Text_ElectroLoco">Electric</sys:String>
     <sys:String x:Key="Text_LocoModel">Locomotive model</sys:String>
-
-    <!-- Column "Tickets" -->
-    <sys:String x:Key="Text_SeatNum">Number of seat</sys:String>
 
     <!-- Column Users -->
     <sys:String x:Key="Text_Surname">Surname</sys:String>

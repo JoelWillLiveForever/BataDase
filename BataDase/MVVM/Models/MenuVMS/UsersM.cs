@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -39,7 +38,7 @@ namespace BataDase.MVVM.Models.MenuVMS
     public class UsersM
     {
         [Key]
-        [DisplayName("ID")]
+        [DisplayName("Id")]
         public int _user_id { get; set; }
         [DisplayName("Text_Surname")]
         public string _surname { get; set; }

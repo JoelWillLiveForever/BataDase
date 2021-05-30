@@ -16,62 +16,66 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
         public BindingList<CarriagesM> carriages{ get; set; }
         private AppDBContext dbContext;
 
-        private TextBlock LocoModel, CarrModel0, CarrModel1, CarrModel2, CarrModel3, CarrModel4, Speed, Seats;
-        private ComboBox locoModel, carrModel0, carrModel1, carrModel2, carrModel3, carrModel4;
+        private TextBlock LocoModel, CarrModel_1, CarrModel_2, CarrModel_3, CarrModel_4, CarrModel_5, Speed, Seats;
+        private ComboBox locoModel, carrModel_1, carrModel_2, carrModel_3, carrModel_4, carrModel_5;
         private TextBox speed, seats;
 		private bool isAdd;
 		private int index;
 
+        // Verified
 		public TrainsVM()
         {
             // Инициализация контекста БД
             dbContext = AppDBContext.GetInstance();
+
             dbContext.LocomotivesMs.Load();
             locos = dbContext.LocomotivesMs.Local.ToBindingList();
+
             dbContext.CarriagesMs.Load();
             carriages = dbContext.CarriagesMs.Local.ToBindingList();
+
             dbContext.TrainsMs.Load();
 
             // Margin
             Thickness temp = new Thickness(5);
 
             LocoModel = new TextBlock();
-            LocoModel.Text = App.Current.Resources["Text_LocoModel"] + ":";
+            LocoModel.SetResourceReference(TextBlock.TextProperty, "Text_LocoModel");
             Grid.SetRow(LocoModel, 0);
             Grid.SetColumn(LocoModel, 0);
 
-            CarrModel0 = new TextBlock();
-            CarrModel0.Text = App.Current.Resources["Text_CarriageModel"] + " #1:";
-            Grid.SetRow(CarrModel0, 1);
-            Grid.SetColumn(CarrModel0, 0);
+            CarrModel_1 = new TextBlock();
+            CarrModel_1.Text = App.Current.Resources["Text_CarriageModel"] + " #1";
+            Grid.SetRow(CarrModel_1, 1);
+            Grid.SetColumn(CarrModel_1, 0);
 
-            CarrModel1 = new TextBlock();
-            CarrModel1.Text = App.Current.Resources["Text_CarriageModel"] + " #2:";
-            Grid.SetRow(CarrModel1, 2);
-            Grid.SetColumn(CarrModel1, 0);
+            CarrModel_2 = new TextBlock();
+            CarrModel_2.Text = App.Current.Resources["Text_CarriageModel"] + " #2";
+            Grid.SetRow(CarrModel_2, 2);
+            Grid.SetColumn(CarrModel_2, 0);
 
-            CarrModel2 = new TextBlock();
-            CarrModel2.Text = App.Current.Resources["Text_CarriageModel"] + " #3:";
-            Grid.SetRow(CarrModel2, 3);
-            Grid.SetColumn(CarrModel2, 0);
+            CarrModel_3 = new TextBlock();
+            CarrModel_3.Text = App.Current.Resources["Text_CarriageModel"] + " #3";
+            Grid.SetRow(CarrModel_3, 3);
+            Grid.SetColumn(CarrModel_3, 0);
 
-            CarrModel3 = new TextBlock();
-            CarrModel3.Text = App.Current.Resources["Text_CarriageModel"] + " #4:";
-            Grid.SetRow(CarrModel3, 4);
-            Grid.SetColumn(CarrModel3, 0);
+            CarrModel_4 = new TextBlock();
+            CarrModel_4.Text = App.Current.Resources["Text_CarriageModel"] + " #4";
+            Grid.SetRow(CarrModel_4, 4);
+            Grid.SetColumn(CarrModel_4, 0);
 
-            CarrModel4 = new TextBlock();
-            CarrModel4.Text = App.Current.Resources["Text_CarriageModel"] + " #5:";
-            Grid.SetRow(CarrModel4, 5);
-            Grid.SetColumn(CarrModel4, 0);
+            CarrModel_5 = new TextBlock();
+            CarrModel_5.Text = App.Current.Resources["Text_CarriageModel"] + " #5";
+            Grid.SetRow(CarrModel_5, 5);
+            Grid.SetColumn(CarrModel_5, 0);
 
             Speed = new TextBlock();
-            Speed.Text = App.Current.Resources["Text_AvgSpeed"] + ":";
+            Speed.SetResourceReference(TextBlock.TextProperty, "Text_AvgSpeed");
             Grid.SetRow(Speed, 6);
             Grid.SetColumn(Speed, 0);
 
             Seats = new TextBlock();
-            Seats.Text = App.Current.Resources["Text_MaxSeats"] + ":";
+            Seats.SetResourceReference(TextBlock.TextProperty, "Text_MaxSeats");
             Grid.SetRow(Seats, 7);
             Grid.SetColumn(Seats, 0);
 
@@ -86,59 +90,59 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 locoModel.Items.Insert(i, locos[i]._model);
 			}
 
-            carrModel0 = new ComboBox();
-            carrModel0.Margin = temp;
-            Grid.SetRow(carrModel0, 1);
-            Grid.SetColumn(carrModel0, 1);
+            carrModel_1 = new ComboBox();
+            carrModel_1.Margin = temp;
+            Grid.SetRow(carrModel_1, 1);
+            Grid.SetColumn(carrModel_1, 1);
 
             // Назначение элементов комбобокс
             for (int i = 0; i < carriages.Count; i++)
             {
-                carrModel0.Items.Insert(i, carriages[i]._model);
+                carrModel_1.Items.Insert(i, carriages[i]._model);
             }
 
-            carrModel1 = new ComboBox();
-            carrModel1.Margin = temp;
-            Grid.SetRow(carrModel1, 2);
-            Grid.SetColumn(carrModel1, 1);
+            carrModel_2 = new ComboBox();
+            carrModel_2.Margin = temp;
+            Grid.SetRow(carrModel_2, 2);
+            Grid.SetColumn(carrModel_2, 1);
 
             // Назначение элементов комбобокс
             for (int i = 0; i < carriages.Count; i++)
             {
-                carrModel1.Items.Insert(i, carriages[i]._model);
+                carrModel_2.Items.Insert(i, carriages[i]._model);
             }
 
-            carrModel2 = new ComboBox();
-            carrModel2.Margin = temp;
-            Grid.SetRow(carrModel2, 3);
-            Grid.SetColumn(carrModel2, 1);
+            carrModel_3 = new ComboBox();
+            carrModel_3.Margin = temp;
+            Grid.SetRow(carrModel_3, 3);
+            Grid.SetColumn(carrModel_3, 1);
 
             // Назначение элементов комбобокс
             for (int i = 0; i < carriages.Count; i++)
             {
-                carrModel2.Items.Insert(i, carriages[i]._model);
+                carrModel_3.Items.Insert(i, carriages[i]._model);
             }
 
-            carrModel3 = new ComboBox();
-            carrModel3.Margin = temp;
-            Grid.SetRow(carrModel3, 4);
-            Grid.SetColumn(carrModel3, 1);
+            carrModel_4 = new ComboBox();
+            carrModel_4.Margin = temp;
+            Grid.SetRow(carrModel_4, 4);
+            Grid.SetColumn(carrModel_4, 1);
 
             // Назначение элементов комбобокс
             for (int i = 0; i < carriages.Count; i++)
             {
-                carrModel3.Items.Insert(i, carriages[i]._model);
+                carrModel_4.Items.Insert(i, carriages[i]._model);
             }
 
-            carrModel4 = new ComboBox();
-            carrModel4.Margin = temp;
-            Grid.SetRow(carrModel4, 5);
-            Grid.SetColumn(carrModel4, 1);
+            carrModel_5 = new ComboBox();
+            carrModel_5.Margin = temp;
+            Grid.SetRow(carrModel_5, 5);
+            Grid.SetColumn(carrModel_5, 1);
 
             // Назначение элементов комбобокс
             for (int i = 0; i < carriages.Count; i++)
             {
-                carrModel4.Items.Insert(i, carriages[i]._model);
+                carrModel_5.Items.Insert(i, carriages[i]._model);
             }
 
             speed = new TextBox();
@@ -154,17 +158,29 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             SourceList = dbContext.TrainsMs.Local.ToBindingList();
         }
 
+        // Verified
         public void ConnectAndUpdate()
         {
             dbContext = AppDBContext.GetInstance();
+
             dbContext.LocomotivesMs.Load();
             locos = dbContext.LocomotivesMs.Local.ToBindingList();
+
             dbContext.CarriagesMs.Load();
             carriages = dbContext.CarriagesMs.Local.ToBindingList();
+
             dbContext.TrainsMs.Load();
 
             SourceList = dbContext.TrainsMs.Local.ToBindingList();
+
             TableV.Current_DataGrid.ItemsSource = SourceList;
+            TableV.Current_DataGrid.Items.Refresh();
+
+            CarrModel_1.Text = App.Current.Resources["Text_CarriageModel"] + " #1";
+            CarrModel_2.Text = App.Current.Resources["Text_CarriageModel"] + " #2";
+            CarrModel_3.Text = App.Current.Resources["Text_CarriageModel"] + " #3";
+            CarrModel_4.Text = App.Current.Resources["Text_CarriageModel"] + " #4";
+            CarrModel_5.Text = App.Current.Resources["Text_CarriageModel"] + " #5";
 
             locoModel.Items.Clear();
 
@@ -173,48 +189,49 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 locoModel.Items.Insert(i, locos[i]._model);
             }
 
-            carrModel0.Items.Clear();
+            carrModel_1.Items.Clear();
 
             for (int i = 0; i < carriages.Count; i++)
             {
-                carrModel0.Items.Insert(i, carriages[i]._model);
+                carrModel_1.Items.Insert(i, carriages[i]._model);
             }
 
-            carrModel1.Items.Clear();
+            carrModel_2.Items.Clear();
 
             for (int i = 0; i < carriages.Count; i++)
             {
-                carrModel1.Items.Insert(i, carriages[i]._model);
+                carrModel_2.Items.Insert(i, carriages[i]._model);
             }
 
-            carrModel2.Items.Clear();
+            carrModel_3.Items.Clear();
 
             for (int i = 0; i < carriages.Count; i++)
             {
-                carrModel2.Items.Insert(i, carriages[i]._model);
+                carrModel_3.Items.Insert(i, carriages[i]._model);
             }
 
-            carrModel3.Items.Clear();
+            carrModel_4.Items.Clear();
 
             for (int i = 0; i < carriages.Count; i++)
             {
-                carrModel3.Items.Insert(i, carriages[i]._model);
+                carrModel_4.Items.Insert(i, carriages[i]._model);
             }
 
-            carrModel4.Items.Clear();
+            carrModel_5.Items.Clear();
 
             for (int i = 0; i < carriages.Count; i++)
             {
-                carrModel4.Items.Insert(i, carriages[i]._model);
+                carrModel_5.Items.Insert(i, carriages[i]._model);
             }
         }
 
         public void Request()
         {
-            MessageBox.Show("Запрос не реализован!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show("Для данной таблицы нет запроса!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
+        // Verified
         public void AddEdit(bool isAdd)
         {
             this.isAdd = isAdd;
@@ -227,6 +244,14 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             // Если это добавление
             if (isAdd)
             {
+                locoModel.SelectedIndex = 0;
+
+                carrModel_1.SelectedIndex = 0;
+                carrModel_2.SelectedIndex = 0;
+                carrModel_3.SelectedIndex = 0;
+                carrModel_4.SelectedIndex = 0;
+                carrModel_5.SelectedIndex = 0;
+
                 button.Content = App.Current.Resources["Text_Add"];
                 index = -1;
             }
@@ -253,12 +278,14 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 				//Если всё ок, вставляем данные для данного юзера в форму, который затем будем менять
 				TrainsM temp = SourceList[index];
 
-				locoModel.SelectedItem = temp.LocomotivesM._model;
-				carrModel0.SelectedItem = temp.CarriagesM_First._model;
-                carrModel1.SelectedItem = temp.CarriagesM_Second._model;
-				carrModel2.SelectedItem = temp.CarriagesM_Third._model;
-                carrModel3.SelectedItem = temp.CarriagesM_Fourth._model;
-                carrModel4.SelectedItem = temp.CarriagesM_Fifth._model;
+                locoModel.SelectedIndex = 0;
+
+                carrModel_1.SelectedIndex = 0;
+                carrModel_2.SelectedIndex = 0;
+                carrModel_3.SelectedIndex = 0;
+                carrModel_4.SelectedIndex = 0;
+                carrModel_5.SelectedIndex = 0;
+
                 speed.Text = temp._train_avgspeed.ToString();
                 seats.Text = temp._reserved_seats.ToString();
 
@@ -269,20 +296,20 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
             // Вешаем элементы в Grid
             dialogGrid.Children.Add(LocoModel);
-            dialogGrid.Children.Add(CarrModel0);
-            dialogGrid.Children.Add(CarrModel1);
-            dialogGrid.Children.Add(CarrModel2);
-            dialogGrid.Children.Add(CarrModel3);
-            dialogGrid.Children.Add(CarrModel4);
+            dialogGrid.Children.Add(CarrModel_1);
+            dialogGrid.Children.Add(CarrModel_2);
+            dialogGrid.Children.Add(CarrModel_3);
+            dialogGrid.Children.Add(CarrModel_4);
+            dialogGrid.Children.Add(CarrModel_5);
             dialogGrid.Children.Add(Speed);
             dialogGrid.Children.Add(Seats);
 
             dialogGrid.Children.Add(locoModel);
-            dialogGrid.Children.Add(carrModel0);
-            dialogGrid.Children.Add(carrModel1);
-            dialogGrid.Children.Add(carrModel2);
-            dialogGrid.Children.Add(carrModel3);
-            dialogGrid.Children.Add(carrModel4);
+            dialogGrid.Children.Add(carrModel_1);
+            dialogGrid.Children.Add(carrModel_2);
+            dialogGrid.Children.Add(carrModel_3);
+            dialogGrid.Children.Add(carrModel_4);
+            dialogGrid.Children.Add(carrModel_5);
             dialogGrid.Children.Add(speed);
             dialogGrid.Children.Add(seats);
 
@@ -292,83 +319,60 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
             // Очищаем Grid
             dialogGrid.Children.Remove(LocoModel);
-            dialogGrid.Children.Remove(CarrModel0);
-            dialogGrid.Children.Remove(CarrModel1);
-            dialogGrid.Children.Remove(CarrModel2);
-            dialogGrid.Children.Remove(CarrModel3);
-            dialogGrid.Children.Remove(CarrModel4);
+            dialogGrid.Children.Remove(CarrModel_1);
+            dialogGrid.Children.Remove(CarrModel_2);
+            dialogGrid.Children.Remove(CarrModel_3);
+            dialogGrid.Children.Remove(CarrModel_4);
+            dialogGrid.Children.Remove(CarrModel_5);
             dialogGrid.Children.Remove(Speed);
             dialogGrid.Children.Remove(Seats);
 
             dialogGrid.Children.Remove(locoModel);
-            dialogGrid.Children.Remove(carrModel0);
-            dialogGrid.Children.Remove(carrModel1);
-            dialogGrid.Children.Remove(carrModel2);
-            dialogGrid.Children.Remove(carrModel3);
-            dialogGrid.Children.Remove(carrModel4);
+            dialogGrid.Children.Remove(carrModel_1);
+            dialogGrid.Children.Remove(carrModel_2);
+            dialogGrid.Children.Remove(carrModel_3);
+            dialogGrid.Children.Remove(carrModel_4);
+            dialogGrid.Children.Remove(carrModel_5);
             dialogGrid.Children.Remove(speed);
             dialogGrid.Children.Remove(seats);
 
             locoModel.SelectedIndex = 0;
-            carrModel0.SelectedIndex = 0;
-            carrModel1.SelectedIndex = 0;
-            carrModel2.SelectedIndex = 0;
-            carrModel3.SelectedIndex = 0;
-            carrModel4.SelectedIndex = 0;
+            carrModel_1.SelectedIndex = 0;
+            carrModel_2.SelectedIndex = 0;
+            carrModel_3.SelectedIndex = 0;
+            carrModel_4.SelectedIndex = 0;
+            carrModel_5.SelectedIndex = 0;
             speed.Text = null;
             seats.Text = null;
         }
 
+        // Verified
         public void ExecuteAddEdit(object sender, RoutedEventArgs e)
         {
-            if (locoModel.Text == null)
+            if (locoModel.Items.Count < 1)
             {
-                MessageBox.Show("Укажите модель локомотива!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Локомотивы в базе данных отсутствуют! Сначала добавьте ХОТЯ БЫ ОДИН локомотив!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (carrModel0.Text == null)
-            {
-                MessageBox.Show("Укажите модель вагона №1!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            if (carrModel1.Text == null)
-            {
-                MessageBox.Show("Укажите модель вагона №2!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            if (carrModel2.Text == null)
-            {
-                MessageBox.Show("Укажите модель вагона №3!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            if (carrModel3.Text == null)
-            {
-                MessageBox.Show("Укажите модель вагона №4!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            if (carrModel4.Text == null)
-            {
-                MessageBox.Show("Укажите модель вагона №5!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            float result1;
+            
+            double result1;
             // Проверки TextBox на null и пустую строку
             if (speed.Text == null || speed.Text == "")
             {
                 MessageBox.Show("Укажите скорость!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            else if (!float.TryParse(speed.Text, out result1))
+            else if (!double.TryParse(speed.Text, out result1))
             {
                 MessageBox.Show("Некорректная скорость!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
             int result2;
             // Проверки TextBox на null и пустую строку
             if (seats.Text == null || seats.Text == "")
             {
-                MessageBox.Show("Укажите количество мест!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+                seats.Text = "0";
             }
             else if (!int.TryParse(seats.Text, out result2))
             {
@@ -378,13 +382,64 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
             // Вот эту парашу надо делать через запросы походу
             TrainsM temp = new TrainsM();
-            temp.LocomotivesM._model = locoModel.Text;
-            temp.CarriagesM_First._model = carrModel0.Text;
-            temp.CarriagesM_Second._model = carrModel1.Text;
-            temp.CarriagesM_Third._model = carrModel2.Text;
-            temp.CarriagesM_Fourth._model = carrModel3.Text;
-            temp.CarriagesM_Fifth._model = carrModel4.Text;
-            temp._train_avgspeed = float.Parse(speed.Text);
+
+            var locomotive = (from o in dbContext.LocomotivesMs
+                              where o._model == locoModel.Text
+                              select o).FirstOrDefault();
+
+            temp._locomotive_id = locomotive._locomotive_id;
+
+            // carriage 1
+            var carriage_1 = (from o in dbContext.CarriagesMs
+                              where o._model == carrModel_1.Text
+                              select o).FirstOrDefault();
+
+            if (carriage_1 != null)
+                temp._first_carriage_id = carriage_1._carriage_id;
+            else
+                temp._first_carriage_id = -1;
+
+            // carriage 2
+            var carriage_2 = (from o in dbContext.CarriagesMs
+                              where o._model == carrModel_2.Text
+                              select o).FirstOrDefault();
+
+            if (carriage_2 != null)
+                temp._second_carriage_id = carriage_2._carriage_id;
+            else
+                temp._second_carriage_id = -1;
+
+            // carriage 3
+            var carriage_3 = (from o in dbContext.CarriagesMs
+                              where o._model == carrModel_3.Text
+                              select o).FirstOrDefault();
+
+            if (carriage_3 != null)
+                temp._third_carriage_id = carriage_3._carriage_id;
+            else
+                temp._third_carriage_id = -1;
+
+            // carriage 4
+            var carriage_4 = (from o in dbContext.CarriagesMs
+                              where o._model == carrModel_4.Text
+                              select o).FirstOrDefault();
+
+            if (carriage_4 != null)
+                temp._fourth_carriage_id = carriage_4._carriage_id;
+            else
+                temp._fourth_carriage_id = -1;
+
+            // carriage 5
+            var carriage_5 = (from o in dbContext.CarriagesMs
+                              where o._model == carrModel_5.Text
+                              select o).FirstOrDefault();
+
+            if (carriage_5 != null)
+                temp._fifth_carriage_id = carriage_5._carriage_id;
+            else
+                temp._fifth_carriage_id = -1;
+
+            temp._train_avgspeed = double.Parse(speed.Text);
             temp._reserved_seats = int.Parse(seats.Text);
 
             // Сохранение нового юзера в БД
@@ -395,11 +450,11 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
                 // Очищаем поля
                 locoModel.SelectedIndex = 0;
-                carrModel0.SelectedIndex = 0;
-                carrModel1.SelectedIndex = 0;
-                carrModel2.SelectedIndex = 0;
-                carrModel3.SelectedIndex = 0;
-                carrModel4.SelectedIndex = 0;
+                carrModel_1.SelectedIndex = 0;
+                carrModel_2.SelectedIndex = 0;
+                carrModel_3.SelectedIndex = 0;
+                carrModel_4.SelectedIndex = 0;
+                carrModel_5.SelectedIndex = 0;
                 seats.Text = null;
                 speed.Text = null;
             }
@@ -411,12 +466,14 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                     .Single(o => o._train_id == id);
 
                 // Изменяем, просто изменяя поля на поля объекта temp
-                train.LocomotivesM._model = temp.LocomotivesM._model;
-                train.CarriagesM_First._model = temp.CarriagesM_First._model;
-                train.CarriagesM_Second._model = temp.CarriagesM_Second._model;
-                train.CarriagesM_Third._model = temp.CarriagesM_Third._model;
-                train.CarriagesM_Fourth._model = temp.CarriagesM_Fourth._model;
-                train.CarriagesM_Fifth._model = temp.CarriagesM_Fifth._model;
+                train._locomotive_id = temp._locomotive_id;
+
+                train._first_carriage_id = temp._first_carriage_id;
+                train._second_carriage_id = temp._second_carriage_id;
+                train._third_carriage_id = temp._third_carriage_id;
+                train._fourth_carriage_id = temp._fourth_carriage_id;
+                train._fifth_carriage_id = temp._fifth_carriage_id;
+
                 train._reserved_seats = temp._reserved_seats;
                 train._train_avgspeed = temp._train_avgspeed;
 
@@ -427,8 +484,12 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
             // Обновление списка
             SourceList = dbContext.TrainsMs.Local.ToBindingList();
+
+            TableV.Current_DataGrid.ItemsSource = SourceList;
+            TableV.Current_DataGrid.Items.Refresh();
         }
 
+        // Verified
         public void Delete()
         {
             if (TableV.Current_DataGrid.SelectedItems.Count < 1)
@@ -443,23 +504,36 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
                 TrainsM deleteEntity = SourceList[index];
 
-                // Удаляем поезд из расписания
-                var schedules = dbContext.SchedulesMs
-                    .Where(o => o._train_id == deleteEntity._train_id);
+                var schedules = (from o in dbContext.SchedulesMs
+                                 where o._train_id == deleteEntity._train_id
+                                 select o);
 
                 if (schedules != null)
+                {
+                    foreach (var schedule in schedules)
+                    {
+                        var tickets = (from o in dbContext.TicketsMs
+                                       where o._schedule_id == schedule._schedule_id
+                                       select o);
+
+                        if (tickets != null)
+                        {
+                            dbContext.TicketsMs.RemoveRange(tickets);
+                        }
+                    }
+
                     dbContext.SchedulesMs.RemoveRange(schedules);
+                }
 
-                var contextDeleteEntity = dbContext.SchedulesMs.Local
-                    .Single(o => o._train_id == deleteEntity._train_id);
-
-                dbContext.SchedulesMs.Local.Remove(contextDeleteEntity);
-
+                dbContext.TrainsMs.Local.Remove(deleteEntity);
                 SourceList.Remove(deleteEntity);
             }
 
             // Сохраняем контекст БД
             dbContext.SaveChanges();
+
+            TableV.Current_DataGrid.ItemsSource = SourceList;
+            TableV.Current_DataGrid.Items.Refresh();
         }
     }
 }

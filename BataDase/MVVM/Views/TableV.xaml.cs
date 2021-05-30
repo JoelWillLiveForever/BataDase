@@ -25,6 +25,7 @@ namespace BataDase.MVVM.Views
             InitializeComponent();
             Current_DataGrid = DataGrid_Tables;
             DataGrid_Tables.MinColumnWidth = 175;
+            DataGrid_Tables.MaxColumnWidth = 300;
             DataGrid_Tables.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Auto);
 
             if (Properties.Settings.Default.IsAdmin == false)
