@@ -39,6 +39,7 @@ namespace BataDase.MVVM.ViewModels
         public RelayCommand AddCommand { get; set; }
         public RelayCommand EditCommand { get; set; }
         public RelayCommand DeleteCommand { get; set; }
+        public RelayCommand BuyCommand { get; set; }
 
         public TableVM()
         {
@@ -72,6 +73,11 @@ namespace BataDase.MVVM.ViewModels
             DeleteCommand = new RelayCommand(o =>
             {
                 CurrentModel.Delete();
+            });
+
+            BuyCommand = new RelayCommand(o =>
+            {
+                CurrentModel.AddEdit(false);
             });
         }
 

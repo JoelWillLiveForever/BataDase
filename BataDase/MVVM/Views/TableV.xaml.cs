@@ -1,6 +1,8 @@
-﻿using System;
+﻿using BataDase.Core;
+using System;
 using System.ComponentModel;
 using System.Reflection;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace BataDase.MVVM.Views
@@ -10,12 +12,28 @@ namespace BataDase.MVVM.Views
         // Кастыль, но что поделать?
         public static DataGrid Current_DataGrid;
 
+        public static RelayCommand RequestCommand { get; set; }
+        public static RelayCommand AddCommand { get; set; }
+        public static RelayCommand EditCommand { get; set; }
+        public static RelayCommand DeleteCommand { get; set; }
+        public static RelayCommand BuyCommand { get; set; }
+
         public TableV()
         {
             InitializeComponent();
             Current_DataGrid = DataGrid_Tables;
             DataGrid_Tables.MinColumnWidth = 175;
             DataGrid_Tables.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Auto);
+
+            if (Properties.Settings.Default.IsAdmin == false)
+            {
+                Button_Add.Visibility = (Visibility)2;
+                Button_Edit.Visibility = (Visibility)2;
+                Button_Request.Visibility = (Visibility)2;
+
+                Button_Delete.Content = App.Current.Resources["Text_Buy"];
+                Button_Delete.Command = BuyCommand;
+            }
         }
 
         private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
