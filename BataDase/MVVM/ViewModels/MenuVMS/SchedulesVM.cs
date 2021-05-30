@@ -398,37 +398,52 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
         // Verified
         public void Delete()
         {
-            if (TableV.Current_DataGrid.SelectedItems.Count < 1)
+            if (BataDase.Properties.Settings.Default.IsAdmin)
             {
-                MessageBox.Show("Выберите элементы для удаления!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+                if (TableV.Current_DataGrid.SelectedItems.Count < 1)
+                {
+                    MessageBox.Show("Выберите элементы для удаления!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
 
-            // Пока есть элементы, которые нужно удалить, то крутится цикл
-            while (TableV.Current_DataGrid.SelectedItems.Count > 0)
+                // Пока есть элементы, которые нужно удалить, то крутится цикл
+                while (TableV.Current_DataGrid.SelectedItems.Count > 0)
+                {
+                    index = TableV.Current_DataGrid.SelectedIndex;
+
+                    SchedulesM deleteEntity = SourceList[index];
+
+                    var tickets = (from o in dbContext.TicketsMs
+                                   where o._schedule_id == deleteEntity._schedule_id
+                                   select o);
+
+                    if (tickets != null)
+                        dbContext.TicketsMs.RemoveRange(tickets);
+
+                    dbContext.SchedulesMs.Local.Remove(deleteEntity);
+
+                    // Удаляем НЕконтекстного юзера из SourceList
+                    SourceList.Remove(deleteEntity);
+                }
+
+                // Сохраняем контекст БД
+                dbContext.SaveChanges();
+
+                TableV.Current_DataGrid.ItemsSource = SourceList;
+                TableV.Current_DataGrid.Items.Refresh();
+            } else
             {
-                index = TableV.Current_DataGrid.SelectedIndex;
-                
-                SchedulesM deleteEntity = SourceList[index];
-
-                var tickets = (from o in dbContext.TicketsMs
-                               where o._schedule_id == deleteEntity._schedule_id
-                               select o);
-
-                if (tickets != null)
-                    dbContext.TicketsMs.RemoveRange(tickets);
-
-                dbContext.SchedulesMs.Local.Remove(deleteEntity);
-
-                // Удаляем НЕконтекстного юзера из SourceList
-                SourceList.Remove(deleteEntity);
+                if (TableV.Current_DataGrid.SelectedItems.Count < 1)
+                {
+                    MessageBox.Show("Выберите рейс, на который хотите купить билет!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                else if (TableV.Current_DataGrid.SelectedItems.Count > 1)
+                {
+                    MessageBox.Show("Можно купить не более ОДНОГО билета за раз!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
             }
-
-            // Сохраняем контекст БД
-            dbContext.SaveChanges();
-
-            TableV.Current_DataGrid.ItemsSource = SourceList;
-            TableV.Current_DataGrid.Items.Refresh();
         }
     }
 }

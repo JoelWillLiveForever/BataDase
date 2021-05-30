@@ -6,6 +6,7 @@
              xmlns:behaviors="clr-namespace:BataDase.Core.Behaviors"
              xmlns:vm="clr-namespace:BataDase.MVVM.ViewModels"
              xmlns:local="clr-namespace:BataDase.MVVM.Views"
+             xmlns:prop="clr-namespace:BataDase.Properties"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
@@ -20,18 +21,22 @@
 
             <Button x:Name="Button_Request"
                     Margin="0,0,9,0"
+                    Visibility="{Binding Source={x:Static prop:Settings.Default}, Path=Visibility}"
                     Content="{DynamicResource Text_Request}"
                     Style="{StaticResource Style_Button_Primary}"
-                    Command="{Binding RequestCommand}"/>
+                    Command="{Binding RequestCommand}"
+                    Click="Button_Click"/>
             
             <Button x:Name="Button_Add"
                     Margin="0,0,9,0"
+                    Visibility="{Binding Source={x:Static prop:Settings.Default}, Path=Visibility}"
                     Content="{DynamicResource Text_Add}"
                     Style="{StaticResource Style_Button_Primary}"
                     Command="{Binding AddCommand}"/>
             
             <Button x:Name="Button_Edit"
                     Margin="0,0,9,0"
+                    Visibility="{Binding Source={x:Static prop:Settings.Default}, Path=Visibility}"
                     Content="{DynamicResource Text_Edit}"
                     Style="{StaticResource Style_Button_Primary}"
                     Command="{Binding EditCommand}"/>

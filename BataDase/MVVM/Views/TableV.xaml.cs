@@ -10,10 +10,22 @@ namespace BataDase.MVVM.Views
         // Кастыль, но что поделать?
         public static DataGrid Current_DataGrid;
 
+        public static Button Current_Button_Add;
+        public static Button Current_Button_Edit;
+        public static Button Current_Button_Delete;
+        public static Button Current_Button_Request;
+
         public TableV()
         {
             InitializeComponent();
+
+            Current_Button_Add = Button_Add;
+            Current_Button_Edit = Button_Edit;
+            Current_Button_Delete = Button_Delete;
+            Current_Button_Request = Button_Request;
+
             Current_DataGrid = DataGrid_Tables;
+
             DataGrid_Tables.MinColumnWidth = 175;
             DataGrid_Tables.MaxColumnWidth = 300;
             DataGrid_Tables.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Auto);
@@ -72,6 +84,11 @@ namespace BataDase.MVVM.Views
             }
 
             return null;
+        }
+
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
         }
     }
 }
