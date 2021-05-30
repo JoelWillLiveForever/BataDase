@@ -26,6 +26,7 @@
     <sys:String x:Key="Text_Edit">Изменить</sys:String>
     <sys:String x:Key="Text_Delete">Удалить</sys:String>
     <sys:String x:Key="Text_AddMoney">Пополнить счёт</sys:String>
+    <sys:String x:Key="Text_Buy">Купить</sys:String>
 
     <!-- Labels -->
     <sys:String x:Key="Text_Language">Язык</sys:String>
@@ -36,7 +37,6 @@
     <sys:String x:Key="Text_CreatorsLabel">Создатели:</sys:String>
     <sys:String x:Key="Text_VersionLabel">Версия: v0.0.3-beta</sys:String>
     <sys:String x:Key="Text_BuildLabel">Билд: 30052101</sys:String>
-    <sys:String x:Key="Text_Buy">Купить</sys:String>
     <sys:String x:Key="Text_About">
         Железнодорожная информационно-справочная система. Приложение реализует создавание и просмотр расписания маршрутов железнодорожной системы, а так же продажу и последующую покупку билетов на рейсы.
     </sys:String>
@@ -45,6 +45,8 @@
 
     <!-- Messages -->
     <sys:String x:Key="Text_AddMoneyMessage">Деньги были успешно добавлены! На вашем счету:</sys:String>
+    <sys:String x:Key="Text_NotEnoughMoney">Недостаточно денег для совершения покупки!</sys:String>
+    <sys:String x:Key="Text_SuccessBuy">Вы успешно приобрели билет! Просмотр билетов осуществляется во вкладке "Билеты".</sys:String>
 
     <!-- Columns headers -->
     <sys:String x:Key="Text_RowNumber">Номер п/п</sys:String>
