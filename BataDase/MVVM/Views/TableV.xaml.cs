@@ -15,7 +15,6 @@ namespace BataDase.MVVM.Views
             InitializeComponent();
             Current_DataGrid = DataGrid_Tables;
             DataGrid_Tables.MinColumnWidth = 175;
-            DataGrid_Tables.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Auto);
         }
 
         private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)

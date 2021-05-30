@@ -7,7 +7,7 @@
     <sys:String x:Key="Text_Password">Пароль</sys:String>
     <sys:String x:Key="Text_SignIn">Войти</sys:String>
     <sys:String x:Key="Text_SignUp">Зарегистрироваться</sys:String>
-    
+
     <!-- Tables names -->
     <sys:String x:Key="Text_Carriages">Вагоны</sys:String>
     <sys:String x:Key="Text_Cities">Города</sys:String>
@@ -32,11 +32,13 @@
     <sys:String x:Key="Text_Summ">Сумма</sys:String>
     <sys:String x:Key="Text_AboutLabel">О программе:</sys:String>
     <sys:String x:Key="Text_CreatorsLabel">Создатели:</sys:String>
-    <sys:String x:Key="Text_VersionLabel">Версия:</sys:String>
+    <sys:String x:Key="Text_VersionLabel">Версия: v0.0.3-beta</sys:String>
+    <sys:String x:Key="Text_BuildLabel">Билд: 30052101</sys:String>
     <sys:String x:Key="Text_About">
         Железнодорожная информационно-справочная система. Приложение реализует создавание и просмотр расписания маршрутов железнодорожной системы, а так же продажу и последующую покупку билетов на рейсы.
     </sys:String>
-    <sys:String x:Key="Text_Creators">Никулин Владимир Талдыкин Игорь</sys:String>
+    <sys:String x:Key="Text_Creators_Nikulin">Никулин Владимир Сергеевич (Joel)</sys:String>
+    <sys:String x:Key="Text_Creators_Taldykin">Талдыкин Игорь Сергеевич (f55火花)</sys:String>
 
     <!-- Messages -->
     <sys:String x:Key="Text_AddMoneyMessage">Деньги были успешно добавлены! На вашем счету:</sys:String>
@@ -49,11 +51,14 @@
     <sys:String x:Key="Text_Latitude">Широта</sys:String>
 
     <!-- Column "Schedules" -->
-    <sys:String x:Key="Text_TrainID">ID поезда</sys:String>
-    <sys:String x:Key="Text_DepartureDate">Время отправления</sys:String>
-    <sys:String x:Key="Text_ArrivalDate">Время прибытия</sys:String>
+    <sys:String x:Key="Text_TrainID">Номер поезда</sys:String>
+    <sys:String x:Key="Text_DepartureDate">Дата и время отправ.</sys:String>
+    <sys:String x:Key="Text_ArrivalDate">Дата и время приб.</sys:String>
     <sys:String x:Key="Text_Status">Статус</sys:String>
-    <sys:String x:Key="Text_Price">Цена</sys:String>
+    <sys:String x:Key="Text_Price">Цена билета</sys:String>
+    <sys:String x:Key="Text_Active">Активный</sys:String>
+    <sys:String x:Key="Text_OnTheWay">В пути</sys:String>
+    <sys:String x:Key="Text_Closed">Завершённый</sys:String>
 
     <!-- Column "Routes" -->
     <sys:String x:Key="Text_RouteName">Название маршрута</sys:String>
@@ -65,6 +70,7 @@
     <sys:String x:Key="Text_SeatNum">Место</sys:String>
     <sys:String x:Key="Text_TicketSeries">Серия</sys:String>
     <sys:String x:Key="Text_TicketNumber">Номер</sys:String>
+    <sys:String x:Key="Text_ScheduleNum">Номер рейса</sys:String>
 
     <!-- Column "Users" -->
     <sys:String x:Key="Text_Surname">Фамилия</sys:String>

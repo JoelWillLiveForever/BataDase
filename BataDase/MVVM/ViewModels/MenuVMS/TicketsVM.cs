@@ -17,66 +17,78 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
         public BindingList<UsersM> users { get; set; }
         private AppDBContext dbContext;
 
-        private TextBlock CarriageNum, Seatnum, Username;
-        private ComboBox seatnum, carriageNum, username;
+        private TextBlock CarriageNum, Seatnum, Username, ScheduleNum;
+        private TextBox seatnum;
+        private ComboBox carriageNum, username, scheduleNum;
         private bool isAdd;
         private int index;
-
+        
+        // Verified
         public TicketsVM()
         {
             // Инициализация контекста БД
             dbContext = AppDBContext.GetInstance();
-            dbContext.TicketsMs.Load();
-            dbContext.UsersMs.Load();
-            dbContext.SchedulesMs.Load();
 
+            dbContext.UsersMs.Load();
             users = dbContext.UsersMs.Local.ToBindingList();
+
+            dbContext.SchedulesMs.Load();
             scheds = dbContext.SchedulesMs.Local.ToBindingList();
+
+            dbContext.TicketsMs.Load();
 
             // Margin
             Thickness temp = new Thickness(5);
 
+            ScheduleNum = new TextBlock();
+            ScheduleNum.SetResourceReference(TextBlock.TextProperty, "Text_ScheduleNum");
+            Grid.SetRow(ScheduleNum, 0);
+            Grid.SetColumn(ScheduleNum, 0);
+
             CarriageNum = new TextBlock();
-            CarriageNum.Text = App.Current.Resources["Text_CarriageNum"] + ":";
-            Grid.SetRow(CarriageNum, 0);
+            CarriageNum.SetResourceReference(TextBlock.TextProperty, "Text_CarriageNum");
+            Grid.SetRow(CarriageNum, 1);
             Grid.SetColumn(CarriageNum, 0);
 
             Seatnum = new TextBlock();
-            Seatnum.Text = App.Current.Resources["Text_SeatNum"] + ":";
-            Grid.SetRow(Seatnum, 1);
+            Seatnum.SetResourceReference(TextBlock.TextProperty, "Text_SeatNum");
+            Grid.SetRow(Seatnum, 2);
             Grid.SetColumn(Seatnum, 0);
 
             Username = new TextBlock();
-            Username.Text = App.Current.Resources["Text_Login"] + ":";
-            Grid.SetRow(Username, 2);
+            Username.SetResourceReference(TextBlock.TextProperty, "Text_Login");
+            Grid.SetRow(Username, 3);
             Grid.SetColumn(Username, 0);
+
+            scheduleNum = new ComboBox();
+            scheduleNum.Margin = temp;
+            Grid.SetRow(scheduleNum, 0);
+            Grid.SetColumn(scheduleNum, 1);
+
+            for (int i = 0; i < scheds.Count; i++)
+            {
+                scheduleNum.Items.Insert(i, scheds[i]._schedule_id);
+            }
 
             carriageNum = new ComboBox();
             carriageNum.Margin = temp;
-            Grid.SetRow(carriageNum, 0);
+            Grid.SetRow(carriageNum, 1);
             Grid.SetColumn(carriageNum, 1);
 
             // Назначение элементов комбобокс
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 5; i++)
             {
-                carriageNum.Items.Insert(i, i.ToString());
+                carriageNum.Items.Insert(i, (i+1).ToString());
             }
 
-            seatnum = new ComboBox();
+            seatnum = new TextBox();
             seatnum.Margin = temp;
-            Grid.SetRow(seatnum, 1);
+            Grid.SetRow(seatnum, 2);
             Grid.SetColumn(seatnum, 1);
-
-            // Назначение элементов комбобокс
-            for (int i = 0; i < 49; i++)
-            {
-                seatnum.Items.Insert(i, i.ToString());
-            }
-
 
             username = new ComboBox();
             username.Margin = temp;
-            Grid.SetRow(username, 2);
+            Grid.SetRow(username, 3);
             Grid.SetColumn(username, 1);
 
             for (int i = 0; i < users.Count; i++)
@@ -87,23 +99,46 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             SourceList = dbContext.TicketsMs.Local.ToBindingList();
         }
 
+        // Verified
         public void ConnectAndUpdate()
         {
             // Инициализация контекста БД
             dbContext = AppDBContext.GetInstance();
+
             dbContext.UsersMs.Load();
+            users = dbContext.UsersMs.Local.ToBindingList();
+
+            dbContext.SchedulesMs.Load();
+            scheds = dbContext.SchedulesMs.Local.ToBindingList();
+
+            dbContext.TicketsMs.Load();
 
             // Инициализация списка элементов
             SourceList = dbContext.TicketsMs.Local.ToBindingList();
+
             TableV.Current_DataGrid.ItemsSource = SourceList;
+            TableV.Current_DataGrid.Items.Refresh();
+
+            username.Items.Clear();
+            for (int i = 0; i < users.Count; i++)
+            {
+                username.Items.Insert(i, users[i]._login);
+            }
+
+            scheduleNum.Items.Clear();
+            for (int i = 0; i < scheds.Count; i++)
+            {
+                scheduleNum.Items.Insert(i, scheds[i]._schedule_id);
+            }
         }
 
         public void Request()
         {
-            MessageBox.Show("Запрос не реализован!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show("Для данной таблицы нет запроса!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
+        // Verified
         public void AddEdit(bool isAdd)
         {
             this.isAdd = isAdd;
@@ -116,6 +151,10 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             // Если это добавление
             if (isAdd)
             {
+                scheduleNum.SelectedIndex = 0;
+                carriageNum.SelectedIndex = 0;
+                username.SelectedIndex = 0;
+
                 button.Content = App.Current.Resources["Text_Add"];
                 index = -1;
             }
@@ -142,7 +181,8 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 //Если всё ок, вставляем данные для данного юзера в форму, который затем будем менять
                 TicketsM temp = SourceList[index];
 
-                seatnum.SelectedItem = temp._seatnum;
+                scheduleNum.SelectedItem = temp._schedule_id;
+                seatnum.Text = temp._seatnum.ToString();
                 carriageNum.SelectedItem = temp._carriage_number;
                 username.SelectedItem = temp.UsersM._login;
 
@@ -152,10 +192,12 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             button.Click += new RoutedEventHandler(ExecuteAddEdit);
 
             // Вешаем элементы в Grid
+            dialogGrid.Children.Add(ScheduleNum);
             dialogGrid.Children.Add(Seatnum);
             dialogGrid.Children.Add(CarriageNum);
             dialogGrid.Children.Add(Username);
 
+            dialogGrid.Children.Add(scheduleNum);
             dialogGrid.Children.Add(seatnum);
             dialogGrid.Children.Add(carriageNum);
             dialogGrid.Children.Add(username);
@@ -165,41 +207,48 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             dialogV.ShowDialog();
 
             // Очищаем Grid
+            dialogGrid.Children.Remove(ScheduleNum);
             dialogGrid.Children.Remove(Seatnum);
             dialogGrid.Children.Remove(CarriageNum);
             dialogGrid.Children.Remove(Username);
 
+            dialogGrid.Children.Remove(scheduleNum);
             dialogGrid.Children.Remove(seatnum);
             dialogGrid.Children.Remove(carriageNum);
             dialogGrid.Children.Remove(username); ;
 
-            seatnum.SelectedIndex = 0;
+            scheduleNum.SelectedIndex = 0;
+            seatnum.Text = null;
             carriageNum.SelectedIndex = 0;
             username.SelectedIndex = 0;
         }
 
+        // Verified
         public void ExecuteAddEdit(object sender, RoutedEventArgs e)
         {
-            if (seatnum.Text == null)
+            if (scheduleNum.Items.Count < 1)
+            {
+                MessageBox.Show("Рейсы отсутствуют в базе данных! Сначала заполните ХОТЯ БЫ ОДИН рейс!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (seatnum.Text == null || seatnum.Text == "")
             {
                 MessageBox.Show("Укажите место!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (carriageNum.Text == null)
+            if (username.Items.Count < 1)
             {
-                MessageBox.Show("Укажите номер вагона!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            if (username.Text == null)
-            {
-                MessageBox.Show("Укажите логин!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Пользователи отсутствуют в базе данных! Сначала заполните ХОТЯ БЫ ОДНОГО пользователя!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
             TicketsM temp = new TicketsM();
-            temp._seatnum = Convert.ToInt32(seatnum.SelectedItem);
+            temp._schedule_id = Convert.ToInt32(scheduleNum.SelectedItem);
+            temp._seatnum = int.Parse(seatnum.Text);
             temp._carriage_number = Convert.ToInt32(carriageNum.SelectedItem);
-            temp.UsersM._login = username.Text;
+            temp._user_id = (from o in dbContext.UsersMs
+                             where o._login == username.Text
+                             select o._user_id).FirstOrDefault();
 
             // Сохранение нового юзера в БД
             if (isAdd)
@@ -208,7 +257,8 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 dbContext.TicketsMs.Local.Add(temp);
 
                 // Очищаем поля
-                seatnum.SelectedIndex = 0;
+                scheduleNum.SelectedIndex = 0;
+                seatnum.Text = null;
                 carriageNum.SelectedIndex = 0;
                 username.SelectedIndex = 0;
             }
@@ -220,9 +270,10 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                     .Single(o => o._ticket_id == id);
 
                 // Изменяем, просто изменяя поля на поля объекта temp
+                ticket._schedule_id = temp._schedule_id;
                 ticket._seatnum = temp._seatnum;
                 ticket._carriage_number = temp._carriage_number;
-                ticket.UsersM._login = temp.UsersM._login;
+                ticket._user_id = temp._user_id;
 
                 // Говорим контексту БД, что данный объект был изменен
                 dbContext.Entry(ticket).State = EntityState.Modified;
@@ -231,8 +282,12 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
             // Обновление списка
             SourceList = dbContext.TicketsMs.Local.ToBindingList();
+
+            TableV.Current_DataGrid.ItemsSource = SourceList;
+            TableV.Current_DataGrid.Items.Refresh();
         }
 
+        // Verified
         public void Delete()
         {
             if (TableV.Current_DataGrid.SelectedItems.Count < 1)
@@ -253,6 +308,9 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
             // Сохраняем контекст БД
             dbContext.SaveChanges();
+
+            TableV.Current_DataGrid.ItemsSource = SourceList;
+            TableV.Current_DataGrid.Items.Refresh();
         }
     }
 }

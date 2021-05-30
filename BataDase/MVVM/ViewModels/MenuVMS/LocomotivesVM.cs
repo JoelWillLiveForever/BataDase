@@ -1,7 +1,6 @@
 ﻿using BataDase.Core;
 using BataDase.MVVM.Models.MenuVMS;
 using BataDase.MVVM.Views;
-using System;
 using System.ComponentModel;
 using System.Data.Entity;
 using System.Linq;
@@ -23,6 +22,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
         private TextBox model, weight, maxTrailerWeight, avgspeed0, avgspeed100;
         private ComboBox type;
 
+        // Verified
         public LocomotivesVM()
         {
 			// Инициализация контекста БД
@@ -35,37 +35,37 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 			// Назначение свойств пачке контролов
 			// Лэйбл "Модель", назначение текста, строки и колонки в Grid
 			Model = new TextBlock();
-			Model.Text = App.Current.Resources["Text_Model"] + ":";
+            Model.SetResourceReference(TextBlock.TextProperty, "Text_Model");
 			Grid.SetRow(Model, 0);
 			Grid.SetColumn(Model, 0);
 
 			// Лэйбл "Тип", назначение текста, строки и колонки в Grid
 			Type = new TextBlock();
-			Type.Text = App.Current.Resources["Text_Type"] + ":";
+            Type.SetResourceReference(TextBlock.TextProperty, "Text_Type");
 			Grid.SetRow(Type, 1);
 			Grid.SetColumn(Type, 0);
 
 			// Лэйбл "Вес", назначение текста, строки и колонки в Grid
 			Weight = new TextBlock();
-			Weight.Text = App.Current.Resources["Text_Weight"] + ":";
+            Weight.SetResourceReference(TextBlock.TextProperty, "Text_Weight");
 			Grid.SetRow(Weight, 2);
 			Grid.SetColumn(Weight, 0);
 
 			// Лэйбл "Разрешённая ММ", назначение текста, строки и колонки в Grid
 			MaxTrailerWeight = new TextBlock();
-			MaxTrailerWeight.Text = App.Current.Resources["Text_MaxTrailerWeight"] + ":";
+            MaxTrailerWeight.SetResourceReference(TextBlock.TextProperty, "Text_MaxTrailerWeight");
 			Grid.SetRow(MaxTrailerWeight, 3);
 			Grid.SetColumn(MaxTrailerWeight, 0);
 
 			// Лэйбл "Средняя скорость 0", назначение текста, строки и колонки в Grid
 			AvgSpeed0 = new TextBlock();
-			AvgSpeed0.Text = App.Current.Resources["Text_AvgSpeed0"] + ":";
+            AvgSpeed0.SetResourceReference(TextBlock.TextProperty, "Text_AvgSpeed0");
 			Grid.SetRow(AvgSpeed0, 4);
 			Grid.SetColumn(AvgSpeed0, 0);
 
 			// Лэйбл "Средняя скорость 100", назначение текста, строки и колонки в Grid
 			AvgSpeed100 = new TextBlock();
-			AvgSpeed100.Text = App.Current.Resources["Text_AvgSpeed100"] + ":";
+            AvgSpeed100.SetResourceReference(TextBlock.TextProperty, "Text_AvgSpeed100");
             AvgSpeed100.TextWrapping = 0;
             Grid.SetRow(AvgSpeed100, 5);
 			Grid.SetColumn(AvgSpeed100, 0);
@@ -121,6 +121,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 			SourceList = dbContext.LocomotivesMs.Local.ToBindingList();
 		}
 
+        // Verified
         public void ConnectAndUpdate()
         {
             dbContext = AppDBContext.GetInstance();
@@ -128,14 +129,29 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
             SourceList = dbContext.LocomotivesMs.Local.ToBindingList();
             TableV.Current_DataGrid.ItemsSource = SourceList;
+            TableV.Current_DataGrid.Items.Refresh();
+
+            type.Items.Clear();
+
+            // Вытягивание полов из ресурсов
+            string steamLoco = (string)App.Current.Resources["Text_SteamLoco"];
+            string electroLoco = (string)App.Current.Resources["Text_ElectroLoco"];
+            string heatLoco = (string)App.Current.Resources["Text_HeatLoco"];
+
+            // Назначение элементов комбобокс
+            type.Items.Insert(0, heatLoco);
+            type.Items.Insert(1, electroLoco);
+            type.Items.Insert(2, steamLoco);
+            type.SelectedIndex = 0;
         }
 
         public void Request()
         {
-            MessageBox.Show("Запрос не реализован!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show("Для данной таблицы нет запроса!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
+        // Verified
         public void AddEdit(bool isAdd)
         {
             this.isAdd = isAdd;
@@ -175,7 +191,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 LocomotivesM temp = SourceList[index];
 
                 model.Text = temp._model;
-                type.SelectedItem = temp._type;
+                type.SelectedIndex = temp._type;
                 weight.Text = temp._weight.ToString();
                 maxTrailerWeight.Text = temp._max_trailer_weight.ToString();
                 avgspeed0.Text = temp._avgspeed0.ToString();
@@ -228,7 +244,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             avgspeed100.Text = null;
         }
 
-        // Метод, срабатывающий при нажатии на кнопку в окне добавления юзера
+        // Verified
         public void ExecuteAddEdit(object sender, RoutedEventArgs e)
         {
             // Проверки TextBox на null и пустую строку
@@ -243,14 +259,14 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 return;
             }
 
-            float result;
+            double result;
             // Проверки TextBox на null и пустую строку
             if (weight.Text == null || weight.Text == "")
             {
                 MessageBox.Show("Укажите вес!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            else if (!float.TryParse(weight.Text, out result))
+            else if (!double.TryParse(weight.Text, out result))
             {
                 MessageBox.Show("Некорректная вес!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -261,7 +277,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 MessageBox.Show("Укажите максимально допустимую массу прицепа!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            else if (!float.TryParse(weight.Text, out result))
+            else if (!double.TryParse(weight.Text, out result))
             {
                 MessageBox.Show("Некорректная максимально допустимая масса прицепа!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -272,7 +288,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 MessageBox.Show("Укажите среднюю скорость при нулевом грузе!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            else if (!float.TryParse(avgspeed0.Text, out result))
+            else if (!double.TryParse(avgspeed0.Text, out result))
             {
                 MessageBox.Show("Некорректная средняя скорость!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -283,19 +299,29 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 MessageBox.Show("Укажите среднюю скорость при максимальном грузе!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            else if (!float.TryParse(avgspeed100.Text, out result))
+            else if (!double.TryParse(avgspeed100.Text, out result))
             {
                 MessageBox.Show("Некорректная средняя скорость!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            var unique = (from o in dbContext.LocomotivesMs
+                          where o._model == model.Text
+                          select o).FirstOrDefault();
+
+            if (unique != null && (isAdd || unique._locomotive_id != SourceList[index]._locomotive_id))
+            {
+                MessageBox.Show("Данный локомотив уже присутствует в таблице!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
             LocomotivesM temp = new LocomotivesM();
             temp._model = model.Text;
             temp._type = type.SelectedIndex;
-            temp._weight = float.Parse(weight.Text);
-            temp._max_trailer_weight = float.Parse(maxTrailerWeight.Text);
-            temp._avgspeed0 = float.Parse(avgspeed0.Text);
-            temp._avgspeed100 = float.Parse(avgspeed100.Text);
+            temp._weight = double.Parse(weight.Text);
+            temp._max_trailer_weight = double.Parse(maxTrailerWeight.Text);
+            temp._avgspeed0 = double.Parse(avgspeed0.Text);
+            temp._avgspeed100 = double.Parse(avgspeed100.Text);
 
             // Сохранение нового юзера в БД
             if (isAdd)
@@ -334,9 +360,11 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             // Обновление списка
             SourceList = dbContext.LocomotivesMs.Local.ToBindingList();
 
-            //TableV.MenuV_DataGrid.Items.Refresh();
+            TableV.Current_DataGrid.ItemsSource = SourceList;
+            TableV.Current_DataGrid.Items.Refresh();
         }
 
+        // verified
         public void Delete()
         {
             if (TableV.Current_DataGrid.SelectedItems.Count < 1)
@@ -351,16 +379,40 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
                 LocomotivesM deleteEntity = SourceList[index];
 
-                var trains = dbContext.TrainsMs
-                    .Where(o => o._locomotive_id == deleteEntity._locomotive_id);
+                var trains = (from o in dbContext.TrainsMs
+                              where o._locomotive_id == deleteEntity._locomotive_id
+                              select o);
 
                 if (trains != null)
+                {
+                    foreach (var train in trains)
+                    {
+                        var schedules = (from o in dbContext.SchedulesMs
+                                         where o._train_id == train._train_id
+                                         select o);
+
+                        if (schedules != null)
+                        {
+                            foreach (var schedule in schedules)
+                            {
+                                var tickets = (from o in dbContext.TicketsMs
+                                               where o._schedule_id == schedule._schedule_id
+                                               select o);
+
+                                if (tickets != null)
+                                {
+                                    dbContext.TicketsMs.RemoveRange(tickets);
+                                }
+                            }
+
+                            dbContext.SchedulesMs.RemoveRange(schedules);
+                        }
+                    }
+
                     dbContext.TrainsMs.RemoveRange(trains);
+                }
 
-                var contextDeleteEntity = dbContext.LocomotivesMs.Local
-                    .Single(o => o._locomotive_id == deleteEntity._locomotive_id);
-
-                dbContext.LocomotivesMs.Local.Remove(contextDeleteEntity);
+                dbContext.LocomotivesMs.Local.Remove(deleteEntity);
 
                 // Удаляем НЕконтекстного юзера из SourceList
                 SourceList.Remove(deleteEntity);
@@ -368,6 +420,9 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
             // Сохраняем контекст БД
             dbContext.SaveChanges();
+
+            TableV.Current_DataGrid.ItemsSource = SourceList;
+            TableV.Current_DataGrid.Items.Refresh();
         }
     }
 }

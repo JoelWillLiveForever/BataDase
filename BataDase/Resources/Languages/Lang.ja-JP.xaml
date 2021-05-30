@@ -32,11 +32,13 @@
     <sys:String x:Key="Text_Summ">金額</sys:String>
     <sys:String x:Key="Text_AboutLabel">アプリケーションについて：</sys:String>
     <sys:String x:Key="Text_CreatorsLabel">クリエイター：</sys:String>
-    <sys:String x:Key="Text_VersionLabel">バージョン：</sys:String>
+    <sys:String x:Key="Text_VersionLabel">Версия: v0.0.3-beta</sys:String>
+    <sys:String x:Key="Text_BuildLabel">Билд: 30052101</sys:String>
     <sys:String x:Key="Text_About">
         鉄道情報と参照システム。このアプリケーションは、鉄道システムのルートのスケジュールの作成と表示、および航海のチケットの販売とその後の購入を実装します。
     </sys:String>
-    <sys:String x:Key="Text_Creators">ニクリン ヴラディミル タルディキン イーゴリ</sys:String>
+    <sys:String x:Key="Text_Creators_Nikulin">Никулин Владимир Сергеевич (Joel)</sys:String>
+    <sys:String x:Key="Text_Creators_Taldykin">Талдыкин Игорь Сергеевич (f55火花)</sys:String>
 
     <!-- Messages -->
     <sys:String x:Key="Text_AddMoneyMessage">お金が正常に追加されました！あなたのお金：</sys:String>
@@ -49,11 +51,14 @@
     <sys:String x:Key="Text_Latitude">緯度</sys:String>
 
     <!-- Column "Schedules" -->
-    <sys:String x:Key="Text_TrainID">電車のID</sys:String>
+    <sys:String x:Key="Text_TrainID">Train number</sys:String>
     <sys:String x:Key="Text_DepartureDate">出発日</sys:String>
     <sys:String x:Key="Text_ArrivalDate">到着日</sys:String>
     <sys:String x:Key="Text_Status">ステータス</sys:String>
     <sys:String x:Key="Text_Price">価格</sys:String>
+    <sys:String x:Key="Text_Active">Активный</sys:String>
+    <sys:String x:Key="Text_OnTheWay">В пути</sys:String>
+    <sys:String x:Key="Text_Closed">Завершённый</sys:String>
 
     <!-- Column "Routes" -->
     <sys:String x:Key="Text_RouteName">ルート名</sys:String>
@@ -62,8 +67,10 @@
     <sys:String x:Key="Text_Distance">距離</sys:String>
 
     <!-- Column "Tickets" -->
+    <sys:String x:Key="Text_SeatNum">シート</sys:String>
     <sys:String x:Key="Text_TicketSeries">チケットシリーズ</sys:String>
     <sys:String x:Key="Text_TicketNumber">チケット数</sys:String>
+    <sys:String x:Key="Text_ScheduleNum">Номер маршрута</sys:String>
 
     <!-- Column "Trains" -->
     <sys:String x:Key="Text_AvgSpeed">速度</sys:String>
@@ -78,7 +85,7 @@
     <sys:String x:Key="Text_Model">モデル</sys:String>
     <sys:String x:Key="Text_Type">タイプ</sys:String>
     <sys:String x:Key="Text_Weight">量</sys:String>
-    <sys:String x:Key="Text_MaxLoadWeight"></sys:String>
+    <sys:String x:Key="Text_MaxLoadWeight">Cargo PMW</sys:String>
     <sys:String x:Key="Text_MaxSeats">座席数</sys:String>
     <sys:String x:Key="Text_Class">級</sys:String>
     <sys:String x:Key="Text_CargoCarriage">貨電車</sys:String>
@@ -91,16 +98,14 @@
     <sys:String x:Key="Text_CarriageNum">車両数</sys:String>
 
     <!-- Column "Locomotives" -->
+    <sys:String x:Key="Text_MaxTrailerWeight">МДМ прицепа</sys:String>
     <sys:String x:Key="Text_AvgSpeed0">質量0での速度</sys:String>
     <sys:String x:Key="Text_AvgSpeed100">質量マクシでの速度</sys:String>
     <sys:String x:Key="Text_SteamLoco">蒸気</sys:String>
     <sys:String x:Key="Text_HeatLoco">熱</sys:String>
     <sys:String x:Key="Text_ElectroLoco">電車</sys:String>
     <sys:String x:Key="Text_LocoModel">機関車モデル</sys:String>
-
-    <!-- Column "Tickets" -->
-    <sys:String x:Key="Text_SeatNum">シート</sys:String>
-
+    
     <!-- Column Users -->
     <sys:String x:Key="Text_Surname">姓前</sys:String>
     <sys:String x:Key="Text_Name">名前</sys:String>
