@@ -52,26 +52,41 @@
     <sys:String x:Key="Text_TrainID">Train ID</sys:String>
     <sys:String x:Key="Text_DepartureDate">Date of departure</sys:String>
     <sys:String x:Key="Text_ArrivalDate">Date of arrival</sys:String>
+    <sys:String x:Key="Text_Status">Status</sys:String>
+    <sys:String x:Key="Text_Price">Price</sys:String>
 
     <!-- Column "Routes" -->
     <sys:String x:Key="Text_RouteName">Route name</sys:String>
     <sys:String x:Key="Text_Start">Starting city</sys:String>
     <sys:String x:Key="Text_Finish">End city</sys:String>
+    <sys:String x:Key="Text_Distance">Distance</sys:String>
 
     <!-- Column "Tickets" -->
     <sys:String x:Key="Text_TicketSeries">Series</sys:String>
     <sys:String x:Key="Text_TicketNumber">Number</sys:String>
 
+    <!-- Column "Trains" -->
+    <sys:String x:Key="Text_AvgSpeed">Speed</sys:String>
+    <sys:String x:Key="Text_LocoID">Locomotive ID</sys:String>
+    <sys:String x:Key="Text_CarriageID1">ID carriage №1</sys:String>
+    <sys:String x:Key="Text_CarriageID2">ID carriage №2</sys:String>
+    <sys:String x:Key="Text_CarriageID3">ID carriage №3</sys:String>
+    <sys:String x:Key="Text_CarriageID4">ID carriage №4</sys:String>
+    <sys:String x:Key="Text_CarriageID5">ID carriage №5</sys:String>
+
     <!-- Column "Carriages" -->
-    <sys:String x:Key="Text_PMW">PMW</sys:String>
     <sys:String x:Key="Text_Model">Model</sys:String>
     <sys:String x:Key="Text_Type">Type</sys:String>
     <sys:String x:Key="Text_Weight">Weight</sys:String>
-    <sys:String x:Key="Text_CargoWeight">Cargo weight</sys:String>
-    <sys:String x:Key="Text_MaxSeats">Max seats</sys:String>
+    <sys:String x:Key="Text_MaxLoadWeight">Cargo PMW</sys:String>
+    <sys:String x:Key="Text_MaxSeats">Amount of seats</sys:String>
+    <sys:String x:Key="Text_Class">Class</sys:String>
     <sys:String x:Key="Text_CargoCarriage">Cargo</sys:String>
     <sys:String x:Key="Text_PassengerCarriage">Passenger</sys:String>
     <sys:String x:Key="Text_RestauranCarriage">Restaurant</sys:String>
+    <sys:String x:Key="Text_ClassCompartment">Compartment</sys:String>
+    <sys:String x:Key="Text_ClassEconom">Econom</sys:String>
+    <sys:String x:Key="Text_ClassSeated">Seated</sys:String>
     <sys:String x:Key="Text_CarriageModel">Carriage model</sys:String>
     <sys:String x:Key="Text_CarriageNum">Carriage number</sys:String>
 

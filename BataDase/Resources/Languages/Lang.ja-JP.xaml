@@ -52,26 +52,41 @@
     <sys:String x:Key="Text_TrainID">電車のID</sys:String>
     <sys:String x:Key="Text_DepartureDate">出発日</sys:String>
     <sys:String x:Key="Text_ArrivalDate">到着日</sys:String>
+    <sys:String x:Key="Text_Status">ステータス</sys:String>
+    <sys:String x:Key="Text_Price">価格</sys:String>
 
     <!-- Column "Routes" -->
     <sys:String x:Key="Text_RouteName">ルート名</sys:String>
     <sys:String x:Key="Text_Start">開始都市</sys:String>
     <sys:String x:Key="Text_Finish">有限都市</sys:String>
+    <sys:String x:Key="Text_Distance">距離</sys:String>
 
     <!-- Column "Tickets" -->
     <sys:String x:Key="Text_TicketSeries">チケットシリーズ</sys:String>
     <sys:String x:Key="Text_TicketNumber">チケット数</sys:String>
 
+    <!-- Column "Trains" -->
+    <sys:String x:Key="Text_AvgSpeed">速度</sys:String>
+    <sys:String x:Key="Text_LocoID">ロコモティブ ID</sys:String>
+    <sys:String x:Key="Text_CarriageID1">＃１馬車のID</sys:String>
+    <sys:String x:Key="Text_CarriageID2">＃２馬車のID</sys:String>
+    <sys:String x:Key="Text_CarriageID3">＃３馬車のID</sys:String>
+    <sys:String x:Key="Text_CarriageID4">＃４馬車のID</sys:String>
+    <sys:String x:Key="Text_CarriageID5">＃５馬車のID</sys:String>
+
     <!-- Column "Carriages" -->
-    <sys:String x:Key="Text_PMW">最大許容重量</sys:String>
     <sys:String x:Key="Text_Model">モデル</sys:String>
     <sys:String x:Key="Text_Type">タイプ</sys:String>
     <sys:String x:Key="Text_Weight">量</sys:String>
-    <sys:String x:Key="Text_CargoWeight">荷の量</sys:String>
+    <sys:String x:Key="Text_MaxLoadWeight"></sys:String>
     <sys:String x:Key="Text_MaxSeats">座席数</sys:String>
+    <sys:String x:Key="Text_Class">級</sys:String>
     <sys:String x:Key="Text_CargoCarriage">貨電車</sys:String>
     <sys:String x:Key="Text_PassengerCarriage">パッセージャ</sys:String>
     <sys:String x:Key="Text_RestauranCarriage">レストラン</sys:String>
+    <sys:String x:Key="Text_ClassCompartment">コンパートメント</sys:String>
+    <sys:String x:Key="Text_ClassEconom">エコノム</sys:String>
+    <sys:String x:Key="Text_ClassSeated">シーテッド</sys:String>
     <sys:String x:Key="Text_CarriageModel">車両モデル</sys:String>
     <sys:String x:Key="Text_CarriageNum">車両数</sys:String>
 

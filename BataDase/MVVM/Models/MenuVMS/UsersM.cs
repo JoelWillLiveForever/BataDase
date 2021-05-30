@@ -39,7 +39,7 @@ namespace BataDase.MVVM.Models.MenuVMS
     public class UsersM
     {
         [Key]
-        [DisplayName("Id")]
+        [DisplayName("ID")]
         public int _user_id { get; set; }
         [DisplayName("Text_Surname")]
         public string _surname { get; set; }

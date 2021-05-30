@@ -16,8 +16,9 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
         public BindingList<CarriagesM> carriages{ get; set; }
         private AppDBContext dbContext;
 
-        private TextBlock LocoModel, CarrModel0, CarrModel1, CarrModel2, CarrModel3, CarrModel4;
+        private TextBlock LocoModel, CarrModel0, CarrModel1, CarrModel2, CarrModel3, CarrModel4, Speed, Seats;
         private ComboBox locoModel, carrModel0, carrModel1, carrModel2, carrModel3, carrModel4;
+        private TextBox speed, seats;
 		private bool isAdd;
 		private int index;
 
@@ -63,6 +64,16 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             CarrModel4.Text = App.Current.Resources["Text_CarriageModel"] + " #5:";
             Grid.SetRow(CarrModel4, 5);
             Grid.SetColumn(CarrModel4, 0);
+
+            Speed = new TextBlock();
+            Speed.Text = App.Current.Resources["Text_AvgSpeed"] + ":";
+            Grid.SetRow(Speed, 6);
+            Grid.SetColumn(Speed, 0);
+
+            Seats = new TextBlock();
+            Seats.Text = App.Current.Resources["Text_MaxSeats"] + ":";
+            Grid.SetRow(Seats, 7);
+            Grid.SetColumn(Seats, 0);
 
             locoModel = new ComboBox();
             locoModel.Margin = temp;
@@ -129,6 +140,16 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             {
                 carrModel4.Items.Insert(i, carriages[i]._model);
             }
+
+            speed = new TextBox();
+            speed.Margin = temp;
+            Grid.SetRow(speed, 6);
+            Grid.SetColumn(speed, 1);
+
+            seats = new TextBox();
+            seats.Margin = temp;
+            Grid.SetRow(seats, 7);
+            Grid.SetColumn(seats, 1);
 
             SourceList = dbContext.TrainsMs.Local.ToBindingList();
         }
@@ -238,8 +259,10 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 				carrModel2.SelectedItem = temp.CarriagesM_Third._model;
                 carrModel3.SelectedItem = temp.CarriagesM_Fourth._model;
                 carrModel4.SelectedItem = temp.CarriagesM_Fifth._model;
+                speed.Text = temp._train_avgspeed.ToString();
+                seats.Text = temp._reserved_seats.ToString();
 
-				button.Content = App.Current.Resources["Text_Edit"];
+                button.Content = App.Current.Resources["Text_Edit"];
             }
 
             button.Click += new RoutedEventHandler(ExecuteAddEdit);
@@ -251,6 +274,8 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             dialogGrid.Children.Add(CarrModel2);
             dialogGrid.Children.Add(CarrModel3);
             dialogGrid.Children.Add(CarrModel4);
+            dialogGrid.Children.Add(Speed);
+            dialogGrid.Children.Add(Seats);
 
             dialogGrid.Children.Add(locoModel);
             dialogGrid.Children.Add(carrModel0);
@@ -258,6 +283,8 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             dialogGrid.Children.Add(carrModel2);
             dialogGrid.Children.Add(carrModel3);
             dialogGrid.Children.Add(carrModel4);
+            dialogGrid.Children.Add(speed);
+            dialogGrid.Children.Add(seats);
 
             // Заполняем нижний Button текстом и вешаем локальный обработчик события нажатия
 
@@ -270,6 +297,8 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             dialogGrid.Children.Remove(CarrModel2);
             dialogGrid.Children.Remove(CarrModel3);
             dialogGrid.Children.Remove(CarrModel4);
+            dialogGrid.Children.Remove(Speed);
+            dialogGrid.Children.Remove(Seats);
 
             dialogGrid.Children.Remove(locoModel);
             dialogGrid.Children.Remove(carrModel0);
@@ -277,6 +306,8 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             dialogGrid.Children.Remove(carrModel2);
             dialogGrid.Children.Remove(carrModel3);
             dialogGrid.Children.Remove(carrModel4);
+            dialogGrid.Children.Remove(speed);
+            dialogGrid.Children.Remove(seats);
 
             locoModel.SelectedIndex = 0;
             carrModel0.SelectedIndex = 0;
@@ -284,6 +315,8 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             carrModel2.SelectedIndex = 0;
             carrModel3.SelectedIndex = 0;
             carrModel4.SelectedIndex = 0;
+            speed.Text = null;
+            seats.Text = null;
         }
 
         public void ExecuteAddEdit(object sender, RoutedEventArgs e)
@@ -318,7 +351,32 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 MessageBox.Show("Укажите модель вагона №5!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            float result1;
+            // Проверки TextBox на null и пустую строку
+            if (speed.Text == null || speed.Text == "")
+            {
+                MessageBox.Show("Укажите скорость!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            else if (!float.TryParse(speed.Text, out result1))
+            {
+                MessageBox.Show("Некорректная скорость!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            int result2;
+            // Проверки TextBox на null и пустую строку
+            if (seats.Text == null || seats.Text == "")
+            {
+                MessageBox.Show("Укажите количество мест!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            else if (!int.TryParse(seats.Text, out result2))
+            {
+                MessageBox.Show("Некорректное количество мест!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
+            // Вот эту парашу надо делать через запросы походу
             TrainsM temp = new TrainsM();
             temp.LocomotivesM._model = locoModel.Text;
             temp.CarriagesM_First._model = carrModel0.Text;
@@ -326,6 +384,8 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             temp.CarriagesM_Third._model = carrModel2.Text;
             temp.CarriagesM_Fourth._model = carrModel3.Text;
             temp.CarriagesM_Fifth._model = carrModel4.Text;
+            temp._train_avgspeed = float.Parse(speed.Text);
+            temp._reserved_seats = int.Parse(seats.Text);
 
             // Сохранение нового юзера в БД
             if (isAdd)
@@ -340,6 +400,8 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 carrModel2.SelectedIndex = 0;
                 carrModel3.SelectedIndex = 0;
                 carrModel4.SelectedIndex = 0;
+                seats.Text = null;
+                speed.Text = null;
             }
             else
             {
@@ -355,6 +417,8 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 train.CarriagesM_Third._model = temp.CarriagesM_Third._model;
                 train.CarriagesM_Fourth._model = temp.CarriagesM_Fourth._model;
                 train.CarriagesM_Fifth._model = temp.CarriagesM_Fifth._model;
+                train._reserved_seats = temp._reserved_seats;
+                train._train_avgspeed = temp._train_avgspeed;
 
                 // Говорим контексту БД, что данный объект был изменен
                 dbContext.Entry(train).State = EntityState.Modified;

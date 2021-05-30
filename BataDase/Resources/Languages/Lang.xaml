@@ -52,14 +52,19 @@
     <sys:String x:Key="Text_TrainID">ID поезда</sys:String>
     <sys:String x:Key="Text_DepartureDate">Время отправления</sys:String>
     <sys:String x:Key="Text_ArrivalDate">Время прибытия</sys:String>
+    <sys:String x:Key="Text_Status">Статус</sys:String>
+    <sys:String x:Key="Text_Price">Цена</sys:String>
 
     <!-- Column "Routes" -->
     <sys:String x:Key="Text_RouteName">Название маршрута</sys:String>
     <sys:String x:Key="Text_Start">Начальный пункт</sys:String>
     <sys:String x:Key="Text_Finish">Конечный пункт</sys:String>
+    <sys:String x:Key="Text_Distance">Дистанция</sys:String>
 
     <!-- Column "Tickets" -->
     <sys:String x:Key="Text_SeatNum">Место</sys:String>
+    <sys:String x:Key="Text_TicketSeries">Серия</sys:String>
+    <sys:String x:Key="Text_TicketNumber">Номер</sys:String>
 
     <!-- Column "Users" -->
     <sys:String x:Key="Text_Surname">Фамилия</sys:String>
@@ -70,9 +75,14 @@
     <sys:String x:Key="Text_Bill">Денежный счёт</sys:String>
     <sys:String x:Key="Text_Access">Уровень доступа</sys:String>
 
-    <!-- Column "Tickets" -->
-    <sys:String x:Key="Text_TicketSeries">Серия</sys:String>
-    <sys:String x:Key="Text_TicketNumber">Номер</sys:String>
+    <!-- Column "Trains" -->
+    <sys:String x:Key="Text_AvgSpeed">Скорость</sys:String>
+    <sys:String x:Key="Text_LocoID">ID локомотива</sys:String>
+    <sys:String x:Key="Text_CarriageID1">ID вагона №1</sys:String>
+    <sys:String x:Key="Text_CarriageID2">ID вагона №2</sys:String>
+    <sys:String x:Key="Text_CarriageID3">ID вагона №3</sys:String>
+    <sys:String x:Key="Text_CarriageID4">ID вагона №4</sys:String>
+    <sys:String x:Key="Text_CarriageID5">ID вагона №5</sys:String>
 
     <!-- Column "Carriages" -->
     <sys:String x:Key="Text_Model">Модель</sys:String>
