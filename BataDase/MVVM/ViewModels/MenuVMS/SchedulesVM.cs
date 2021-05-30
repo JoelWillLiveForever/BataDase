@@ -293,7 +293,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
             if (departureDate.Text == null || departureDate.Text == "")
             {
-                MessageBox.Show("Укажите дату время отправления!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Укажите дату и время отправления!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -306,7 +306,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
             if (arrivalDate.Text == null || arrivalDate.Text == "")
             {
-                MessageBox.Show("Укажите дату время прибытия!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Укажите дату и время прибытия!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             DateTime dateTimeArrival;

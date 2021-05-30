@@ -51,7 +51,8 @@
     <sys:String x:Key="Text_Latitude">Latitude</sys:String>
 
     <!-- Column "Schedules" -->
-    <sys:String x:Key="Text_TrainID">Train number</sys:String>
+    <sys:String x:Key="Text_TrainId">Train number</sys:String>
+    <sys:String x:Key="Text_RouteId">Route number</sys:String>
     <sys:String x:Key="Text_DepartureDate">Date and time of departure</sys:String>
     <sys:String x:Key="Text_ArrivalDate">Date and time of arrival</sys:String>
     <sys:String x:Key="Text_Status">Status</sys:String>
@@ -62,8 +63,8 @@
 
     <!-- Column "Routes" -->
     <sys:String x:Key="Text_RouteName">Route name</sys:String>
-    <sys:String x:Key="Text_Start">Starting city</sys:String>
-    <sys:String x:Key="Text_Finish">End city</sys:String>
+    <sys:String x:Key="Text_Start_Id">Id start city</sys:String>
+    <sys:String x:Key="Text_Finish_Id">Id end city</sys:String>
     <sys:String x:Key="Text_Distance">Distance</sys:String>
 
     <!-- Column "Tickets" -->
@@ -71,15 +72,17 @@
     <sys:String x:Key="Text_TicketSeries">Series</sys:String>
     <sys:String x:Key="Text_TicketNumber">Number</sys:String>
     <sys:String x:Key="Text_ScheduleNum">Flight number</sys:String>
+    <sys:String x:Key="Text_UserId">Id user</sys:String>
 
     <!-- Column "Trains" -->
     <sys:String x:Key="Text_AvgSpeed">Speed</sys:String>
-    <sys:String x:Key="Text_LocoID">Locomotive ID</sys:String>
-    <sys:String x:Key="Text_CarriageID1">ID carriage №1</sys:String>
-    <sys:String x:Key="Text_CarriageID2">ID carriage №2</sys:String>
-    <sys:String x:Key="Text_CarriageID3">ID carriage №3</sys:String>
-    <sys:String x:Key="Text_CarriageID4">ID carriage №4</sys:String>
-    <sys:String x:Key="Text_CarriageID5">ID carriage №5</sys:String>
+    <sys:String x:Key="Text_Locomotive_Id">Id locomotive</sys:String>
+
+    <sys:String x:Key="Text_Carriage_Id_1">Id carriage #1</sys:String>
+    <sys:String x:Key="Text_Carriage_Id_2">Id carriage #2</sys:String>
+    <sys:String x:Key="Text_Carriage_Id_3">Id carriage #3</sys:String>
+    <sys:String x:Key="Text_Carriage_Id_4">Id carriage #4</sys:String>
+    <sys:String x:Key="Text_Carriage_Id_5">Id carriage #5</sys:String>
 
     <!-- Column "Carriages" -->
     <sys:String x:Key="Text_Model">Model</sys:String>

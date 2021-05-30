@@ -7,9 +7,13 @@ namespace BataDase.MVVM.Models.MenuVMS
     public partial class CitiesM
     {
         [Key]
+        [DisplayName("Id")]
         public int _city_id { get; set; }
+        [DisplayName("Text_City")]
         public string _city_name { get; set; }
+        [DisplayName("Text_Latitude")]
         public double _latitude { get; set; }
+        [DisplayName("Text_Longitude")]
         public double _longitude { get; set; }
 
         [DisplayName("Hidden")]

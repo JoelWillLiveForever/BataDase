@@ -7,12 +7,19 @@ namespace BataDase.MVVM.Models.MenuVMS
     public class CarriagesM
     {
         [Key]
+        [DisplayName("Id")]
 		public int _carriage_id { get; set; }
+        [DisplayName("Text_Model")]
 		public string _model { get; set; }
+        [DisplayName("Text_Type")]
 		public int _type { get; set; }
+        [DisplayName("Text_Weight")]
 		public double _weight { get; set; }
+        [DisplayName("Text_MaxLoadWeight")]
 		public double _max_load_weight { get; set; }
+        [DisplayName("Text_MaxSeats")]
 		public int _max_seats { get; set; }
+        [DisplayName("Text_Class")]
 		public int _class { get; set; }
 
         [DisplayName("Hidden")]
