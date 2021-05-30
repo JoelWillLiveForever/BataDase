@@ -1,6 +1,8 @@
 ﻿using BataDase.Core;
+using BataDase.MVVM.ViewModels;
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
@@ -32,10 +34,11 @@ namespace BataDase.MVVM.Views
                 Button_Request.Visibility = (Visibility)2;
 
                 Button_Delete.Content = App.Current.Resources["Text_Buy"];
-                Button_Delete.Command = BuyCommand;
+                Debug.WriteLine("Penis");
+                Button_Delete.Command = new TableVM().BuyCommand;
             }
         }
-
+         
         private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             var displayName = GetPropertyDisplayName(e.PropertyDescriptor);

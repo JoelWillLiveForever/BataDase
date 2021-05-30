@@ -201,7 +201,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 // если выбрано больше 1 элемента то тоже ошибка
                 if (TableV.Current_DataGrid.SelectedItems.Count < 1)
                 {
-                    MessageBox.Show("Выберите элемент для изменения!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Выберите элемент для покупки!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
                 else if (TableV.Current_DataGrid.SelectedItems.Count > 1)
