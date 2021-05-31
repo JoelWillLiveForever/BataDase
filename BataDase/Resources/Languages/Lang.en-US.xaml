@@ -45,6 +45,8 @@
 
     <!-- Messages -->
     <sys:String x:Key="Text_AddMoneyMessage">Money has been successfully added! Your money:</sys:String>
+    <sys:String x:Key="Text_NotEnoughMoney">Not enough money for a purchase!</sys:String>
+    <sys:String x:Key="Text_SuccessBuy">You have successfully purchased your ticket! Tickets are viewed in the "Tickets" tab</sys:String>
 
     <!-- Columns headers -->
     <sys:String x:Key="Text_RowNumber">Row</sys:String>
