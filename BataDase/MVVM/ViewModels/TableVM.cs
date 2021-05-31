@@ -9,8 +9,7 @@ namespace BataDase.MVVM.ViewModels
         void AddEdit(bool isAdd);
         void Delete();
 
-        void Close();
-        void Connect();
+        void ConnectAndUpdate();
     }
 
     public class TableVM : ObservableObject
@@ -53,7 +52,7 @@ namespace BataDase.MVVM.ViewModels
             trainsVM = new TrainsVM();
             usersVM = new UsersVM();
 
-            CurrentModel = locomotivesVM;
+            CurrentModel = schedulesVM;
 
             RequestCommand = new RelayCommand(o =>
             {
@@ -78,8 +77,6 @@ namespace BataDase.MVVM.ViewModels
 
         public void ChangeModel(string name)
         {
-            CurrentModel.Close();
-
             if (name == "Carriages")
             {
                 CurrentModel = carriagesVM;
@@ -113,7 +110,7 @@ namespace BataDase.MVVM.ViewModels
                 CurrentModel = usersVM;
             }
 
-            CurrentModel.Connect();
+            CurrentModel.ConnectAndUpdate();
         }
     }
 }

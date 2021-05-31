@@ -21,11 +21,12 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 		private TextBox model, weight, maxLoadWeight, maxSeats;
 		private ComboBox type, carriageClass;
 
+		// Verified
 		public CarriagesVM()
         {
 			// Инициализация контекста БД
 			dbContext = AppDBContext.GetInstance();
-			dbContext.LocomotivesMs.Load();
+			dbContext.CarriagesMs.Load();
 
 			// Margin
 			Thickness temp = new Thickness(5);
@@ -33,38 +34,38 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 			// Назначение свойств пачке контролов
 			// Лэйбл "Модель", назначение текста, строки и колонки в Grid
 			Model = new TextBlock();
-			Model.Text = App.Current.Resources["Text_Model"] + ":";
+			Model.SetResourceReference(TextBlock.TextProperty, "Text_Model");
 			Grid.SetRow(Model, 0);
 			Grid.SetColumn(Model, 0);
 
 			// Лэйбл "Тип", назначение текста, строки и колонки в Grid
 			Type = new TextBlock();
-			Type.Text = App.Current.Resources["Text_Type"] + ":";
+			Type.SetResourceReference(TextBlock.TextProperty, "Text_Type");
 			Grid.SetRow(Type, 1);
 			Grid.SetColumn(Type, 0);
 
 			// Лэйбл "Вес", назначение текста, строки и колонки в Grid
 			Weight = new TextBlock();
-			Weight.Text = App.Current.Resources["Text_Weight"] + ":";
+			Weight.SetResourceReference(TextBlock.TextProperty, "Text_Weight");
 			Grid.SetRow(Weight, 2);
 			Grid.SetColumn(Weight, 0);
 
 			// Лэйбл "Разрешённая ММ", назначение текста, строки и колонки в Grid
 			MaxLoadWeight = new TextBlock();
-			MaxLoadWeight.Text = App.Current.Resources["Text_MaxLoadWeight"] + ":";
+			MaxLoadWeight.SetResourceReference(TextBlock.TextProperty, "Text_MaxLoadWeight");
 			Grid.SetRow(MaxLoadWeight, 3);
 			Grid.SetColumn(MaxLoadWeight, 0);
 
 			// Лэйбл "Средняя скорость 100", назначение текста, строки и колонки в Grid
 			MaxSeats = new TextBlock();
-			MaxSeats.Text = App.Current.Resources["Text_MaxSeats"] + ":";
+			MaxSeats.SetResourceReference(TextBlock.TextProperty, "Text_MaxSeats");
 			MaxSeats.TextWrapping = 0;
 			Grid.SetRow(MaxSeats, 4);
 			Grid.SetColumn(MaxSeats, 0);
 
 			// Лэйбл "Средняя скорость 0", назначение текста, строки и колонки в Grid
 			CarriageClass = new TextBlock();
-			CarriageClass.Text = App.Current.Resources["Text_Class"] + ":";
+			CarriageClass.SetResourceReference(TextBlock.TextProperty, "Text_Class");
 			Grid.SetRow(CarriageClass, 5);
 			Grid.SetColumn(CarriageClass, 0);
 
@@ -148,30 +149,48 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             SourceList = dbContext.CarriagesMs.Local.ToBindingList();
 		}
 
-		public void Save()
-		{
-
-		}
-
-		public void Close()
-		{
-
-		}
-
-		public void Connect()
+		// Verified
+		public void ConnectAndUpdate()
 		{
 			dbContext = AppDBContext.GetInstance();
 			dbContext.CarriagesMs.Load();
 
 			SourceList = dbContext.CarriagesMs.Local.ToBindingList();
 			TableV.Current_DataGrid.ItemsSource = SourceList;
+			TableV.Current_DataGrid.Items.Refresh();
+
+			type.Items.Clear();
+
+			string cargoCarriage = (string)App.Current.Resources["Text_CargoCarriage"];
+			string passCarriage = (string)App.Current.Resources["Text_PassengerCarriage"];
+			string restCarriage = (string)App.Current.Resources["Text_RestauranCarriage"];
+
+			// Назначение элементов комбобокс
+			type.Items.Insert(0, passCarriage);
+			type.Items.Insert(1, restCarriage);
+			type.Items.Insert(2, cargoCarriage);
+			type.SelectedIndex = 0;
+
+			carriageClass.Items.Clear();
+
+			string classCompartment = (string)App.Current.Resources["Text_ClassCompartment"];
+			string classEconom = (string)App.Current.Resources["Text_ClassEconom"];
+			string classSeated = (string)App.Current.Resources["Text_ClassSeated"];
+
+			// Назначение элементов комбобокс
+			carriageClass.Items.Insert(0, classCompartment);
+			carriageClass.Items.Insert(1, classEconom);
+			carriageClass.Items.Insert(2, classSeated);
+			carriageClass.SelectedIndex = 0;
 		}
 
         public void Request()
         {
-            throw new System.NotImplementedException();
-        }
+			MessageBox.Show("Для данной таблицы нет запроса!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
+			return;
+		}
 
+		// Verified
         public void AddEdit(bool isAdd)
         {
 			this.isAdd = isAdd;
@@ -270,6 +289,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 			carriageClass.IsEnabled = true;
 		}
 
+		// Verified
 		public void ExecuteAddEdit(object sender, RoutedEventArgs e)
 		{
 			// Проверки TextBox на null и пустую строку
@@ -402,11 +422,13 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 			// Обновление списка
 			SourceList = dbContext.CarriagesMs.Local.ToBindingList();
 
+			TableV.Current_DataGrid.ItemsSource = SourceList;
 			TableV.Current_DataGrid.Items.Refresh();
 		}
 
+		// Verified
 		public void Delete()
-        {
+		{
 			if (TableV.Current_DataGrid.SelectedItems.Count < 1)
 			{
 				MessageBox.Show("Выберите элементы для удаления!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -419,16 +441,37 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
 				CarriagesM deleteEntity = SourceList[index];
 
-				var tickets = dbContext.TicketsMs
-					.Where(o => o._user_id == deleteEntity._carriage_id);
+				var trains = (from o in dbContext.TrainsMs
+							  where (o._first_carriage_id == deleteEntity._carriage_id
+							  || o._second_carriage_id == deleteEntity._carriage_id
+							  || o._third_carriage_id == deleteEntity._carriage_id
+							  || o._fourth_carriage_id == deleteEntity._carriage_id
+							  || o._fifth_carriage_id == deleteEntity._carriage_id)
+							  select o);
 
-				if (tickets != null)
-					dbContext.TicketsMs.RemoveRange(tickets);
+				if (trains != null)
+                {
+					foreach (var train in trains)
+                    {
+						//1
+						if (train._first_carriage_id == deleteEntity._carriage_id)
+							train._first_carriage_id = -1;
+						//2
+						if (train._second_carriage_id == deleteEntity._carriage_id)
+							train._second_carriage_id = -1;
+						//3
+						if (train._third_carriage_id == deleteEntity._carriage_id)
+							train._third_carriage_id = -1;
+						//4
+						if (train._fourth_carriage_id == deleteEntity._carriage_id)
+							train._fourth_carriage_id = -1;
+						//5
+						if (train._fifth_carriage_id == deleteEntity._carriage_id)
+							train._fifth_carriage_id = -1;
+					}
+                }
 
-				var contextDeleteEntity = dbContext.CarriagesMs.Local
-					.Single(o => o._carriage_id == deleteEntity._carriage_id);
-
-				dbContext.CarriagesMs.Local.Remove(contextDeleteEntity);
+				dbContext.CarriagesMs.Local.Remove(deleteEntity);
 
 				// Удаляем НЕконтекстного юзера из SourceList
 				SourceList.Remove(deleteEntity);
@@ -436,6 +479,9 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
 			// Сохраняем контекст БД
 			dbContext.SaveChanges();
+
+			TableV.Current_DataGrid.ItemsSource = SourceList;
+			TableV.Current_DataGrid.Items.Refresh();
 		}
     }
 }

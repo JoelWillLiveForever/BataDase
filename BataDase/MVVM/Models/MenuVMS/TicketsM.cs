@@ -1,18 +1,25 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace BataDase.MVVM.Models.MenuVMS
 {
     public class TicketsM
     {
         [Key]
+        [DisplayName("Id")]
         public int _ticket_id { get; set; }
+        [DisplayName("Text_ScheduleNum")]
         public int _schedule_id { get; set; }
+        [DisplayName("Text_CarriageNum")]
         public int _carriage_number { get; set; }
+        [DisplayName("Text_SeatNum")]
         public int _seatnum { get; set; }
-        public double _price { get; set; }
+        [DisplayName("Text_UserId")]
         public int _user_id { get; set; }
 
+        [DisplayName("Hidden")]
         public virtual SchedulesM SchedulesM { get; set; }
+        [DisplayName("Hidden")]
         public virtual UsersM UsersM { get; set; }
     }
 }

@@ -20,6 +20,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
         private TextBlock CityName, Latitude, Longitude;
         private TextBox cityName, latitude, longitude;
 
+        // Verified
         public CitiesVM()
         {
             // Инициализация контекста БД
@@ -30,17 +31,17 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             Thickness temp = new Thickness(5);
 
             CityName = new TextBlock();
-            CityName.Text = App.Current.Resources["Text_City"] + ":";
+            CityName.SetResourceReference(TextBlock.TextProperty, "Text_City");
             Grid.SetRow(CityName, 0);
             Grid.SetColumn(CityName, 0);
 
             Latitude = new TextBlock();
-            Latitude.Text = App.Current.Resources["Text_Latitude"] + ":";
+            Latitude.SetResourceReference(TextBlock.TextProperty, "Text_Latitude");
             Grid.SetRow(Latitude, 1);
             Grid.SetColumn(Latitude, 0);
 
             Longitude = new TextBlock();
-            Longitude.Text = App.Current.Resources["Text_Longitude"] + ":";
+            Longitude.SetResourceReference(TextBlock.TextProperty, "Text_Longitude");
             Grid.SetRow(Longitude, 2);
             Grid.SetColumn(Longitude, 0);
 
@@ -62,31 +63,24 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             SourceList = dbContext.CitiesMs.Local.ToBindingList();
         }
 
-        public void Save()
-        {
-            if (dbContext != null)
-                dbContext.SaveChanges();
-        }
-
-        public void Close()
-        {
-            if (dbContext != null) dbContext = null;
-        }
-
-        public void Connect()
+        // Verified
+        public void ConnectAndUpdate()
         {
             dbContext = AppDBContext.GetInstance();
             dbContext.CitiesMs.Load();
 
             SourceList = dbContext.CitiesMs.Local.ToBindingList();
             TableV.Current_DataGrid.ItemsSource = SourceList;
+            TableV.Current_DataGrid.Items.Refresh();
         }
 
         public void Request()
         {
-            throw new System.NotImplementedException();
+            MessageBox.Show("Для данной таблицы нет запроса!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            return;
         }
 
+        // Verified
         public void AddEdit(bool isAdd)
         {
             this.isAdd = isAdd;
@@ -158,6 +152,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             longitude.Text = null;
         }
 
+        // Verified
         public void ExecuteAddEdit(object sender, RoutedEventArgs e)
         {
             // Проверки TextBox на null и пустую строку
@@ -166,13 +161,13 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 MessageBox.Show("Укажите город!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            float result;
+            double result;
             if (latitude.Text == null || latitude.Text == "")
             {
                 MessageBox.Show("Укажите широту!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            else if (!float.TryParse(latitude.Text, out result))
+            else if (!double.TryParse(latitude.Text, out result))
             {
                 MessageBox.Show("Некорректная широта!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -182,16 +177,27 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 MessageBox.Show("Укажите долготу!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            else if (!float.TryParse(longitude.Text, out result))
+            else if (!double.TryParse(longitude.Text, out result))
             {
                 MessageBox.Show("Некорректная долгота!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
             CitiesM temp = new CitiesM();
+
+            var unique = (from o in dbContext.CitiesMs
+                          where o._city_name == cityName.Text
+                          select o).FirstOrDefault();
+
+            if (unique != null && (isAdd || unique._city_id != SourceList[index]._city_id))
+            {
+                MessageBox.Show("Город с таким названием уже есть в таблице!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             temp._city_name = cityName.Text;
-            temp._latitude = float.Parse(latitude.Text);
-            temp._longitude = float.Parse(longitude.Text);
+            temp._latitude = double.Parse(latitude.Text);
+            temp._longitude = double.Parse(longitude.Text);
 
             // Сохранение нового юзера в БД
             if (isAdd)
@@ -227,9 +233,11 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             SourceList = dbContext.CitiesMs.Local.ToBindingList();
 
             // Пинаем DataGrid, ибо он тупой и по другому не понимает
+            TableV.Current_DataGrid.ItemsSource = SourceList;
             TableV.Current_DataGrid.Items.Refresh();
         }
 
+        // Verified
         public void Delete()
         {
             // если ничего не выбрано в датагриде то ошибка
@@ -246,24 +254,50 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
                 CitiesM deleteEntity = SourceList[index];
 
-                var routes = dbContext.RoutesMs
-                    .Where(o => o._start_city_id == deleteEntity._city_id);
+                var routes = (from o in dbContext.RoutesMs
+                              where (o._start_city_id == deleteEntity._city_id || o._finish_city_id == deleteEntity._city_id)
+                              select o);
 
                 if (routes != null)
+                {
+                    foreach (var route in routes)
+                    {
+                        var schedules = (from o in dbContext.SchedulesMs
+                                         where o._route_id == route._route_id
+                                         select o);
+
+                        if (schedules != null)
+                        {
+                            foreach (var schedule in schedules)
+                            {
+                                var tickets = (from o in dbContext.TicketsMs
+                                               where o._schedule_id == schedule._schedule_id
+                                               select o);
+
+                                if (tickets != null)
+                                {
+                                    dbContext.TicketsMs.RemoveRange(tickets);
+                                }
+                            }
+
+                            dbContext.SchedulesMs.RemoveRange(schedules);
+                        }
+                    }
+
                     dbContext.RoutesMs.RemoveRange(routes);
-
-                var contextDeleteEntity = dbContext.RoutesMs.Local
-                    .Single(o => o._start_city_id == deleteEntity._city_id);
-
-                // Удаляем контекстного юзера из контекста
-                dbContext.RoutesMs.Local.Remove(contextDeleteEntity);
+                }
 
                 // Удаляем НЕконтекстного юзера из SourceList
+                dbContext.CitiesMs.Local.Remove(deleteEntity);
+
                 SourceList.Remove(deleteEntity);
             }
 
             // Сохраняем контекст БД
             dbContext.SaveChanges();
+
+            TableV.Current_DataGrid.ItemsSource = SourceList;
+            TableV.Current_DataGrid.Items.Refresh();
         }
     }
 }

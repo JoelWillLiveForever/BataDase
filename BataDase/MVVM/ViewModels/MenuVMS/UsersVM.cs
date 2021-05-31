@@ -2,6 +2,7 @@
 using BataDase.MVVM.Models.MenuVMS;
 using BataDase.MVVM.Views;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.Entity;
 using System.Linq;
@@ -15,19 +16,17 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
         private bool isAdd;
         private int index;
 
-        // Контекст и список с данными
+        //public List<UserModel> SourceList { get; set; }
         public BindingList<UsersM> SourceList { get; set; }
         private AppDBContext dbContext;
 
-        // Пачка контролов, характерных для данной таблицы
         private TextBlock Surname, Name, Lastname, Sex, Birthday, Login, Password, Access, Bill;
         private TextBox surname, name, lastname, birthday, login, password, bill;
         private ComboBox sex, access;
 
-        // Конструктор
+        // Verified
         public UsersVM()
         {
-            // Инициализация контекста БД
             dbContext = AppDBContext.GetInstance();
             dbContext.UsersMs.Load();
 
@@ -37,55 +36,55 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             // Назначение свойств пачке контролов
             // Лэйбл "Фамилия", назначение текста, строки и колонки в Grid
             Surname = new TextBlock();
-            Surname.Text = App.Current.Resources["Text_Surname"] + ":";
+            Surname.SetResourceReference(TextBlock.TextProperty, "Text_Surname");
             Grid.SetRow(Surname, 0);
             Grid.SetColumn(Surname, 0);
 
             // Лэйбл "Имя", назначение текста, строки и колонки в Grid
             Name = new TextBlock();
-			Name.Text = App.Current.Resources["Text_Name"] + ":";
+            Name.SetResourceReference(TextBlock.TextProperty, "Text_Name");
 			Grid.SetRow(Name, 1);
             Grid.SetColumn(Name, 0);
 
             // Лэйбл "Отчество", назначение текста, строки и колонки в Grid
             Lastname = new TextBlock();
-            Lastname.Text = App.Current.Resources["Text_Lastname"] + ":";
+            Lastname.SetResourceReference(TextBlock.TextProperty, "Text_Lastname");
             Grid.SetRow(Lastname, 2);
             Grid.SetColumn(Lastname, 0);
 
             // Лэйбл "Пол", назначение текста, строки и колонки в Grid
             Sex = new TextBlock();
-            Sex.Text = App.Current.Resources["Text_Sex"] + ":";
+            Sex.SetResourceReference(TextBlock.TextProperty, "Text_Sex");
             Grid.SetRow(Sex, 3);
             Grid.SetColumn(Sex, 0);
 
             // Лэйбл "Дата рождения", назначение текста, строки и колонки в Grid
             Birthday = new TextBlock();
-            Birthday.Text = App.Current.Resources["Text_Birthday"] + ":";
+            Birthday.SetResourceReference(TextBlock.TextProperty, "Text_Birthday");
             Grid.SetRow(Birthday, 4);
             Grid.SetColumn(Birthday, 0);
 
             // Лэйбл "Логин", назначение текста, строки и колонки в Grid
             Login = new TextBlock();
-            Login.Text = App.Current.Resources["Text_Login"] + ":";
+            Login.SetResourceReference(TextBlock.TextProperty, "Text_Login");
             Grid.SetRow(Login, 5);
             Grid.SetColumn(Login, 0);
 
             // Лэйбл "Пароль", назначение текста, строки и колонки в Grid
             Password = new TextBlock();
-            Password.Text = App.Current.Resources["Text_Password"] + ":";
+            Password.SetResourceReference(TextBlock.TextProperty, "Text_Password");
             Grid.SetRow(Password, 6);
             Grid.SetColumn(Password, 0);
 
             // Лэйбл "Уровень доступа", назначение текста, строки и колонки в Grid
             Access = new TextBlock();
-            Access.Text = App.Current.Resources["Text_Access"] + ":";
+            Access.SetResourceReference(TextBlock.TextProperty, "Text_Access");
             Grid.SetRow(Access, 7);
             Grid.SetColumn(Access, 0);
 
             // Лэйбл "Денежный счёт", назначение текста, строки и колонки в Grid
             Bill = new TextBlock();
-            Bill.Text = App.Current.Resources["Text_Bill"] + ":";
+            Bill.SetResourceReference(TextBlock.TextProperty, "Text_Bill");
             Grid.SetRow(Bill, 8);
             Grid.SetColumn(Bill, 0);
 
@@ -115,8 +114,11 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             Grid.SetColumn(sex, 1);
 
             // Вытягивание полов из ресурсов
-            string male = (string)App.Current.Resources["Text_Male"];
-            string female = (string)App.Current.Resources["Text_Female"];
+            ComboBoxItem male = new ComboBoxItem();
+            male.SetResourceReference(ComboBoxItem.ContentProperty, "Text_Male");
+
+            ComboBoxItem female = new ComboBoxItem();
+            female.SetResourceReference(ComboBoxItem.ContentProperty, "Text_Female");
 
             // Назначение элементов комбобокс
             sex.Items.Insert(0, male);
@@ -149,8 +151,11 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             Grid.SetColumn(access, 1);
 
             // Вытягивание access'ов из ресурсов
-            string admin = (string)App.Current.Resources["Text_Admin"];
-            string user = (string)App.Current.Resources["Text_User"];
+            ComboBoxItem admin = new ComboBoxItem();
+            admin.SetResourceReference(ComboBoxItem.ContentProperty, "Text_Admin");
+
+            ComboBoxItem user = new ComboBoxItem();
+            user.SetResourceReference(ComboBoxItem.ContentProperty, "Text_User");
 
             // Назначение элементов комбобокс
             access.Items.Insert(0, admin);
@@ -163,19 +168,11 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             Grid.SetRow(bill, 8);
             Grid.SetColumn(bill, 1);
 
-            // Инициализация списка элементов БД
             SourceList = dbContext.UsersMs.Local.ToBindingList();
         }
 
-        // Deprecated
-        public void Close()
-        {
-            // Обнуление контекста БД и списка элементов
-            //if (dbContext != null) dbContext = null;
-        }
-
-        // Метод, открывающий подключение в БД, когда данная таблица видна пользователю
-        public void Connect()
+        // Verified
+        public void ConnectAndUpdate()
         {
             // Инициализация контекста БД
             dbContext = AppDBContext.GetInstance();
@@ -183,16 +180,89 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
             // Инициализация списка элементов
             SourceList = dbContext.UsersMs.Local.ToBindingList();
+
             TableV.Current_DataGrid.ItemsSource = SourceList;
+            TableV.Current_DataGrid.Items.Refresh();
         }
 
-        // Метод, срабатывающий при нажатии на кнопку "Запрос"
+        bool isReset = false;
         public void Request()
         {
-            throw new System.NotImplementedException();
+            if (!isReset)
+            {
+                // Создаём диалоговое окно
+                DialogV dialogV = new DialogV();
+                Grid dialogGrid = dialogV.Dialog_Grid;
+
+                // Заполняем нижний Button текстом и вешаем локальный обработчик события нажатия
+                Button button = dialogV.Button_Execute;
+                button.SetResourceReference(Button.ContentProperty, "Text_Request");
+                button.Click += new RoutedEventHandler(ExecuteRequest);
+
+                // Вешаем элементы в Grid
+                Grid.SetRow(Login, 0);
+                Grid.SetColumn(Login, 0);
+                dialogGrid.Children.Add(Login);
+
+                Grid.SetRow(login, 0);
+                Grid.SetColumn(login, 1);
+                dialogGrid.Children.Add(login);
+
+                // Показываем диалоговое окно
+                dialogV.ShowDialog();
+
+                // Очищаем Grid
+                dialogGrid.Children.Remove(login);
+                dialogGrid.Children.Remove(Login);
+
+                Grid.SetRow(login, 5);
+                Grid.SetColumn(login, 1);
+                Grid.SetRow(Login, 0);
+                Grid.SetColumn(Login, 0);
+
+                // Очищаем поля
+                login.Text = null;
+            } else
+            {
+                TableV.Current_Button_Request.SetResourceReference(Button.ContentProperty, "Text_Request");
+
+                TableV.Current_DataGrid.ItemsSource = SourceList;
+                TableV.Current_DataGrid.Items.Refresh();
+
+                isReset = false;
+            }
         }
 
-        // Метод, срабатывающий при нажатии на кнопку "Добавить" и "Изменить"
+        public void ExecuteRequest(object sender, RoutedEventArgs e)
+        {
+            if (login.Text == null || login.Text == "")
+            {
+                MessageBox.Show("Укажите логин!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            var user = (from o in dbContext.UsersMs
+                        where o._login == login.Text
+                        select o).FirstOrDefault();
+
+            if (user == null)
+            {
+                MessageBox.Show("Пользователь с указанным логином не найден!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            BindingList<UsersM> temp = new BindingList<UsersM>();
+            temp.Add(user);
+
+            TableV.Current_Button_Request.SetResourceReference(Button.ContentProperty, "Text_Reset");
+
+            TableV.Current_DataGrid.ItemsSource = temp;
+            TableV.Current_DataGrid.Items.Refresh();
+
+            isReset = true;
+        }
+
+        // Verified
         public void AddEdit(bool isAdd)
         {
             // Сохранить состояние, добавление это или изменение
@@ -311,7 +381,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             bill.Text = null;
         }
 
-        // Метод, срабатывающий при нажатии на кнопку в окне добавления или изменения юзера
+        // Verified
         public void ExecuteAddEdit(object sender, RoutedEventArgs e)
         {
             // Проверки TextBox на null и пустую строку
@@ -373,11 +443,11 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
             // Проверки TextBox для денег на null и пустую строку
             // Если строка пустая, то вставляется "0"
-            float result;
+            double result;
             if (bill.Text == null || bill.Text == "")
             {
                 bill.Text = "0";
-            } else if (!float.TryParse(bill.Text, out result))
+            } else if (!double.TryParse(bill.Text, out result))
             {
                 MessageBox.Show("Некорректная сумма!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -396,7 +466,7 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             temp._login = login.Text;
             temp._pass = password.Text;
             temp._access = access.SelectedIndex;
-            temp._bill = float.Parse(bill.Text);
+            temp._bill = double.Parse(bill.Text);
 
             // Сохранение нового юзера в БД
             if (isAdd)
@@ -439,15 +509,15 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
             // Сохранение контекста БД
             dbContext.SaveChanges();
+            dbContext.UsersMs.Load();
 
-            // Обновление списка
             SourceList = dbContext.UsersMs.Local.ToBindingList();
 
-            // Пинаем DataGrid, ибо он тупой и по другому не понимает
+            TableV.Current_DataGrid.ItemsSource = SourceList;
             TableV.Current_DataGrid.Items.Refresh();
         }
 
-        // Метод, срабатывающий при нажатии на кнопку "Удалить"
+        // Verified
         public void Delete()
         {
             // если ничего не выбрано в датагриде то ошибка
@@ -470,6 +540,12 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
 
                 // Получение элемента, который будем удалять
                 UsersM deleteEntity = SourceList[index];
+                if (BataDase.Properties.Settings.Default.CurrentUserId == deleteEntity._user_id)
+                {
+                    MessageBox.Show("Нельзя удалить аккаунт, который в данный момент авторизован в приложении!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    TableV.Current_DataGrid.SelectedItems.RemoveAt(index);
+                    continue;
+                }
                 
                 // Получение всех записей из зависимой таблицы с билетами,
                 // которые содержат нашего юзера
@@ -493,8 +569,10 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
                 SourceList.Remove(deleteEntity);
             }
 
-            // Сохраняем контекст БД
             dbContext.SaveChanges();
+
+            TableV.Current_DataGrid.ItemsSource = SourceList;
+            TableV.Current_DataGrid.Items.Refresh();
         }
     }
 }

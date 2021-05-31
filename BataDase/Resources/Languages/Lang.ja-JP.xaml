@@ -2,6 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
+    <sys:String x:Key="Text_Reset">リセット</sys:String>
+    
     <!-- Words and sentences -->
     <sys:String x:Key="Text_Login">ログイン</sys:String>
     <sys:String x:Key="Text_Password">パスワード</sys:String>
@@ -23,9 +25,28 @@
     <sys:String x:Key="Text_Add">作成</sys:String>
     <sys:String x:Key="Text_Edit">編集</sys:String>
     <sys:String x:Key="Text_Delete">削除</sys:String>
+    <sys:String x:Key="Text_AddMoney">アカウントを補充する</sys:String>
+    <sys:String x:Key="Text_Buy">購入</sys:String>
 
     <!-- Labels -->
     <sys:String x:Key="Text_Language">言語</sys:String>
+    <sys:String x:Key="Text_PersonalCab">パーソナルエリア</sys:String>
+    <sys:String x:Key="Text_Rubles">ルーブル</sys:String>
+    <sys:String x:Key="Text_Summ">金額</sys:String>
+    <sys:String x:Key="Text_AboutLabel">アプリケーションについて：</sys:String>
+    <sys:String x:Key="Text_CreatorsLabel">クリエイター：</sys:String>
+    <sys:String x:Key="Text_VersionLabel">バージョン：v0.0.3-beta</sys:String>
+    <sys:String x:Key="Text_BuildLabel">ビールド：30052101</sys:String>
+    <sys:String x:Key="Text_About">
+        鉄道情報と参照システム。このアプリケーションは、鉄道システムのルートのスケジュールの作成と表示、および航海のチケットの販売とその後の購入を実装します。
+    </sys:String>
+    <sys:String x:Key="Text_Creators_Nikulin">ニクリン　ヴラディミル　(Joel)</sys:String>
+    <sys:String x:Key="Text_Creators_Taldykin">タルディキン イーゴリ (f55火花)</sys:String>
+
+    <!-- Messages -->
+    <sys:String x:Key="Text_AddMoneyMessage">お金が正常に追加されました！あなたのお金：</sys:String>
+    <sys:String x:Key="Text_NotEnoughMoney">購入するのに十分なお金がありません！</sys:String>
+    <sys:String x:Key="Text_SuccessBuy">チケットの購入に成功しました。 チケットは「チケット」タブで見ることができます。</sys:String>
 
     <!-- Columns headers -->
     <sys:String x:Key="Text_RowNumber">指数</sys:String>
@@ -35,43 +56,66 @@
     <sys:String x:Key="Text_Latitude">緯度</sys:String>
 
     <!-- Column "Schedules" -->
-    <sys:String x:Key="Text_TrainID">電車のID</sys:String>
+    <sys:String x:Key="Text_TrainId">電車のID</sys:String>
+    <sys:String x:Key="Text_RouteId">ルートのID</sys:String>
     <sys:String x:Key="Text_DepartureDate">出発日</sys:String>
     <sys:String x:Key="Text_ArrivalDate">到着日</sys:String>
+    <sys:String x:Key="Text_Status">ステータス</sys:String>
+    <sys:String x:Key="Text_Price">価格</sys:String>
+    <sys:String x:Key="Text_Active">アクティブ</sys:String>
+    <sys:String x:Key="Text_OnTheWay">行く途中です</sys:String>
+    <sys:String x:Key="Text_Closed">完了</sys:String>
 
     <!-- Column "Routes" -->
     <sys:String x:Key="Text_RouteName">ルート名</sys:String>
-    <sys:String x:Key="Text_Start">開始都市</sys:String>
-    <sys:String x:Key="Text_Finish">有限都市</sys:String>
+    <sys:String x:Key="Text_Start_Id">出発点のID</sys:String>
+    <sys:String x:Key="Text_Finish_Id">最終目的地のID</sys:String>
+    <sys:String x:Key="Text_Distance">距離</sys:String>
+    <sys:String x:Key="Text_Start">出発点</sys:String>
+    <sys:String x:Key="Text_Finish">最終目的地</sys:String>
 
     <!-- Column "Tickets" -->
+    <sys:String x:Key="Text_SeatNum">シート</sys:String>
     <sys:String x:Key="Text_TicketSeries">チケットシリーズ</sys:String>
     <sys:String x:Key="Text_TicketNumber">チケット数</sys:String>
+    <sys:String x:Key="Text_ScheduleNum">ルート数</sys:String>
+    <sys:String x:Key="Text_UserId">ユーザID</sys:String>
+
+    <!-- Column "Trains" -->
+    <sys:String x:Key="Text_AvgSpeed">速度</sys:String>
+    <sys:String x:Key="Text_Locomotive_Id">ロコモティブのID</sys:String>
+
+    <sys:String x:Key="Text_Carriage_Id_1">＃１馬車のID</sys:String>
+    <sys:String x:Key="Text_Carriage_Id_2">＃２馬車のID</sys:String>
+    <sys:String x:Key="Text_Carriage_Id_3">＃３馬車のID</sys:String>
+    <sys:String x:Key="Text_Carriage_Id_4">＃４馬車のID</sys:String>
+    <sys:String x:Key="Text_Carriage_Id_5">＃５馬車のID</sys:String>
 
     <!-- Column "Carriages" -->
-    <sys:String x:Key="Text_PMW">最大許容重量</sys:String>
     <sys:String x:Key="Text_Model">モデル</sys:String>
     <sys:String x:Key="Text_Type">タイプ</sys:String>
     <sys:String x:Key="Text_Weight">量</sys:String>
-    <sys:String x:Key="Text_CargoWeight">荷の量</sys:String>
+    <sys:String x:Key="Text_MaxLoadWeight">貨物のPMW</sys:String>
     <sys:String x:Key="Text_MaxSeats">座席数</sys:String>
+    <sys:String x:Key="Text_Class">級</sys:String>
     <sys:String x:Key="Text_CargoCarriage">貨電車</sys:String>
     <sys:String x:Key="Text_PassengerCarriage">パッセージャ</sys:String>
     <sys:String x:Key="Text_RestauranCarriage">レストラン</sys:String>
+    <sys:String x:Key="Text_ClassCompartment">コンパートメント</sys:String>
+    <sys:String x:Key="Text_ClassEconom">エコノム</sys:String>
+    <sys:String x:Key="Text_ClassSeated">シーテッド</sys:String>
     <sys:String x:Key="Text_CarriageModel">車両モデル</sys:String>
     <sys:String x:Key="Text_CarriageNum">車両数</sys:String>
 
     <!-- Column "Locomotives" -->
+    <sys:String x:Key="Text_MaxTrailerWeight">トレーラーのPMW</sys:String>
     <sys:String x:Key="Text_AvgSpeed0">質量0での速度</sys:String>
     <sys:String x:Key="Text_AvgSpeed100">質量マクシでの速度</sys:String>
     <sys:String x:Key="Text_SteamLoco">蒸気</sys:String>
     <sys:String x:Key="Text_HeatLoco">熱</sys:String>
     <sys:String x:Key="Text_ElectroLoco">電車</sys:String>
     <sys:String x:Key="Text_LocoModel">機関車モデル</sys:String>
-
-    <!-- Column "Tickets" -->
-    <sys:String x:Key="Text_SeatNum">シート</sys:String>
-
+    
     <!-- Column Users -->
     <sys:String x:Key="Text_Surname">姓前</sys:String>
     <sys:String x:Key="Text_Name">名前</sys:String>
@@ -95,11 +139,12 @@
     <sys:String x:Key="Text_English">英語</sys:String>
     <sys:String x:Key="Text_Japanese">日本語</sys:String>
 
-    <sys:String x:Key="Text_Back">Назад</sys:String>
+    <sys:String x:Key="Text_Reg">登録</sys:String>
+    <sys:String x:Key="Text_Back">戻る</sys:String>
 
-    <sys:String x:Key="Text_RepeatPass">Повторите пароль</sys:String>
+    <sys:String x:Key="Text_RepeatPass">パスワードを再度入力してください</sys:String>
 
-    <sys:String x:Key="Text_Logout">Выйти</sys:String>
+    <sys:String x:Key="Text_Logout">ログアウト</sys:String>
 
     <!-- Font for this language -->
     <FontFamily x:Key="Font_MyLocalFont">pack://application:,,,/Resources/Fonts/Sawarabi_Mincho/#Sawarabi Mincho</FontFamily>

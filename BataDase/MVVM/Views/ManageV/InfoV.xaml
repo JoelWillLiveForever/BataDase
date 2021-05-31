@@ -12,7 +12,69 @@
         <vm:InfoVM/>
     </UserControl.DataContext>
 
-    <Grid>
-            
-    </Grid>
+    <StackPanel Orientation="Vertical">
+        <TextBlock x:Name="aboutLb"
+                   Margin="0,0,0,10"
+                   TextWrapping="Wrap"   
+                   TextAlignment="Justify"
+                   Text="{DynamicResource Text_AboutLabel}"
+                   Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"/>
+        <TextBlock x:Name="about"
+                   TextWrapping="Wrap"
+                   TextAlignment="Justify"
+                   Text="{DynamicResource ResourceKey=Text_About}"
+                   Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"
+                   Margin="0,0,0,10"/>
+        <Separator Margin="0,0,0,10">
+            <Separator.Style>
+                <Style TargetType="{x:Type Separator}">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <SolidColorBrush Color="{DynamicResource Color_OnBackground_OnSurface}"
+                                             Opacity="0.24"/>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Separator.Style>
+        </Separator>
+        <TextBlock x:Name="creatorsLb"
+                   Text="{DynamicResource ResourceKey=Text_CreatorsLabel}"
+                   Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"
+                   Margin="0,0,0,10"/>
+        <TextBlock x:Name="creators_Nikulin"
+                   TextWrapping="Wrap"   
+                   TextAlignment="Justify"                   
+                   Text="{DynamicResource ResourceKey=Text_Creators_Nikulin}"
+                   Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"
+                   Margin="0,0,0,10"/>
+        <TextBlock x:Name="creators_Taldykin"
+                   TextWrapping="Wrap"   
+                   TextAlignment="Justify"
+                   Text="{DynamicResource ResourceKey=Text_Creators_Taldykin}"
+                   Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"
+                   Margin="0,0,0,10"/>
+        <Separator Margin="0,0,0,10">
+            <Separator.Style>
+                <Style TargetType="{x:Type Separator}">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <SolidColorBrush Color="{DynamicResource Color_OnBackground_OnSurface}"
+                                             Opacity="0.24"/>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Separator.Style>
+        </Separator>
+        <TextBlock x:Name="versionLb_Copy"        
+                   TextWrapping="Wrap"   
+                   TextAlignment="Justify"
+                   Text="{DynamicResource Text_VersionLabel}"
+                   Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"
+                   Margin="0,0,0,10"/>
+        <TextBlock x:Name="buildLb_Copy"    
+                   TextWrapping="Wrap"   
+                   TextAlignment="Justify"
+                   Text="{DynamicResource Text_BuildLabel}"
+                   Style="{StaticResource ResourceKey=Style_TextBlock_Primary}"/>
+    </StackPanel>
 </UserControl>
