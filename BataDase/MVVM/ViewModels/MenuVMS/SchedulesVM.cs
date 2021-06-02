@@ -132,12 +132,14 @@ namespace BataDase.MVVM.ViewModels.MenuVMS
             if (Settings.Default.IsAdmin == false)
             {
                 Seatnum = new TextBlock();
-                Seatnum.Text = App.Current.Resources["Text_SeatNum"] + ":";
+                // Seatnum.Text = App.Current.Resources["Text_SeatNum"] + ":";
+                Seatnum.SetResourceReference(TextBlock.TextProperty, "Text_SeatNum");
                 Grid.SetRow(Seatnum, 6);
                 Grid.SetColumn(Seatnum, 0);
 
                 CarriageNum = new TextBlock();
-                CarriageNum.Text = App.Current.Resources["Text_CarriageNum"] + ":";
+                // CarriageNum.Text = App.Current.Resources["Text_CarriageNum"] + ":";
+                CarriageNum.SetResourceReference(TextBlock.TextProperty, "Text_CarriageNum");
                 Grid.SetRow(CarriageNum, 7);
                 Grid.SetColumn(CarriageNum, 0);
 
