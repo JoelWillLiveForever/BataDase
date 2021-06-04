@@ -31,11 +31,7 @@
                         VerticalAlignment="Center">
                 <StackPanel HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Orientation="Horizontal">
-
-                    <Viewbox Child="{StaticResource Icon_Logo}"
-                             Height="{StaticResource Value_Logo_Login_Icon_Height}"/>
-                </StackPanel>
+                            Orientation="Horizontal"/>
 
                 <Grid Width="Auto"
                       Margin="0"

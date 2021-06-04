@@ -13,7 +13,7 @@
     <!-- Tables names -->
     <sys:String x:Key="Text_Carriages">Вагоны</sys:String>
     <sys:String x:Key="Text_Cities">Города</sys:String>
-    <sys:String x:Key="Text_Locomotives">Локомотивы</sys:String>
+    <sys:String x:Key="Text_Locomotives">Автомобили</sys:String>
     <sys:String x:Key="Text_Routes">Маршруты</sys:String>
     <sys:String x:Key="Text_Tickets">Билеты</sys:String>
     <sys:String x:Key="Text_Trains">Поезда</sys:String>

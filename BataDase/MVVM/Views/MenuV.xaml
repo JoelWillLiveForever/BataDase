@@ -67,6 +67,7 @@
                              Style="{StaticResource Style_Button_Menu}"
                              Command="{Binding MenuButtonClick}"
                              CommandParameter="Schedules"
+                             Visibility="Collapsed"
                              IsChecked="True"
                              Click="Button_Click"/>
                 <RadioButton x:Name="Button_Tickets" 
@@ -74,49 +75,50 @@
                              Style="{StaticResource Style_Button_Menu}"
                              Command="{Binding MenuButtonClick}"
                              CommandParameter="Tickets"
+                             Visibility="Collapsed"
                              Click="Button_Click"/>
                 <RadioButton x:Name="Button_Locomotives"
                              Content="{DynamicResource Text_Locomotives}"
                              Style="{StaticResource Style_Button_Menu}"
-                             Visibility="{Binding Source={x:Static prop:Settings.Default}, Path=Visibility}"
                              Command="{Binding MenuButtonClick}"
                              CommandParameter="Locomotives"
                              Click="Button_Click"/>
                 <RadioButton x:Name="Button_Carriages" 
                              Content="{DynamicResource Text_Carriages}"
                              Style="{StaticResource Style_Button_Menu}"
-                             Visibility="{Binding Source={x:Static prop:Settings.Default}, Path=Visibility}"
+                              Visibility="Collapsed"
                              Command="{Binding MenuButtonClick}"
                              CommandParameter="Carriages"
                              Click="Button_Click"/>
                 <RadioButton x:Name="Button_Trains" 
                              Content="{DynamicResource Text_Trains}"
                              Style="{StaticResource Style_Button_Menu}"
-                             Visibility="{Binding Source={x:Static prop:Settings.Default}, Path=Visibility}"
+                              Visibility="Collapsed"
                              Command="{Binding MenuButtonClick}"
                              CommandParameter="Trains"
                              Click="Button_Click"/>
                 <RadioButton x:Name="Button_Cities" 
                              Content="{DynamicResource Text_Cities}"
                              Style="{StaticResource Style_Button_Menu}"
-                             Visibility="{Binding Source={x:Static prop:Settings.Default}, Path=Visibility}"
+                              Visibility="Collapsed"
                              Command="{Binding MenuButtonClick}"
                              CommandParameter="Cities"
                              Click="Button_Click"/>
                 <RadioButton x:Name="Button_Routes" 
                              Content="{DynamicResource Text_Routes}"
                              Style="{StaticResource Style_Button_Menu}"
-                             Visibility="{Binding Source={x:Static prop:Settings.Default}, Path=Visibility}"
+                              Visibility="Collapsed"
                              Command="{Binding MenuButtonClick}"
                              CommandParameter="Routes"
                              Click="Button_Click"/>
                 <RadioButton x:Name="Button_Users" 
                              Content="{DynamicResource Text_Users}"
                              Style="{StaticResource Style_Button_Menu}"
-                             Visibility="{Binding Source={x:Static prop:Settings.Default}, Path=Visibility}"
+                              Visibility="Collapsed"
                              Command="{Binding MenuButtonClick}"
                              CommandParameter="Users"
                              Click="Button_Click"/>
+                <!--Visibility="{Binding Source={x:Static prop:Settings.Default}, Path=Visibility}"-->
             </StackPanel>
         </DockPanel>
         <Border Padding="9">
